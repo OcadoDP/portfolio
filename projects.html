@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#800000">
+    <meta name="description" content="Projects by Dexter Pascual Ocado — quantitative models, enterprise automation systems, and machine learning applications.">
+    <title>Projects — Dexter Pascual Ocado</title>
+	<link rel="icon" type="image/png" href="img/gryffindor-crest.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --maroon-dark: #650000;
+            --ink: #151515;
+            --muted: #6b7280;
+            --soft: #f7f7f8;
+            --line: #e7e7e9;
+            --white: #ffffff;
+            --shadow: 0 12px 30px rgba(0,0,0,.06);
+            --shadow-hover: 0 20px 40px rgba(128, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3 {
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: -.02em;
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+
+        .page-hero {
+            padding: 5rem 0 3rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .kicker {
+            display: inline-block;
+            color: var(--maroon);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: .78rem;
+            font-weight: 800;
+            margin-bottom: .6rem;
+        }
+
+        .hero-h1 {
+            max-width: 860px;
+            font-size: clamp(2.5rem, 6vw, 4.25rem);
+            line-height: 1.02;
+            margin-bottom: 1rem;
+        }
+
+        .intro-lead {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+            margin-top: 1.6rem;
+        }
+
+        .filter {
+            border: 1px solid var(--line);
+            background: var(--white);
+            color: var(--muted);
+            padding: .5rem .85rem;
+            border-radius: 999px;
+            font: 600 .85rem Inter, sans-serif;
+            cursor: pointer;
+            transition: .2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .filter:hover,
+        .filter.is-active {
+            background: var(--maroon);
+            border-color: var(--maroon);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(128,0,0,0.15);
+        }
+
+	
+	.page-hero {
+    	    position: relative;
+    	    overflow: hidden; /* Keeps the moving dots inside the hero section */
+	}
+
+	#page-hero-canvas {
+    	    position: absolute;
+    	    top: 0;
+    	    left: 0;
+    	    width: 100%;
+    	    height: 100%;
+    	    z-index: 1; /* Places the canvas behind your text */
+    	    pointer-events: none; /* Allows clicks to pass right through the canvas */
+	}
+
+
+	.page-hero .wrap {
+    	    position: relative;
+    	    z-index: 2;
+	}
+
+        /* ============================================================
+           PROJECT BODY
+           ============================================================ */
+
+        .projects-body {
+            padding: 4rem 0 5rem;
+        }
+
+        .section-intro {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-intro h2 {
+            font-size: 1.8rem;
+            margin-bottom: .25rem;
+        }
+
+        .section-intro p {
+            color: var(--muted);
+        }
+
+        /* ============================================================
+           LIVE DEMOS
+           ============================================================ */
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 4.5rem;
+        }
+
+        .demo-card {
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(128, 0, 0, 0.2);
+        }
+
+        .demo-head {
+            padding: 1.35rem 1.35rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .demo-head h3 {
+            font-size: 1.2rem;
+            margin-bottom: .25rem;
+            transition: color 0.2s ease;
+        }
+        
+        .demo-card:hover .demo-head h3 {
+            color: var(--maroon);
+        }
+
+        .demo-head p {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        .demo-number {
+            color: #a1a1aa;
+            font: 700 .75rem "Space Grotesk", sans-serif;
+            letter-spacing: .04em;
+            margin-bottom: .35rem;
+        }
+
+        .demo-badge {
+            white-space: nowrap;
+            font-size: .72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--maroon);
+            background: #faf1f1;
+            border-radius: 999px;
+            padding: .35rem .55rem;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        
+        .demo-card:hover .demo-badge {
+            background: var(--maroon);
+            color: white;
+        }
+
+        /* ============================================================
+           MINIATURE FULL-SCREEN DEMO
+           ============================================================ */
+
+        .browser {
+            margin: 0 1rem 1rem;
+            border: 1px solid #dfe2e7;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .demo-card:hover .browser {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: .42rem;
+            padding: .65rem .8rem;
+            background: #f4f5f7;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .browser-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #c7cbd1;
+            flex: 0 0 auto;
+        }
+
+        .browser-url {
+            margin-left: .25rem;
+            font: .68rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            color: #777d86;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .browser-body {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1440 / 900;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .browser-body iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1440px;
+            height: 900px;
+            border: 0;
+            display: block;
+            transform-origin: top left;
+        }
+
+        .demo-foot {
+            padding: 0 1.35rem 1.35rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .demo-tech {
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: .7rem 1rem;
+            font-weight: 700;
+            font-size: .86rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn--grad {
+            background: var(--maroon);
+            color: #fff;
+        }
+
+        .btn--grad:hover {
+            background: var(--maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(128,0,0,0.2);
+        }
+
+        .btn--ghost {
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .btn--ghost:hover {
+            border-color: var(--maroon);
+            color: var(--maroon);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(128,0,0,0.1);
+        }
+
+        /* ============================================================
+           PROJECT GROUPS
+           ============================================================ */
+
+        .project-group {
+            margin-bottom: 3.25rem;
+        }
+
+        .sechead--group {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: .75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .sechead--group h2 {
+            font-size: 1.5rem;
+        }
+
+        .sechead--group p {
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        /* ============================================================
+           PROJECT ROWS
+           ============================================================ */
+
+        .row-link {
+            display: grid;
+            grid-template-columns: 48px minmax(220px, 1fr) minmax(260px, 1.35fr) 170px;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.45rem 1.5rem;
+            border-bottom: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--white);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .row-link:hover {
+            transform: translateX(8px) translateY(-2px);
+            background-color: var(--soft);
+            box-shadow: 0 8px 24px rgba(0,0,0,.04);
+            border-color: transparent;
+        }
+
+        .row-index {
+            font: 700 1.1rem "Space Grotesk", sans-serif;
+            color: #a1a1aa;
+            transition: color 0.3s ease;
+        }
+        
+        .row-link:hover .row-index {
+            color: var(--maroon);
+        }
+
+        .row-cat {
+            display: block;
+            margin-bottom: .2rem;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            font-weight: 800;
+            color: var(--maroon);
+        }
+
+        .row-title {
+            display: block;
+            font-size: 1.08rem;
+            font-weight: 750;
+            margin-bottom: .35rem;
+        }
+
+        .row-desc {
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+        }
+
+        .row-link .pill-row {
+            margin-top: .5rem;
+        }
+
+        .pill {
+            display: inline-flex;
+            padding: .28rem .55rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: #5f636b;
+            background: #fafafa;
+            font-size: .7rem;
+            font-weight: 650;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .row-link:hover .pill {
+            border-color: rgba(128,0,0,0.2);
+            background: #fff;
+        }
+
+        .row-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            text-align: right;
+        }
+
+        .row-metrics > span > span {
+            display: block;
+            color: var(--muted);
+            font-size: .72rem;
+        }
+
+        .row-metrics > span b {
+            display: block;
+            font: 700 1rem "Space Grotesk", sans-serif;
+        }
+
+        /* ============================================================
+           CLOSE CTA
+           ============================================================ */
+
+        .close-cta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem 0 4rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .close-cta p {
+            color: var(--muted);
+        }
+
+        /* ============================================================
+           SCROLL REVEAL
+           ============================================================ */
+
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(22px);
+            transition:
+                opacity .65s ease,
+                transform .65s ease;
+        }
+
+        [data-reveal].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            [data-reveal] {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .row-link:hover,
+            .demo-card:hover,
+            .btn--grad:hover,
+            .btn--ghost:hover,
+            .filter:hover {
+                transform: none;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE — TABLET
+           ============================================================ */
+
+        @media (max-width: 900px) {
+            .demo-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .row-link {
+                grid-template-columns: 42px 1fr;
+            }
+
+            .row-desc {
+                grid-column: 2;
+            }
+
+            .row-metrics {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .sechead--group {
+                display: block;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE — MOBILE
+           ============================================================ */
+
+        @media (max-width: 700px) {
+            .page-hero {
+                padding: 3.5rem 0 2.5rem;
+            }
+
+            .projects-body {
+                padding-top: 3rem;
+            }
+
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-head,
+            .demo-foot,
+            .close-cta {
+                display: block;
+            }
+
+            .demo-badge {
+                display: inline-block;
+                margin-top: .7rem;
+            }
+
+            .demo-foot .btn {
+                margin-top: .75rem;
+                width: 100%;
+            }
+
+            .row-link {
+                grid-template-columns: 1fr;
+                gap: .7rem;
+                padding: 1.25rem 0;
+            }
+
+            .row-desc,
+            .row-metrics {
+                grid-column: auto;
+            }
+
+            .row-metrics {
+                text-align: left;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body class="page-projects">
+    <script src="js/components.js"></script>
+
+
+<div id="site-header" aria-label="Site header"></div>
+
+
+<!-- ================================================================
+     PAGE HERO
+     ================================================================ -->
+
+<section class="page-hero">
+    <canvas id="page-hero-canvas"></canvas>
+    <div class="wrap page-head" data-reveal>
+
+        <div class="kicker">Projects</div>
+
+        <h1 class="hero-h1">
+            Five systems, models, and dashboards
+        </h1>
+
+        <p class="intro-lead">
+            Enterprise HR automation tools, computer vision machine learning
+            models, econometric stock market forecasting, and interactive
+            data visualization systems.
+        </p>
+
+        <div class="filters">
+
+            <button class="filter is-active" type="button" data-filter="all">
+                All work <span>5</span>
+            </button>
+
+            <button class="filter" type="button" data-filter="ai">
+                AI &amp; Vision <span>1</span>
+            </button>
+
+            <button class="filter" type="button" data-filter="auto">
+                Automation &amp; BI <span>2</span>
+            </button>
+
+            <button class="filter" type="button" data-filter="quant">
+                Quantitative &amp; Research <span>2</span>
+            </button>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ================================================================
+     PROJECTS
+     ================================================================ -->
+
+<section class="projects-body">
+    <div class="wrap pad-projects">
+
+
+        <!-- ============================================================
+             LIVE DEMOS
+             ============================================================ -->
+
+        <div class="section-intro" data-reveal>
+            <h2>Live demos</h2>
+            <p>
+                Try the interactive builds directly in the page.
+            </p>
+        </div>
+
+
+        <div class="demo-grid">
+
+
+            <!-- PROJECT 01 — EMPOWERPH -->
+
+            <article class="demo-card" data-group="auto" data-reveal>
+
+                <div class="demo-head">
+
+                    <div>
+                        <div class="demo-number">01</div>
+
+                        <h3>
+                            <a href="project-empower.html" style="text-decoration: none; color: inherit;">Project EmpowerPH ↗</a>
+                        </h3>
+
+                        <p>
+                            Interactive employment analytics dashboard with
+                            dynamic filtering and visualization.
+                        </p>
+                    </div>
+
+                    <span class="demo-badge">
+                        Live demo
+                    </span>
+
+                </div>
+
+
+                <div class="browser">
+
+                    <div class="browser-bar">
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+
+                        <span class="browser-url">
+                            ocadodp.github.io/sample-dashboard/
+                        </span>
+                    </div>
+
+                    <div class="browser-body">
+
+                        <iframe
+                            src="https://ocadodp.github.io/sample-dashboard/"
+                            title="Project EmpowerPH demo"
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-foot">
+
+                    <span class="demo-tech">
+                        Python · Pandas · Chart.js · SheetJS
+                    </span>
+
+                    <a class="btn btn--ghost" href="https://ocadodp.github.io/sample-dashboard/" target="_blank" rel="noopener">
+                        Open full demo ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 04 — INFRATRUST -->
+
+            <article class="demo-card" data-group="quant" data-reveal>
+
+                <div class="demo-head">
+
+                    <div>
+                        <div class="demo-number">04</div>
+
+                        <h3>
+                            <a href="project-infratrust.html" style="text-decoration: none; color: inherit;">InfraTrust Decision Support Tool ↗</a>
+                        </h3>
+
+                        <p>
+                            Browser-based integrity assessment using matrix
+                            operations and OLS regression.
+                        </p>
+                    </div>
+
+                    <span class="demo-badge">
+                        Live demo
+                    </span>
+
+                </div>
+
+
+                <div class="browser">
+
+                    <div class="browser-bar">
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+
+                        <span class="browser-url">
+                            ocadodp.github.io/infratrust-decision-tool/
+                        </span>
+                    </div>
+
+                    <div class="browser-body">
+
+                        <iframe
+                            src="https://ocadodp.github.io/infratrust-decision-tool/"
+                            title="InfraTrust Decision Support Tool demo"
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-foot">
+
+                    <span class="demo-tech">
+                        Vanilla JS · Matrix Inversion · OLS · Chart.js
+                    </span>
+
+                    <a class="btn btn--ghost" href="https://ocadodp.github.io/infratrust-decision-tool/" target="_blank" rel="noopener">
+                        Open full demo ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECT 05 — SIGNATURE VERIFICATION -->
+
+            <article class="demo-card" data-group="ai" data-reveal>
+
+                <div class="demo-head">
+
+                    <div>
+                        <div class="demo-number">05</div>
+
+                        <h3>
+                            <a href="project-signature.html" style="text-decoration: none; color: inherit;">Offline Signature Verification ↗</a>
+                        </h3>
+
+                        <p>
+                            Two-stage verification combining KNN-Harris
+                            pre-filtering with a ResNet-18 Siamese matcher.
+                        </p>
+                    </div>
+
+                    <span class="demo-badge">
+                        Live demo
+                    </span>
+
+                </div>
+
+
+                <div class="browser">
+
+                    <div class="browser-bar">
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+
+                        <span class="browser-url">
+                            ocadodp.github.io/offline-signature-verification/
+                        </span>
+                    </div>
+
+                    <div class="browser-body">
+
+                        <iframe
+                            src="https://ocadodp.github.io/offline-signature-verification/"
+                            title="Offline Signature Verification demo"
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+
+                <div class="demo-foot">
+
+                    <span class="demo-tech">
+                        PyTorch · ResNet-18 · Flask · React.js
+                    </span>
+
+                    <a class="btn btn--ghost" href="https://ocadodp.github.io/offline-signature-verification/" target="_blank" rel="noopener">
+                        Open full demo ↗
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- ============================================================
+             SYSTEMS & AUTOMATION
+             ============================================================ -->
+
+        <div class="project-group" data-group="auto">
+
+            <div class="sechead--group" data-reveal>
+
+                <h2>
+                    Systems Engineering &amp; Automation
+                </h2>
+
+                <p>
+                    Enterprise data pipelines and workflow optimization
+                    tools built for public service delivery.
+                </p>
+
+            </div>
+
+            <!-- PROJECT 01 ROW LINK -->
+            <a class="row-link" href="project-empower.html" data-reveal data-cat="auto">
+
+                <span class="row-index">01</span>
+
+                <span>
+                    <span class="row-cat">August 2026</span>
+                    <span class="row-title">Project EmpowerPH: Interactive Data Visualization</span>
+                    <span class="pill-row">
+                        <span class="pill">Python</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">TailwindCSS</span>
+                        <span class="pill">Chart.js</span>
+                    </span>
+                </span>
+
+                <span class="row-desc">
+                    An interactive employment analytics system designed to transform workforce data into clear, dynamic visual insights through filtering and dashboard visualization.
+                </span>
+
+                <span class="row-metrics">
+                    <span>
+                        <b>Interactive</b>
+                        <span>Analytics</span>
+                    </span>
+                    <span>
+                        <b>Live</b>
+                        <span>Dashboard</span>
+                    </span>
+                </span>
+
+            </a>
+
+            <!-- PROJECT 02 -->
+
+            <a
+                class="row-link"
+                href="project-dbm.html"
+                data-reveal
+                data-cat="auto">
+
+                <span class="row-index">
+                    02
+                </span>
+
+
+                <span>
+
+                    <span class="row-cat">
+                        April 2026
+                    </span>
+
+                    <span class="row-title">
+                        Enterprise HR Data Automation &amp; BI
+                    </span>
+
+                    <span class="pill-row">
+
+                        <span class="pill">
+                            Vanilla JS
+                        </span>
+
+                        <span class="pill">
+                            ExcelJS &amp; jsPDF
+                        </span>
+
+                        <span class="pill">
+                            Power BI
+                        </span>
+
+                        <span class="pill">
+                            Power Automate
+                        </span>
+
+                    </span>
+
+                </span>
+
+
+                <span class="row-desc">
+                    A full-stack suite of web apps — CA Results Generator,
+                    Panglinis fuzzy matcher, Interventions Consolidator,
+                    IDP Generator — and Power BI dashboards that streamlined
+                    nationwide HR reporting for 1,200+ employees.
+                </span>
+
+
+                <span class="row-metrics">
+
+                    <span>
+                        <b>1,200+</b>
+                        <span>Employees tracked</span>
+                    </span>
+
+                    <span>
+                        <b>Multi-app</b>
+                        <span>Full pipeline</span>
+                    </span>
+
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- ============================================================
+             QUANTITATIVE RESEARCH
+             ============================================================ -->
+
+        <div
+            class="project-group"
+            data-group="quant">
+
+            <div
+                class="sechead--group"
+                data-reveal>
+
+                <h2>
+                    Quantitative Modeling &amp; Research
+                </h2>
+
+                <p>
+                    Advanced econometric forecasting and financial
+                    time series modeling.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 03 -->
+
+            <a
+                class="row-link"
+                href="project-volatility.html"
+                data-reveal
+                data-cat="quant">
+
+                <span class="row-index">
+                    03
+                </span>
+
+
+                <span>
+
+                    <span class="row-cat">
+                        April 2026
+                    </span>
+
+                    <span class="row-title">
+                        Volatility Dynamics &amp; Interdependence
+                    </span>
+
+                    <span class="pill-row">
+
+                        <span class="pill">
+                            R Programming
+                        </span>
+
+                        <span class="pill">
+                            ARIMA/GARCH
+                        </span>
+
+                        <span class="pill">
+                            VAR Modeling
+                        </span>
+
+                        <span class="pill">
+                            DCC-GARCH
+                        </span>
+
+                    </span>
+
+                </span>
+
+
+                <span class="row-desc">
+                    A univariate and multivariate econometric analysis
+                    modeling asymmetric leverage effects and time-varying
+                    market correlations between the PSEi and major banking
+                    equities (BDO, BPI, Security Bank).
+                </span>
+
+
+                <span class="row-metrics">
+
+                    <span>
+                        <b>10-year</b>
+                        <span>Historical span</span>
+                    </span>
+
+                    <span>
+                        <b>Contagion</b>
+                        <span>DCC mapping</span>
+                    </span>
+
+                </span>
+
+            </a>
+
+
+            <!-- PROJECT 04 -->
+
+            <a
+                class="row-link"
+                href="project-infratrust.html"
+                data-reveal
+                data-cat="quant">
+
+                <span class="row-index">
+                    04
+                </span>
+
+
+                <span>
+
+                    <span class="row-cat">
+                        November 2025
+                    </span>
+
+                    <span class="row-title">
+                        InfraTrust Decision Support Tool
+                    </span>
+
+                    <span class="pill-row">
+
+                        <span class="pill">
+                            Vanilla JS
+                        </span>
+
+                        <span class="pill">
+                            Matrix Inversion
+                        </span>
+
+                        <span class="pill">
+                            OLS Regression
+                        </span>
+
+                        <span class="pill">
+                            Chart.js
+                        </span>
+
+                    </span>
+
+                </span>
+
+
+                <span class="row-desc">
+                    A client-side web application executing custom matrix
+                    math and Ordinary Least Squares (OLS) regression in
+                    browser to evaluate construction firm integrity via
+                    the Modified Jones Model.
+                </span>
+
+
+                <span class="row-metrics">
+
+                    <span>
+                        <b>Client-side</b>
+                        <span>OLS Engine</span>
+                    </span>
+
+                    <span>
+                        <b>Privacy</b>
+                        <span>Zero backend</span>
+                    </span>
+
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- ============================================================
+             AI & COMPUTER VISION
+             ============================================================ -->
+
+        <div
+            class="project-group"
+            data-group="ai">
+
+            <div
+                class="sechead--group"
+                data-reveal>
+
+                <h2>
+                    Machine Learning &amp; Computer Vision
+                </h2>
+
+                <p>
+                    Deep learning applications for biometric authentication
+                    and security.
+                </p>
+
+            </div>
+
+
+            <!-- PROJECT 05 -->
+
+            <a
+                class="row-link"
+                href="project-signature.html"
+                data-reveal
+                data-cat="ai">
+
+                <span class="row-index">
+                    05
+                </span>
+
+
+                <span>
+
+                    <span class="row-cat">
+                        November 2025
+                    </span>
+
+                    <span class="row-title">
+                        Two-Stage Offline Signature Verification
+                    </span>
+
+                    <span class="pill-row">
+
+                        <span class="pill">
+                            PyTorch
+                        </span>
+
+                        <span class="pill">
+                            ResNet-18
+                        </span>
+
+                        <span class="pill">
+                            Flask API
+                        </span>
+
+                        <span class="pill">
+                            React.js
+                        </span>
+
+                    </span>
+
+                </span>
+
+
+                <span class="row-desc">
+                    A hybrid verification framework pairing a lightweight
+                    KNN-Harris corner pre-filter with a ResNet-18 Siamese
+                    network trained via Triplet Loss—achieving 90.75%
+                    accuracy against skilled forgeries.
+                </span>
+
+
+                <span class="row-metrics">
+
+                    <span>
+                        <b>90.75%</b>
+                        <span>Accuracy</span>
+                    </span>
+
+                    <span>
+                        <b>0.9649</b>
+                        <span>AUC score</span>
+                    </span>
+
+                </span>
+
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================================================================
+     CLOSING CTA
+     ================================================================ -->
+
+<section>
+
+    <div
+        class="wrap close-cta"
+        data-reveal>
+
+        <p>
+            Want a complete overview of my qualifications and academic background?
+        </p>
+
+        <a
+            class="btn btn--grad btn--lg"
+            href="Resume - Dexter Pascual Ocado.pdf"
+            target="_blank">
+            View my résumé
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+
+<div id="site-footer" aria-label="Site footer"></div>
+
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ================================================================
+       MINIATURE FULL-SCREEN IFRAME SCALING
+       ================================================================ */
+
+    const VIRTUAL_WIDTH = 1440;
+    const VIRTUAL_HEIGHT = 900;
+
+    function scaleDemoFrames() {
+
+        const bodies = document.querySelectorAll(".browser-body");
+
+        bodies.forEach(function (body) {
+
+            const iframe = body.querySelector("iframe");
+
+            if (!iframe) {
+                return;
+            }
+
+            const availableWidth = body.clientWidth;
+            const availableHeight = body.clientHeight;
+
+            if (!availableWidth || !availableHeight) {
+                return;
+            }
+
+            const widthScale =
+                availableWidth / VIRTUAL_WIDTH;
+
+            const heightScale =
+                availableHeight / VIRTUAL_HEIGHT;
+
+            /*
+             * The smaller value guarantees that the entire
+             * virtual 1440 × 900 viewport remains visible.
+             */
+
+            const scale =
+                Math.min(widthScale, heightScale);
+
+            iframe.style.transform =
+                `scale(${scale})`;
+        });
+    }
+
+
+    /*
+     * Initial scaling.
+     */
+
+    scaleDemoFrames();
+
+
+    /*
+     * Recalculate when the browser window changes size.
+     */
+
+    window.addEventListener(
+        "resize",
+        scaleDemoFrames
+    );
+
+
+    /*
+     * Recalculate when the actual preview container changes size.
+     */
+
+    if ("ResizeObserver" in window) {
+
+        const resizeObserver =
+            new ResizeObserver(function () {
+
+                scaleDemoFrames();
+
+            });
+
+        document
+            .querySelectorAll(".browser-body")
+            .forEach(function (body) {
+
+                resizeObserver.observe(body);
+
+            });
+    }
+
+
+    /* ================================================================
+       CATEGORY FILTER
+       ================================================================ */
+
+    const filters =
+        document.querySelectorAll(".filter");
+
+    const groups =
+        document.querySelectorAll(
+            ".project-group, .demo-card"
+        );
+
+
+    filters.forEach(function (filter) {
+
+        filter.addEventListener(
+            "click",
+            function () {
+
+                filters.forEach(function (f) {
+                    f.classList.remove("is-active");
+                });
+
+                filter.classList.add("is-active");
+
+                const target =
+                    filter.getAttribute("data-filter");
+
+
+                groups.forEach(function (group) {
+
+                    if (target === "all") {
+
+                        group.style.display = "";
+
+                    } else {
+
+                        const groupCat =
+                            group.getAttribute("data-group");
+
+                        if (
+                            groupCat &&
+                            groupCat.includes(target)
+                        ) {
+
+                            group.style.display = "";
+
+                        } else {
+
+                            group.style.display = "none";
+
+                        }
+
+                    }
+
+                });
+
+
+                /*
+                 * Give the browser one frame to update
+                 * the grid before recalculating the demos.
+                 */
+
+                requestAnimationFrame(
+                    scaleDemoFrames
+                );
+
+            }
+        );
+
+    });
+
+
+    /* ================================================================
+       SCROLL REVEAL
+       ================================================================ */
+
+    const revealElements =
+        document.querySelectorAll("[data-reveal]");
+
+
+    /*
+     * If IntersectionObserver is unavailable,
+     * simply show everything.
+     */
+
+    if (!("IntersectionObserver" in window)) {
+
+        revealElements.forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+
+        return;
+    }
+
+
+    const revealOptions = {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+
+    const revealOnScroll =
+        new IntersectionObserver(
+            function (entries, observer) {
+
+                entries.forEach(function (entry) {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    entry.target.classList.add(
+                        "is-visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                });
+
+            },
+            revealOptions
+        );
+
+
+    revealElements.forEach(function (element) {
+
+        revealOnScroll.observe(element);
+
+    });
+
+
+    /*
+     * Make anything already visible on initial load
+     * appear immediately instead of waiting for a scroll.
+     */
+
+    requestAnimationFrame(function () {
+
+        revealElements.forEach(function (element) {
+
+            const rect =
+                element.getBoundingClientRect();
+
+            if (
+                rect.top <
+                window.innerHeight * 0.9
+            ) {
+
+                element.classList.add(
+                    "is-visible"
+                );
+
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("page-hero-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let points = [];
+    const mouse = { x: null, y: null, radius: 200 };
+
+    window.addEventListener("mousemove", function (e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+
+    window.addEventListener("mouseleave", function () {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        
+        points = [];
+        let count = Math.floor((width * height) / 10000); // Optimized density
+        for (let i = 0; i < count; i++) {
+            points.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                size: Math.random() * 1.5 + 1.2,
+                baseAlpha: Math.random() * 0.2 + 0.2
+            });
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < points.length; i++) {
+            let p = points[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            // Bounce off edges smoothly
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            // Subtle cursor magnetic pull (nodes gently drift toward mouse)
+            if (mouse.x !== null && mouse.y !== null) {
+                let dx = mouse.x - p.x;
+                let dy = mouse.y - p.y;
+                let dist = Math.hypot(dx, dy);
+                if (dist < mouse.radius && dist > 10) {
+                    let force = (mouse.radius - dist) / mouse.radius;
+                    p.x += (dx / dist) * force * 0.6;
+                    p.y += (dy / dist) * force * 0.6;
+                }
+            }
+
+            // Draw individual node
+            ctx.fillStyle = `rgba(128, 0, 0, ${p.baseAlpha + 0.15})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Connect neighboring lines with smooth distance-based intensity
+            for (let j = i + 1; j < points.length; j++) {
+                let p2 = points[j];
+                let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+
+                if (dist < 130) {
+                    let baseOpacity = 0.2 * (1 - dist / 130);
+                    let mouseBoost = 0;
+
+                    if (mouse.x !== null && mouse.y !== null) {
+                        let midX = (p.x + p2.x) / 2;
+                        let midY = (p.y + p2.y) / 2;
+                        let mouseDist = Math.hypot(mouse.x - midX, mouse.y - midY);
+
+                        if (mouseDist < mouse.radius) {
+                            mouseBoost = 0.3 * (1 - mouseDist / mouse.radius);
+                        }
+                    }
+
+                    let finalOpacity = baseOpacity + mouseBoost;
+
+                    ctx.strokeStyle = `rgba(128, 0, 0, ${finalOpacity})`;
+                    ctx.lineWidth = 0.75;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    animate();
+});
+</script>
+
+</body>
+</html>

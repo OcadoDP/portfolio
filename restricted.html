@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#800000">
+    <meta name="description" content="The Restricted Section — Classified fictional datasets and theorems.">
+    <title>Restricted Section — Dexter Pascual Ocado</title>
+
+    <link rel="icon" type="image/png" href="img/gryffindor-crest.png">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --maroon: #800000;
+            --maroon-dark: #650000;
+            --maroon-light: rgba(128,0,0,.05);
+            --maroon-hover: #a00000;
+
+            --text-dark: #111827;
+            --text-muted: #6b7280;
+
+            --bg-color: #ffffff;
+            --bg-grid: #f8f8f9;
+
+            --border: #e5e7eb;
+
+            --green: #166534;
+            --green-bg: #dcfce7;
+            --red: #991b1b;
+            --red-bg: #fee2e2;
+            --amber: #92400e;
+            --amber-bg: #fef3c7;
+
+            --shadow: 0 15px 40px rgba(0,0,0,.08);
+            --shadow-hover: 0 22px 55px rgba(0,0,0,.12);
+
+            --transition: all .4s cubic-bezier(.16,1,.3,1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.access-locked {
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: -.02em;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============================================================
+           RESTRICTED ACCESS GATE
+           ============================================================ */
+
+        #restricted-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background:
+                radial-gradient(circle at 50% 40%, rgba(128,0,0,.13), transparent 34%),
+                radial-gradient(circle at 15% 85%, rgba(128,0,0,.08), transparent 28%),
+                #0d0d0f;
+            color: #fff;
+            overflow: auto;
+            transition:
+                opacity .8s cubic-bezier(.16,1,.3,1),
+                visibility .8s;
+        }
+
+        #restricted-gate::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .22;
+            background-image:
+                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+
+        #restricted-gate::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                repeating-linear-gradient(
+                    to bottom,
+                    transparent 0,
+                    transparent 4px,
+                    rgba(255,255,255,.018) 5px
+                );
+        }
+
+        #restricted-gate.gate-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .gate-card {
+            width: min(620px, 100%);
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(255,255,255,.14);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.07),
+                    rgba(255,255,255,.025)
+                );
+            box-shadow:
+                0 30px 100px rgba(0,0,0,.55),
+                0 0 0 1px rgba(128,0,0,.15);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .gate-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -30%;
+            width: 35%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #b30000, transparent);
+            box-shadow: 0 0 18px rgba(179,0,0,.7);
+            animation: gate-scan 4s linear infinite;
+        }
+
+        @keyframes gate-scan {
+            from { left: -35%; }
+            to { left: 105%; }
+        }
+
+        .gate-terminal-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            color: rgba(255,255,255,.52);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .gate-terminal-status {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            white-space: nowrap;
+        }
+
+        .gate-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #b30000;
+            box-shadow: 0 0 12px rgba(179,0,0,.9);
+            animation: gate-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes gate-pulse {
+            0%,100% { opacity: .55; transform: scale(.9); }
+            50% { opacity: 1; transform: scale(1.15); }
+        }
+
+        .gate-lock {
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(128,0,0,.6);
+            background: rgba(128,0,0,.12);
+            color: #fff;
+            font-size: 1.45rem;
+            margin-bottom: 1.5rem;
+            box-shadow: inset 0 0 25px rgba(128,0,0,.08);
+        }
+
+        .gate-kicker {
+            color: #d08b8b;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .76rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: .65rem;
+        }
+
+        .gate-title {
+            font-size: clamp(2.2rem, 7vw, 4rem);
+            line-height: .98;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .gate-clearance {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .4rem .65rem;
+            border: 1px solid rgba(255,255,255,.14);
+            color: rgba(255,255,255,.68);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate-copy {
+            color: rgba(255,255,255,.68);
+            max-width: 540px;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate-copy strong {
+            color: #fff;
+        }
+
+        .gate-researcher-label {
+            display: block;
+            color: rgba(255,255,255,.45);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .65rem;
+        }
+
+        .gate-researcher-box {
+            border-left: 2px solid var(--maroon);
+            padding: .8rem 1rem;
+            margin-bottom: 1.5rem;
+            background: rgba(128,0,0,.08);
+            color: rgba(255,255,255,.78);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .8rem;
+            letter-spacing: .05em;
+        }
+
+        .gate-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr 1fr;
+            gap: .75rem;
+            margin-bottom: 1rem;
+        }
+
+        .gate-input {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.25);
+            color: #fff;
+            padding: .9rem 1rem;
+            outline: none;
+            border-radius: 0;
+            transition: var(--transition);
+        }
+
+        .gate-input::placeholder {
+            color: rgba(255,255,255,.3);
+        }
+
+        .gate-input:focus {
+            border-color: rgba(180,70,70,.85);
+            box-shadow: 0 0 0 3px rgba(128,0,0,.16);
+            background: rgba(0,0,0,.34);
+        }
+
+        .gate-verify {
+            width: 100%;
+            border: 1px solid #a33;
+            background: var(--maroon);
+            color: #fff;
+            padding: .95rem 1.2rem;
+            cursor: pointer;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            letter-spacing: .04em;
+            transition: var(--transition);
+        }
+
+        .gate-verify:hover {
+            background: var(--maroon-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(128,0,0,.3);
+        }
+
+        .gate-verify:active {
+            transform: translateY(0);
+        }
+
+        .gate-hint {
+            margin-top: .85rem;
+            color: rgba(255,255,255,.35);
+            font-size: .76rem;
+            text-align: center;
+        }
+
+        .gate-status {
+            min-height: 24px;
+            margin-top: 1rem;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-align: center;
+        }
+
+        .gate-status.error {
+            color: #ff9a9a;
+        }
+
+        .gate-status.success {
+            color: #86efac;
+        }
+
+        .gate-card.shake {
+            animation: gate-shake .42s ease;
+        }
+
+        @keyframes gate-shake {
+            0%,100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(7px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(4px); }
+        }
+
+        .gate-success {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: rgba(13,13,15,.97);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .5s ease, visibility .5s ease;
+        }
+
+        .gate-card.verified .gate-success {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gate-success-inner {
+            width: 100%;
+            text-align: center;
+        }
+
+        .gate-success-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .gate-success h2 {
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: #fff;
+            margin-bottom: .7rem;
+        }
+
+        .gate-success-name {
+            color: #d9b1b1;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            letter-spacing: .1em;
+            font-size: .85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gate-readout {
+            max-width: 360px;
+            margin: 0 auto;
+            padding: 1rem;
+            border: 1px solid rgba(134,239,172,.18);
+            background: rgba(22,101,52,.08);
+            text-align: left;
+            color: rgba(255,255,255,.72);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .75rem;
+            line-height: 1.9;
+        }
+
+        .gate-readout strong {
+            color: #86efac;
+        }
+
+        .gate-readout .welcome {
+            color: #fff;
+            margin-top: .5rem;
+        }
+
+        .gate-footer-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,.08);
+            color: rgba(255,255,255,.28);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: .62rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+
+        .grid-bg {
+            background-color: var(--bg-grid);
+            background-image:
+                radial-gradient(var(--border) 1px, transparent 0);
+            background-size: 40px 40px;
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #lore-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .grid-bg .wrap {
+            position: relative;
+            z-index: 2;
+        }
+
+        .kicker {
+            font-size: .875rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: var(--maroon);
+            font-weight: 700;
+            margin-bottom: .5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .kicker::after {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--maroon);
+            transform: translateY(-50%);
+        }
+
+        .hero-h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-lead {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            max-width: 800px;
+        }
+
+        /* ============================================================
+           LORE GRID
+           ============================================================ */
+
+        .lore-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        @media (min-width:768px) {
+            .lore-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .lore-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lore-card.wide {
+            grid-column: 1 / -1;
+        }
+
+        .lore-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: transparent;
+            transition: var(--transition);
+        }
+
+        .lore-card:hover {
+            box-shadow: 0 15px 35px rgba(0,0,0,.06);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .lore-card:hover::before {
+            background: var(--maroon);
+        }
+
+        .lore-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .lore-title {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: .5rem;
+        }
+
+        .lore-org {
+            font-size: .85rem;
+            font-weight: 700;
+            color: var(--maroon);
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+
+        .lore-card p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .lore-card ul {
+            padding-left: 1.2rem;
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .lore-card li {
+            margin-bottom: .75rem;
+        }
+
+        .highlight {
+            color: var(--maroon);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           INTERACTIVE
+           ============================================================ */
+
+        .dracarys-hover:hover {
+            color: transparent;
+            text-shadow:
+                0 0 15px #ff4500,
+                0 0 30px #ff0000;
+            animation: shake .4s infinite;
+            cursor: crosshair;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0) scale(1.1); }
+            25% { transform: translateX(-3px) scale(1.1); }
+            50% { transform: translateX(3px) scale(1.1); }
+            75% { transform: translateX(-3px) scale(1.1); }
+            100% { transform: translateX(0) scale(1.1); }
+        }
+
+        .blur-content {
+            filter: blur(8px);
+            opacity: .5;
+            transition: all .6s ease;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .blur-content.revealed {
+            filter: blur(0);
+            opacity: 1;
+            user-select: auto;
+            pointer-events: auto;
+        }
+
+        .btn-interactive {
+            background: var(--maroon-light);
+            color: var(--maroon);
+            border: 1px solid var(--maroon);
+            padding: .6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: .9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .btn-interactive:hover {
+            background: var(--maroon);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .peer-review-result {
+            font-weight: 700;
+            font-size: .9rem;
+            margin-top: 1rem;
+            padding: .5rem;
+            border-radius: 6px;
+            display: none;
+        }
+
+        /* ============================================================
+           REVEAL
+           ============================================================ */
+
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition:
+                opacity .8s ease,
+                transform .8s cubic-bezier(.16,1,.3,1);
+        }
+
+        [data-reveal].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: .1s;
+        }
+
+        .delay-2 {
+            transition-delay: .2s;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+
+        @media (max-width:700px) {
+            .gate-card {
+                padding: 1.35rem;
+            }
+
+            .gate-terminal-bar {
+                font-size: .58rem;
+            }
+
+            .gate-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .gate-title {
+                font-size: 2.7rem;
+            }
+
+            .gate-footer-meta {
+                flex-direction: column;
+                gap: .35rem;
+            }
+
+            .grid-bg {
+                padding: 4rem 0;
+            }
+
+            .hero-h1 {
+                font-size: 2.8rem;
+            }
+
+            .lore-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body class="page-restricted access-locked">
+
+<!-- ============================================================
+     LEVEL 04 IDENTITY VERIFICATION
+     IMPORTANT:
+     This is a themed client-side gate, not real security.
+     ============================================================ -->
+
+<div id="restricted-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-card" id="gate-card">
+
+        <div class="gate-terminal-bar">
+            <span>MINISTRY SECURITY NETWORK // SECURE CHANNEL</span>
+
+            <span class="gate-terminal-status">
+                <span class="gate-status-dot"></span>
+                SECURITY ACTIVE
+            </span>
+        </div>
+
+        <div class="gate-lock" aria-hidden="true">
+            🔐
+        </div>
+
+        <div class="gate-kicker">
+            Authorized Researcher Verification
+        </div>
+
+        <h1 class="gate-title" id="gate-title">
+            Restricted Section
+        </h1>
+
+        <div class="gate-clearance">
+            LEVEL 04 CLEARANCE REQUIRED
+        </div>
+
+        <p class="gate-copy">
+            This archive belongs to the <strong>researcher whose portfolio
+            you are currently viewing</strong>.
+            To proceed, enter <strong>the researcher's full name</strong>
+            below.
+        </p>
+
+        <span class="gate-researcher-label">
+            Authorized Researcher
+        </span>
+
+        <div class="gate-researcher-box">
+            THE OWNER OF THIS PORTFOLIO
+        </div>
+
+        <form id="identity-form" autocomplete="off">
+            <div class="gate-inputs">
+                <input
+                    class="gate-input"
+                    id="first-name"
+                    name="first-name"
+                    type="text"
+                    placeholder="First name"
+                    aria-label="Researcher's first name"
+                    autocomplete="off"
+                    spellcheck="false"
+                    required
+                >
+
+                <input
+                    class="gate-input"
+                    id="middle-name"
+                    name="middle-name"
+                    type="text"
+                    placeholder="Middle name"
+                    aria-label="Researcher's middle name"
+                    autocomplete="off"
+                    spellcheck="false"
+                    required
+                >
+
+                <input
+                    class="gate-input"
+                    id="last-name"
+                    name="last-name"
+                    type="text"
+                    placeholder="Last name"
+                    aria-label="Researcher's last name"
+                    autocomplete="off"
+                    spellcheck="false"
+                    required
+                >
+            </div>
+
+            <button class="gate-verify" type="submit">
+                VERIFY RESEARCHER IDENTITY →
+            </button>
+
+            <p class="gate-hint">
+                Hint: Check the portfolio identity. You're already on his website. ;)
+            </p>
+
+            <div
+                id="gate-status"
+                class="gate-status"
+                aria-live="polite">
+            </div>
+        </form>
+
+        <div class="gate-footer-meta">
+            <span>ARCHIVE: RSO-004</span>
+            <span>AUTH: NAME MATCH</span>
+            <span>THREAT: MOSTLY HARMLESS</span>
+        </div>
+
+        <div class="gate-success" aria-hidden="true">
+            <div class="gate-success-inner">
+
+                <div class="gate-success-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    IDENTITY VERIFIED
+                </h2>
+
+                <div class="gate-success-name">
+                    DEXTER PASCUAL OCADO
+                </div>
+
+                <div class="gate-readout">
+                    <div>
+                        CLEARANCE LEVEL ........ <strong>04</strong>
+                    </div>
+
+                    <div>
+                        RESEARCHER STATUS ...... <strong>AUTHORIZED</strong>
+                    </div>
+
+                    <div>
+                        ARCHIVE STATUS ......... <strong>UNLOCKED</strong>
+                    </div>
+
+                    <div class="welcome">
+                        &gt; Welcome back, Mr. Ocado.<br>
+                        &gt; Opening restricted materials...
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/components.js"></script>
+
+<div id="site-header" aria-label="Site header"></div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+
+<section class="grid-bg">
+    <canvas id="lore-canvas"></canvas>
+
+    <div class="wrap">
+        <div data-reveal>
+            <div class="kicker">
+                Level 4 Authorization Required
+            </div>
+
+            <h1 class="hero-h1">
+                The Restricted Section
+            </h1>
+
+            <p class="intro-lead">
+                A quantitative breakdown of critical universe lore,
+                allegiance statistics, and unverified theorems.
+                Proceed with caution—or at least a highly optimized
+                sorting algorithm.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CONTENT
+     ============================================================ -->
+
+<section class="wrap">
+    <div class="lore-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="lore-card" data-reveal>
+            <span class="lore-icon">
+                🦁
+            </span>
+
+            <span class="lore-title">
+                Ministry of Magic Registry
+            </span>
+
+            <span class="lore-org">
+                Department of Magical Metrics
+            </span>
+
+            <p>
+                Official classification records for cross-universe
+                risk management and spell efficiency operations.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">
+                        House Affinity:
+                    </span>
+                    Gryffindor. Demonstrates a statistically
+                    significant bias toward deploying untested
+                    predictive models to production out of sheer bravery.
+                </li>
+
+                <li>
+                    <span class="highlight">
+                        Hardware Specs:
+                    </span>
+                    The Elder Wand. Grants root access to the fabric
+                    of reality with unparalleled computational throughput,
+                    bypassing standard API rate limits.
+                </li>
+
+                <li>
+                    <span class="highlight">
+                        Magical Security:
+                    </span>
+                    Engineered a Two-Stage Offline Signature Verification
+                    system utilizing KNN-Harris Pre-Filtering to
+                    definitively prevent Polyjuice Potion identity fraud.
+                </li>
+            </ul>
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="lore-card delay-1" data-reveal>
+            <span
+                class="lore-icon dracarys-hover"
+                title="Dracarys.">
+                🐉
+            </span>
+
+            <span class="lore-title">
+                The Iron Throne Audit
+            </span>
+
+            <span class="lore-org">
+                Small Council Econometrics
+            </span>
+
+            <p>
+                Macroeconomic stability analysis and aerial supremacy
+                tracking across the Seven Kingdoms.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">
+                        House Allegiance:
+                    </span>
+                    House Targaryen. Fire, Blood, and highly
+                    optimized data pipelines.
+                </li>
+
+                <li>
+                    <span class="highlight">
+                        Aviation Assets:
+                    </span>
+                    Balerion the Black Dread. Initially, the tracking
+                    app was built strictly for monitoring his daily
+                    livestock consumption, but was later tweaked to
+                    generate actual scorched-earth casualty results.
+                </li>
+
+                <li>
+                    <span class="highlight">
+                        Succession Database:
+                    </span>
+                    To handle redundant Targaryen naming conventions,
+                    the royal lineage algorithm strictly matches names,
+                    disregarding titles to prevent duplicate inheritance crises.
+                </li>
+            </ul>
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="lore-card wide delay-2" data-reveal>
+            <span class="lore-icon">
+                📜
+            </span>
+
+            <span class="lore-title">
+                Unsolved Universe Theorems
+            </span>
+
+            <span class="lore-org">
+                The Maester’s Citadel & Department of Mysteries
+            </span>
+
+            <p>
+                Theoretical models currently undergoing rigorous
+                peer review by fictional entities and automated
+                testing suites.
+            </p>
+
+            <div
+                style="
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+                    gap:2rem;
+                    margin-top:1.5rem;
+                ">
+
+                <div>
+                    <strong>
+                        Theorem I: The Causal Loop Error
+                    </strong>
+
+                    <p style="font-size:.95rem;margin-top:.5rem;">
+                        Proving mathematically why Time-Turners
+                        fundamentally break Ordinary Least Squares
+                        regression timelines by introducing recursive
+                        heteroskedasticity.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>
+                        Theorem II: The Baelish Variance
+                    </strong>
+
+                    <p style="font-size:.95rem;margin-top:.5rem;">
+                        Evaluating Petyr Baelish's extreme tax evasion
+                        strategies using multivariate analysis to
+                        detect anomalous gold reserves in the Vale.
+                    </p>
+                </div>
+
+                <div>
+                    <strong>
+                        Theorem III: The Golden Snitch Trajectory
+                    </strong>
+
+                    <p style="font-size:.95rem;margin-top:.5rem;">
+                        Modeling the exact probability distribution
+                        of a Golden Snitch's flight path using non-linear
+                        Brownian motion and aerodynamic drag variables.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                style="
+                    text-align:center;
+                    margin-top:2rem;
+                    border-top:1px solid var(--border);
+                    padding-top:1.5rem;
+                ">
+
+                <button
+                    class="btn-interactive"
+                    type="button"
+                    onclick="triggerPeerReview()">
+                    Submit for Peer Review
+                </button>
+
+                <div
+                    id="review-output"
+                    class="peer-review-result">
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+
+        <div class="lore-card" data-reveal>
+            <span class="lore-icon">
+                🗺️
+            </span>
+
+            <span class="lore-title">
+                The Marauder's Protocol
+            </span>
+
+            <span class="lore-org">
+                Mischief Management Systems
+            </span>
+
+            <p>
+                A real-time geospatial surveillance matrix tracking
+                moving entities across heavily fortified castle grounds.
+            </p>
+
+            <div id="marauder-content" class="blur-content">
+                <ul>
+                    <li>
+                        <span class="highlight">
+                            Authentication:
+                        </span>
+                        Handshake requires the exact cryptographic
+                        passphrase to bypass the firewall.
+                    </li>
+
+                    <li>
+                        <span class="highlight">
+                            Surveillance:
+                        </span>
+                        Real-time WebSocket connection displaying
+                        XYZ coordinates of Professor Snape.
+                    </li>
+
+                    <li>
+                        <span class="highlight">
+                            Session Termination:
+                        </span>
+                        Memory wiping and cache clearing initialized
+                        to ensure zero data retention.
+                    </li>
+                </ul>
+            </div>
+
+            <button
+                id="marauder-btn"
+                class="btn-interactive"
+                type="button"
+                onclick="toggleMarauder()">
+                I solemnly swear that I am up to no good
+            </button>
+        </div>
+
+        <!-- CARD 5 -->
+
+        <div class="lore-card delay-1" data-reveal>
+            <span class="lore-icon">
+                ⚔️
+            </span>
+
+            <span class="lore-title">
+                Valyrian Steel Algorithms
+            </span>
+
+            <span class="lore-org">
+                Old Valyria Data Forges
+            </span>
+
+            <p>
+                Constructing unbreakable, lightweight data structures
+                using archaic formulas lost to modern developers.
+            </p>
+
+            <ul>
+                <li>
+                    <span class="highlight">
+                        Durability:
+                    </span>
+                    Capable of slicing through bloated CSV files and
+                    infinitely looping White Walker processes without
+                    memory leaks.
+                </li>
+
+                <li>
+                    <span class="highlight">
+                        Forging Process:
+                    </span>
+                    Requires dragonfire, blood magic, and an unnecessarily
+                    complex combination of nested SQL queries to maintain
+                    absolute edge sharpness.
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<div id="site-footer" aria-label="Site footer"></div>
+
+<!-- ============================================================
+     INTERACTION
+     ============================================================ -->
+
+<script>
+/* ============================================================
+   RESTRICTED SECTION IDENTITY GATE
+   ============================================================ */
+
+(function () {
+    const STORAGE_KEY = "restrictedSectionUnlocked";
+
+    const gate = document.getElementById("restricted-gate");
+    const gateCard = document.getElementById("gate-card");
+    const form = document.getElementById("identity-form");
+    const status = document.getElementById("gate-status");
+
+    const firstInput = document.getElementById("first-name");
+    const middleInput = document.getElementById("middle-name");
+    const lastInput = document.getElementById("last-name");
+
+    const expected = {
+        first: "dexter",
+        middle: "pascual",
+        last: "ocado"
+    };
+
+    function normalize(value) {
+        return value
+            .trim()
+            .replace(/\s+/g, " ")
+            .toLowerCase();
+    }
+
+    function unlock() {
+        sessionStorage.setItem(STORAGE_KEY, "true");
+
+        gateCard.classList.add("verified");
+        document.body.classList.remove("access-locked");
+
+        const successLayer = gateCard.querySelector(".gate-success");
+        if (successLayer) {
+            successLayer.setAttribute("aria-hidden", "false");
+        }
+
+        setTimeout(function () {
+            gate.classList.add("gate-hidden");
+
+            setTimeout(function () {
+                gate.setAttribute("aria-hidden", "true");
+            }, 850);
+        }, 1500);
+    }
+
+    function reject() {
+        gateCard.classList.remove("shake");
+
+        void gateCard.offsetWidth;
+
+        gateCard.classList.add("shake");
+
+        status.textContent =
+            "✕ IDENTITY NOT RECOGNIZED — Nice try. This isn't your Restricted Section.";
+
+        status.className = "gate-status error";
+
+        firstInput.value = "";
+        middleInput.value = "";
+        lastInput.value = "";
+
+        firstInput.focus();
+    }
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const first = normalize(firstInput.value);
+        const middle = normalize(middleInput.value);
+        const last = normalize(lastInput.value);
+
+        if (
+            first === expected.first &&
+            middle === expected.middle &&
+            last === expected.last
+        ) {
+            status.textContent = "✓ IDENTITY MATCH CONFIRMED";
+            status.className = "gate-status success";
+            unlock();
+        } else {
+            reject();
+        }
+    });
+
+    [firstInput, middleInput, lastInput].forEach(function (input) {
+        input.addEventListener("input", function () {
+            status.textContent = "";
+            status.className = "gate-status";
+        });
+    });
+
+    /*
+     * If the visitor already authenticated during this browser session,
+     * skip the gate. sessionStorage intentionally resets when the
+     * browsing session ends.
+     */
+    if (sessionStorage.getItem(STORAGE_KEY) === "true") {
+        gate.classList.add("gate-hidden");
+        gate.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("access-locked");
+    } else {
+        setTimeout(function () {
+            firstInput.focus();
+        }, 100);
+    }
+})();
+
+
+function toggleMarauder() {
+    const content =
+        document.getElementById("marauder-content");
+
+    const btn =
+        document.getElementById("marauder-btn");
+
+    if (content.classList.contains("revealed")) {
+        content.classList.remove("revealed");
+
+        btn.innerText =
+            "I solemnly swear that I am up to no good";
+
+        btn.style.background =
+            "var(--maroon-light)";
+
+        btn.style.color =
+            "var(--maroon)";
+
+        btn.style.borderColor =
+            "var(--maroon)";
+    } else {
+        content.classList.add("revealed");
+
+        btn.innerText =
+            "Mischief Managed (Hide Data)";
+
+        btn.style.background =
+            "#111827";
+
+        btn.style.color =
+            "white";
+
+        btn.style.borderColor =
+            "#111827";
+    }
+}
+
+
+function triggerPeerReview() {
+    const responses = [
+        "❌ Rejected: The Citadel claims your math is 'dark magic'.",
+        "✅ Approved: Hermione Granger peer-reviewed this and found no flaws.",
+        "⚠️ Revisions Required: Please adjust for dragon inflation rates.",
+        "❌ Rejected: Burned to ashes by Balerion before publication.",
+        "✅ Published: Currently trending in the Daily Prophet.",
+        "⚠️ Error 404: Manuscript lost in the Room of Requirement."
+    ];
+
+    const output =
+        document.getElementById("review-output");
+
+    const randomResponse =
+        responses[
+            Math.floor(
+                Math.random() * responses.length
+            )
+        ];
+
+    output.innerText = "Processing...";
+    output.style.display = "block";
+    output.style.background = "var(--bg-grid)";
+    output.style.color = "var(--text-muted)";
+
+    setTimeout(() => {
+        output.innerText = randomResponse;
+
+        if (randomResponse.includes("✅")) {
+            output.style.background = "#dcfce7";
+            output.style.color = "#166534";
+        }
+        else if (randomResponse.includes("❌")) {
+            output.style.background = "#fee2e2";
+            output.style.color = "#991b1b";
+        }
+        else {
+            output.style.background = "#fef3c7";
+            output.style.color = "#92400e";
+        }
+    }, 800);
+}
+
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const revealElements =
+            document.querySelectorAll("[data-reveal]");
+
+        const revealOnScroll =
+            new IntersectionObserver(
+                (entries, observer) => {
+
+                    entries.forEach(entry => {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add(
+                            "is-visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+                    });
+                },
+                {
+                    threshold: .1,
+                    rootMargin: "0px 0px -50px 0px"
+                }
+            );
+
+        revealElements.forEach(
+            el => revealOnScroll.observe(el)
+        );
+    }
+);
+
+
+/* ============================================================
+   BACKGROUND NETWORK
+   ============================================================ */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const canvas =
+            document.getElementById("lore-canvas");
+
+        if (!canvas) return;
+
+        const ctx =
+            canvas.getContext("2d");
+
+        let width;
+        let height;
+        let points = [];
+
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 200
+        };
+
+        window.addEventListener(
+            "mousemove",
+            e => {
+
+                const rect =
+                    canvas.getBoundingClientRect();
+
+                mouse.x =
+                    e.clientX - rect.left;
+
+                mouse.y =
+                    e.clientY - rect.top;
+            }
+        );
+
+        window.addEventListener(
+            "mouseleave",
+            () => {
+                mouse.x = null;
+                mouse.y = null;
+            }
+        );
+
+        function resize() {
+
+            width =
+                canvas.width =
+                canvas.offsetWidth;
+
+            height =
+                canvas.height =
+                canvas.offsetHeight;
+
+            points = [];
+
+            const count =
+                Math.floor(
+                    (width * height) /
+                    10000
+                );
+
+            for (
+                let i = 0;
+                i < count;
+                i++
+            ) {
+
+                points.push({
+                    x:
+                        Math.random() *
+                        width,
+
+                    y:
+                        Math.random() *
+                        height,
+
+                    vx:
+                        (Math.random() - .5) *
+                        .4,
+
+                    vy:
+                        (Math.random() - .5) *
+                        .4,
+
+                    size:
+                        Math.random() *
+                        1.5 +
+                        1.2,
+
+                    baseAlpha:
+                        Math.random() *
+                        .2 +
+                        .2
+                });
+            }
+        }
+
+        function animate() {
+
+            ctx.clearRect(
+                0,
+                0,
+                width,
+                height
+            );
+
+            for (
+                let i = 0;
+                i < points.length;
+                i++
+            ) {
+
+                const p =
+                    points[i];
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (
+                    p.x < 0 ||
+                    p.x > width
+                ) {
+                    p.vx *= -1;
+                }
+
+                if (
+                    p.y < 0 ||
+                    p.y > height
+                ) {
+                    p.vy *= -1;
+                }
+
+                if (
+                    mouse.x !== null &&
+                    mouse.y !== null
+                ) {
+
+                    const dx =
+                        mouse.x - p.x;
+
+                    const dy =
+                        mouse.y - p.y;
+
+                    const dist =
+                        Math.hypot(
+                            dx,
+                            dy
+                        );
+
+                    if (
+                        dist < mouse.radius &&
+                        dist > 10
+                    ) {
+
+                        const force =
+                            (
+                                mouse.radius -
+                                dist
+                            ) /
+                            mouse.radius;
+
+                        p.x +=
+                            (dx / dist) *
+                            force *
+                            .6;
+
+                        p.y +=
+                            (dy / dist) *
+                            force *
+                            .6;
+                    }
+                }
+
+                ctx.fillStyle =
+                    `rgba(128,0,0,${
+                        p.baseAlpha + .15
+                    })`;
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    p.x,
+                    p.y,
+                    p.size,
+                    0,
+                    Math.PI * 2
+                );
+
+                ctx.fill();
+
+                for (
+                    let j = i + 1;
+                    j < points.length;
+                    j++
+                ) {
+
+                    const p2 =
+                        points[j];
+
+                    const dist =
+                        Math.hypot(
+                            p.x - p2.x,
+                            p.y - p2.y
+                        );
+
+                    if (dist < 130) {
+
+                        let opacity =
+                            .2 *
+                            (
+                                1 -
+                                dist / 130
+                            );
+
+                        if (
+                            mouse.x !== null &&
+                            mouse.y !== null
+                        ) {
+
+                            const midX =
+                                (p.x + p2.x) / 2;
+
+                            const midY =
+                                (p.y + p2.y) / 2;
+
+                            const mouseDist =
+                                Math.hypot(
+                                    mouse.x - midX,
+                                    mouse.y - midY
+                                );
+
+                            if (
+                                mouseDist <
+                                mouse.radius
+                            ) {
+
+                                opacity +=
+                                    .3 *
+                                    (
+                                        1 -
+                                        mouseDist /
+                                        mouse.radius
+                                    );
+                            }
+                        }
+
+                        ctx.strokeStyle =
+                            `rgba(128,0,0,${
+                                opacity
+                            })`;
+
+                        ctx.lineWidth = .75;
+
+                        ctx.beginPath();
+
+                        ctx.moveTo(
+                            p.x,
+                            p.y
+                        );
+
+                        ctx.lineTo(
+                            p2.x,
+                            p2.y
+                        );
+
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(
+                animate
+            );
+        }
+
+        window.addEventListener(
+            "resize",
+            resize
+        );
+
+        resize();
+        animate();
+    }
+);
+</script>
+
+</body>
+</html>

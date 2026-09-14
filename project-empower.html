@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#800000">
+    <title>Project EmpowerPH — Dexter Pascual Ocado</title>
+    <link rel="icon" type="image/png" href="img/gryffindor-crest.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Variables & Reset */
+        :root {
+            --maroon: #800000;
+            --maroon-light: rgba(128, 0, 0, 0.05);
+            --maroon-hover: #a00000;
+            --text-dark: #111827;
+            --text-muted: #6b7280;
+            --bg-color: #ffffff;
+            --bg-grid: #f9fafb;
+            --border: #e5e7eb;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--bg-color); line-height: 1.7; overflow-x: hidden; position: relative; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; border-radius: 12px; }
+
+        /* Typography */
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+        .kicker { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--maroon); font-weight: 700; margin-bottom: 0.5rem; display: inline-block; position: relative; }
+        .kicker::after { content: ''; position: absolute; right: -40px; top: 50%; width: 30px; height: 2px; background: var(--maroon); transform: translateY(-50%); }
+
+        /* Animations */
+        @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(2deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+        .ambient-shape { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4; animation: float 10s infinite ease-in-out; }
+        .shape-1 { width: 300px; height: 300px; background: rgba(128, 0, 0, 0.15); top: -100px; left: -100px; }
+        .shape-2 { width: 400px; height: 400px; background: rgba(200, 16, 46, 0.1); top: 40%; right: -150px; animation-delay: -5s; }
+
+        /* Layout Container */
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Project Hero Section */
+        .project-hero { padding: 6rem 0 4rem 0; text-align: center; background: var(--bg-grid); background-image: radial-gradient(var(--border) 1px, transparent 0); background-size: 40px 40px; border-bottom: 1px solid var(--border); }
+        .project-title { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-dark); max-width: 900px; margin-left: auto; margin-right: auto; }
+        .project-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 2rem auto; }
+        
+        .project-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
+        .tag { background: var(--maroon-light); color: var(--maroon); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; }
+	.project-hero {
+    	    position: relative;
+    	    overflow: hidden; /* Keeps the moving dots inside the hero section */
+	}
+
+	#project-hero-canvas {
+    	    position: absolute;
+    	    top: 0;
+    	    left: 0;
+    	    width: 100%;
+    	    height: 100%;
+    	    z-index: 1; /* Places the canvas behind your text */
+    	    pointer-events: none; /* Allows clicks to pass right through the canvas */
+	}
+
+
+	.project-hero .wrap {
+    	    position: relative;
+    	    z-index: 2;
+	}
+        /* Dual View Tabs for Demos */
+        .demo-switcher { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .demo-tab-btn { padding: 0.5rem 1.25rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; background: white; border: 1px solid var(--border); color: var(--text-muted); cursor: pointer; transition: var(--transition); }
+        .demo-tab-btn.active { background: var(--maroon); color: white; border-color: var(--maroon); }
+
+        /* Embedded Demo Section */
+        .demo-container { max-width: 1200px; margin: -3rem auto 4rem auto; padding: 0 1.5rem; position: relative; z-index: 10; }
+        .demo-frame { width: 100%; height: 700px; background: white; border-radius: 16px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); border: 1px solid var(--border); overflow: hidden; display: none; }
+        .demo-frame.active { display: block; }
+        .demo-frame iframe { width: 100%; height: 100%; border: none; }
+        
+        .placeholder-box { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fafc; color: var(--text-muted); text-align: center; padding: 2rem; }
+        .placeholder-box i { font-size: 3rem; margin-bottom: 1rem; color: var(--maroon); }
+
+        .external-link-btn { display: inline-flex; align-items: center; justify-content: center; margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--text-dark); color: white; border-radius: 8px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); text-decoration: none; }
+        .external-link-btn:hover { background: var(--maroon); transform: translateY(-2px); }
+
+        /* Article Content */
+        .article-wrap { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 6rem 1.5rem; }
+        .article-wrap h2 { font-size: 2rem; margin: 3rem 0 1.5rem 0; color: var(--text-dark); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        .article-wrap p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .article-wrap ul { margin-bottom: 2rem; padding-left: 1.5rem; }
+        .article-wrap li { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.75rem; list-style-type: disc; }
+
+        /* JS Reveal */
+        [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body>
+    <script src="js/components.js"></script>
+
+    <!-- Background Ambient Animations -->
+    <div class="ambient-shape shape-1"></div>
+    <div class="ambient-shape shape-2"></div>
+
+    <div id="site-header" aria-label="Site header"></div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+    <canvas id="project-hero-canvas"></canvas>
+        <div class="wrap" data-reveal>
+            <div class="kicker">Data Engineering & Visualization</div>
+            <h1 class="project-title">Project EmpowerPH: Interactive Data Visualization</h1>
+            <p class="project-subtitle">A conceptual portfolio project built to showcase end-to-end data capabilities, featuring a Python synthetic data generator, a zero-backend client-side HTML dashboard, and an executive Power BI report.</p>
+            
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">TailwindCSS</span>
+                <span class="tag">Chart.js</span>
+                <span class="tag">SheetJS</span>
+                <span class="tag">Power BI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual View Demos (HTML Dashboard vs Power BI Placeholder) -->
+    <section class="demo-container" data-reveal>
+        <div class="demo-switcher">
+            <button class="demo-tab-btn active" onclick="switchDemo('html')">HTML / JavaScript Dashboard</button>
+            <button class="demo-tab-btn" onclick="switchDemo('powerbi')">Power BI Dashboard (Placeholder)</button>
+        </div>
+
+        <!-- HTML Dashboard Frame -->
+        <div id="demo-html" class="demo-frame active">
+            <iframe src="https://ocadodp.github.io/sample-dashboard/" title="EmpowerPH Live Dashboard"></iframe>
+        </div>
+
+        <!-- Power BI Placeholder Frame -->
+        <div id="demo-powerbi" class="demo-frame">
+            <div class="placeholder-box">
+                <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--maroon); margin-bottom: 1rem;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-dark);">Power BI Executive Dashboard</h3>
+                <p style="max-width: 450px; margin-bottom: 1.5rem;">Built using the exact same synthetic dataset to evaluate cross-filtering, metric card roll-ups, and advanced enterprise layout standards.</p>
+                <span style="background: var(--maroon-light); color: var(--maroon); padding: 0.5rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem;">Embedding Placeholder Active</span>
+            </div>
+        </div>
+
+        <div style="text-align: center;" id="external-link-wrap">
+            <a href="https://ocadodp.github.io/sample-dashboard/" target="_blank" id="external-link" class="external-link-btn">
+                Open HTML Dashboard in Full Screen ↗
+            </a>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-wrap">
+        <div data-reveal style="margin-bottom: 2rem; background: #eff6ff; border: 1px solid #bfdbfe; padding: 1.5rem; border-radius: 12px; color: #1e3a8a;">
+            <strong>Note on Project Scope:</strong> "Project EmpowerPH" is a simulated capstone project developed entirely for portfolio demonstration. All data points are dynamically generated using a custom Python script to test scale and visualization limits.
+        </div>
+
+        <div data-reveal>
+            <h2>The Challenge</h2>
+            <p>To demonstrate my ability to architect full-data pipelines, I designed a theoretical scenario: evaluating a nationwide digital literacy rollout across 17 Philippine regions. The hypothetical constraints required a secure, offline-capable dashboard that could instantly process and display thousands of survey rows without relying on an external database backend.</p>
+        </div>
+
+        <div data-reveal>
+            <h2>The Solution</h2>
+            <p>I built an end-to-end data pipeline combining Python scripting with modern frontend web technologies:</p>
+            <ul>
+                <li><strong>Synthetic Data Engineering (Python & Pandas):</strong> I developed a Python script utilizing <code>pandas</code> to programmatically generate scalable batches of mock survey data. The script intelligently weighted regional population distributions, employment sectors, and device usage to mirror actual demographics, injecting realistic qualitative feedback based on each course track.</li>
+                <li><strong>Client-Side Processing (Fetch API & SheetJS):</strong> I engineered the frontend using TailwindCSS and Chart.js. Rather than hardcoding the data or requiring a server, the application uses the JavaScript <code>Fetch API</code> to pull the generated <code>.xlsx</code> file directly from GitHub Pages, parses it locally via `SheetJS`, and populates the charts and metrics instantly.</li>
+                <li><strong>Power BI Integration:</strong> To complete the portfolio narrative, I developed a parallel executive dashboard in Power BI using the exact same dataset to demonstrate multi-platform data storytelling.</li>
+            </ul>
+        </div>
+
+        <div data-reveal>
+            <h2>The Impact</h2>
+            <p>This mock project serves as a comprehensive showcase of my data engineering capabilities. The resulting dashboard is a highly responsive, zero-backend reporting tool. The integrated Likert matrices, trend lines, and region filters allow for immediate visual analysis, proving my ability to turn raw tabular inputs into interactive, professional-grade analytics.</p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <div id="site-footer" aria-label="Site footer"></div>
+
+    <!-- Tabs Script & Reveal Script -->
+    <script>
+        function switchDemo(type) {
+            const htmlFrame = document.getElementById('demo-html');
+            const pbiFrame = document.getElementById('demo-powerbi');
+            const buttons = document.querySelectorAll('.demo-tab-btn');
+            const extLink = document.getElementById('external-link');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (type === 'html') {
+                htmlFrame.classList.add('active');
+                pbiFrame.classList.remove('active');
+                event.target.classList.add('active');
+                extLink.href = "https://ocadodp.github.io/sample-dashboard/";
+                extLink.textContent = "Open HTML Dashboard in Full Screen ↗";
+            } else {
+                pbiFrame.classList.add('active');
+                htmlFrame.classList.remove('active');
+                event.target.classList.add('active');
+                extLink.href = "#";
+                extLink.textContent = "Power BI Placeholder Mode Active";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealElements = document.querySelectorAll('[data-reveal]');
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            revealElements.forEach(el => revealOnScroll.observe(el));
+        });
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("project-hero-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let points = [];
+    const mouse = { x: null, y: null, radius: 200 };
+
+    window.addEventListener("mousemove", function (e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+
+    window.addEventListener("mouseleave", function () {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        
+        points = [];
+        let count = Math.floor((width * height) / 10000); // Optimized density
+        for (let i = 0; i < count; i++) {
+            points.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                size: Math.random() * 1.5 + 1.2,
+                baseAlpha: Math.random() * 0.2 + 0.2
+            });
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < points.length; i++) {
+            let p = points[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            // Bounce off edges smoothly
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            // Subtle cursor magnetic pull (nodes gently drift toward mouse)
+            if (mouse.x !== null && mouse.y !== null) {
+                let dx = mouse.x - p.x;
+                let dy = mouse.y - p.y;
+                let dist = Math.hypot(dx, dy);
+                if (dist < mouse.radius && dist > 10) {
+                    let force = (mouse.radius - dist) / mouse.radius;
+                    p.x += (dx / dist) * force * 0.6;
+                    p.y += (dy / dist) * force * 0.6;
+                }
+            }
+
+            // Draw individual node
+            ctx.fillStyle = `rgba(128, 0, 0, ${p.baseAlpha + 0.15})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Connect neighboring lines with smooth distance-based intensity
+            for (let j = i + 1; j < points.length; j++) {
+                let p2 = points[j];
+                let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+
+                if (dist < 130) {
+                    let baseOpacity = 0.2 * (1 - dist / 130);
+                    let mouseBoost = 0;
+
+                    if (mouse.x !== null && mouse.y !== null) {
+                        let midX = (p.x + p2.x) / 2;
+                        let midY = (p.y + p2.y) / 2;
+                        let mouseDist = Math.hypot(mouse.x - midX, mouse.y - midY);
+
+                        if (mouseDist < mouse.radius) {
+                            mouseBoost = 0.3 * (1 - mouseDist / mouse.radius);
+                        }
+                    }
+
+                    let finalOpacity = baseOpacity + mouseBoost;
+
+                    ctx.strokeStyle = `rgba(128, 0, 0, ${finalOpacity})`;
+                    ctx.lineWidth = 0.75;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    animate();
+});
+</script>
+</body>
+</html>

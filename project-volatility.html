@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#800000">
+    <title>Econometric Time Series Analysis — Dexter Pascual Ocado</title>
+    <link rel="icon" type="image/png" href="img/gryffindor-crest.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        /* Base Variables & Reset */
+        :root {
+            --maroon: #800000;
+            --maroon-light: rgba(128, 0, 0, 0.05);
+            --maroon-hover: #a00000;
+            --text-dark: #111827;
+            --text-muted: #6b7280;
+            --bg-color: #ffffff;
+            --bg-grid: #f9fafb;
+            --border: #e5e7eb;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--bg-color); line-height: 1.7; overflow-x: hidden; position: relative; }
+        a { text-decoration: none; color: inherit; }
+        
+        /* Typography */
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+        .kicker { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--maroon); font-weight: 700; margin-bottom: 0.5rem; display: inline-block; position: relative; }
+        .kicker::after { content: ''; position: absolute; right: -40px; top: 50%; width: 30px; height: 2px; background: var(--maroon); transform: translateY(-50%); }
+
+        /* Animations */
+        @keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(2deg); } 100% { transform: translateY(0px) rotate(0deg); } }
+        .ambient-shape { position: absolute; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4; animation: float 10s infinite ease-in-out; }
+        .shape-1 { width: 300px; height: 300px; background: rgba(128, 0, 0, 0.15); top: -100px; left: -100px; }
+        .shape-2 { width: 400px; height: 400px; background: rgba(200, 16, 46, 0.1); top: 40%; right: -150px; animation-delay: -5s; }
+
+        /* Layout Container */
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Project Hero Section */
+        .project-hero { padding: 6rem 0 4rem 0; text-align: center; background: var(--bg-grid); background-image: radial-gradient(var(--border) 1px, transparent 0); background-size: 40px 40px; border-bottom: 1px solid var(--border); }
+        .project-title { font-size: 3rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-dark); max-width: 900px; margin-left: auto; margin-right: auto; }
+        .project-subtitle { font-size: 1.15rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 2rem auto; }
+        
+        .project-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2.5rem; }
+        .tag { background: var(--maroon-light); color: var(--maroon); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; }
+	.project-hero {
+    	    position: relative;
+    	    overflow: hidden; /* Keeps the moving dots inside the hero section */
+	}
+
+	#project-hero-canvas {
+    	    position: absolute;
+    	    top: 0;
+    	    left: 0;
+    	    width: 100%;
+    	    height: 100%;
+    	    z-index: 1; /* Places the canvas behind your text */
+    	    pointer-events: none; /* Allows clicks to pass right through the canvas */
+	}
+
+
+	.project-hero .wrap {
+    	    position: relative;
+    	    z-index: 2;
+	}
+
+        /* Article Content */
+        .article-wrap { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 6rem 1.5rem; }
+        .article-wrap h2 { font-size: 2rem; margin: 3rem 0 1.5rem 0; color: var(--text-dark); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        .article-wrap p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 1.5rem; text-align: justify; }
+        .article-wrap ul { margin-bottom: 2rem; padding-left: 1.5rem; }
+        .article-wrap li { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 0.75rem; list-style-type: disc; text-align: justify; }
+        
+        .role-box { background: #fffbeb; border: 1px solid #fef08a; padding: 1.5rem; border-radius: 12px; margin: 2rem 0; color: #b45309; }
+        .role-box strong { color: #92400e; }
+
+        /* Math Block Styling */
+        .math-block { background: var(--maroon-light); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; overflow-x: auto; border-left: 4px solid var(--maroon); }
+
+        /* JS Reveal */
+        [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body>
+    <script src="js/components.js"></script>
+
+    <!-- Background Ambient Animations -->
+    <div class="ambient-shape shape-1"></div>
+    <div class="ambient-shape shape-2"></div>
+
+    <div id="site-header" aria-label="Site header"></div>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+    <canvas id="project-hero-canvas"></canvas>
+        <div class="wrap" data-reveal>
+            <div class="kicker">Quantitative Research & Econometrics</div>
+            <h1 class="project-title">Volatility Dynamics & Interdependence in the Philippine Stock Market</h1>
+            <p class="project-subtitle">A comprehensive univariate and multivariate time series analysis modeling systemic risk, asymmetric leverage effects, and financial contagion using R.</p>
+            
+            <div class="project-tags">
+                <span class="tag">R Programming</span>
+                <span class="tag">Time Series Analysis</span>
+                <span class="tag">ARIMA / GARCH</span>
+                <span class="tag">VAR Modeling</span>
+                <span class="tag">DCC-GARCH</span>
+                <span class="tag">Econometrics</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-wrap">
+        
+        <div class="role-box" data-reveal>
+            <strong>My Role:</strong> I served as the principal architect of the analytical framework and the primary interpreter of the econometric results. I designed the study's conceptual framework, analyzed the diagnostic test outputs, translated the Vector Autoregression (VAR) impulse responses, and interpreted the asymmetric leverage effects to explain how systemic risk propagates across the Philippine banking sector. The data extraction, statistical modeling, and generation of all high-fidelity plots and matrices were executed entirely in the <strong>R programming environment</strong>.
+        </div>
+
+        <div data-reveal>
+            <h2>The Challenge</h2>
+            <p>Classical financial theories often rely on the assumption that market risk—or variance—remains constant over time. However, decades of empirical evidence have proven this flawed. Financial time series consistently exhibit "volatility clustering," where calm periods are followed by calm periods, and turbulent periods are followed by violent market swings. This means market risk is highly dynamic, compounding upon itself during economic distress.</p>
+            <p>In the context of the Philippines, the Philippine Stock Exchange Composite Index (PSEi) is heavily weighted toward a few large-cap conglomerates and banking institutions (such as BDO, BPI, and Security Bank). We needed to map how volatility behaves and transmits between these apex stocks and the broader market to accurately assess systemic risk, especially surrounding exogenous shocks like the 2020 pandemic crash.</p>
+        </div>
+
+        <div data-reveal>
+            <h2>The Analytical Framework</h2>
+            <p>We built a multi-stage, top-down econometric pipeline in R to systematically distill a decade of raw market data (December 2015 – December 2025) into actionable insights.</p>
+            
+            <ul>
+                <li><strong>Data Sourcing & Stationarity:</strong> Extracted daily historical closing prices and transformed them into logarithmic returns to stabilize variance. We formally verified stationarity using Augmented Dickey-Fuller (ADF) testing.
+                <div class="math-block">
+                    $$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)$$
+                </div>
+                </li>
+                
+                <li><strong>Univariate Analysis (Conditional Mean & Volatility):</strong> We used ARIMA models to capture short-term linear predictability in the returns. After confirming the presence of ARCH effects, we modeled the conditional variance using asymmetric GARCH extensions (eGARCH, gjrGARCH) with Student's t-distributions to capture fat tails and leverage effects.
+                <div class="math-block">
+                    $$\sigma_t^2 = \omega + (\alpha + \gamma I_{\{\epsilon_{t-1}<0\}})\epsilon_{t-1}^2 + \beta\sigma_{t-1}^2$$
+                </div>
+                </li>
+                
+                <li><strong>Multivariate Analysis (Dynamic Interrelationships):</strong> We deployed Vector Autoregression (VAR) to examine directional influence and shock transmission speeds via Granger Causality and Impulse Response Functions (IRF).
+                <div class="math-block">
+                    $$Y_t = c + A_1 Y_{t-1} + A_2 Y_{t-2} + \dots + A_p Y_{t-p} + \epsilon_t$$
+                </div>
+                </li>
+
+                <li><strong>Time-Varying Correlations:</strong> Finally, we used the Dynamic Conditional Correlation (DCC-GARCH) model to capture how the structural relationships between the PSEi and its underlying banks evolve during periods of financial stress.</li>
+            </ul>
+        </div>
+
+        <div data-reveal>
+            <h2>The Findings & Economic Impact</h2>
+            <p>The empirical results entirely debunked the assumption of normal distributions and static risk in the Philippine market, yielding critical insights for portfolio managers and regulatory bodies:</p>
+            <ul>
+                <li><strong>Severe Asymmetric Leverage Effects:</strong> While the broader PSEi reacted symmetrically to news, individual banking stocks demonstrated highly significant, positive leverage effects. This proved that negative macroeconomic shocks trigger a significantly larger surge in volatility and panic selling in individual bank stocks compared to positive news of the exact same magnitude.</li>
+                <li><strong>Information Hierarchy & Efficiency:</strong> Granger causality revealed that the PSEi, BDO, and Security Bank act as leading indicators, while BPI acts as a lagging receiver. Impulse Response Functions proved that while shocks transmit instantly, the Philippine market is highly efficient, absorbing disruptions and reverting to baseline equilibrium within 2 to 3 trading days.</li>
+                <li><strong>The Failure of Diversification (Financial Contagion):</strong> The DCC-GARCH model proved that market correlations are not fixed. During the 2020 macroeconomic crisis, correlations that historically hovered between 0.20 and 0.50 violently spiked to above 0.70. This provided stark empirical evidence of financial contagion: during panic-driven phases, equities abandon their independent valuation metrics, lock together, and crash in tandem, rendering standard domestic portfolio diversification entirely ineffective during "black swan" events.</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <div id="site-footer" aria-label="Site footer"></div>
+
+    <!-- Reveal Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealElements = document.querySelectorAll('[data-reveal]');
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+            revealElements.forEach(el => revealOnScroll.observe(el));
+        });
+    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("project-hero-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let points = [];
+    const mouse = { x: null, y: null, radius: 200 };
+
+    window.addEventListener("mousemove", function (e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+    });
+
+    window.addEventListener("mouseleave", function () {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    function resize() {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+        
+        points = [];
+        let count = Math.floor((width * height) / 10000); // Optimized density
+        for (let i = 0; i < count; i++) {
+            points.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                size: Math.random() * 1.5 + 1.2,
+                baseAlpha: Math.random() * 0.2 + 0.2
+            });
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < points.length; i++) {
+            let p = points[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            // Bounce off edges smoothly
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            // Subtle cursor magnetic pull (nodes gently drift toward mouse)
+            if (mouse.x !== null && mouse.y !== null) {
+                let dx = mouse.x - p.x;
+                let dy = mouse.y - p.y;
+                let dist = Math.hypot(dx, dy);
+                if (dist < mouse.radius && dist > 10) {
+                    let force = (mouse.radius - dist) / mouse.radius;
+                    p.x += (dx / dist) * force * 0.6;
+                    p.y += (dy / dist) * force * 0.6;
+                }
+            }
+
+            // Draw individual node
+            ctx.fillStyle = `rgba(128, 0, 0, ${p.baseAlpha + 0.15})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Connect neighboring lines with smooth distance-based intensity
+            for (let j = i + 1; j < points.length; j++) {
+                let p2 = points[j];
+                let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+
+                if (dist < 130) {
+                    let baseOpacity = 0.2 * (1 - dist / 130);
+                    let mouseBoost = 0;
+
+                    if (mouse.x !== null && mouse.y !== null) {
+                        let midX = (p.x + p2.x) / 2;
+                        let midY = (p.y + p2.y) / 2;
+                        let mouseDist = Math.hypot(mouse.x - midX, mouse.y - midY);
+
+                        if (mouseDist < mouse.radius) {
+                            mouseBoost = 0.3 * (1 - mouseDist / mouse.radius);
+                        }
+                    }
+
+                    let finalOpacity = baseOpacity + mouseBoost;
+
+                    ctx.strokeStyle = `rgba(128, 0, 0, ${finalOpacity})`;
+                    ctx.lineWidth = 0.75;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", resize);
+    resize();
+    animate();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#800000">
+    <meta name="description" content="Dexter Pascual Ocado — Quantitative Analyst and Data Professional specializing in econometrics, automation, and machine learning.">
+    <title>Dexter Pascual Ocado — Quantitative Analyst & Data Professional</title>
+
+    <link rel="icon" type="image/png" href="img/gryffindor-crest.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --maroon: #800000;
+            --maroon-dark: #650000;
+            --maroon-light: rgba(128, 0, 0, 0.06);
+            --ink: #151515;
+            --muted: #6b7280;
+            --soft: #f7f7f8;
+            --line: #e7e7e9;
+            --white: #ffffff;
+            --dark: #111318;
+            --dark-2: #181b22;
+            --dark-line: rgba(255, 255, 255, .11);
+            --dark-muted: #a5a8b2;
+            --shadow: 0 12px 30px rgba(0, 0, 0, .06);
+            --shadow-hover: 0 20px 40px rgba(128, 0, 0, 0.08);
+            --bg-grid: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: -.02em;
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
+        .hero {
+            padding: 5rem 0 5.5rem;
+            position: relative;
+            border-bottom: 1px solid var(--line);
+            background-color: var(--bg-grid);
+            background-image: radial-gradient(var(--line) 1px, transparent 0);
+            background-size: 40px 40px;
+            overflow: hidden;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(320px, .75fr);
+            gap: 4.5rem;
+            align-items: stretch;
+        }
+
+        .hero-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--white);
+            border: 1px solid var(--line);
+            padding: .4rem 1rem;
+            border-radius: 50px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .02);
+            width: fit-content;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, .2);
+        }
+
+        .hero-h1 {
+            font-size: clamp(3rem, 7vw, 4.5rem);
+            line-height: 1.02;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--ink);
+        }
+
+        .hero-lead {
+            font-size: 1.18rem;
+            color: var(--muted);
+            max-width: 760px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-lead strong {
+            color: var(--ink);
+        }
+
+        /* ============================================================
+           SNAPSHOT CARD
+           ============================================================ */
+        .snapshot {
+            background: var(--dark);
+            color: #fff;
+            border: 1px solid #242731;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, .15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100%;
+        }
+
+        .snapshot::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            right: -100px;
+            bottom: -110px;
+            border-radius: 50%;
+            background: rgba(128, 0, 0, .18);
+            pointer-events: none;
+        }
+
+        .snapshot-top {
+            position: relative;
+            z-index: 2;
+        }
+
+        .snapshot-index {
+            color: #8f939d;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .snapshot-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .snapshot-avatar {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%;
+            border: 2px solid rgba(255, 255, 255, .9);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+            flex-shrink: 0;
+        }
+
+        .snapshot-name {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .snapshot-role {
+            color: var(--dark-muted);
+            font-size: .82rem;
+            margin-top: .3rem;
+        }
+
+        .snapshot-line {
+            height: 1px;
+            background: var(--dark-line);
+            margin: 1.5rem 0;
+        }
+
+        .snapshot-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .snapshot-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: .82rem;
+        }
+
+        .snapshot-item span:first-child {
+            color: #858994;
+        }
+
+        .snapshot-item span:last-child {
+            color: #f2f2f3;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .snapshot-bottom {
+            position: relative;
+            z-index: 2;
+            margin-top: 2rem;
+        }
+
+        .snapshot-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(255, 255, 255, .04);
+            color: #c9cbd0;
+            padding: .45rem .7rem;
+            border-radius: 7px;
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .snapshot-tag::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: .85rem 1.5rem;
+            font-weight: 700;
+            font-size: .95rem;
+            transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+        }
+
+        .btn--grad {
+            background: var(--maroon);
+            color: #fff;
+        }
+
+        .btn--grad:hover {
+            background: var(--maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(128, 0, 0, .25);
+        }
+
+        .btn--ghost {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .btn--ghost:hover {
+            border-color: var(--maroon);
+            color: var(--maroon);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(128, 0, 0, .08);
+        }
+
+        /* ============================================================
+           CANVAS
+           ============================================================ */
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero .wrap {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================================
+           SECTIONS
+           ============================================================ */
+        .pad-band {
+            padding: 5rem 0;
+        }
+
+        .band-offset {
+            background: var(--soft);
+        }
+
+        .sechead--plain {
+            margin-bottom: 3rem;
+        }
+
+        .sechead--plain .kicker {
+            color: var(--muted);
+            font-size: .85rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            margin-bottom: .5rem;
+            display: block;
+        }
+
+        .sechead--plain h2 {
+            font-size: 2.25rem;
+            margin-bottom: .5rem;
+        }
+
+        .sechead-sub {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        /* ============================================================
+           FEATURED
+           ============================================================ */
+        .featured {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1.8fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .03);
+            position: relative;
+            overflow: hidden;
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .featured:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .featured::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--maroon);
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--maroon-light);
+            color: var(--maroon);
+            padding: .4rem 1rem;
+            border-radius: 50px;
+            font-size: .85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .play-tri {
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid var(--maroon);
+            display: inline-block;
+        }
+
+        .featured h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .featured p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            margin-bottom: 2rem;
+        }
+
+        .pill {
+            font-size: .8rem;
+            font-weight: 600;
+            background: var(--bg-grid);
+            color: var(--muted);
+            border: 1px solid var(--line);
+            padding: .3rem .8rem;
+            border-radius: 50px;
+        }
+
+        .browser {
+            background: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+            border: 1px solid #334155;
+        }
+
+        .browser-bar {
+            background: #0f172a;
+            padding: .75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #475569;
+        }
+
+        .browser-dot:nth-child(1) { background: #ef4444; }
+        .browser-dot:nth-child(2) { background: #f59e0b; }
+        .browser-dot:nth-child(3) { background: #22c55e; }
+
+        .browser-url {
+            font-size: .8rem;
+            color: #94a3b8;
+            font-family: monospace;
+            margin-left: .5rem;
+        }
+
+        .browser-body {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1440 / 900;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .browser-body iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1440px;
+            height: 900px;
+            border: 0;
+            display: block;
+            transform-origin: top left;
+        }
+
+        /* ============================================================
+           PROJECT ROWS
+           ============================================================ */
+        .rows {
+            margin-bottom: 3rem;
+        }
+
+        .row-link {
+            display: grid;
+            grid-template-columns: 48px minmax(220px, 1fr) minmax(260px, 1.35fr) 170px;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.45rem 1.5rem;
+            border-bottom: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--white);
+            transition: transform .3s ease, background-color .3s ease, box-shadow .3s ease;
+            margin-bottom: .5rem;
+        }
+
+        .row-link:hover {
+            transform: translateX(8px) translateY(-2px);
+            background-color: var(--soft);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .04);
+            border-color: transparent;
+        }
+
+        .row-index {
+            font: 700 1.1rem "Space Grotesk", sans-serif;
+            color: #a1a1aa;
+        }
+
+        .row-link:hover .row-index {
+            color: var(--maroon);
+        }
+
+        .row-cat {
+            display: block;
+            margin-bottom: .2rem;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .07em;
+            font-weight: 800;
+            color: var(--maroon);
+        }
+
+        .row-title {
+            display: block;
+            font-size: 1.08rem;
+            font-weight: 750;
+            margin-bottom: .35rem;
+        }
+
+        .row-desc {
+            color: var(--muted);
+            font-size: .88rem;
+        }
+
+        .row-link .pill-row {
+            margin-bottom: 0;
+        }
+
+        .row-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .75rem;
+            text-align: right;
+        }
+
+        .row-metrics > span > span {
+            display: block;
+            color: var(--muted);
+            font-size: .72rem;
+        }
+
+        .row-metrics > span b {
+            display: block;
+            font: 700 1rem "Space Grotesk", sans-serif;
+        }
+
+        .rows-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* ============================================================
+           RESTRICTED TEASER
+           ============================================================ */
+        .restricted-teaser {
+            margin: 5rem 0;
+            background: #17181d;
+            border-radius: 20px;
+            border: 1px solid #292b32;
+            color: #fff;
+            padding: 2.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .restricted-teaser::after {
+            content: "CLASSIFIED";
+            position: absolute;
+            right: -15px;
+            bottom: -25px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, .025);
+            pointer-events: none;
+        }
+
+        .restricted-index {
+            color: #8f939d;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .6rem;
+        }
+
+        .restricted-teaser h3 {
+            font-size: 1.7rem;
+            margin-bottom: .5rem;
+        }
+
+        .restricted-teaser p {
+            color: #a5a8b2;
+            max-width: 700px;
+            font-size: .95rem;
+        }
+
+        .restricted-btn {
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .05);
+            color: #fff;
+        }
+
+        .restricted-btn:hover {
+            background: var(--maroon);
+            border-color: var(--maroon);
+            color: #fff;
+        }
+
+        /* ============================================================
+           EXPERTISE
+           ============================================================ */
+        .grid-six {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-six > div {
+            padding: 2rem;
+            background: var(--soft);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease;
+        }
+
+        .grid-six > div:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--white);
+            border-color: rgba(128, 0, 0, .2);
+        }
+
+        .icon-tile {
+            width: 48px;
+            height: 48px;
+            background: var(--maroon-light);
+            color: var(--maroon);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .grid-six h4 {
+            font-size: 1.25rem;
+            margin-bottom: .75rem;
+        }
+
+        .grid-six p {
+            color: var(--muted);
+            font-size: .95rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           REVEAL
+           ============================================================ */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .65s ease, transform .65s ease;
+        }
+
+        [data-reveal].is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            [data-reveal] {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .btn--grad:hover,
+            .btn--ghost:hover,
+            .featured:hover,
+            .row-link:hover,
+            .grid-six > div:hover {
+                transform: none;
+            }
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 900px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .snapshot {
+                min-height: auto;
+            }
+
+            .featured {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .row-link {
+                grid-template-columns: 42px 1fr;
+            }
+
+            .row-desc {
+                grid-column: 2;
+            }
+
+            .row-metrics {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .restricted-teaser {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .hero {
+                padding: 4rem 0 3.5rem;
+            }
+
+            .hero-h1 {
+                font-size: 3rem;
+            }
+
+            .hero-lead {
+                font-size: 1.05rem;
+            }
+
+            .snapshot {
+                padding: 1.5rem;
+            }
+
+            .snapshot-profile {
+                align-items: flex-start;
+            }
+
+            .snapshot-avatar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .featured {
+                padding: 2rem 1.5rem;
+            }
+
+            .btn-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .row-link {
+                grid-template-columns: 1fr;
+                gap: .7rem;
+                padding: 1.25rem 0;
+            }
+
+            .row-desc,
+            .row-metrics {
+                grid-column: auto;
+            }
+
+            .row-metrics {
+                text-align: left;
+            }
+
+            .restricted-teaser {
+                padding: 2rem 1.5rem;
+            }
+
+            .restricted-btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body>
+
+    <script src="js/components.js"></script>
+
+    <div id="site-header" aria-label="Site header"></div>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="wrap">
+            <div class="hero-layout" data-reveal>
+                <div class="hero-copy">
+                    <div class="status-chip">
+                        <span class="live-dot"></span>
+                        <span>Ready for Deployment</span>
+                    </div>
+
+                    <h1 class="hero-h1">
+                        Dexter Pascual Ocado
+                    </h1>
+
+                    <p class="hero-lead">
+                        <strong>Turning raw complexity into clear, automated solutions.</strong><br>
+                        I am a Quantitative Analyst and Data Professional focused on building enterprise-grade data pipelines, econometric frameworks, and interactive business intelligence systems.
+                    </p>
+
+                    <div class="btn-row">
+                        <a class="btn btn--grad" href="#work">View portfolio</a>
+                        <a class="btn btn--ghost" href="Resume - Dexter Pascual Ocado.pdf" target="_blank">Résumé</a>
+                    </div>
+                </div>
+
+                <!-- SOLID SNAPSHOT CARD -->
+                <aside class="snapshot">
+                    <div class="snapshot-top">
+                        <div class="snapshot-index">
+                            01 — Snapshot
+                        </div>
+
+                        <div class="snapshot-profile">
+                            <img class="snapshot-avatar" src="img/ocado-crop.png" alt="Dexter Pascual Ocado">
+
+                            <div>
+                                <div class="snapshot-name">
+                                    Quantitative Analyst
+                                </div>
+
+                                <div class="snapshot-role">
+                                    Data · Automation · Econometrics
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="snapshot-line"></div>
+
+                        <div class="snapshot-list">
+                            <div class="snapshot-item">
+                                <span>Education</span>
+                                <span>BS Mathematics</span>
+                            </div>
+
+                            <div class="snapshot-item">
+                                <span>Core stack</span>
+                                <span>Python · R · SQL</span>
+                            </div>
+
+                            <div class="snapshot-item">
+                                <span>BI</span>
+                                <span>Power BI · Chart.js</span>
+                            </div>
+
+                            <div class="snapshot-item">
+                                <span>Automation</span>
+                                <span>Power Automate</span>
+                            </div>
+
+                            <div class="snapshot-item">
+                                <span>Specialty</span>
+                                <span>Applied Quantitative Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="snapshot-bottom">
+                        <span class="snapshot-tag">
+                            Available for opportunities
+                        </span>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         SELECTED WORK
+         ============================================================ -->
+    <section id="work" style="padding-top:4rem;">
+        <div class="wrap">
+            <div class="sechead--plain" data-reveal>
+                <div>
+                    <div class="kicker">02 — Selected work</div>
+
+                    <h2>Systems in production</h2>
+
+                    <p class="sechead-sub">
+                        End-to-end data ecosystems I've architected, from mock synthetic data to full-stack HR automation pipelines used at the DBM.
+                    </p>
+                </div>
+            </div>
+
+            <div class="featured" data-reveal>
+                <div>
+                    <span class="featured-badge">
+                        <span class="play-tri"></span>
+                        Live demo · fully interactive
+                    </span>
+
+                    <h3>Project EmpowerPH</h3>
+
+                    <p>
+                        An interactive employment analytics dashboard powered by a custom Python synthetic data generator. Features asynchronous data fetching via SheetJS, dynamic Chart.js visualizations, and multi-parameter global filtering across employment sectors, regions, and course tracks.
+                    </p>
+
+                    <div class="pill-row">
+                        <span class="pill">Python</span>
+                        <span class="pill">Pandas</span>
+                        <span class="pill">Chart.js</span>
+                        <span class="pill">SheetJS</span>
+                    </div>
+
+                    <div class="btn-row">
+                        <a class="btn btn--grad" href="https://ocadodp.github.io/sample-dashboard/" target="_blank">
+                            Open live dashboard
+                        </a>
+
+                        <a class="btn btn--ghost" href="project-empowerph.html">
+                            Read case study
+                        </a>
+                    </div>
+                </div>
+
+                <div class="browser">
+                    <div class="browser-bar">
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                        <span class="browser-dot"></span>
+                        <span class="browser-url">
+                            ocadodp.github.io/sample-dashboard/
+                        </span>
+                    </div>
+
+                    <div class="browser-body">
+                        <iframe src="https://ocadodp.github.io/sample-dashboard/" title="Project EmpowerPH demo" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rows">
+                <a class="row-link" href="project-dbm.html" data-reveal>
+                    <span class="row-index">03</span>
+
+                    <span>
+                        <span class="row-cat">Automation & BI</span>
+                        <span class="row-title">Enterprise HR Data Automation & BI</span>
+
+                        <span class="pill-row">
+                            <span class="pill">Vanilla JS</span>
+                            <span class="pill">ExcelJS & jsPDF</span>
+                            <span class="pill">Power Automate</span>
+                        </span>
+                    </span>
+
+                    <span class="row-desc">
+                        A full-stack suite of web apps and Power BI dashboards that streamlined nationwide HR reporting for 1,200+ employees.
+                    </span>
+
+                    <span class="row-metrics">
+                        <span>
+                            <b>1,200+</b>
+                            <span>Employees tracked</span>
+                        </span>
+
+                        <span>
+                            <b>Multi-app</b>
+                            <span>Full pipeline</span>
+                        </span>
+                    </span>
+                </a>
+
+                <a class="row-link" href="project-volatility.html" data-reveal>
+                    <span class="row-index">04</span>
+
+                    <span>
+                        <span class="row-cat">Quantitative Research</span>
+                        <span class="row-title">Volatility Dynamics & Interdependence</span>
+
+                        <span class="pill-row">
+                            <span class="pill">R Programming</span>
+                            <span class="pill">ARIMA/GARCH</span>
+                            <span class="pill">DCC-GARCH</span>
+                        </span>
+                    </span>
+
+                    <span class="row-desc">
+                        A univariate and multivariate econometric analysis modeling asymmetric leverage effects and financial contagion between the PSEi and major banking equities.
+                    </span>
+
+                    <span class="row-metrics">
+                        <span>
+                            <b>10-year</b>
+                            <span>Historical span</span>
+                        </span>
+
+                        <span>
+                            <b>Contagion</b>
+                            <span>DCC mapping</span>
+                        </span>
+                    </span>
+                </a>
+
+                <a class="row-link" href="project-infratrust.html" data-reveal>
+                    <span class="row-index">05</span>
+
+                    <span>
+                        <span class="row-cat">Econometric Modeling</span>
+                        <span class="row-title">InfraTrust Decision Support Tool</span>
+
+                        <span class="pill-row">
+                            <span class="pill">Matrix Inversion</span>
+                            <span class="pill">OLS Regression</span>
+                        </span>
+                    </span>
+
+                    <span class="row-desc">
+                        A client-side web application executing custom matrix math and OLS regression in the browser to evaluate construction firm integrity.
+                    </span>
+
+                    <span class="row-metrics">
+                        <span>
+                            <b>Client-side</b>
+                            <span>OLS Engine</span>
+                        </span>
+
+                        <span>
+                            <b>Privacy</b>
+                            <span>Zero backend</span>
+                        </span>
+                    </span>
+                </a>
+            </div>
+
+            <div class="rows-more" data-reveal>
+                <a class="btn btn--ghost" href="projects.html" style="padding:1rem 2rem;">
+                    See all projects
+                </a>
+            </div>
+
+            <!-- FUN RESTRICTED SECTION AD -->
+            <div class="restricted-teaser" data-reveal>
+                <div>
+                    <div class="restricted-index">
+                        06 — Restricted
+                    </div>
+
+                    <h3>
+                        There may be things I probably shouldn't put on a résumé.
+                    </h3>
+
+                    <p>
+                        Classified datasets, questionable econometric theories, inter-universe
+                        allegiance statistics, and several highly suspicious applications of
+                        Python. You were not supposed to find this.
+                    </p>
+                </div>
+
+                <a class="btn restricted-btn" href="restricted.html">
+                    Enter Restricted Section →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         EXPERTISE
+         ============================================================ -->
+    <section class="banded band-offset">
+        <div class="wrap pad-band">
+            <div class="sechead--plain" data-reveal>
+                <div>
+                    <div class="kicker">07 — Expertise</div>
+
+                    <h2>The problems I solve</h2>
+
+                    <p class="sechead-sub">
+                        Translating heavy statistical theory into practical applications.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-six" data-reveal>
+                <div>
+                    <span class="icon-tile">⚲</span>
+                    <h4>Data Engineering & Pipelines</h4>
+                    <p>
+                        Architecting systems to ingest, clean, and standardize messy,
+                        human-inputted data into structured, ready-to-analyze databases using Python and Pandas.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="icon-tile">∑</span>
+                    <h4>Econometrics & Time Series</h4>
+                    <p>
+                        Mapping macroeconomic volatility, structural breaks, and directional
+                        causality across markets using advanced R programming models like VAR and DCC-GARCH.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="icon-tile">⚡</span>
+                    <h4>Workflow Automation</h4>
+                    <p>
+                        Bypassing hundreds of hours of manual encoding by engineering logic
+                        flows in Power Automate and custom TypeScript/Office Scripts.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="icon-tile">📊</span>
+                    <h4>Business Intelligence</h4>
+                    <p>
+                        Developing interactive, cross-filtering dashboards in Power BI and
+                        Chart.js to help executive leadership visualize complex KPIs instantly.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="icon-tile">⚙️</span>
+                    <h4>Client-Side Compute</h4>
+                    <p>
+                        Building specialized HTML/JS applications that perform heavy math
+                        like OLS Matrix Inversion entirely in the browser, ensuring strict data privacy.
+                    </p>
+                </div>
+
+                <div>
+                    <span class="icon-tile">👁️</span>
+                    <h4>Computer Vision</h4>
+                    <p>
+                        Training and deploying deep learning CNN models in PyTorch to tackle
+                        complex biometric authentication challenges like offline signature verification.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer" aria-label="Site footer"></div>
+
+    <!-- ============================================================
+         JAVASCRIPT
+         ============================================================ -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            /* IFRAME SCALER */
+            const VIRTUAL_WIDTH = 1440;
+            const VIRTUAL_HEIGHT = 900;
+
+            function scaleDemoFrames() {
+                const bodies = document.querySelectorAll(".browser-body");
+
+                bodies.forEach(function (body) {
+                    const iframe = body.querySelector("iframe");
+
+                    if (!iframe) return;
+
+                    const availableWidth = body.clientWidth;
+                    const availableHeight = body.clientHeight;
+
+                    if (!availableWidth || !availableHeight) return;
+
+                    const widthScale = availableWidth / VIRTUAL_WIDTH;
+                    const heightScale = availableHeight / VIRTUAL_HEIGHT;
+
+                    const scale = Math.min(widthScale, heightScale);
+
+                    iframe.style.transform = `scale(${scale})`;
+                });
+            }
+
+            scaleDemoFrames();
+
+            window.addEventListener("resize", scaleDemoFrames);
+
+            if ("ResizeObserver" in window) {
+                const resizeObserver = new ResizeObserver(() => {
+                    scaleDemoFrames();
+                });
+
+                document.querySelectorAll(".browser-body")
+                    .forEach(body => resizeObserver.observe(body));
+            }
+
+            /* SCROLL REVEAL */
+            const revealElements = document.querySelectorAll("[data-reveal]");
+
+            if (!("IntersectionObserver" in window)) {
+                revealElements.forEach(el => {
+                    el.classList.add("is-visible");
+                });
+            } else {
+                const revealOptions = {
+                    threshold: .12,
+                    rootMargin: "0px 0px -50px 0px"
+                };
+
+                const revealOnScroll = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach(entry => {
+                            if (!entry.isIntersecting) return;
+
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        });
+                    },
+                    revealOptions
+                );
+
+                revealElements.forEach(el => {
+                    revealOnScroll.observe(el);
+                });
+            }
+        });
+
+        /* HERO NETWORK */
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("hero-canvas");
+
+            if (!canvas) return;
+
+            const ctx = canvas.getContext("2d");
+
+            let width;
+            let height;
+            let points = [];
+
+            const mouse = {
+                x: null,
+                y: null,
+                radius: 200
+            };
+
+            window.addEventListener("mousemove", function (e) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            window.addEventListener("mouseleave", function () {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            function resize() {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+
+                points = [];
+
+                const count = Math.floor((width * height) / 10000);
+
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - .5) * .4,
+                        vy: (Math.random() - .5) * .4,
+                        size: Math.random() * 1.5 + 1.2,
+                        baseAlpha: Math.random() * .2 + .2
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < points.length; i++) {
+                    const p = points[i];
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) {
+                        p.vx *= -1;
+                    }
+
+                    if (p.y < 0 || p.y > height) {
+                        p.vy *= -1;
+                    }
+
+                    if (mouse.x !== null && mouse.y !== null) {
+                        const dx = mouse.x - p.x;
+                        const dy = mouse.y - p.y;
+                        const dist = Math.hypot(dx, dy);
+
+                        if (dist < mouse.radius && dist > 10) {
+                            const force = (mouse.radius - dist) / mouse.radius;
+                            p.x += (dx / dist) * force * .6;
+                            p.y += (dy / dist) * force * .6;
+                        }
+                    }
+
+                    ctx.fillStyle = `rgba(128, 0, 0, ${p.baseAlpha + .15})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p2 = points[j];
+                        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+
+                        if (dist < 130) {
+                            let opacity = .2 * (1 - dist / 130);
+
+                            if (mouse.x !== null && mouse.y !== null) {
+                                const midX = (p.x + p2.x) / 2;
+                                const midY = (p.y + p2.y) / 2;
+                                const mouseDist = Math.hypot(mouse.x - midX, mouse.y - midY);
+
+                                if (mouseDist < mouse.radius) {
+                                    opacity += .3 * (1 - mouseDist / mouse.radius);
+                                }
+                            }
+
+                            ctx.strokeStyle = `rgba(128, 0, 0, ${opacity})`;
+                            ctx.lineWidth = .75;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener("resize", resize);
+
+            resize();
+            animate();
+        });
+    </script>
+
+</body>
+</html>
