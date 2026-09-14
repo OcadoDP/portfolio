@@ -4,42 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#800000">
-    <meta name="description" content="The Restricted Section — Classified fictional datasets and theorems.">
+    <meta name="description" content="The Restricted Section — Classified fictional datasets, magical metrics, and highly questionable theorems.">
     <title>Restricted Section — Dexter Pascual Ocado</title>
-
     <link rel="icon" type="image/png" href="img/gryffindor-crest.png">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --maroon: #800000;
             --maroon-dark: #650000;
-            --maroon-light: rgba(128,0,0,.05);
+            --maroon-light: rgba(128, 0, 0, .05);
             --maroon-hover: #a00000;
-
             --text-dark: #111827;
             --text-muted: #6b7280;
-
             --bg-color: #ffffff;
-            --bg-grid: #f8f8f9;
-
+            --bg-soft: #f8f8f9;
+            --bg-grid: #f4f4f5;
             --border: #e5e7eb;
-
             --green: #166534;
             --green-bg: #dcfce7;
             --red: #991b1b;
             --red-bg: #fee2e2;
             --amber: #92400e;
             --amber-bg: #fef3c7;
-
-            --shadow: 0 15px 40px rgba(0,0,0,.08);
-            --shadow-hover: 0 22px 55px rgba(0,0,0,.12);
-
-            --transition: all .4s cubic-bezier(.16,1,.3,1);
+            --shadow: 0 15px 40px rgba(0, 0, 0, .06);
+            --shadow-hover: 0 20px 45px rgba(128, 0, 0, .10);
+            --transition: all .35s cubic-bezier(.16, 1, .3, 1);
         }
 
         * {
@@ -64,7 +53,10 @@
             overflow: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: "Space Grotesk", sans-serif;
             letter-spacing: -.02em;
         }
@@ -74,10 +66,38 @@
             font: inherit;
         }
 
+        button {
+            cursor: pointer;
+        }
+
         .wrap {
-            max-width: 1100px;
+            width: min(1100px, calc(100% - 3rem));
             margin: 0 auto;
-            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-soft {
+            background: var(--bg-soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: .75rem;
+        }
+
+        .section-heading p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
         /* ============================================================
@@ -460,10 +480,9 @@
 
         .grid-bg {
             background-color: var(--bg-grid);
-            background-image:
-                radial-gradient(var(--border) 1px, transparent 0);
+            background-image: radial-gradient(var(--border) 1px, transparent 0);
             background-size: 40px 40px;
-            padding: 6rem 0;
+            padding: 5.5rem 0;
             border-bottom: 1px solid var(--border);
             position: relative;
             overflow: hidden;
@@ -471,8 +490,7 @@
 
         #lore-canvas {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
@@ -484,40 +502,227 @@
             z-index: 2;
         }
 
+        .hero-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.3fr) minmax(320px, .7fr);
+            gap: 4rem;
+            align-items: center;
+        }
+
         .kicker {
-            font-size: .875rem;
+            font-size: .8rem;
             text-transform: uppercase;
-            letter-spacing: .05em;
+            letter-spacing: .08em;
             color: var(--maroon);
-            font-weight: 700;
-            margin-bottom: .5rem;
-            display: inline-block;
-            position: relative;
+            font-weight: 800;
+            margin-bottom: .75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
         }
 
         .kicker::after {
             content: "";
-            position: absolute;
-            right: -40px;
-            top: 50%;
             width: 30px;
             height: 2px;
             background: var(--maroon);
-            transform: translateY(-50%);
         }
 
         .hero-h1 {
-            font-size: 3.5rem;
+            font-size: clamp(3rem, 7vw, 5.2rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: .98;
             margin-bottom: 1.5rem;
         }
 
         .intro-lead {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
             font-weight: 500;
-            max-width: 800px;
+            max-width: 760px;
+        }
+
+        .hero-terminal {
+            background: rgba(255, 255, 255, .92);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .terminal-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            background: #fafafa;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-weight: 800;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: .35rem;
+        }
+
+        .terminal-dots span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #d1d5db;
+        }
+
+        .terminal-status {
+            color: var(--green);
+        }
+
+        .terminal-body {
+            padding: 1.5rem;
+        }
+
+        .terminal-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: .55rem 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: .88rem;
+        }
+
+        .terminal-line:last-child {
+            border-bottom: 0;
+        }
+
+        .terminal-label {
+            color: var(--text-muted);
+        }
+
+        .terminal-value {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .clearance-bar {
+            margin-top: 1rem;
+            padding: .8rem;
+            border-radius: 8px;
+            background: var(--maroon-light);
+            color: var(--maroon);
+            font-size: .8rem;
+            font-weight: 700;
+        }
+
+        .clearance-progress {
+            height: 5px;
+            background: #eee;
+            border-radius: 99px;
+            margin-top: .5rem;
+            overflow: hidden;
+        }
+
+        .clearance-progress span {
+            display: block;
+            height: 100%;
+            width: 87%;
+            background: var(--maroon);
+            animation: clearancePulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes clearancePulse {
+            from { width: 73%; }
+            to { width: 94%; }
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            padding: .8rem 1.15rem;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: .9rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary {
+            background: var(--maroon);
+            color: #fff;
+            border-color: var(--maroon);
+        }
+
+        .btn-primary:hover {
+            background: var(--maroon-hover);
+        }
+
+        /* ============================================================
+           CLASSIFIED DOSSIERS
+           ============================================================ */
+
+        .dossier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .dossier {
+            padding: 1.25rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .dossier:hover {
+            transform: translateY(-4px);
+            border-color: rgba(128, 0, 0, .25);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .dossier-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .9rem;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--text-muted);
+            font-weight: 800;
+        }
+
+        .classified {
+            color: var(--maroon);
+        }
+
+        .dossier strong {
+            display: block;
+            margin-bottom: .25rem;
+        }
+
+        .dossier span {
+            font-size: .85rem;
+            color: var(--text-muted);
         }
 
         /* ============================================================
@@ -526,27 +731,18 @@
 
         .lore-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin: 4rem 0;
-        }
-
-        @media (min-width:768px) {
-            .lore-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
         .lore-card {
             background: #fff;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
+            border-radius: 14px;
+            padding: 2.25rem;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
         .lore-card.wide {
@@ -565,7 +761,7 @@
         }
 
         .lore-card:hover {
-            box-shadow: 0 15px 35px rgba(0,0,0,.06);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-5px);
             border-color: transparent;
         }
@@ -575,61 +771,61 @@
         }
 
         .lore-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            display: block;
+            width: fit-content;
             transition: var(--transition);
         }
 
+        .lore-card:hover .lore-icon {
+            transform: scale(1.08) rotate(-2deg);
+        }
+
         .lore-title {
+            display: block;
             font-family: "Space Grotesk", sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: .5rem;
+            margin-bottom: .4rem;
         }
 
         .lore-org {
-            font-size: .85rem;
-            font-weight: 700;
+            display: block;
+            font-size: .75rem;
+            font-weight: 800;
             color: var(--maroon);
             text-transform: uppercase;
-            letter-spacing: .05em;
-            margin-bottom: 1.25rem;
-            display: block;
+            letter-spacing: .07em;
+            margin-bottom: 1.1rem;
         }
 
         .lore-card p {
-            font-size: 1.05rem;
             color: var(--text-muted);
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         .lore-card ul {
             padding-left: 1.2rem;
             color: var(--text-muted);
-            font-size: 1rem;
-            margin-top: 1rem;
         }
 
         .lore-card li {
-            margin-bottom: .75rem;
+            margin-bottom: .7rem;
         }
 
         .highlight {
             color: var(--maroon);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* ============================================================
-           INTERACTIVE
+           DRACARYS
            ============================================================ */
 
         .dracarys-hover:hover {
             color: transparent;
-            text-shadow:
-                0 0 15px #ff4500,
-                0 0 30px #ff0000;
+            text-shadow: 0 0 15px #ff4500, 0 0 30px #ff0000;
             animation: shake .4s infinite;
             cursor: crosshair;
         }
@@ -642,9 +838,53 @@
             100% { transform: translateX(0) scale(1.1); }
         }
 
+        /* ============================================================
+           INTERACTIVE CONTROLS
+           ============================================================ */
+
+        .interactive-panel {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--bg-soft);
+        }
+
+        .interactive-label {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            font-size: .85rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+        }
+
+        .btn-interactive {
+            background: var(--maroon-light);
+            color: var(--maroon);
+            border: 1px solid var(--maroon);
+            padding: .65rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: .85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .btn-interactive:hover {
+            background: var(--maroon);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           HIDDEN / REVEALED CONTENT
+           ============================================================ */
+
         .blur-content {
             filter: blur(8px);
-            opacity: .5;
+            opacity: .45;
             transition: all .6s ease;
             user-select: none;
             pointer-events: none;
@@ -657,34 +897,380 @@
             pointer-events: auto;
         }
 
-        .btn-interactive {
-            background: var(--maroon-light);
-            color: var(--maroon);
-            border: 1px solid var(--maroon);
-            padding: .6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: .9rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1rem;
-            display: inline-block;
-            width: fit-content;
+        /* ============================================================
+           HOUSE SORTING ENGINE
+           ============================================================ */
+
+        .quiz-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
         }
 
-        .btn-interactive:hover {
+        .quiz-progress {
+            height: 5px;
+            background: #eee;
+            border-radius: 99px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .quiz-progress span {
+            display: block;
+            height: 100%;
+            width: 20%;
             background: var(--maroon);
-            color: #fff;
-            transform: translateY(-2px);
+            transition: width .4s ease;
+        }
+
+        .quiz-question {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: .65rem;
+        }
+
+        .quiz-option {
+            width: 100%;
+            text-align: left;
+            padding: .9rem 1rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .quiz-option:hover {
+            border-color: var(--maroon);
+            transform: translateX(4px);
+        }
+
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 2rem 1rem .5rem;
+        }
+
+        .quiz-result-icon {
+            font-size: 4rem;
+            margin-bottom: .75rem;
+        }
+
+        .quiz-result h3 {
+            font-size: 2rem;
+            margin-bottom: .4rem;
+        }
+
+        .quiz-result p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           DRAGON SIMULATOR
+           ============================================================ */
+
+        .simulator {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .slider-row {
+            margin-bottom: 1.4rem;
+        }
+
+        .slider-row label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: .9rem;
+            margin-bottom: .5rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--maroon);
+        }
+
+        .risk-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 270px;
+            border-radius: 12px;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .risk-score {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 5rem;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--maroon);
+        }
+
+        .risk-label {
+            margin-top: .5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            font-size: .75rem;
+        }
+
+        .risk-description {
+            color: var(--text-muted);
+            font-size: .85rem;
+            margin-top: .75rem;
+            max-width: 280px;
+        }
+
+        /* ============================================================
+           SNITCH GAME
+           ============================================================ */
+
+        .game-box {
+            position: relative;
+            height: 380px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background:
+                radial-gradient(circle at center, rgba(128,0,0,.035), transparent 45%),
+                #fafafa;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .game-hud {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+            display: flex;
+            justify-content: space-between;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .hud-item {
+            background: rgba(255,255,255,.92);
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: .45rem .7rem;
+            font-size: .75rem;
+            font-weight: 800;
+        }
+
+        .snitch {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            user-select: none;
+            transition: left .12s ease, top .12s ease;
+            z-index: 4;
+        }
+
+        .snitch:hover {
+            transform: scale(1.2);
+        }
+
+        .game-message {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .game-message h3 {
+            font-size: 1.8rem;
+            margin-bottom: .5rem;
+        }
+
+        .game-message p {
+            color: var(--text-muted);
+            max-width: 450px;
+        }
+
+        /* ============================================================
+           ANOMALY SCANNER
+           ============================================================ */
+
+        .scanner {
+            display: grid;
+            grid-template-columns: 1fr .8fr;
+            gap: 1.5rem;
+        }
+
+        .scanner-console {
+            background: #111827;
+            color: #f9fafb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: monospace;
+            min-height: 300px;
+            box-shadow: var(--shadow);
+        }
+
+        .console-top {
+            color: #9ca3af;
+            font-size: .75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .console-output {
+            line-height: 1.8;
+            font-size: .85rem;
+        }
+
+        .console-cursor {
+            display: inline-block;
+            width: 7px;
+            height: 15px;
+            background: #fff;
+            animation: blink .8s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .anomaly-result {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .anomaly-result h3 {
+            margin-bottom: 1rem;
+        }
+
+        .metric {
+            margin-bottom: 1rem;
+        }
+
+        .metric-head {
+            display: flex;
+            justify-content: space-between;
+            font-size: .78rem;
+            font-weight: 800;
+            margin-bottom: .3rem;
+        }
+
+        .metric-bar {
+            height: 6px;
+            border-radius: 99px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .metric-bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--maroon);
+            transition: width 1s cubic-bezier(.16,1,.3,1);
+        }
+
+        /* ============================================================
+           PROPHECY GENERATOR
+           ============================================================ */
+
+        .prophecy-box {
+            text-align: center;
+            background: linear-gradient(135deg, #fafafa, #fff);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .prophecy {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 700;
+            max-width: 800px;
+            margin: 1.5rem auto;
+            min-height: 70px;
+        }
+
+        .prophecy-meta {
+            color: var(--text-muted);
+            font-size: .8rem;
+        }
+
+        /* ============================================================
+           PEER REVIEW
+           ============================================================ */
+
+        .peer-review {
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
         }
 
         .peer-review-result {
             font-weight: 700;
             font-size: .9rem;
             margin-top: 1rem;
-            padding: .5rem;
+            padding: .7rem;
             border-radius: 6px;
             display: none;
+        }
+
+        /* ============================================================
+           FOOTER NOTICE
+           ============================================================ */
+
+        .classified-footer {
+            text-align: center;
+            padding: 4rem 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .classified-stamp {
+            display: inline-block;
+            border: 2px solid var(--maroon);
+            color: var(--maroon);
+            padding: .45rem 1rem;
+            font-size: .75rem;
+            font-weight: 900;
+            letter-spacing: .12em;
+            transform: rotate(-2deg);
+            margin-bottom: 1rem;
+        }
+
+        .classified-footer p {
+            color: var(--text-muted);
+            font-size: .8rem;
         }
 
         /* ============================================================
@@ -693,10 +1279,8 @@
 
         [data-reveal] {
             opacity: 0;
-            transform: translateY(30px);
-            transition:
-                opacity .8s ease,
-                transform .8s cubic-bezier(.16,1,.3,1);
+            transform: translateY(25px);
+            transition: opacity .7s ease, transform .7s cubic-bezier(.16, 1, .3, 1);
         }
 
         [data-reveal].is-visible {
@@ -712,11 +1296,31 @@
             transition-delay: .2s;
         }
 
+        .delay-3 {
+            transition-delay: .3s;
+        }
+
         /* ============================================================
            RESPONSIVE
            ============================================================ */
 
-        @media (max-width:700px) {
+        @media (max-width: 900px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .dossier-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .simulator,
+            .scanner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
             .gate-card {
                 padding: 1.35rem;
             }
@@ -738,6 +1342,10 @@
                 gap: .35rem;
             }
 
+            .wrap {
+                width: min(100% - 2rem, 1100px);
+            }
+
             .grid-bg {
                 padding: 4rem 0;
             }
@@ -746,8 +1354,28 @@
                 font-size: 2.8rem;
             }
 
+            .lore-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lore-card.wide {
+                grid-column: auto;
+            }
+
             .lore-card {
-                padding: 2rem;
+                padding: 1.5rem;
+            }
+
+            .dossier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3.5rem 0;
+            }
+
+            .game-box {
+                height: 320px;
             }
         }
 
@@ -768,18 +1396,15 @@
 
     <link rel="stylesheet" href="components.css">
 </head>
-
 <body class="page-restricted access-locked">
 
-<!-- ============================================================
-     LEVEL 04 IDENTITY VERIFICATION
-     IMPORTANT:
-     This is a themed client-side gate, not real security.
-     ============================================================ -->
+<script src="js/components.js"></script>
 
+<!-- ============================================================
+     RESTRICTED ACCESS GATE
+     ============================================================ -->
 <div id="restricted-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
     <div class="gate-card" id="gate-card">
-
         <div class="gate-terminal-bar">
             <span>MINISTRY SECURITY NETWORK // SECURE CHANNEL</span>
 
@@ -919,8 +1544,6 @@
     </div>
 </div>
 
-<script src="js/components.js"></script>
-
 <div id="site-header" aria-label="Site header"></div>
 
 <!-- ============================================================
@@ -931,584 +1554,1352 @@
     <canvas id="lore-canvas"></canvas>
 
     <div class="wrap">
-        <div data-reveal>
-            <div class="kicker">
-                Level 4 Authorization Required
+        <div class="hero-layout">
+
+            <div data-reveal>
+                <div class="kicker">Level 4 Authorization Required</div>
+
+                <h1 class="hero-h1">
+                    The Restricted Section
+                </h1>
+
+                <p class="intro-lead">
+                    A quantitative breakdown of critical universe lore,
+                    allegiance statistics, questionable theorems, and
+                    datasets that probably should have remained classified.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#archive" class="btn btn-primary">
+                        Enter the Archive ↓
+                    </a>
+
+                    <a href="index.html" class="btn">
+                        ← Return to Portfolio
+                    </a>
+                </div>
             </div>
 
-            <h1 class="hero-h1">
-                The Restricted Section
-            </h1>
+            <div class="hero-terminal" data-reveal>
+                <div class="terminal-bar">
+                    <div class="terminal-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-            <p class="intro-lead">
-                A quantitative breakdown of critical universe lore,
-                allegiance statistics, and unverified theorems.
-                Proceed with caution—or at least a highly optimized
-                sorting algorithm.
-            </p>
+                    <span>RESTRICTED_TERMINAL</span>
+
+                    <span class="terminal-status">
+                        ● ONLINE
+                    </span>
+                </div>
+
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-label">Clearance</span>
+                        <span class="terminal-value">LEVEL 4</span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="terminal-label">Threat Level</span>
+                        <span class="terminal-value">Mostly Harmless</span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="terminal-label">Data Integrity</span>
+                        <span class="terminal-value">73.4%</span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="terminal-label">Dragon Status</span>
+                        <span class="terminal-value">Unsupervised</span>
+                    </div>
+
+                    <div class="terminal-line">
+                        <span class="terminal-label">Peer Review</span>
+                        <span class="terminal-value">Pending Since 1998</span>
+                    </div>
+
+                    <div class="clearance-bar">
+                        AUTHORIZATION CONFIDENCE
+                        <div class="clearance-progress">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
 <!-- ============================================================
-     CONTENT
+     CLASSIFIED DOSSIERS
      ============================================================ -->
 
-<section class="wrap">
-    <div class="lore-grid">
+<section class="section section-soft" id="archive">
+    <div class="wrap">
 
-        <!-- CARD 1 -->
-
-        <div class="lore-card" data-reveal>
-            <span class="lore-icon">
-                🦁
-            </span>
-
-            <span class="lore-title">
-                Ministry of Magic Registry
-            </span>
-
-            <span class="lore-org">
-                Department of Magical Metrics
-            </span>
-
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Classified Archive</div>
+            <h2>Files You Were Probably Not Supposed to Open</h2>
             <p>
-                Official classification records for cross-universe
-                risk management and spell efficiency operations.
+                The following records have been recovered from various
+                suspiciously powerful institutions. Their statistical
+                validity remains under investigation.
             </p>
-
-            <ul>
-                <li>
-                    <span class="highlight">
-                        House Affinity:
-                    </span>
-                    Gryffindor. Demonstrates a statistically
-                    significant bias toward deploying untested
-                    predictive models to production out of sheer bravery.
-                </li>
-
-                <li>
-                    <span class="highlight">
-                        Hardware Specs:
-                    </span>
-                    The Elder Wand. Grants root access to the fabric
-                    of reality with unparalleled computational throughput,
-                    bypassing standard API rate limits.
-                </li>
-
-                <li>
-                    <span class="highlight">
-                        Magical Security:
-                    </span>
-                    Engineered a Two-Stage Offline Signature Verification
-                    system utilizing KNN-Harris Pre-Filtering to
-                    definitively prevent Polyjuice Potion identity fraud.
-                </li>
-            </ul>
         </div>
 
-        <!-- CARD 2 -->
+        <div class="dossier-grid">
 
-        <div class="lore-card delay-1" data-reveal>
-            <span
-                class="lore-icon dracarys-hover"
-                title="Dracarys.">
-                🐉
-            </span>
-
-            <span class="lore-title">
-                The Iron Throne Audit
-            </span>
-
-            <span class="lore-org">
-                Small Council Econometrics
-            </span>
-
-            <p>
-                Macroeconomic stability analysis and aerial supremacy
-                tracking across the Seven Kingdoms.
-            </p>
-
-            <ul>
-                <li>
-                    <span class="highlight">
-                        House Allegiance:
-                    </span>
-                    House Targaryen. Fire, Blood, and highly
-                    optimized data pipelines.
-                </li>
-
-                <li>
-                    <span class="highlight">
-                        Aviation Assets:
-                    </span>
-                    Balerion the Black Dread. Initially, the tracking
-                    app was built strictly for monitoring his daily
-                    livestock consumption, but was later tweaked to
-                    generate actual scorched-earth casualty results.
-                </li>
-
-                <li>
-                    <span class="highlight">
-                        Succession Database:
-                    </span>
-                    To handle redundant Targaryen naming conventions,
-                    the royal lineage algorithm strictly matches names,
-                    disregarding titles to prevent duplicate inheritance crises.
-                </li>
-            </ul>
-        </div>
-
-        <!-- CARD 3 -->
-
-        <div class="lore-card wide delay-2" data-reveal>
-            <span class="lore-icon">
-                📜
-            </span>
-
-            <span class="lore-title">
-                Unsolved Universe Theorems
-            </span>
-
-            <span class="lore-org">
-                The Maester’s Citadel & Department of Mysteries
-            </span>
-
-            <p>
-                Theoretical models currently undergoing rigorous
-                peer review by fictional entities and automated
-                testing suites.
-            </p>
-
-            <div
-                style="
-                    display:grid;
-                    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-                    gap:2rem;
-                    margin-top:1.5rem;
-                ">
-
-                <div>
-                    <strong>
-                        Theorem I: The Causal Loop Error
-                    </strong>
-
-                    <p style="font-size:.95rem;margin-top:.5rem;">
-                        Proving mathematically why Time-Turners
-                        fundamentally break Ordinary Least Squares
-                        regression timelines by introducing recursive
-                        heteroskedasticity.
-                    </p>
+            <div class="dossier" data-reveal>
+                <div class="dossier-label">
+                    <span>FILE 001</span>
+                    <span class="classified">CLASSIFIED</span>
                 </div>
-
-                <div>
-                    <strong>
-                        Theorem II: The Baelish Variance
-                    </strong>
-
-                    <p style="font-size:.95rem;margin-top:.5rem;">
-                        Evaluating Petyr Baelish's extreme tax evasion
-                        strategies using multivariate analysis to
-                        detect anomalous gold reserves in the Vale.
-                    </p>
-                </div>
-
-                <div>
-                    <strong>
-                        Theorem III: The Golden Snitch Trajectory
-                    </strong>
-
-                    <p style="font-size:.95rem;margin-top:.5rem;">
-                        Modeling the exact probability distribution
-                        of a Golden Snitch's flight path using non-linear
-                        Brownian motion and aerodynamic drag variables.
-                    </p>
-                </div>
+                <strong>Ministry Registry</strong>
+                <span>Magical metrics & risk management.</span>
             </div>
 
-            <div
-                style="
-                    text-align:center;
-                    margin-top:2rem;
-                    border-top:1px solid var(--border);
-                    padding-top:1.5rem;
-                ">
-
-                <button
-                    class="btn-interactive"
-                    type="button"
-                    onclick="triggerPeerReview()">
-                    Submit for Peer Review
-                </button>
-
-                <div
-                    id="review-output"
-                    class="peer-review-result">
+            <div class="dossier" data-reveal>
+                <div class="dossier-label">
+                    <span>FILE 002</span>
+                    <span class="classified">CLASSIFIED</span>
                 </div>
+                <strong>Iron Throne Audit</strong>
+                <span>Succession economics & dragon exposure.</span>
             </div>
+
+            <div class="dossier" data-reveal>
+                <div class="dossier-label">
+                    <span>FILE 003</span>
+                    <span class="classified">TOP SECRET</span>
+                </div>
+                <strong>Universe Theorems</strong>
+                <span>Models that should probably not exist.</span>
+            </div>
+
+            <div class="dossier" data-reveal>
+                <div class="dossier-label">
+                    <span>FILE 004</span>
+                    <span class="classified">EYES ONLY</span>
+                </div>
+                <strong>Marauder Protocol</strong>
+                <span>Geospatial surveillance architecture.</span>
+            </div>
+
+            <div class="dossier" data-reveal>
+                <div class="dossier-label">
+                    <span>FILE 005</span>
+                    <span class="classified">RESTRICTED</span>
+                </div>
+                <strong>Valyrian Algorithms</strong>
+                <span>Data structures forged in dragonfire.</span>
+            </div>
+
+            <div class="dossier" data-reveal>
+                <div class="dossier-label">
+                    <span>FILE 006</span>
+                    <span class="classified">UNKNOWN</span>
+                </div>
+                <strong>Department of Mysteries</strong>
+                <span>We genuinely do not know what this is.</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     LORE
+     ============================================================ -->
+
+<section class="section">
+    <div class="wrap">
+
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Recovered Intelligence</div>
+            <h2>Universe Lore, Quantified</h2>
+            <p>
+                Some of the most important geopolitical, magical, and
+                aerodynamic problems of our time—now expressed through
+                questionable data science.
+            </p>
         </div>
 
-        <!-- CARD 4 -->
+        <div class="lore-grid">
 
-        <div class="lore-card" data-reveal>
-            <span class="lore-icon">
-                🗺️
-            </span>
+            <!-- MINISTRY -->
 
-            <span class="lore-title">
-                The Marauder's Protocol
-            </span>
+            <div class="lore-card" data-reveal>
+                <span class="lore-icon">🦁</span>
 
-            <span class="lore-org">
-                Mischief Management Systems
-            </span>
+                <span class="lore-title">
+                    Ministry of Magic Registry
+                </span>
 
-            <p>
-                A real-time geospatial surveillance matrix tracking
-                moving entities across heavily fortified castle grounds.
-            </p>
+                <span class="lore-org">
+                    Department of Magical Metrics
+                </span>
 
-            <div id="marauder-content" class="blur-content">
+                <p>
+                    Official classification records for cross-universe
+                    risk management and spell efficiency operations.
+                </p>
+
                 <ul>
                     <li>
-                        <span class="highlight">
-                            Authentication:
-                        </span>
-                        Handshake requires the exact cryptographic
-                        passphrase to bypass the firewall.
+                        <span class="highlight">House Affinity:</span>
+                        Gryffindor. Demonstrates a statistically
+                        significant bias toward deploying untested
+                        predictive models to production out of sheer bravery.
                     </li>
 
                     <li>
-                        <span class="highlight">
-                            Surveillance:
-                        </span>
-                        Real-time WebSocket connection displaying
-                        XYZ coordinates of Professor Snape.
+                        <span class="highlight">Hardware Specs:</span>
+                        The Elder Wand. Grants root access to the fabric
+                        of reality with unparalleled computational throughput.
                     </li>
 
                     <li>
-                        <span class="highlight">
-                            Session Termination:
-                        </span>
-                        Memory wiping and cache clearing initialized
-                        to ensure zero data retention.
+                        <span class="highlight">Magical Security:</span>
+                        Engineered a Two-Stage Offline Signature Verification
+                        system utilizing KNN-Harris Pre-Filtering to
+                        definitively prevent Polyjuice Potion identity fraud.
                     </li>
                 </ul>
             </div>
 
-            <button
-                id="marauder-btn"
-                class="btn-interactive"
-                type="button"
-                onclick="toggleMarauder()">
-                I solemnly swear that I am up to no good
-            </button>
+            <!-- THRONE -->
+
+            <div class="lore-card delay-1" data-reveal>
+                <span class="lore-icon dracarys-hover" title="Dracarys.">
+                    🐉
+                </span>
+
+                <span class="lore-title">
+                    The Iron Throne Audit
+                </span>
+
+                <span class="lore-org">
+                    Small Council Econometrics
+                </span>
+
+                <p>
+                    Macroeconomic stability analysis and aerial supremacy
+                    tracking across the Seven Kingdoms.
+                </p>
+
+                <ul>
+                    <li>
+                        <span class="highlight">House Allegiance:</span>
+                        House Targaryen. Fire, Blood, and highly
+                        optimized data pipelines.
+                    </li>
+
+                    <li>
+                        <span class="highlight">Aviation Assets:</span>
+                        Balerion the Black Dread. Initially, the tracking
+                        app was built strictly for monitoring his daily
+                        livestock consumption, but was later tweaked to
+                        generate actual scorched-earth casualty results.
+                    </li>
+
+                    <li>
+                        <span class="highlight">Succession Database:</span>
+                        To handle redundant Targaryen naming conventions,
+                        the royal lineage algorithm strictly matches names,
+                        disregarding titles to prevent duplicate inheritance crises.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- THEOREMS -->
+
+            <div class="lore-card wide delay-2" data-reveal>
+                <span class="lore-icon">📜</span>
+
+                <span class="lore-title">
+                    Unsolved Universe Theorems
+                </span>
+
+                <span class="lore-org">
+                    The Maester’s Citadel & Department of Mysteries
+                </span>
+
+                <p>
+                    Theoretical models currently undergoing rigorous
+                    peer review by fictional entities and automated
+                    testing suites.
+                </p>
+
+                <div style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                    gap: 1.5rem;
+                    margin-top: 1.5rem;
+                ">
+
+                    <div>
+                        <strong>Theorem I: The Causal Loop Error</strong>
+                        <p style="font-size:.92rem;margin-top:.45rem;">
+                            Proving mathematically why Time-Turners
+                            fundamentally break Ordinary Least Squares
+                            regression timelines by introducing recursive
+                            heteroskedasticity.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Theorem II: The Baelish Variance</strong>
+                        <p style="font-size:.92rem;margin-top:.45rem;">
+                            Evaluating Petyr Baelish's extreme tax evasion
+                            strategies using multivariate analysis to
+                            detect anomalous gold reserves in the Vale.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Theorem III: The Golden Snitch Trajectory</strong>
+                        <p style="font-size:.92rem;margin-top:.45rem;">
+                            Modeling the exact probability distribution
+                            of a Golden Snitch's flight path using non-linear
+                            Brownian motion and aerodynamic drag variables.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="peer-review">
+                    <button class="btn-interactive" onclick="triggerPeerReview()">
+                        Submit for Peer Review
+                    </button>
+
+                    <div id="review-output" class="peer-review-result"></div>
+                </div>
+            </div>
+
+            <!-- MARAUDER -->
+
+            <div class="lore-card" data-reveal>
+                <span class="lore-icon">🗺️</span>
+
+                <span class="lore-title">
+                    The Marauder's Protocol
+                </span>
+
+                <span class="lore-org">
+                    Mischief Management Systems
+                </span>
+
+                <p>
+                    A real-time geospatial surveillance matrix tracking
+                    moving entities across heavily fortified castle grounds.
+                </p>
+
+                <div id="marauder-content" class="blur-content">
+                    <ul>
+                        <li>
+                            <span class="highlight">Authentication:</span>
+                            Handshake requires the exact cryptographic
+                            passphrase to bypass the firewall.
+                        </li>
+
+                        <li>
+                            <span class="highlight">Surveillance:</span>
+                            Real-time WebSocket connection displaying
+                            XYZ coordinates of Professor Snape.
+                        </li>
+
+                        <li>
+                            <span class="highlight">Session Termination:</span>
+                            Memory wiping and cache clearing initialized
+                            to ensure zero data retention.
+                        </li>
+                    </ul>
+                </div>
+
+                <button id="marauder-btn"
+                        class="btn-interactive"
+                        onclick="toggleMarauder()">
+                    I solemnly swear that I am up to no good
+                </button>
+            </div>
+
+            <!-- VALYRIA -->
+
+            <div class="lore-card delay-1" data-reveal>
+                <span class="lore-icon">⚔️</span>
+
+                <span class="lore-title">
+                    Valyrian Steel Algorithms
+                </span>
+
+                <span class="lore-org">
+                    Old Valyria Data Forges
+                </span>
+
+                <p>
+                    Constructing unbreakable, lightweight data structures
+                    using archaic formulas lost to modern developers.
+                </p>
+
+                <ul>
+                    <li>
+                        <span class="highlight">Durability:</span>
+                        Capable of slicing through bloated CSV files and
+                        infinitely looping White Walker processes without
+                        memory leaks.
+                    </li>
+
+                    <li>
+                        <span class="highlight">Forging Process:</span>
+                        Requires dragonfire, blood magic, and an unnecessarily
+                        complex combination of nested SQL queries to maintain
+                        absolute edge sharpness.
+                    </li>
+                </ul>
+            </div>
+
         </div>
-
-        <!-- CARD 5 -->
-
-        <div class="lore-card delay-1" data-reveal>
-            <span class="lore-icon">
-                ⚔️
-            </span>
-
-            <span class="lore-title">
-                Valyrian Steel Algorithms
-            </span>
-
-            <span class="lore-org">
-                Old Valyria Data Forges
-            </span>
-
-            <p>
-                Constructing unbreakable, lightweight data structures
-                using archaic formulas lost to modern developers.
-            </p>
-
-            <ul>
-                <li>
-                    <span class="highlight">
-                        Durability:
-                    </span>
-                    Capable of slicing through bloated CSV files and
-                    infinitely looping White Walker processes without
-                    memory leaks.
-                </li>
-
-                <li>
-                    <span class="highlight">
-                        Forging Process:
-                    </span>
-                    Requires dragonfire, blood magic, and an unnecessarily
-                    complex combination of nested SQL queries to maintain
-                    absolute edge sharpness.
-                </li>
-            </ul>
-        </div>
-
     </div>
+</section>
+
+<!-- ============================================================
+     HOUSE ALLOCATION ENGINE
+     ============================================================ -->
+
+<section class="section section-soft" id="sorting">
+    <div class="wrap">
+
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Classification Engine</div>
+            <h2>Determine Your House</h2>
+            <p>
+                A highly sophisticated machine-learning model with
+                absolutely no peer-reviewed methodology whatsoever.
+            </p>
+        </div>
+
+        <div class="quiz-box" data-reveal>
+
+            <div class="quiz-progress">
+                <span id="quiz-progress"></span>
+            </div>
+
+            <div id="quiz-question" class="quiz-question">
+                Loading classification protocol...
+            </div>
+
+            <div id="quiz-options" class="quiz-options"></div>
+
+            <div id="quiz-result" class="quiz-result">
+                <div id="quiz-result-icon" class="quiz-result-icon"></div>
+                <h3 id="quiz-result-house"></h3>
+                <p id="quiz-result-description"></p>
+
+                <button class="btn-interactive" onclick="restartQuiz()">
+                    Re-run Classification
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     DRAGON RISK SIMULATOR
+     ============================================================ -->
+
+<section class="section" id="dragon-simulator">
+    <div class="wrap">
+
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Small Council Analytics</div>
+            <h2>Dragon Flight Risk Simulator</h2>
+            <p>
+                Adjust the operational parameters and calculate the
+                probability that the mission ends with someone screaming.
+            </p>
+        </div>
+
+        <div class="simulator" data-reveal>
+
+            <div>
+
+                <div class="slider-row">
+                    <label>
+                        <span>Dragon Mass</span>
+                        <span id="mass-value">65%</span>
+                    </label>
+                    <input id="mass-slider"
+                           type="range"
+                           min="10"
+                           max="100"
+                           value="65">
+                </div>
+
+                <div class="slider-row">
+                    <label>
+                        <span>Wind Volatility</span>
+                        <span id="wind-value">40%</span>
+                    </label>
+                    <input id="wind-slider"
+                           type="range"
+                           min="0"
+                           max="100"
+                           value="40">
+                </div>
+
+                <div class="slider-row">
+                    <label>
+                        <span>Route Complexity</span>
+                        <span id="route-value">55%</span>
+                    </label>
+                    <input id="route-slider"
+                           type="range"
+                           min="0"
+                           max="100"
+                           value="55">
+                </div>
+
+                <div class="slider-row">
+                    <label>
+                        <span>Royal Competence</span>
+                        <span id="competence-value">25%</span>
+                    </label>
+                    <input id="competence-slider"
+                           type="range"
+                           min="0"
+                           max="100"
+                           value="25">
+                </div>
+
+            </div>
+
+            <div class="risk-display">
+                <div id="risk-score" class="risk-score">64</div>
+                <div id="risk-label" class="risk-label">
+                    Elevated Risk
+                </div>
+                <p id="risk-description" class="risk-description">
+                    Mission is technically possible. Whether it is wise
+                    remains a separate statistical question.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     GOLDEN SNITCH GAME
+     ============================================================ -->
+
+<section class="section section-soft" id="snitch-game">
+    <div class="wrap">
+
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Athletic Analytics</div>
+            <h2>Catch the Golden Snitch</h2>
+            <p>
+                You have 15 seconds. Catch as many as possible.
+                The scoring algorithm is completely unfair.
+            </p>
+        </div>
+
+        <div class="game-box" id="game-box" data-reveal>
+
+            <div class="game-hud">
+                <div class="hud-item">
+                    SCORE: <span id="game-score">0</span>
+                </div>
+
+                <div class="hud-item">
+                    TIME: <span id="game-time">15</span>s
+                </div>
+            </div>
+
+            <div id="game-message" class="game-message">
+                <h3>Ready for deployment?</h3>
+                <p>
+                    Click the Snitch as quickly as possible.
+                    Each successful catch relocates it.
+                </p>
+
+                <button class="btn-interactive"
+                        onclick="startSnitchGame()">
+                    Begin Hunt
+                </button>
+            </div>
+
+            <div id="snitch"
+                 class="snitch"
+                 onclick="catchSnitch()"
+                 aria-label="Golden Snitch">
+                🪽
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ANOMALY SCANNER
+     ============================================================ -->
+
+<section class="section" id="anomaly">
+    <div class="wrap">
+
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Department of Mysteries</div>
+            <h2>Anomaly Detection Console</h2>
+            <p>
+                Scan the multiverse for suspicious statistical activity.
+                There is no guarantee that anything discovered should be investigated.
+            </p>
+        </div>
+
+        <div class="scanner">
+
+            <div class="scanner-console" data-reveal>
+                <div class="console-top">
+                    DEPARTMENT_OF_MYSTERIES // ANOMALY_SCANNER v4.2
+                </div>
+
+                <div id="console-output" class="console-output">
+                    &gt; Establishing connection...<br>
+                    &gt; Loading dimensional coordinates...<br>
+                    &gt; Checking temporal consistency...<br>
+                    &gt; Awaiting scan command...
+                    <span class="console-cursor"></span>
+                </div>
+
+                <button class="btn-interactive"
+                        onclick="runAnomalyScan()">
+                    Run Anomaly Scan
+                </button>
+            </div>
+
+            <div class="anomaly-result" data-reveal>
+                <h3>Detected Variables</h3>
+
+                <div class="metric">
+                    <div class="metric-head">
+                        <span>Temporal Instability</span>
+                        <span id="temporal-number">0%</span>
+                    </div>
+                    <div class="metric-bar">
+                        <span id="temporal-bar"></span>
+                    </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-head">
+                        <span>Dragon Activity</span>
+                        <span id="dragon-number">0%</span>
+                    </div>
+                    <div class="metric-bar">
+                        <span id="dragon-bar"></span>
+                    </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-head">
+                        <span>Political Turbulence</span>
+                        <span id="political-number">0%</span>
+                    </div>
+                    <div class="metric-bar">
+                        <span id="political-bar"></span>
+                    </div>
+                </div>
+
+                <div class="metric">
+                    <div class="metric-head">
+                        <span>Statistical Absurdity</span>
+                        <span id="absurdity-number">0%</span>
+                    </div>
+                    <div class="metric-bar">
+                        <span id="absurdity-bar"></span>
+                    </div>
+                </div>
+
+                <p id="anomaly-text"
+                   style="font-size:.85rem;color:var(--text-muted);margin-top:1.25rem;">
+                    No anomaly detected.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PROPHECY GENERATOR
+     ============================================================ -->
+
+<section class="section section-soft" id="prophecy">
+    <div class="wrap">
+
+        <div class="section-heading" data-reveal>
+            <div class="kicker">Department of Mysteries</div>
+            <h2>Generate a Statistical Prophecy</h2>
+            <p>
+                Predict the future using a methodology nobody can
+                independently reproduce.
+            </p>
+        </div>
+
+        <div class="prophecy-box" data-reveal>
+
+            <div style="font-size:3rem;">
+                🔮
+            </div>
+
+            <div id="prophecy-text" class="prophecy">
+                The model has not yet spoken.
+            </div>
+
+            <div id="prophecy-meta" class="prophecy-meta">
+                Confidence interval: unknowable
+            </div>
+
+            <button class="btn-interactive"
+                    onclick="generateProphecy()">
+                Consult the Model
+            </button>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FINAL CLASSIFIED NOTICE
+     ============================================================ -->
+
+<section class="classified-footer">
+
+    <div class="classified-stamp">
+        CLASSIFIED // DO NOT INDEX
+    </div>
+
+    <p>
+        Access logged automatically.
+        Your curiosity has been recorded for purely statistical purposes.
+    </p>
+
+    <p style="margin-top:.4rem;">
+        Restricted Section © Dexter Pascual Ocado
+    </p>
+
 </section>
 
 <div id="site-footer" aria-label="Site footer"></div>
 
 <!-- ============================================================
-     INTERACTION
+     JAVASCRIPT
      ============================================================ -->
 
 <script>
-/* ============================================================
-   RESTRICTED SECTION IDENTITY GATE
-   ============================================================ */
+    /* ============================================================
+       RESTRICTED SECTION IDENTITY GATE
+       ============================================================ */
+    (function () {
+        const STORAGE_KEY = "restrictedSectionUnlocked";
+        const gate = document.getElementById("restricted-gate");
+        const gateCard = document.getElementById("gate-card");
+        const form = document.getElementById("identity-form");
+        const status = document.getElementById("gate-status");
 
-(function () {
-    const STORAGE_KEY = "restrictedSectionUnlocked";
+        const firstInput = document.getElementById("first-name");
+        const middleInput = document.getElementById("middle-name");
+        const lastInput = document.getElementById("last-name");
 
-    const gate = document.getElementById("restricted-gate");
-    const gateCard = document.getElementById("gate-card");
-    const form = document.getElementById("identity-form");
-    const status = document.getElementById("gate-status");
+        const expected = {
+            first: "dexter",
+            middle: "pascual",
+            last: "ocado"
+        };
 
-    const firstInput = document.getElementById("first-name");
-    const middleInput = document.getElementById("middle-name");
-    const lastInput = document.getElementById("last-name");
-
-    const expected = {
-        first: "dexter",
-        middle: "pascual",
-        last: "ocado"
-    };
-
-    function normalize(value) {
-        return value
-            .trim()
-            .replace(/\s+/g, " ")
-            .toLowerCase();
-    }
-
-    function unlock() {
-        sessionStorage.setItem(STORAGE_KEY, "true");
-
-        gateCard.classList.add("verified");
-        document.body.classList.remove("access-locked");
-
-        const successLayer = gateCard.querySelector(".gate-success");
-        if (successLayer) {
-            successLayer.setAttribute("aria-hidden", "false");
+        function normalize(value) {
+            return value
+                .trim()
+                .replace(/\s+/g, " ")
+                .toLowerCase();
         }
 
-        setTimeout(function () {
-            gate.classList.add("gate-hidden");
+        function unlock() {
+            sessionStorage.setItem(STORAGE_KEY, "true");
+
+            gateCard.classList.add("verified");
+            document.body.classList.remove("access-locked");
+
+            const successLayer = gateCard.querySelector(".gate-success");
+            if (successLayer) {
+                successLayer.setAttribute("aria-hidden", "false");
+            }
 
             setTimeout(function () {
-                gate.setAttribute("aria-hidden", "true");
-            }, 850);
-        }, 1500);
-    }
+                gate.classList.add("gate-hidden");
 
-    function reject() {
-        gateCard.classList.remove("shake");
-
-        void gateCard.offsetWidth;
-
-        gateCard.classList.add("shake");
-
-        status.textContent =
-            "✕ IDENTITY NOT RECOGNIZED — Nice try. This isn't your Restricted Section.";
-
-        status.className = "gate-status error";
-
-        firstInput.value = "";
-        middleInput.value = "";
-        lastInput.value = "";
-
-        firstInput.focus();
-    }
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const first = normalize(firstInput.value);
-        const middle = normalize(middleInput.value);
-        const last = normalize(lastInput.value);
-
-        if (
-            first === expected.first &&
-            middle === expected.middle &&
-            last === expected.last
-        ) {
-            status.textContent = "✓ IDENTITY MATCH CONFIRMED";
-            status.className = "gate-status success";
-            unlock();
-        } else {
-            reject();
+                setTimeout(function () {
+                    gate.setAttribute("aria-hidden", "true");
+                }, 850);
+            }, 1500);
         }
-    });
 
-    [firstInput, middleInput, lastInput].forEach(function (input) {
-        input.addEventListener("input", function () {
-            status.textContent = "";
-            status.className = "gate-status";
-        });
-    });
+        function reject() {
+            gateCard.classList.remove("shake");
+            void gateCard.offsetWidth;
+            gateCard.classList.add("shake");
 
-    /*
-     * If the visitor already authenticated during this browser session,
-     * skip the gate. sessionStorage intentionally resets when the
-     * browsing session ends.
-     */
-    if (sessionStorage.getItem(STORAGE_KEY) === "true") {
-        gate.classList.add("gate-hidden");
-        gate.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("access-locked");
-    } else {
-        setTimeout(function () {
+            status.textContent =
+                "✕ IDENTITY NOT RECOGNIZED — Nice try. This isn't your Restricted Section.";
+
+            status.className = "gate-status error";
+
+            firstInput.value = "";
+            middleInput.value = "";
+            lastInput.value = "";
+
             firstInput.focus();
-        }, 100);
+        }
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const first = normalize(firstInput.value);
+            const middle = normalize(middleInput.value);
+            const last = normalize(lastInput.value);
+
+            if (
+                first === expected.first &&
+                middle === expected.middle &&
+                last === expected.last
+            ) {
+                status.textContent = "✓ IDENTITY MATCH CONFIRMED";
+                status.className = "gate-status success";
+                unlock();
+            } else {
+                reject();
+            }
+        });
+
+        [firstInput, middleInput, lastInput].forEach(function (input) {
+            input.addEventListener("input", function () {
+                status.textContent = "";
+                status.className = "gate-status";
+            });
+        });
+
+        if (sessionStorage.getItem(STORAGE_KEY) === "true") {
+            gate.classList.add("gate-hidden");
+            gate.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("access-locked");
+        } else {
+            setTimeout(function () {
+                firstInput.focus();
+            }, 100);
+        }
+    })();
+
+    /* ============================================================
+       MARAUDER PROTOCOL
+       ============================================================ */
+
+    function toggleMarauder() {
+        const content = document.getElementById("marauder-content");
+        const btn = document.getElementById("marauder-btn");
+
+        const revealed = content.classList.toggle("revealed");
+
+        if (revealed) {
+            btn.innerText = "Mischief Managed (Hide Data)";
+            btn.style.background = "#111827";
+            btn.style.color = "#fff";
+            btn.style.borderColor = "#111827";
+        } else {
+            btn.innerText = "I solemnly swear that I am up to no good";
+            btn.style.background = "var(--maroon-light)";
+            btn.style.color = "var(--maroon)";
+            btn.style.borderColor = "var(--maroon)";
+        }
     }
-})();
 
+    /* ============================================================
+       PEER REVIEW
+       ============================================================ */
 
-function toggleMarauder() {
-    const content =
-        document.getElementById("marauder-content");
-
-    const btn =
-        document.getElementById("marauder-btn");
-
-    if (content.classList.contains("revealed")) {
-        content.classList.remove("revealed");
-
-        btn.innerText =
-            "I solemnly swear that I am up to no good";
-
-        btn.style.background =
-            "var(--maroon-light)";
-
-        btn.style.color =
-            "var(--maroon)";
-
-        btn.style.borderColor =
-            "var(--maroon)";
-    } else {
-        content.classList.add("revealed");
-
-        btn.innerText =
-            "Mischief Managed (Hide Data)";
-
-        btn.style.background =
-            "#111827";
-
-        btn.style.color =
-            "white";
-
-        btn.style.borderColor =
-            "#111827";
-    }
-}
-
-
-function triggerPeerReview() {
-    const responses = [
-        "❌ Rejected: The Citadel claims your math is 'dark magic'.",
-        "✅ Approved: Hermione Granger peer-reviewed this and found no flaws.",
-        "⚠️ Revisions Required: Please adjust for dragon inflation rates.",
-        "❌ Rejected: Burned to ashes by Balerion before publication.",
-        "✅ Published: Currently trending in the Daily Prophet.",
-        "⚠️ Error 404: Manuscript lost in the Room of Requirement."
-    ];
-
-    const output =
-        document.getElementById("review-output");
-
-    const randomResponse =
-        responses[
-            Math.floor(
-                Math.random() * responses.length
-            )
+    function triggerPeerReview() {
+        const responses = [
+            "❌ Rejected: The Citadel claims your math is 'dark magic'.",
+            "✅ Approved: Peer review complete. No obvious flaws detected.",
+            "⚠️ Revisions Required: Please adjust for dragon inflation rates.",
+            "❌ Rejected: Burned to ashes by Balerion before publication.",
+            "✅ Published: Currently trending in the Daily Prophet.",
+            "⚠️ Error 404: Manuscript lost in the Room of Requirement.",
+            "❌ Rejected: Sample size consisted entirely of wizards named Gary.",
+            "✅ Approved: Hermione has apparently checked the methodology."
         ];
 
-    output.innerText = "Processing...";
-    output.style.display = "block";
-    output.style.background = "var(--bg-grid)";
-    output.style.color = "var(--text-muted)";
+        const output = document.getElementById("review-output");
+        const response = responses[Math.floor(Math.random() * responses.length)];
 
-    setTimeout(() => {
-        output.innerText = randomResponse;
+        output.innerText = "Processing...";
+        output.style.display = "block";
+        output.style.background = "var(--bg-grid)";
+        output.style.color = "var(--text-muted)";
 
-        if (randomResponse.includes("✅")) {
-            output.style.background = "#dcfce7";
-            output.style.color = "#166534";
-        }
-        else if (randomResponse.includes("❌")) {
-            output.style.background = "#fee2e2";
-            output.style.color = "#991b1b";
-        }
-        else {
-            output.style.background = "#fef3c7";
-            output.style.color = "#92400e";
-        }
-    }, 800);
-}
+        setTimeout(() => {
+            output.innerText = response;
 
-
-/* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const revealElements =
-            document.querySelectorAll("[data-reveal]");
-
-        const revealOnScroll =
-            new IntersectionObserver(
-                (entries, observer) => {
-
-                    entries.forEach(entry => {
-
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
-
-                        entry.target.classList.add(
-                            "is-visible"
-                        );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-                    });
-                },
-                {
-                    threshold: .1,
-                    rootMargin: "0px 0px -50px 0px"
-                }
-            );
-
-        revealElements.forEach(
-            el => revealOnScroll.observe(el)
-        );
+            if (response.includes("✅")) {
+                output.style.background = "var(--green-bg)";
+                output.style.color = "var(--green)";
+            } else if (response.includes("❌")) {
+                output.style.background = "var(--red-bg)";
+                output.style.color = "var(--red)";
+            } else {
+                output.style.background = "var(--amber-bg)";
+                output.style.color = "var(--amber)";
+            }
+        }, 800);
     }
-);
 
+    /* ============================================================
+       HOUSE ALLOCATION ENGINE
+       ============================================================ */
 
-/* ============================================================
-   BACKGROUND NETWORK
-   ============================================================ */
+    const quizQuestions = [
+        {
+            question: "A production model suddenly fails at 2:00 AM. What do you do?",
+            options: [
+                ["Deploy a hotfix immediately.", "gryffindor"],
+                ["Investigate the root cause first.", "ravenclaw"],
+                ["Wake up the person who built it.", "slytherin"],
+                ["Make sure everyone else is okay first.", "hufflepuff"]
+            ]
+        },
+        {
+            question: "You discover a massive unexplained dataset anomaly.",
+            options: [
+                ["Investigate it because this sounds exciting.", "gryffindor"],
+                ["Run diagnostics and test every hypothesis.", "ravenclaw"],
+                ["Figure out who benefits from the anomaly.", "slytherin"],
+                ["Document it carefully so nobody gets blamed.", "hufflepuff"]
+            ]
+        },
+        {
+            question: "Which magical artifact would you want?",
+            options: [
+                ["The Sword of Gryffindor", "gryffindor"],
+                ["A Time-Turner", "ravenclaw"],
+                ["The Elder Wand", "slytherin"],
+                ["A bottomless supply of Butterbeer", "hufflepuff"]
+            ]
+        },
+        {
+            question: "Your team has an impossible deadline.",
+            options: [
+                ["Challenge accepted.", "gryffindor"],
+                ["Optimize the workflow.", "ravenclaw"],
+                ["Negotiate a better deadline.", "slytherin"],
+                ["Volunteer for the boring tasks.", "hufflepuff"]
+            ]
+        },
+        {
+            question: "Pick your preferred data visualization.",
+            options: [
+                ["A dramatic red dashboard.", "gryffindor"],
+                ["A statistically rigorous scatter plot.", "ravenclaw"],
+                ["A KPI dashboard showing who is winning.", "slytherin"],
+                ["A clean, readable report everyone understands.", "hufflepuff"]
+            ]
+        }
+    ];
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+    let quizIndex = 0;
 
-        const canvas =
-            document.getElementById("lore-canvas");
+    let houseScores = {
+        gryffindor: 0,
+        ravenclaw: 0,
+        slytherin: 0,
+        hufflepuff: 0
+    };
+
+    const houseData = {
+        gryffindor: {
+            icon: "🦁",
+            name: "Gryffindor",
+            description:
+                "Your statistical profile suggests courage, questionable production deployments, and a suspicious willingness to investigate dragons manually."
+        },
+        ravenclaw: {
+            icon: "🦅",
+            name: "Ravenclaw",
+            description:
+                "Your model favors curiosity, analysis, and the belief that every problem can eventually be solved with enough data."
+        },
+        slytherin: {
+            icon: "🐍",
+            name: "Slytherin",
+            description:
+                "Strategic, ambitious, and extremely KPI-aware. You probably already know who is going to win before everyone else does."
+        },
+        hufflepuff: {
+            icon: "🦡",
+            name: "Hufflepuff",
+            description:
+                "Reliable, patient, and suspiciously good at keeping systems running while everyone else argues about architecture."
+        }
+    };
+
+    function loadQuizQuestion() {
+        const question = quizQuestions[quizIndex];
+        document.getElementById("quiz-question").innerText = question.question;
+
+        const options = document.getElementById("quiz-options");
+        options.innerHTML = "";
+
+        question.options.forEach(option => {
+            const button = document.createElement("button");
+            button.className = "quiz-option";
+            button.innerText = option[0];
+            button.onclick = () => answerQuiz(option[1]);
+            options.appendChild(button);
+        });
+
+        const progress = ((quizIndex + 1) / quizQuestions.length) * 100;
+        document.getElementById("quiz-progress").style.width = progress + "%";
+    }
+
+    function answerQuiz(house) {
+        houseScores[house]++;
+        quizIndex++;
+
+        if (quizIndex >= quizQuestions.length) {
+            showQuizResult();
+        } else {
+            loadQuizQuestion();
+        }
+    }
+
+    function showQuizResult() {
+        let winner = "gryffindor";
+
+        Object.keys(houseScores).forEach(house => {
+            if (houseScores[house] > houseScores[winner]) {
+                winner = house;
+            }
+        });
+
+        const result = houseData[winner];
+
+        document.getElementById("quiz-question").style.display = "none";
+        document.getElementById("quiz-options").style.display = "none";
+        document.getElementById("quiz-progress").style.width = "100%";
+        document.getElementById("quiz-result").style.display = "block";
+
+        document.getElementById("quiz-result-icon").innerText = result.icon;
+        document.getElementById("quiz-result-house").innerText = result.name;
+        document.getElementById("quiz-result-description").innerText = result.description;
+    }
+
+    function restartQuiz() {
+        quizIndex = 0;
+        houseScores = {
+            gryffindor: 0,
+            ravenclaw: 0,
+            slytherin: 0,
+            hufflepuff: 0
+        };
+
+        document.getElementById("quiz-question").style.display = "block";
+        document.getElementById("quiz-options").style.display = "grid";
+        document.getElementById("quiz-result").style.display = "none";
+
+        loadQuizQuestion();
+    }
+
+    /* ============================================================
+       DRAGON RISK SIMULATOR
+       ============================================================ */
+
+    const sliders = {
+        mass: document.getElementById("mass-slider"),
+        wind: document.getElementById("wind-slider"),
+        route: document.getElementById("route-slider"),
+        competence: document.getElementById("competence-slider")
+    };
+
+    function updateDragonRisk() {
+        const mass = Number(sliders.mass.value);
+        const wind = Number(sliders.wind.value);
+        const route = Number(sliders.route.value);
+        const competence = Number(sliders.competence.value);
+
+        document.getElementById("mass-value").innerText = mass + "%";
+        document.getElementById("wind-value").innerText = wind + "%";
+        document.getElementById("route-value").innerText = route + "%";
+        document.getElementById("competence-value").innerText = competence + "%";
+
+        let risk =
+            (mass * .25) +
+            (wind * .30) +
+            (route * .25) +
+            ((100 - competence) * .20);
+
+        risk = Math.round(Math.min(100, Math.max(0, risk)));
+
+        const score = document.getElementById("risk-score");
+        const label = document.getElementById("risk-label");
+        const description = document.getElementById("risk-description");
+
+        score.innerText = risk;
+
+        if (risk < 30) {
+            label.innerText = "Low Risk";
+            description.innerText = "Mission conditions are unusually favorable. Something is probably wrong.";
+        } else if (risk < 55) {
+            label.innerText = "Moderate Risk";
+            description.innerText = "Mission is feasible. Keep the dragon away from major infrastructure.";
+        } else if (risk < 75) {
+            label.innerText = "Elevated Risk";
+            description.innerText = "Mission is technically possible. Whether it is wise remains a separate statistical question.";
+        } else {
+            label.innerText = "Catastrophic";
+            description.innerText = "Recommend postponing the mission until literally everyone has calmed down.";
+        }
+    }
+
+    Object.values(sliders).forEach(slider => {
+        slider.addEventListener("input", updateDragonRisk);
+    });
+
+    /* ============================================================
+       GOLDEN SNITCH GAME
+       ============================================================ */
+
+    let gameScore = 0;
+    let gameTime = 15;
+    let gameInterval = null;
+    let gameActive = false;
+
+    function startSnitchGame() {
+        clearInterval(gameInterval);
+
+        gameScore = 0;
+        gameTime = 15;
+        gameActive = true;
+
+        document.getElementById("game-score").innerText = gameScore;
+        document.getElementById("game-time").innerText = gameTime;
+        document.getElementById("game-message").style.display = "none";
+
+        const snitch = document.getElementById("snitch");
+        snitch.style.display = "flex";
+
+        moveSnitch();
+
+        gameInterval = setInterval(() => {
+            gameTime--;
+            document.getElementById("game-time").innerText = gameTime;
+
+            if (gameTime <= 0) {
+                endSnitchGame();
+            }
+        }, 1000);
+    }
+
+    function moveSnitch() {
+        const game = document.getElementById("game-box");
+        const snitch = document.getElementById("snitch");
+
+        const maxX = game.clientWidth - 60;
+        const maxY = game.clientHeight - 70;
+
+        const x = Math.random() * maxX;
+        const y = 55 + Math.random() * Math.max(50, maxY - 55);
+
+        snitch.style.left = x + "px";
+        snitch.style.top = y + "px";
+    }
+
+    function catchSnitch() {
+        if (!gameActive) return;
+
+        gameScore++;
+        document.getElementById("game-score").innerText = gameScore;
+        moveSnitch();
+    }
+
+    function endSnitchGame() {
+        clearInterval(gameInterval);
+        gameActive = false;
+
+        document.getElementById("snitch").style.display = "none";
+        const message = document.getElementById("game-message");
+        message.style.display = "flex";
+
+        let result;
+        if (gameScore >= 15) {
+            result = "Absolutely ridiculous. Professional-level Seeker detected.";
+        } else if (gameScore >= 10) {
+            result = "Outstanding. The Ministry would like to recruit you.";
+        } else if (gameScore >= 5) {
+            result = "Respectable performance. Your broomstick is operational.";
+        } else {
+            result = "The Snitch has filed a formal complaint.";
+        }
+
+        message.innerHTML = `
+            <h3>${gameScore} catches</h3>
+            <p>${result}</p>
+            <button class="btn-interactive" onclick="startSnitchGame()">
+                Try Again
+            </button>
+        `;
+    }
+
+    /* ============================================================
+       ANOMALY SCANNER
+       ============================================================ */
+
+    function runAnomalyScan() {
+        const output = document.getElementById("console-output");
+
+        output.innerHTML =
+            "> Initializing scanner...<br>" +
+            "> Connecting to Department of Mysteries...<br>" +
+            "> Searching dimensional residuals...<br>" +
+            "> Detecting anomalous observations...";
+
+        setTimeout(() => {
+            const temporal = Math.floor(Math.random() * 101);
+            const dragon = Math.floor(Math.random() * 101);
+            const political = Math.floor(Math.random() * 101);
+            const absurdity = Math.floor(Math.random() * 101);
+
+            updateMetric("temporal", temporal);
+            updateMetric("dragon", dragon);
+            updateMetric("political", political);
+            updateMetric("absurdity", absurdity);
+
+            const total = (temporal + dragon + political + absurdity) / 4;
+            let anomaly;
+
+            if (total > 75) {
+                anomaly = "CRITICAL: Reality is demonstrating statistically improbable behavior.";
+            } else if (total > 50) {
+                anomaly = "WARNING: Significant anomalous activity detected.";
+            } else if (total > 25) {
+                anomaly = "NOTICE: Mild dimensional instability detected.";
+            } else {
+                anomaly = "No major anomalies. This result is statistically suspicious.";
+            }
+
+            document.getElementById("anomaly-text").innerText = anomaly;
+
+            output.innerHTML =
+                "> Scan complete.<br>" +
+                "> Anomalies classified.<br>" +
+                "> Results transferred to secure archive.<br>" +
+                "> Recommendation: pretend you never saw this.";
+        }, 900);
+    }
+
+    function updateMetric(name, value) {
+        document.getElementById(name + "-number").innerText = value + "%";
+        document.getElementById(name + "-bar").style.width = value + "%";
+    }
+
+    /* ============================================================
+       PROPHECY GENERATOR
+       ============================================================ */
+
+    function generateProphecy() {
+        const subjects = [
+            "The chosen analyst",
+            "A forgotten dataset",
+            "The next dashboard",
+            "The dragon regression model",
+            "A suspicious CSV file",
+            "The Department of Mysteries",
+            "An undocumented API",
+            "The Golden Snitch"
+        ];
+
+        const actions = [
+            "will reveal",
+            "will destabilize",
+            "will accidentally optimize",
+            "will expose",
+            "will statistically invalidate",
+            "will completely automate",
+            "will quietly outperform"
+        ];
+
+        const outcomes = [
+            "the hidden variance.",
+            "the true source of the anomaly.",
+            "a previously unknown confidence interval.",
+            "the weakest link in the kingdom.",
+            "an unnecessarily complicated workflow.",
+            "the ancient secret of reproducible analysis.",
+            "the terrifying truth behind the missing data."
+        ];
+
+        const subject = subjects[Math.floor(Math.random() * subjects.length)];
+        const action = actions[Math.floor(Math.random() * actions.length)];
+        const outcome = outcomes[Math.floor(Math.random() * outcomes.length)];
+        const confidence = Math.floor(Math.random() * 40) + 60;
+
+        document.getElementById("prophecy-text").innerText = `${subject} ${action} ${outcome}`;
+        document.getElementById("prophecy-meta").innerText = `Model confidence: ${confidence}% · Methodology: classified · Sample size: questionable`;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+       ============================================================ */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const revealElements = document.querySelectorAll("[data-reveal]");
+
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            });
+        }, {
+            threshold: .08,
+            rootMargin: "0px 0px -40px 0px"
+        });
+
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        loadQuizQuestion();
+        updateDragonRisk();
+    });
+
+    /* ============================================================
+       BACKGROUND NETWORK
+       ============================================================ */
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const canvas = document.getElementById("lore-canvas");
 
         if (!canvas) return;
 
-        const ctx =
-            canvas.getContext("2d");
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            return;
+        }
+
+        const ctx = canvas.getContext("2d");
 
         let width;
         let height;
@@ -1520,271 +2911,106 @@ document.addEventListener(
             radius: 200
         };
 
-        window.addEventListener(
-            "mousemove",
-            e => {
+        window.addEventListener("mousemove", e => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
 
-                const rect =
-                    canvas.getBoundingClientRect();
-
-                mouse.x =
-                    e.clientX - rect.left;
-
-                mouse.y =
-                    e.clientY - rect.top;
-            }
-        );
-
-        window.addEventListener(
-            "mouseleave",
-            () => {
-                mouse.x = null;
-                mouse.y = null;
-            }
-        );
+        window.addEventListener("mouseleave", () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
 
         function resize() {
-
-            width =
-                canvas.width =
-                canvas.offsetWidth;
-
-            height =
-                canvas.height =
-                canvas.offsetHeight;
+            width = canvas.width = canvas.offsetWidth;
+            height = canvas.height = canvas.offsetHeight;
 
             points = [];
 
-            const count =
-                Math.floor(
-                    (width * height) /
-                    10000
-                );
+            const count = Math.floor((width * height) / 11000);
 
-            for (
-                let i = 0;
-                i < count;
-                i++
-            ) {
-
+            for (let i = 0; i < count; i++) {
                 points.push({
-                    x:
-                        Math.random() *
-                        width,
-
-                    y:
-                        Math.random() *
-                        height,
-
-                    vx:
-                        (Math.random() - .5) *
-                        .4,
-
-                    vy:
-                        (Math.random() - .5) *
-                        .4,
-
-                    size:
-                        Math.random() *
-                        1.5 +
-                        1.2,
-
-                    baseAlpha:
-                        Math.random() *
-                        .2 +
-                        .2
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - .5) * .35,
+                    vy: (Math.random() - .5) * .35,
+                    size: Math.random() * 1.5 + 1,
+                    baseAlpha: Math.random() * .18 + .12
                 });
             }
         }
 
         function animate() {
+            ctx.clearRect(0, 0, width, height);
 
-            ctx.clearRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-            for (
-                let i = 0;
-                i < points.length;
-                i++
-            ) {
-
-                const p =
-                    points[i];
+            for (let i = 0; i < points.length; i++) {
+                const p = points[i];
 
                 p.x += p.vx;
                 p.y += p.vy;
 
-                if (
-                    p.x < 0 ||
-                    p.x > width
-                ) {
+                if (p.x < 0 || p.x > width) {
                     p.vx *= -1;
                 }
 
-                if (
-                    p.y < 0 ||
-                    p.y > height
-                ) {
+                if (p.y < 0 || p.y > height) {
                     p.vy *= -1;
                 }
 
-                if (
-                    mouse.x !== null &&
-                    mouse.y !== null
-                ) {
+                if (mouse.x !== null && mouse.y !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.hypot(dx, dy);
 
-                    const dx =
-                        mouse.x - p.x;
-
-                    const dy =
-                        mouse.y - p.y;
-
-                    const dist =
-                        Math.hypot(
-                            dx,
-                            dy
-                        );
-
-                    if (
-                        dist < mouse.radius &&
-                        dist > 10
-                    ) {
-
-                        const force =
-                            (
-                                mouse.radius -
-                                dist
-                            ) /
-                            mouse.radius;
-
-                        p.x +=
-                            (dx / dist) *
-                            force *
-                            .6;
-
-                        p.y +=
-                            (dy / dist) *
-                            force *
-                            .6;
+                    if (dist < mouse.radius && dist > 10) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        p.x += (dx / dist) * force * .5;
+                        p.y += (dy / dist) * force * .5;
                     }
                 }
 
-                ctx.fillStyle =
-                    `rgba(128,0,0,${
-                        p.baseAlpha + .15
-                    })`;
-
+                ctx.fillStyle = `rgba(128,0,0,${p.baseAlpha + .12})`;
                 ctx.beginPath();
-
-                ctx.arc(
-                    p.x,
-                    p.y,
-                    p.size,
-                    0,
-                    Math.PI * 2
-                );
-
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fill();
 
-                for (
-                    let j = i + 1;
-                    j < points.length;
-                    j++
-                ) {
-
-                    const p2 =
-                        points[j];
-
-                    const dist =
-                        Math.hypot(
-                            p.x - p2.x,
-                            p.y - p2.y
-                        );
+                for (let j = i + 1; j < points.length; j++) {
+                    const p2 = points[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
 
                     if (dist < 130) {
+                        let opacity = .16 * (1 - dist / 130);
 
-                        let opacity =
-                            .2 *
-                            (
-                                1 -
-                                dist / 130
-                            );
+                        if (mouse.x !== null && mouse.y !== null) {
+                            const midX = (p.x + p2.x) / 2;
+                            const midY = (p.y + p2.y) / 2;
+                            const mouseDist = Math.hypot(mouse.x - midX, mouse.y - midY);
 
-                        if (
-                            mouse.x !== null &&
-                            mouse.y !== null
-                        ) {
-
-                            const midX =
-                                (p.x + p2.x) / 2;
-
-                            const midY =
-                                (p.y + p2.y) / 2;
-
-                            const mouseDist =
-                                Math.hypot(
-                                    mouse.x - midX,
-                                    mouse.y - midY
-                                );
-
-                            if (
-                                mouseDist <
-                                mouse.radius
-                            ) {
-
-                                opacity +=
-                                    .3 *
-                                    (
-                                        1 -
-                                        mouseDist /
-                                        mouse.radius
-                                    );
+                            if (mouseDist < mouse.radius) {
+                                opacity += .25 * (1 - mouseDist / mouse.radius);
                             }
                         }
 
-                        ctx.strokeStyle =
-                            `rgba(128,0,0,${
-                                opacity
-                            })`;
-
-                        ctx.lineWidth = .75;
-
+                        ctx.strokeStyle = `rgba(128,0,0,${opacity})`;
+                        ctx.lineWidth = .7;
                         ctx.beginPath();
-
-                        ctx.moveTo(
-                            p.x,
-                            p.y
-                        );
-
-                        ctx.lineTo(
-                            p2.x,
-                            p2.y
-                        );
-
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
                         ctx.stroke();
                     }
                 }
             }
 
-            requestAnimationFrame(
-                animate
-            );
+            requestAnimationFrame(animate);
         }
 
-        window.addEventListener(
-            "resize",
-            resize
-        );
+        window.addEventListener("resize", resize);
 
         resize();
         animate();
-    }
-);
+    });
 </script>
-
 </body>
 </html>
