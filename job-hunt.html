@@ -49,8 +49,16 @@
         .article-body em { color: var(--text-muted); }
         .article-body strong { color: var(--text-dark); }
 
-        /* Image Placeholders */
-        .story-img { background: var(--bg-grid); border: 2px dashed var(--border); padding: 4rem 2rem; text-align: center; border-radius: 12px; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.95rem; font-weight: 500; }
+        /* Real Images Styling */
+        .story-photo { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 12px; 
+            margin: 2.5rem 0; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+            border: 1px solid var(--border); 
+            display: block; 
+        }
 
         /* JS Reveal Animations */
         [data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -75,9 +83,7 @@
         
         <div data-reveal>
             <!-- Image 1 -->
-            <div class="story-img">
-                <em>[Insert Photo 1: Graduation picture looking highly confident and ready to take on the world]</em>
-            </div>
+            <img src="img/grad.JPG" alt="Graduation Day" class="story-photo">
 
             <p>I am a recent Bachelor of Science in Mathematics graduate from Southern Luzon State University. I finished <em>Cum Laude</em>, served as a DOST-SEI JLSS scholar, and passed my Career Service Professional exam during my third year of college. Naturally, looking at paper, I thought to myself: <em>"Finding a job is going to be a breeze."</em></p>
 
@@ -104,9 +110,7 @@
             <p>I ended up declining both. As an intern at a national government agency, I knew there were entry-level roles offering ₱30,000+. The private offers I received were around ₱24,300 to ₱25,000. While objectively not bad for a fresh graduate, I wanted to hold out for my target salary. I learned a hard lesson during this phase: many private companies that <em>do</em> offer ₱30k+ for entry-level roles often reserve those spots for graduates from top-tier universities, or for applicants with strong industry connections. I had neither.</p>
 
             <!-- Image 2 -->
-            <div class="story-img">
-                <em>[Insert Photo 2: A cropped screenshot of your massive Excel/Notion job tracker showing the sheer volume of applications]</em>
-            </div>
+            <img src="img/sheet.png" alt="Job Application Tracker Spreadsheet" class="story-photo">
         </div>
 
         <div data-reveal>
@@ -127,9 +131,7 @@
             <p>I aced it. The interviewer specifically noted that my biggest edge over the other candidates was my deep knowledge of their internal programs and initiatives—a subject I had frantically researched and crammed on my phone during the bus ride.</p>
 
             <!-- Image 3 -->
-            <div class="story-img">
-                <em>[Insert Photo 3: A quick selfie from the commute or a photo of the DICT building]</em>
-            </div>
+            <img src="img/postpone.png" alt="Postponement Email during Commute" class="story-photo">
         </div>
 
         <div data-reveal>
@@ -155,9 +157,7 @@
             <p>I immediately withdrew all my other ongoing applications. Against the odds, the burnout, and the fierce competition, I had landed my first job.</p>
 
             <!-- Image 4 -->
-            <div class="story-img">
-                <em>[Insert Photo 4: Screenshot of the job offer email (redacting sensitive info) or a picture from your first day]</em>
-            </div>
+            <img src="img/accept.png" alt="DICT Acceptance Email" class="story-photo">
         </div>
 
         <div data-reveal>
