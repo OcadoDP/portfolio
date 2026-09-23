@@ -804,6 +804,22 @@
     </section>
 
     <!-- =========================================================
+         JOB HUNT TEASER (NEW LOCATION)
+    ========================================================= -->
+    <section style="background: var(--bg-color); padding: 5rem 0; border-bottom: 1px solid var(--border);">
+        <div class="wrap" style="text-align: center; max-width: 700px;" data-reveal>
+            <div class="kicker">My Journey</div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-dark);">The Fresh Grad Reality Check</h2>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
+                How nearly 200 applications, one 4 AM bus ride, a UP Magna Cum Laude, and a whole lot of doomscrolling led to my first job as a Project Development Officer I at the DICT.
+            </p>
+            <a href="job-hunt.html" class="btn btn--grad" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 2rem;">
+                Read the full story <span>&rarr;</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- =========================================================
          EXPERIENCE TIMELINE
     ========================================================= -->
     <section>
@@ -825,6 +841,54 @@
             <div class="timeline">
 
                 <!-- =================================================
+                     DICT NEW ROLE
+                ================================================ -->
+                <div class="tl-row" data-reveal>
+                    <div class="tl-year">
+                        2026&ndash;Present
+                    </div>
+
+                    <div class="tl-rail">
+                        <span class="tl-node tl-node--current"></span>
+                    </div>
+
+                    <div class="tl-body">
+                        <button class="exp-btn" type="button" data-exp-btn aria-expanded="true">
+                            <span>
+                                <span class="tl-title">
+                                    Project Development Officer I
+                                </span>
+
+                                <span class="tl-org">
+                                    Department of Information and Communications Technology (DICT)
+                                </span>
+
+                                <span class="tl-note">
+                                    ICT Industry Development Bureau — Benchmarking and Promotions Division
+                                </span>
+                            </span>
+
+                            <span class="exp-icon">
+                                +
+                            </span>
+                        </button>
+
+                        <div class="exp-panel">
+                            <div class="exp-panel-inner">
+                                <ul>
+                                    <li>
+                                        Spearheading project development and data-driven benchmarking initiatives to support and promote the local ICT industry.
+                                    </li>
+                                    <li>
+                                        <em>(More details to be updated as I dive deeper into the role!)</em>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- =================================================
                      DBM INTERNSHIP
                 ================================================ -->
                 <div class="tl-row" data-reveal>
@@ -833,7 +897,7 @@
                     </div>
 
                     <div class="tl-rail">
-                        <span class="tl-node tl-node--current"></span>
+                        <span class="tl-node"></span>
                     </div>
 
                     <div class="tl-body">
@@ -1000,11 +1064,11 @@
                     </div>
 
                     <div class="tl-rail">
-                        <span class="tl-node tl-node--current"></span>
+                        <span class="tl-node"></span>
                     </div>
 
                     <div class="tl-body">
-                        <button class="exp-btn" type="button" data-exp-btn aria-expanded="true">
+                        <button class="exp-btn" type="button" data-exp-btn aria-expanded="false">
                             <span>
                                 <span class="tl-title">
                                     Bachelor of Science in Mathematics
@@ -1214,7 +1278,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             /* -----------------------------------------------
-               Accordion Toggle
+                Accordion Toggle
             ------------------------------------------------ */
             const expButtons = document.querySelectorAll('[data-exp-btn]');
 
@@ -1226,7 +1290,7 @@
             });
 
             /* -----------------------------------------------
-               Intersection Observer
+                Intersection Observer
             ------------------------------------------------ */
             const revealElements = document.querySelectorAll('[data-reveal]');
             const revealOptions = {
@@ -1273,7 +1337,7 @@
             };
 
             /* -----------------------------------------------
-               Mouse Tracking
+                Mouse Tracking
             ------------------------------------------------ */
             window.addEventListener("mousemove", function (e) {
                 const rect = canvas.getBoundingClientRect();
@@ -1287,7 +1351,7 @@
             });
 
             /* -----------------------------------------------
-               Canvas Resize
+                Canvas Resize
             ------------------------------------------------ */
             function resize() {
                 width = canvas.width = canvas.offsetWidth;
@@ -1309,7 +1373,7 @@
             }
 
             /* -----------------------------------------------
-               Animation
+                Animation
             ------------------------------------------------ */
             function animate() {
                 ctx.clearRect(0, 0, width, height);
