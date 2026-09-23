@@ -34,8 +34,32 @@
         /* Layout Container */
         .wrap { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Article Header */
-        .article-header { padding: 6rem 0 3rem 0; text-align: center; border-bottom: 1px solid var(--border); background-color: var(--bg-grid); background-image: radial-gradient(var(--border) 1px, transparent 0); background-size: 40px 40px; }
+        /* Article Header / Hero with Interactive Canvas */
+        .article-header { 
+            padding: 6rem 0 5.5rem 0; 
+            text-align: center; 
+            border-bottom: 1px solid var(--border); 
+            background-color: var(--bg-grid); 
+            background-image: radial-gradient(var(--border) 1px, transparent 0); 
+            background-size: 40px 40px; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .article-header .wrap {
+            position: relative;
+            z-index: 2;
+        }
+
         .article-h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 1.5rem; }
         .article-lead { font-size: 1.25rem; color: var(--text-muted); font-weight: 500; max-width: 700px; margin: 0 auto; }
 
@@ -72,6 +96,7 @@
     <div id="site-header" aria-label="Site header"></div>
 
     <header class="article-header">
+        <canvas id="hero-canvas"></canvas>
         <div class="wrap" data-reveal>
             <div class="kicker">Personal Journey</div>
             <h1 class="article-h1">The Fresh Grad Reality Check</h1>
@@ -190,6 +215,127 @@
             }, revealOptions);
 
             revealElements.forEach(el => revealOnScroll.observe(el));
+        });
+    </script>
+
+    <!-- HERO NETWORK CANVAS ANIMATION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("hero-canvas");
+
+            if (!canvas) return;
+
+            const ctx = canvas.getContext("2d");
+
+            let width;
+            let height;
+            let points = [];
+
+            const mouse = {
+                x: null,
+                y: null,
+                radius: 200
+            };
+
+            window.addEventListener("mousemove", function (e) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+
+            window.addEventListener("mouseleave", function () {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            function resize() {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+
+                points = [];
+
+                const count = Math.floor((width * height) / 10000);
+
+                for (let i = 0; i < count; i++) {
+                    points.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: (Math.random() - .5) * .4,
+                        vy: (Math.random() - .5) * .4,
+                        size: Math.random() * 1.5 + 1.2,
+                        baseAlpha: Math.random() * .2 + .2
+                    });
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                for (let i = 0; i < points.length; i++) {
+                    const p = points[i];
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > width) {
+                        p.vx *= -1;
+                    }
+
+                    if (p.y < 0 || p.y > height) {
+                        p.vy *= -1;
+                    }
+
+                    if (mouse.x !== null && mouse.y !== null) {
+                        const dx = mouse.x - p.x;
+                        const dy = mouse.y - p.y;
+                        const dist = Math.hypot(dx, dy);
+
+                        if (dist < mouse.radius && dist > 10) {
+                            const force = (mouse.radius - dist) / mouse.radius;
+                            p.x += (dx / dist) * force * .6;
+                            p.y += (dy / dist) * force * .6;
+                        }
+                    }
+
+                    ctx.fillStyle = `rgba(128, 0, 0, ${p.baseAlpha + .15})`;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    for (let j = i + 1; j < points.length; j++) {
+                        const p2 = points[j];
+                        const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+
+                        if (dist < 130) {
+                            let opacity = .2 * (1 - dist / 130);
+
+                            if (mouse.x !== null && mouse.y !== null) {
+                                const midX = (p.x + p2.x) / 2;
+                                const midY = (p.y + p2.y) / 2;
+                                const mouseDist = Math.hypot(mouse.x - midX, mouse.y - midY);
+
+                                if (mouseDist < mouse.radius) {
+                                    opacity += .3 * (1 - mouseDist / mouse.radius);
+                                }
+                            }
+
+                            ctx.strokeStyle = `rgba(128, 0, 0, ${opacity})`;
+                            ctx.lineWidth = .75;
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            window.addEventListener("resize", resize);
+
+            resize();
+            animate();
         });
     </script>
 </body>
