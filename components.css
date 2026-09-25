@@ -231,25 +231,73 @@ html {
     }
 }
 
+/* ============================================================
+   MOBILE BOTTOM NAVIGATION (INSTAGRAM STYLE)
+   ============================================================ */
 @media (max-width: 700px) {
+    /* Pad the bottom of the whole site so content doesn't hide behind the new nav bar */
+    body {
+        padding-bottom: 70px;
+    }
+
     .site-header .wrap {
         min-height: auto !important;
         height: auto !important;
-        padding-top: .8rem !important;
-        padding-bottom: .8rem !important;
-    }
-
-    .nav {
-        gap: .8rem !important;
-        font-size: .8rem !important;
-        flex-wrap: wrap !important;
-        justify-content: flex-end !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        /* Center the logo at the top since the menu is gone */
+        justify-content: center !important; 
     }
 
     .brand-kicker {
         display: none;
     }
 
+    /* Move Nav to Bottom */
+    .nav {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+        /* safe-area-inset prevents overlapping with the iPhone home swipe bar */
+        padding: 0.75rem 0.5rem calc(0.75rem + env(safe-area-inset-bottom)) !important;
+        margin: 0 !important;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.06) !important;
+        z-index: 1000 !important;
+        gap: 0 !important;
+    }
+
+    /* Style tabs to look like app buttons */
+    .nav-link {
+        font-size: 0.8rem !important;
+        padding: 0.5rem !important;
+        flex: 1;
+        text-align: center;
+    }
+
+    /* Tweak the active state underline to fit the tight mobile tabs */
+    .nav-link.is-current::after {
+        bottom: -2px;
+    }
+
+    /* Make the Resume button fit neatly as a pill tab */
+    .nav-resume {
+        font-size: 0.8rem !important;
+        padding: 0.5rem 1rem !important;
+        border-radius: 50px !important;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    /* Footer adjustments */
     .footer-grid {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
@@ -257,6 +305,7 @@ html {
 
     .footer-bottom {
         display: block !important;
+        padding-bottom: 2rem !important;
     }
 }
 
