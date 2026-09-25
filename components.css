@@ -95,6 +95,11 @@ html {
     font-weight: 600;
 }
 
+/* Hide icons on desktop */
+.nav-icon {
+    display: none;
+}
+
 .nav-link {
     color: var(--muted, #6b7280);
     transition: color .2s ease, transform .2s ease;
@@ -232,9 +237,16 @@ html {
 }
 
 /* ============================================================
-   MOBILE BOTTOM NAVIGATION (INSTAGRAM STYLE)
+   MOBILE BOTTOM NAVIGATION (ICON ONLY, INSTAGRAM STYLE)
    ============================================================ */
 @media (max-width: 700px) {
+    /* REMOVE the blur trap so the menu can jump to the bottom */
+    .site-header {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #ffffff !important;
+    }
+
     /* Pad the bottom of the whole site so content doesn't hide behind the new nav bar */
     body {
         padding-bottom: 70px;
@@ -275,26 +287,58 @@ html {
         gap: 0 !important;
     }
 
-    /* Style tabs to look like app buttons */
-    .nav-link {
-        font-size: 0.8rem !important;
-        padding: 0.5rem !important;
-        flex: 1;
-        text-align: center;
+    /* Hide text, enlarge and center icons */
+    .nav-text {
+        display: none !important;
     }
 
-    /* Tweak the active state underline to fit the tight mobile tabs */
+    .nav-icon {
+        display: block !important;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        stroke-width: 1.75;
+    }
+
+    .nav-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 0 !important;
+        flex: 1;
+        transform: none !important; /* Stop vertical jump on hover */
+    }
+
+    /* Center the active underline directly under the icon */
     .nav-link.is-current::after {
         bottom: -2px;
+        width: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    /* Make the Resume button fit neatly as a pill tab */
+    /* Adapt the restricted button */
+    .nav-link.nav-restricted {
+        padding: 0.6rem !important;
+        border-radius: 12px;
+        gap: 0;
+        min-height: auto;
+    }
+
+    .nav-link.nav-restricted.is-current::after {
+        display: none !important;
+    }
+
+    /* Make Resume button perfectly square/pill around the icon */
     .nav-resume {
-        font-size: 0.8rem !important;
-        padding: 0.5rem 1rem !important;
-        border-radius: 50px !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 1rem !important;
+        border-radius: 14px !important;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        transform: none !important; /* Stop vertical jump on hover */
     }
 
     /* Footer adjustments */
@@ -550,27 +594,4 @@ html {
 @keyframes restrictedPulse {
     0% { transform: scale(.65); opacity: .75; }
     70%, 100% { transform: scale(1.7); opacity: 0; }
-}
-
-@media (max-width: 700px) {
-    .nav-link.nav-restricted {
-        min-height: 30px;
-        padding: .18rem .48rem;
-    }
-    .restricted-main {
-        font-size: .68rem;
-    }
-    .restricted-sub,
-    .nav-link.nav-restricted.is-current::after {
-        display: none;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .restricted-signal::after,
-    .nav-link.nav-restricted::before,
-    .footer-links .footer-restricted::before {
-        animation: none;
-        transition: none;
-    }
 }
