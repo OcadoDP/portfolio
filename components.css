@@ -271,11 +271,11 @@ html {
         display: none !important;
     }
 
-    /* Show the new right-side icons */
+    /* Show the new right-side icons (GitHub, Email, Résumé) */
     .header-actions {
         display: flex !important;
         align-items: center;
-        gap: 1.25rem;
+        gap: 0.9rem;
     }
 
     .header-action-btn {
@@ -286,8 +286,8 @@ html {
     }
 
     .header-action-btn svg {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
         stroke-width: 1.8;
         transition: stroke 0.2s ease;
     }
@@ -348,11 +348,13 @@ html {
         transform: translateX(-50%);
     }
 
-    /* Adapt the restricted button */
+    /* Make restricted link completely clean (no box styling on mobile) */
     .nav-link.nav-restricted {
-        padding: 0.6rem !important;
-        border-radius: 12px;
-        gap: 0;
+        border: none !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0.6rem 0 !important;
+        border-radius: 0 !important;
         min-height: auto;
     }
 
@@ -360,16 +362,9 @@ html {
         display: none !important;
     }
 
-    /* Make Resume button perfectly square/pill around the icon */
+    /* Hide the old resume link inside the bottom nav on mobile since it's now in the header */
     .nav-resume {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        padding: 0.6rem 1rem !important;
-        border-radius: 14px !important;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        transform: none !important; /* Stop vertical jump on hover */
+        display: none !important;
     }
 
     /* Footer adjustments */
@@ -382,7 +377,6 @@ html {
         display: block !important;
         padding-bottom: 2rem !important;
     }
-    
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -391,11 +385,11 @@ html {
     .footer-links a,
     .footer-email {
         transition: none;
-
     }
 }
+
+/* Pulsing red lock animation */
 @media (max-width: 700px) {
-    /* Make the restricted lock stand out with a pulsing red glow */
     .pulsing-lock {
         stroke: #800000 !important;
         animation: lockPulse 1.8s infinite ease-in-out;
@@ -407,20 +401,9 @@ html {
     50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(128, 0, 0, 0.6)); }
     100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(128, 0, 0, 0)); }
 }
-@media (max-width: 700px) {
-    /* Strip away the desktop box styling for the restricted link on mobile */
-    .nav-link.nav-restricted {
-        border: none !important;
-        background: none !important;
-        box-shadow: none !important;
-        padding: 0.6rem 0 !important;
-        border-radius: 0 !important;
-    }
-}
 
 /* ============================================================
-   RESTRICTED SECTION — CLASSIFIED ACCESS TREATMENT
-   Scoped so Home / About / Projects retain their existing chrome.
+   RESTRICTED SECTION — CLASSIFIED ACCESS TREATMENT (Desktop)
    ============================================================ */
 
 .nav-link.nav-restricted {
