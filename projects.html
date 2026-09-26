@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#800000">
     <meta name="description" content="Projects by Dexter Pascual Ocado — quantitative models, enterprise automation systems, and machine learning applications.">
     <title>Projects — Dexter Pascual Ocado</title>
-	<link rel="icon" type="image/png" href="img/gryffindor-crest.png">
+    <link rel="icon" type="image/png" href="img/gryffindor-crest.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -67,6 +67,23 @@
         .page-hero {
             padding: 5rem 0 3rem;
             border-bottom: 1px solid var(--line);
+            position: relative;
+            overflow: hidden; /* Keeps the moving dots inside the hero section */
+        }
+
+        #page-hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Places the canvas behind your text */
+            pointer-events: none; /* Allows clicks to pass right through the canvas */
+        }
+
+        .page-hero .wrap {
+            position: relative;
+            z-index: 2;
         }
 
         .kicker {
@@ -118,28 +135,6 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(128,0,0,0.15);
         }
-
-	
-	.page-hero {
-    	    position: relative;
-    	    overflow: hidden; /* Keeps the moving dots inside the hero section */
-	}
-
-	#page-hero-canvas {
-    	    position: absolute;
-    	    top: 0;
-    	    left: 0;
-    	    width: 100%;
-    	    height: 100%;
-    	    z-index: 1; /* Places the canvas behind your text */
-    	    pointer-events: none; /* Allows clicks to pass right through the canvas */
-	}
-
-
-	.page-hero .wrap {
-    	    position: relative;
-    	    z-index: 2;
-	}
 
         /* ============================================================
            PROJECT BODY
@@ -479,20 +474,70 @@
         }
 
         /* ============================================================
-           CLOSE CTA
+           RESTRICTED TEASER
            ============================================================ */
 
-        .close-cta {
-            display: flex;
-            justify-content: space-between;
+        .restricted-teaser {
+            margin-top: 5rem;
+            margin-bottom: 0;
+            background: #17181d;
+            border-radius: 20px;
+            border: 1px solid #292b32;
+            color: #fff;
+            padding: 2.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
             align-items: center;
-            gap: 1rem;
-            padding: 2rem 0 4rem;
-            border-top: 1px solid var(--line);
+            position: relative;
+            overflow: hidden;
         }
 
-        .close-cta p {
-            color: var(--muted);
+        .restricted-teaser::after {
+            content: "CLASSIFIED";
+            position: absolute;
+            right: -15px;
+            bottom: -25px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, .025);
+            pointer-events: none;
+        }
+
+        .restricted-index {
+            color: #8f939d;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .6rem;
+        }
+
+        .restricted-teaser h3 {
+            font-size: 1.7rem;
+            margin-bottom: .5rem;
+        }
+
+        .restricted-teaser p {
+            color: #a5a8b2;
+            max-width: 700px;
+            font-size: .95rem;
+        }
+
+        .restricted-btn {
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .05);
+            color: #fff;
+        }
+
+        .restricted-btn:hover {
+            background: var(--maroon);
+            border-color: var(--maroon);
+            color: #fff;
         }
 
         /* ============================================================
@@ -564,6 +609,10 @@
            ============================================================ */
 
         @media (max-width: 700px) {
+            .wrap {
+                padding: 0 1.75rem; /* Extends padding to fix the edge issue on phones */
+            }
+
             .page-hero {
                 padding: 3.5rem 0 2.5rem;
             }
@@ -577,8 +626,7 @@
             }
 
             .demo-head,
-            .demo-foot,
-            .close-cta {
+            .demo-foot {
                 display: block;
             }
 
@@ -605,6 +653,11 @@
 
             .row-metrics {
                 text-align: left;
+            }
+
+            .restricted-teaser {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -1273,35 +1326,33 @@
 
         </div>
 
+
+        <!-- FUN RESTRICTED SECTION AD -->
+        <div class="restricted-teaser" data-reveal>
+            <div>
+                <div class="restricted-index">
+                    06 — Restricted
+                </div>
+
+                <h3>
+                    There may be things I probably shouldn't put on a résumé.
+                </h3>
+
+                <p>
+                    Classified datasets, questionable econometric theories, inter-universe
+                    allegiance statistics, and several highly suspicious applications of
+                    Python. You were not supposed to find this.
+                </p>
+            </div>
+
+            <a class="btn restricted-btn" href="restricted.html">
+                Enter Restricted Section →
+            </a>
+        </div>
+
+
     </div>
 </section>
-
-
-<!-- ================================================================
-     CLOSING CTA
-     ================================================================ -->
-
-<section>
-
-    <div
-        class="wrap close-cta"
-        data-reveal>
-
-        <p>
-            Want a complete overview of my qualifications and academic background?
-        </p>
-
-        <a
-            class="btn btn--grad btn--lg"
-            href="Resume - Dexter Pascual Ocado.pdf"
-            target="_blank">
-            View my résumé
-        </a>
-
-    </div>
-
-</section>
-
 
 <!-- ================================================================
      FOOTER
