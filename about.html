@@ -331,7 +331,8 @@
            TIMELINE SECTION
         ========================================================= */
         .pad-exp {
-            padding: 4rem 0 1rem 0;
+            padding-top: 4rem;
+            padding-bottom: 1rem;
         }
 
         .sechead {
@@ -568,6 +569,86 @@
         }
 
         /* =========================================================
+           RESTRICTED TEASER
+        ========================================================= */
+        .restricted-teaser {
+            background: #17181d;
+            border-radius: 20px;
+            border: 1px solid #292b32;
+            color: #fff;
+            padding: 2.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .restricted-teaser::after {
+            content: "CLASSIFIED";
+            position: absolute;
+            right: -15px;
+            bottom: -25px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, .025);
+            pointer-events: none;
+        }
+
+        .restricted-index {
+            color: #8f939d;
+            font-size: .72rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .6rem;
+        }
+
+        .restricted-teaser h3 {
+            font-size: 1.7rem;
+            margin-bottom: .5rem;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .restricted-teaser p {
+            color: #a5a8b2;
+            max-width: 700px;
+            font-size: .95rem;
+            margin-bottom: 0;
+        }
+
+        .restricted-btn {
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .05);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: .85rem 1.5rem;
+            font-weight: 700;
+            font-size: .95rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .restricted-btn:hover {
+            background: var(--maroon);
+            border-color: var(--maroon);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(128,0,0,0.2);
+        }
+
+        /* =========================================================
            REVEAL ANIMATIONS
         ========================================================= */
         [data-reveal] {
@@ -639,16 +720,17 @@
             }
 
             .pad-exp {
-                padding: 3.5rem 0 1rem 0;
+                padding-top: 3.5rem;
+                padding-bottom: 1rem;
             }
         }
 
         /* =========================================================
-           RESPONSIVE — MOBILE (Fully Updated Layout Fixes)
+           RESPONSIVE — MOBILE
         ========================================================= */
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             .wrap {
-                padding: 0 1.75rem; /* Increased padding to bring text further from screen edges */
+                padding: 0 1.75rem !important; 
             }
 
             .grid-bg {
@@ -674,11 +756,12 @@
             .btn {
                 width: 100%;
                 display: flex;
-                justify-content: center; /* Centers text perfectly when width is 100% */
+                justify-content: center;
             }
 
             .pad-exp {
-                padding: 3rem 0 0.5rem 0;
+                padding-top: 3rem;
+                padding-bottom: 0.5rem;
             }
 
             .sechead {
@@ -694,11 +777,10 @@
                 margin-bottom: 2rem;
             }
 
-            /* NEW: Stack dates above cards so they don't break the layout */
             .tl-row {
                 display: grid;
-                grid-template-columns: 28px 1fr; /* Rail line, then Content */
-                grid-template-rows: auto auto; /* Row for Date, Row for Card */
+                grid-template-columns: 28px 1fr; 
+                grid-template-rows: auto auto; 
                 gap: 0.25rem 0.75rem;
                 margin-bottom: 1.75rem;
             }
@@ -707,7 +789,7 @@
                 grid-column: 2;
                 grid-row: 1;
                 text-align: left;
-                white-space: normal; /* Removes the nowrap restriction */
+                white-space: normal; 
                 padding-top: 0;
                 font-size: 0.85rem;
                 align-self: center;
@@ -720,7 +802,7 @@
             }
 
             .tl-node {
-                margin-top: 2px; /* Aligns circle visually with the date */
+                margin-top: 2px;
             }
 
             .tl-body {
@@ -739,6 +821,15 @@
 
             .tl-note {
                 font-size: 0.78rem;
+            }
+
+            .restricted-teaser {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+            
+            .restricted-btn {
+                width: 100%;
             }
         }
     </style>
@@ -1288,6 +1379,35 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         RESTRICTED TEASER AD 
+    ========================================================= -->
+    <section style="background: var(--bg-grid);">
+        <div class="wrap" style="padding-bottom: 2rem;">
+            <div class="restricted-teaser" data-reveal>
+                <div>
+                    <div class="restricted-index">
+                        Classified — LVL 04
+                    </div>
+
+                    <h3>
+                        There may be things I probably shouldn't put on a résumé.
+                    </h3>
+
+                    <p>
+                        Classified datasets, questionable econometric theories, inter-universe
+                        allegiance statistics, and several highly suspicious applications of
+                        Python. You were not supposed to find this.
+                    </p>
+                </div>
+
+                <a class="btn restricted-btn" href="restricted.html">
+                    Enter Restricted Section →
+                </a>
             </div>
         </div>
     </section>
