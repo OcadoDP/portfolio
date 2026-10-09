@@ -1,0 +1,829 @@
+/* ============================================================
+   Shared site chrome
+   ------------------------------------------------------------
+   One source of truth for header/footer geometry and global
+   scrollbar behavior. Loaded after page-specific CSS by
+   components.js so these values remain consistent everywhere.
+   ============================================================ */
+
+html {
+    overflow-y: scroll;
+}
+
+.site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: none !important;
+}
+
+/* Animated Maroon Gradient Border */
+.site-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    /* This creates a perfectly repeating color pattern */
+    background: linear-gradient(90deg, #800000, #ff3b3b, #800000, #ff3b3b, #800000);
+    background-size: 200% 100%;
+    /* 'linear' keeps the speed constant, creating a continuous flow */
+    animation: flowMaroon 4s linear infinite;
+}
+
+/* Continuously shifts the gradient to the left */
+@keyframes flowMaroon {
+    0% { background-position: 200% 0; }
+    100% { background-position: 0% 0; }
+}
+
+.site-header .wrap {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    min-height: 72px !important;
+    height: 72px !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box;
+}
+
+.site-header .brand {
+    color: inherit;
+    text-decoration: none;
+    /* Add these three lines to put the logo and text side-by-side */
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+}
+
+/* Add this brand-new block for your PNG */
+.brand-logo {
+    height: 44px; 
+    width: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.brand-lockup {
+    display: flex;
+    flex-direction: column;
+    /* Add this line to vertically center your name and title next to the logo */
+    justify-content: center; 
+}
+
+.brand-name {
+    font: 700 1.05rem "Space Grotesk", sans-serif;
+}
+
+.brand-kicker {
+    font-size: .74rem;
+    color: var(--muted, #6b7280);
+}
+
+/* Hide the new mobile right-side actions on desktop */
+.header-actions {
+    display: none;
+}
+
+.nav {
+    display: flex !important;
+    gap: 1.3rem !important; /* Reduced slightly */
+    align-items: center !important;
+    font-size: .92rem;
+    font-weight: 600;
+}
+
+/* Hide nav icons on desktop */
+.nav-icon {
+    display: none;
+}
+
+.nav-link {
+    color: var(--muted, #6b7280);
+    transition: color .2s ease, transform .2s ease;
+    display: inline-block;
+    text-decoration: none;
+    position: relative; /* Added to anchor the underline */
+}
+
+.nav-link:hover,
+.nav-link.is-current {
+    color: var(--maroon, #800000);
+    transform: translateY(-2px);
+}
+
+/* Active tab underline effect */
+.nav-link.is-current::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--maroon, #800000);
+    border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link.is-current {
+    color: var(--maroon, #800000);
+    transform: translateY(-2px);
+}
+
+.nav-resume {
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    background: var(--maroon, #800000);
+    color: var(--white, #fff);
+    transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+    text-decoration: none;
+}
+
+.nav-resume:hover {
+    background: var(--maroon-dark, #5f0000);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(128, 0, 0, 0.2);
+}
+
+.site-footer {
+    background: #101010 !important;
+    color: #fff !important;
+    padding: 5rem 0 1.5rem !important;
+    margin-top: 2rem !important;
+}
+
+.site-footer .wrap {
+    max-width: 1120px !important;
+    margin: 0 auto !important;
+    padding: 0 1.5rem !important;
+    box-sizing: border-box;
+}
+
+.footer-grid {
+    display: grid !important;
+    grid-template-columns: 2fr 1fr 1fr !important;
+    gap: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.footer-brand {
+    font: 700 1.25rem "Space Grotesk", sans-serif;
+    margin-bottom: .9rem;
+}
+
+.footer-col p {
+    color: #a6a6ad;
+    max-width: 320px;
+}
+
+.footer-email {
+    display: inline-block;
+    margin-top: .9rem;
+    font-weight: 650;
+    color: inherit;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.micro {
+    color: #707078;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .68rem;
+    font-weight: 800;
+    margin-bottom: .9rem;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+}
+
+.footer-links a {
+    color: #b3b3ba;
+    transition: transform .2s ease, color .2s ease;
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-email:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.footer-links a.is-current {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .12) !important;
+    padding-top: 1.25rem !important;
+    margin-top: 1.5rem;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 1rem;
+    color: #707078 !important;
+    font-size: .78rem;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+}
+
+/* ============================================================
+   MOBILE BOTTOM NAVIGATION (ICON ONLY, INSTAGRAM STYLE)
+   ============================================================ */
+@media (max-width: 700px) {
+    /* REMOVE the blur trap so the menu can jump to the bottom */
+    .site-header {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: #ffffff !important;
+    }
+
+    /* Pad the bottom of the whole site so content doesn't hide behind the new nav bar */
+    body {
+        padding-bottom: 70px;
+    }
+
+    .site-header .wrap {
+        min-height: auto !important;
+        height: auto !important;
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
+        /* Aligns logo to left, actions to right */
+        justify-content: space-between !important; 
+    }
+
+    /* Hide the text next to the logo on mobile */
+    .brand-lockup {
+        display: none !important;
+    }
+
+    /* Show the new right-side icons (GitHub, Email, Résumé) */
+    .header-actions {
+        display: flex !important;
+        align-items: center;
+        gap: 0.9rem;
+    }
+
+    .header-action-btn {
+        color: #111827;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-action-btn svg {
+        width: 20px;
+        height: 20px;
+        stroke-width: 1.8;
+        transition: stroke 0.2s ease;
+    }
+
+    .header-action-btn:hover svg {
+        stroke: #800000;
+    }
+
+    /* Move Nav to Bottom */
+    .nav {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-evenly !important;
+        align-items: center !important;
+        /* safe-area-inset prevents overlapping with the iPhone home swipe bar */
+        padding: 0.75rem 0.5rem calc(0.75rem + env(safe-area-inset-bottom)) !important;
+        margin: 0 !important;
+        border-top: 1px solid #e5e7eb;
+        box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.06) !important;
+        z-index: 1000 !important;
+        gap: 0 !important;
+    }
+
+    /* Hide text, enlarge and center icons */
+    .nav-text {
+        display: none !important;
+    }
+
+    .nav-icon {
+        display: block !important;
+        width: 24px;
+        height: 24px;
+        margin: 0 auto;
+        stroke-width: 1.75;
+    }
+    /* Transform Alter Ego into a Text Pill on mobile */
+    .alter-ego-mobile .nav-icon {
+        display: none !important;
+    }
+    
+    .alter-ego-mobile .nav-text {
+        display: block !important;
+        font-size: 0.72rem;
+        font-weight: 700;
+        background: #f3f4f6;
+        color: #111827;
+        padding: 0.4rem 0.8rem;
+        border-radius: 50px;
+        white-space: nowrap;
+        border: 1px solid #e5e7eb;
+    }
+    /* Reorder mobile bottom navigation so Alter Ego sits perfectly in the center */
+    .nav > a[data-nav="home"] { order: 1; }
+    .nav > a[data-nav="about"] { order: 2; }
+    .nav > .alter-ego-mobile { order: 3; }
+    .nav > a[data-nav="projects"] { order: 4; }
+    .nav > .nav-restricted-icon { order: 5; }
+
+    .nav-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem 0 !important;
+        flex: 1;
+        transform: none !important; /* Stop vertical jump on hover */
+    }
+
+    /* Center the active underline directly under the icon */
+    .nav-link.is-current::after {
+        bottom: -2px;
+        width: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Make restricted link completely clean (no box styling on mobile) */
+    .nav-link.nav-restricted {
+        border: none !important;
+        background: none !important;
+        box-shadow: none !important;
+        padding: 0.6rem 0 !important;
+        border-radius: 0 !important;
+        min-height: auto;
+    }
+
+    .nav-link.nav-restricted.is-current::after {
+        display: none !important;
+    }
+
+    /* Hide the old resume link inside the bottom nav on mobile since it's now in the header */
+    .nav-resume {
+        display: none !important;
+    }
+    
+    /* Hide the header vertical divider on mobile bottom nav */
+    .nav-divider {
+        display: none !important;
+    }
+
+    /* Hide the desktop terminal button inside the nav when on mobile */
+    #desktop-term-toggle {
+        display: none !important;
+    }
+
+    /* Footer adjustments */
+    .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+
+    .footer-bottom {
+        display: block !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-link,
+    .nav-resume,
+    .footer-links a,
+    .footer-email {
+        transition: none;
+    }
+}
+
+/* ============================================================
+   RESTRICTED SECTION — PULSING LOCK (Desktop & Mobile)
+   ============================================================ */
+
+/* Make the restricted icon visible on desktop without an underline */
+.nav-restricted-icon .nav-icon {
+    display: block !important;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.nav-restricted-icon::after {
+    display: none !important; /* Hides the active tab underline */
+}
+
+/* Global pulse animation */
+.pulsing-lock {
+    stroke: #800000 !important;
+    animation: lockPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes lockPulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(128, 0, 0, 0)); }
+    50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(128, 0, 0, 0.6)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(128, 0, 0, 0)); }
+}
+
+/* Footer classified card */
+.footer-links .footer-restricted {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: .62rem;
+    width: min(100%, 250px);
+    min-height: 50px;
+    padding: .58rem .68rem;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 8px;
+    color: #d8d8dc;
+    background:
+        linear-gradient(135deg, rgba(128,0,0,.16), rgba(255,255,255,.018)),
+        repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.018) 3px 4px);
+    overflow: hidden;
+    text-decoration: none;
+    transform: none;
+    transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.footer-links .footer-restricted::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40%;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.10), transparent);
+    transform: skewX(-18deg);
+    transition: left .6s ease;
+    pointer-events: none;
+}
+
+.footer-links .footer-restricted:hover::before {
+    left: 110%;
+}
+
+.footer-links .footer-restricted:hover {
+    color: #fff;
+    transform: translateX(4px) translateY(-1px);
+    border-color: rgba(255,255,255,.25);
+    background: linear-gradient(135deg, rgba(128,0,0,.28), rgba(255,255,255,.035));
+    box-shadow: 0 8px 22px rgba(0,0,0,.20);
+}
+
+.footer-links .footer-restricted.is-current {
+    color: #fff;
+    border-color: rgba(255,255,255,.25);
+    background: linear-gradient(135deg, rgba(128,0,0,.34), rgba(255,255,255,.04));
+    box-shadow: inset 3px 0 0 #800000, 0 8px 22px rgba(0,0,0,.18);
+}
+
+.footer-restricted-mark {
+    position: relative;
+    z-index: 1;
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    color: #ff7777;
+    font-size: .62rem;
+    box-shadow: 0 0 12px rgba(128,0,0,.18);
+}
+
+.footer-restricted-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.footer-restricted-title {
+    font: 750 .82rem/1.15 "Space Grotesk", sans-serif;
+    letter-spacing: .02em;
+}
+
+.footer-restricted-meta {
+    margin-top: .22rem;
+    color: #8e8e97;
+    font: 800 .51rem/1 "Space Grotesk", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.footer-restricted-arrow {
+    position: relative;
+    z-index: 1;
+    color: #8e8e97;
+    font-size: .85rem;
+    transition: transform .2s ease, color .2s ease;
+}
+
+.footer-links .footer-restricted:hover .footer-restricted-arrow,
+.footer-links .footer-restricted.is-current .footer-restricted-arrow {
+    color: #fff;
+    transform: translate(2px, -2px);
+}
+
+@keyframes restrictedPulse {
+    0% { transform: scale(.65); opacity: .75; }
+    70%, 100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* ============================================================
+   TERMINAL CLI OVERLAY (MAROON THEME)
+   ============================================================ */
+#cli-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 19, 24, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 999999;
+    color: #e5e7eb; /* Crisp light grey instead of green */
+    font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', monospace;
+    padding: 2rem 1.5rem;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+#cli-overlay.is-active {
+    display: flex;
+}
+
+.cli-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: 1px solid var(--maroon);
+    color: var(--maroon);
+    padding: 0.45rem 1.2rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.cli-close:hover {
+    background: var(--maroon);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(128, 0, 0, 0.4);
+}
+
+.cli-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
+
+.cli-output {
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap; /* Crucial for aligning the 'help' dashes perfectly */
+    word-break: break-word;
+    line-height: 1.7;
+}
+
+.cli-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Color Coding for Terminal Elements */
+.cli-prompt { color: #ef4444; font-weight: bold; white-space: nowrap; }
+.cli-dir { color: #fca5a5; font-weight: bold; }
+.cli-file { color: #9ca3af; }
+.cli-highlight { color: #fbbf24; }
+
+#cli-input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+    caret-color: #ef4444; /* Maroon blinking cursor */
+}
+
+/* Hover effect for desktop terminal toggle icon */
+#desktop-term-toggle:hover {
+    color: var(--maroon) !important;
+}
+
+/* ============================================================
+   FLOATING AI ASSISTANT WIDGET (RESPONSIVE)
+   ============================================================ */
+#ai-chat-bubble {
+    position: fixed;
+    bottom: 5.5rem; /* Sits comfortably above the mobile bottom nav bar */
+    right: 1.25rem;
+    width: 52px;
+    height: 52px;
+    background: var(--maroon, #800000);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(128, 0, 0, 0.3);
+    z-index: 99998;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+    border: none;
+}
+
+#ai-chat-bubble:hover {
+    transform: scale(1.08) translateY(-2px);
+    background: var(--maroon-dark, #650000);
+}
+
+#ai-chat-bubble svg {
+    width: 22px;
+    height: 22px;
+}
+
+#ai-chat-window {
+    position: fixed;
+    bottom: 9.5rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+    max-width: 380px;
+    margin-left: auto;
+    height: 450px;
+    max-height: calc(100vh - 12rem);
+    background: #ffffff;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    z-index: 99999;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: chatPopup 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#ai-chat-window.is-open {
+    display: flex;
+}
+
+@keyframes chatPopup {
+    from { opacity: 0; transform: translateY(15px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (min-width: 700px) {
+    #ai-chat-bubble {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 56px;
+        height: 56px;
+    }
+    #ai-chat-window {
+        bottom: 5.5rem;
+        right: 1.5rem;
+        left: auto;
+        width: 360px;
+        max-width: calc(100vw - 3rem);
+    }
+}
+
+.ai-chat-header {
+    background: var(--maroon, #800000);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.ai-chat-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ai-status-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+}
+
+.ai-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.ai-chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: #f9fafb;
+    font-size: 0.9rem;
+}
+
+.ai-msg {
+    max-width: 85%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.ai-msg.user {
+    background: var(--maroon, #800000);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+}
+
+.ai-msg.assistant {
+    background: white;
+    color: var(--text-dark, #111827);
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+    border: 1px solid var(--border, #e5e7eb);
+}
+
+.ai-chat-input-area {
+    padding: 0.75rem;
+    background: white;
+    border-top: 1px solid var(--border, #e5e7eb);
+    display: flex;
+    gap: 0.5rem;
+}
+
+#ai-user-input {
+    flex: 1;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--border, #e5e7eb);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#ai-user-input:focus {
+    border-color: var(--maroon, #800000);
+}
+
+.ai-send-btn {
+    background: var(--maroon, #800000);
+    color: white;
+    border: none;
+    padding: 0 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ai-send-btn:hover {
+    background: var(--maroon-dark, #650000);
+}
