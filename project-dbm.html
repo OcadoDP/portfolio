@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#800000">
+    <meta name="description" content="A case study of Dexter Pascual Ocado's HR data automation, Competency Assessment reporting, and Power BI analytics work during his internship at the Department of Budget and Management.">
+    <title>Enterprise HR Automation & BI (DBM) — Dexter Pascual Ocado</title>
+
+    <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="site-shared.css">
+
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--bg-paper);
+        color: var(--ink);
+        font-family: var(--font-sans);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .label-caption {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        flex: 0 0 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+      }
+
+      .case-hero {
+        padding: 48px 0 36px;
+      }
+
+      .case-hero-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: clamp(2rem, 4vw, 3.5rem);
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        text-align: center;
+      }
+
+      .case-hero h1 {
+        max-width: 900px;
+        margin: 12px 0 16px;
+        font-size: clamp(2.1rem, 4.4vw, 3.7rem);
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1.08;
+      }
+
+      .case-lead {
+        max-width: 840px;
+        margin: 0 0 22px;
+        color: var(--grey-400);
+        font-size: 1.1rem;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .tech-tag {
+        padding: 6px 14px;
+        border: 1px solid var(--grey-100);
+        border-radius: 99px;
+        background: var(--bg-paper);
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        font-weight: 500;
+      }
+
+      .tech-tag.is-maroon {
+        background: var(--maroon-soft);
+        border-color: var(--maroon-border);
+        color: var(--maroon);
+      }
+
+      .pipeline-diagram {
+        margin-bottom: 48px;
+        padding: clamp(1.75rem, 3.5vw, 2.75rem);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: var(--radius-lg);
+        background: radial-gradient(
+        circle at 85% 20%,
+        rgba(128,0,0,0.3),
+        transparent 55%
+        ), var(--bg-dark);
+        color: #fff;
+      }
+
+      .pipeline-diagram h2 {
+        margin: 8px 0 12px;
+        font-size: clamp(1.4rem, 3vw, 1.85rem);
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .pipeline-intro {
+        max-width: 790px;
+        margin: 0 0 24px;
+        color: #c2c3c6;
+        font-size: 0.93rem;
+      }
+
+      .workflow-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .workflow-card {
+        min-width: 0;
+        padding: 24px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: var(--radius-md);
+        background: rgba(255,255,255,0.045);
+      }
+
+      .workflow-label {
+        display: block;
+        margin-bottom: 12px;
+        color: #e6a1aa;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .workflow-card h3 {
+        margin: 0 0 8px;
+        font-size: 1.22rem;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+
+      .workflow-card > p {
+        margin: 0 0 20px;
+        color: #c2c3c6;
+        font-size: 0.87rem;
+      }
+
+      .flow-list {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .flow-list li {
+        position: relative;
+        padding: 12px 14px 12px 34px;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 9px;
+        background: rgba(0,0,0,0.15);
+        font-size: 0.87rem;
+        line-height: 1.45;
+      }
+
+      .flow-list li::before {
+        content: "";
+        position: absolute;
+        top: 19px;
+        left: 15px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #c54c5b;
+      }
+
+      .flow-note {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #aeb0b5;
+        font-size: 0.78rem;
+        line-height: 1.6;
+      }
+
+      .case-layout {
+        display: grid;
+        grid-template-columns: 310px minmax(0, 1fr);
+        align-items: start;
+        gap: 40px;
+        padding-bottom: 72px;
+      }
+
+      .case-sidebar {
+        position: sticky;
+        top: 92px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .meta-box,
+      .case-content {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+      }
+
+      .meta-box {
+        padding: 24px;
+      }
+
+      .meta-row {
+        display: grid;
+        grid-template-columns: 115px minmax(0, 1fr);
+        align-items: baseline;
+        gap: 10px;
+        padding: 12px 0;
+        border-bottom: 1px dashed var(--grey-100);
+        font-size: 0.85rem;
+      }
+
+      .meta-row:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      .meta-row span {
+        color: var(--grey-300);
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+
+      .meta-row strong {
+        overflow-wrap: anywhere;
+        font-weight: 600;
+      }
+
+      .case-content {
+        min-width: 0;
+        padding: clamp(2rem, 4vw, 3.5rem);
+        border-radius: var(--radius-lg);
+      }
+
+      .case-content h2 {
+        margin: 38px 0 14px;
+        padding-top: 28px;
+        border-top: 1px solid var(--grey-100);
+        font-size: clamp(1.45rem, 2.5vw, 1.8rem);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+      }
+
+      .case-content h2:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .case-content p {
+        margin: 0 0 16px;
+        color: var(--grey-400);
+        font-size: 1rem;
+      }
+
+      .case-content strong {
+        color: var(--ink);
+      }
+
+      .note-callout {
+        margin-bottom: 30px;
+        padding: 18px 22px;
+        border-left: 4px solid var(--maroon);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        background: var(--maroon-soft);
+        color: var(--ink);
+        font-size: 0.92rem;
+        line-height: 1.65;
+      }
+
+      .app-suite-grid {
+        display: grid;
+        gap: 16px;
+        margin: 22px 0;
+      }
+
+      .app-card {
+        min-width: 0;
+        padding: 22px 24px;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+      }
+
+      .app-card h3 {
+        margin: 0 0 8px;
+        color: var(--maroon);
+        font-size: 1.14rem;
+        font-weight: 600;
+      }
+
+      .app-card p {
+        margin-bottom: 10px;
+        font-size: 0.95rem;
+      }
+
+      .app-card ul {
+        margin: 10px 0 0;
+        padding-left: 20px;
+        color: var(--grey-400);
+        font-size: 0.92rem;
+      }
+
+      .app-card li {
+        margin-bottom: 8px;
+        padding-left: 2px;
+        list-style: disc;
+        line-height: 1.65;
+      }
+
+      .app-card li:last-child {
+        margin-bottom: 0;
+      }
+
+      .subsection-label {
+        display: inline-block;
+        margin-bottom: 18px;
+        color: var(--maroon);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .insight-list {
+        margin: 16px 0 20px;
+        padding-left: 22px;
+        color: var(--grey-400);
+      }
+
+      .insight-list li {
+        margin-bottom: 10px;
+        list-style: disc;
+      }
+
+      .case-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        width: 100%;
+        min-height: 46px;
+        padding: 11px 18px;
+        border: 1px solid var(--grey-100);
+        border-radius: 999px;
+        background: var(--bg-white);
+        color: var(--ink);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: center;
+        transition: transform 0.2s ease, border-color 0.2s ease,
+        background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .case-button:hover {
+        transform: translateY(-2px);
+        border-color: var(--maroon);
+        color: var(--maroon);
+      }
+
+      .case-button:focus-visible {
+        outline: 2px solid var(--maroon);
+        outline-offset: 4px;
+      }
+
+      .next-case-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-bottom: 48px;
+        padding: 36px;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: var(--radius-lg);
+        background: var(--bg-dark);
+        color: #fff;
+      }
+
+      .next-case-banner h3 {
+        max-width: 670px;
+        margin: 8px 0 0;
+        font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+        font-weight: 500;
+        line-height: 1.35;
+      }
+
+      .next-case-banner .case-button {
+        width: auto;
+        flex-shrink: 0;
+        border-color: var(--maroon);
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .next-case-banner .case-button:hover {
+        background: #660000;
+        color: #fff;
+      }
+
+      @media (max-width: 991px) {
+        .case-layout {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+
+        .case-sidebar {
+          position: static;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .workflow-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .case-hero {
+          padding-top: 25px;
+        }
+
+        .pipeline-diagram {
+          margin-bottom: 28px;
+        }
+
+        .case-layout {
+          padding-bottom: 40px;
+        }
+
+        .next-case-banner {
+          padding: 26px;
+        }
+
+        .next-case-banner .case-button {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .case-hero-card,
+        .case-content {
+          padding: 24px 20px;
+        }
+
+        .workflow-card {
+          padding: 18px;
+        }
+
+        .meta-row {
+          grid-template-columns: 105px minmax(0, 1fr);
+        }
+
+        .app-card {
+          padding: 20px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .case-button {
+          transition: none;
+        }
+
+        .case-button:hover {
+          transform: none;
+        }
+      }
+
+
+      /* Standard Project Navigation Button */
+      .next-case-banner .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border: none;
+        border-radius: 999px;
+        background: transparent;
+        color: inherit;
+        text-decoration: none;
+        isolation: isolate;
+        cursor: pointer;
+      }
+
+      .next-case-banner .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .next-case-banner .button[data-cc-glow]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        background: conic-gradient(
+        from var(--cc-ba),
+        #800000,
+        #ff4d6d,
+        #ffb35c,
+        #7ad8ff,
+        #800000
+        );
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .next-case-banner .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        background: var(--maroon);
+        color: #fff;
+        font-size: 0.92rem;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      @property --cc-ba {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+
+      @media (max-width: 700px) {
+        .next-case-banner .button {
+          width: 100%;
+        }
+
+        .next-case-banner .button-in {
+          width: 100%;
+        }
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+
+    <main class="padding-global" id="main">
+      <div class="container-large">
+
+        <!-- CASE STUDY HEADER -->
+        <header class="case-hero">
+          <div class="case-hero-card">
+            <div class="label-caption">
+              Case Study 02 // Systems Engineering & Automation
+            </div>
+
+            <h1>
+              Enterprise HR Data Automation &amp; Business Intelligence
+            </h1>
+
+            <p class="case-lead">
+              A collection of data-processing applications, reporting
+              utilities, workflow automations, and Power BI dashboards
+              developed during my internship at the Department of Budget
+              and Management (DBM). The work addressed manual Competency
+              Assessment reporting and Learning &amp; Development analytics.
+            </p>
+
+            <div class="tech-tags">
+              <span class="tech-tag is-maroon">
+                1,200+ Personnel in CA Reporting Scope
+              </span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">SheetJS &amp; ExcelJS</span>
+              <span class="tech-tag">jsPDF &amp; JSZip</span>
+              <span class="tech-tag">Power BI</span>
+              <span class="tech-tag">Power Query</span>
+              <span class="tech-tag">Power Automate</span>
+              <span class="tech-tag">TypeScript Office Scripts</span>
+              <span class="tech-tag">Bigram Dice Similarity</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- WORKFLOW OVERVIEW -->
+        <section class="pipeline-diagram"
+        aria-labelledby="workflow-heading">
+
+        <div class="label-caption" style="color:#f5f3f3;">
+          Solution Architecture // Two Workstreams
+        </div>
+
+        <h2 id="workflow-heading">
+          Two Workflows. Different Problems. Complementary Solutions.
+        </h2>
+
+        <p class="pipeline-intro">
+          Rather than operating as one continuous five-application
+          pipeline, the tools supported two principal areas of work:
+          employee competency reporting and learning-program evaluation.
+        </p>
+
+        <div class="workflow-grid">
+
+          <div class="workflow-card">
+            <span class="workflow-label">
+              WORKSTREAM 01 // COMPETENCY ASSESSMENT
+            </span>
+
+            <h3>HR Assessment &amp; Development Reporting</h3>
+
+            <p>
+              Automating the preparation, validation, consolidation,
+              and documentation of employee competency results.
+            </p>
+
+            <ol class="flow-list">
+              <li>
+                Assessment monitoring and employee-record matching
+              </li>
+              <li>
+                Automated CA Results generation
+              </li>
+              <li>
+                Excel validation, Office Scripts, and Power Automate
+              </li>
+              <li>
+                Competency-gap and intervention consolidation
+              </li>
+              <li>
+                Individual development and signing-ready documents
+              </li>
+            </ol>
+
+            <div class="flow-note">
+              Includes the CA Results Generator, Interventions
+              Consolidator, IDP Generator, PDF utilities, and
+              related automation scripts.
+            </div>
+          </div>
+
+          <div class="workflow-card">
+            <span class="workflow-label">
+              WORKSTREAM 02 // LEARNING &amp; DEVELOPMENT
+            </span>
+
+            <h3>Udemy Data Engineering &amp; Analytics</h3>
+
+            <p>
+              Standardizing course information, analyzing learner
+              feedback, and presenting results through interactive
+              business intelligence and narrative reporting.
+            </p>
+
+            <ol class="flow-list">
+              <li>
+                Course master-list extraction and deduplication
+              </li>
+              <li>
+                Data cleaning and title matching with Panglinis
+              </li>
+              <li>
+                Power Query transformations and score computations
+              </li>
+              <li>
+                Interactive Power BI dashboards
+              </li>
+              <li>
+                Survey analysis, narrative reports, and recommendations
+              </li>
+            </ol>
+
+            <div class="flow-note">
+              Includes the Udemy Course Masterlist Generator,
+              Panglinis, Power BI reporting, and survey analysis.
+              Separate datasets were used for different activities.
+            </div>
+          </div>
+
+        </div>
+        </section>
+
+        <div class="case-layout">
+
+          <!-- PROJECT SIDEBAR -->
+          <aside class="case-sidebar" aria-label="Project information">
+            <div class="meta-box">
+
+              <div class="label-caption" style="margin-bottom:12px;">
+                Project Overview
+              </div>
+
+              <div class="meta-row">
+                <span>Organization</span>
+                <strong>Department of Budget and Management</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>Unit</span>
+                <strong>AS-HRDD / Monitoring &amp; Evaluation</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>Period</span>
+                <strong>March–April 2026</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>Role</span>
+                <strong>Data &amp; Systems Automation Intern</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>CA Scope</span>
+                <strong>1,200+ Personnel</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>Udemy Data</span>
+                <strong>12,000+ Response Rows</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>Survey Study</span>
+                <strong>245 Respondents</strong>
+              </div>
+
+              <div class="meta-row">
+                <span>Deliverables</span>
+                <strong>Applications, Scripts, Dashboards &amp; Reports</strong>
+              </div>
+
+            </div>
+
+            <a href="projects.html" class="case-button">
+              <span aria-hidden="true">←</span>
+              Back to Projects
+            </a>
+          </aside>
+
+          <!-- CASE STUDY CONTENT -->
+          <article class="case-content">
+
+            <div class="note-callout">
+              <strong>Confidentiality Notice:</strong>
+              These solutions were developed in an internal government
+              working environment. The descriptions here are limited
+              to non-sensitive functionality, technologies, and
+              professional contributions. Source code, personnel
+              datasets, internal files, and functional system access
+              are not publicly disclosed.
+            </div>
+
+            <h2>The Challenge</h2>
+
+            <p>
+              The Competency Assessment workflow involved collecting
+              self-assessments and supervisor evaluations across numerous
+              Bureaus, Services, Offices, and Regional Offices. Preparing
+              individual assessment results from Microsoft Forms
+              responses required repetitive spreadsheet processing,
+              scoring, formatting, and verification.
+            </p>
+
+            <p>
+              As the work progressed, additional challenges emerged:
+              inconsistent employee names, differing file layouts,
+              incomplete validation information, manually assigned
+              intervention priorities, and the need to consolidate
+              results from many individual assessment workbooks.
+            </p>
+
+            <p>
+              In parallel, Learning &amp; Development reporting required
+              cleaning large volumes of learner-response data,
+              reconciling inconsistent Udemy course titles, and
+              translating quantitative and qualitative findings into
+              useful dashboards and reports.
+            </p>
+
+            <h2>Workstream 01: Competency Assessment Automation</h2>
+
+            <p>
+              My first major contribution began as a web-based
+              assessment-status monitoring tool. After presenting
+              a working version to the team, I was asked to expand
+              it into a system capable of generating the actual
+              Competency Assessment Results.
+            </p>
+
+            <div class="app-suite-grid">
+
+              <section class="app-card">
+                <h3>01. CA Results Generator</h3>
+
+                <p>
+                  An application that evolved from monitoring
+                  assessment completion to producing structured
+                  employee competency reports.
+                </p>
+
+                <ul>
+                  <li>
+                    Imported and consolidated raw assessment records
+                    from Excel exports using SheetJS.
+                  </li>
+                  <li>
+                    Tracked self-assessment and supervisor-evaluation
+                    completion through a searchable employee dashboard.
+                  </li>
+                  <li>
+                    Applied employee-name normalization, record
+                    deduplication, and profile-merging logic to
+                    handle variations in submitted records.
+                  </li>
+                  <li>
+                    Used a competency reference dictionary to connect
+                    survey responses with official competency
+                    categories, descriptions, and levels.
+                  </li>
+                  <li>
+                    Calculated weighted assessment scores using
+                    40% self-assessment and 60% supervisor evaluation,
+                    alongside competency-gap computations.
+                  </li>
+                  <li>
+                    Generated formatted Excel CA Results with ExcelJS,
+                    including structured cells, headings, and
+                    report formatting.
+                  </li>
+                  <li>
+                    Underwent several revisions to improve naming
+                    conventions, competency-level mapping, and
+                    consistency with the required report template.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="app-card">
+                <h3>02. PDF &amp; Signing Document Utilities</h3>
+
+                <p>
+                  Supporting tools developed for converting
+                  assessment workbooks and preparing formal
+                  documents for employee and supervisor review.
+                </p>
+
+                <ul>
+                  <li>
+                    Created a separate batch-conversion workflow
+                    for producing PDF versions of CA Results.
+                  </li>
+                  <li>
+                    Developed a browser-based PDF generator
+                    for assessment summaries requiring employee
+                    and supervisor signature sections.
+                  </li>
+                  <li>
+                    Extracted employee information, competency
+                    results, and intervention details from
+                    structured workbooks.
+                  </li>
+                  <li>
+                    Used jsPDF and AutoTable for report layout,
+                    tables, page handling, and signatures.
+                  </li>
+                  <li>
+                    Integrated employee reference data to improve
+                    name and position-title consistency.
+                  </li>
+                  <li>
+                    Used JSZip for packaging batch-generated
+                    documents into downloadable archives.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="app-card">
+                <h3>03. Interventions Consolidator</h3>
+
+                <p>
+                  Developed to transform individual validated
+                  assessment results into consolidated information
+                  for Learning &amp; Development planning.
+                </p>
+
+                <ul>
+                  <li>
+                    Parsed batches of completed CA Result workbooks
+                    and extracted competency gaps, recommended
+                    interventions, and priority rankings.
+                  </li>
+                  <li>
+                    Standardized office identifiers and
+                    intervention categories for reporting.
+                  </li>
+                  <li>
+                    Generated organizational summaries covering
+                    competency needs, interventions, and
+                    priority distributions.
+                  </li>
+                  <li>
+                    Produced multi-sheet Excel reports and an
+                    interactive HTML analytics dashboard.
+                  </li>
+                  <li>
+                    Supported exceptional cases, including
+                    competencies with zero identified gaps
+                    that nevertheless received interventions.
+                  </li>
+                  <li>
+                    Underwent iterative revisions following
+                    discussions with the Monitoring &amp;
+                    Evaluation and Learning &amp; Development teams.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="app-card">
+                <h3>04. Individual Development Plan Generator</h3>
+
+                <p>
+                  A bulk document-generation utility designed to
+                  prepare individualized development outputs
+                  from completed Competency Assessment records.
+                </p>
+
+                <ul>
+                  <li>
+                    Processed assessment files uploaded from
+                    folder-based collections.
+                  </li>
+                  <li>
+                    Retrieved employee and competency information
+                    using supporting reference datasets.
+                  </li>
+                  <li>
+                    Cleaned extracted text and standardized
+                    employee names and position titles.
+                  </li>
+                  <li>
+                    Generated individual PDF documents and
+                    accompanying Excel outputs where applicable.
+                  </li>
+                  <li>
+                    Packaged generated documents using JSZip
+                    while preserving available folder
+                    organization.
+                  </li>
+                  <li>
+                    Included progress indicators and handling
+                    for source files that did not match
+                    the expected layout.
+                  </li>
+                </ul>
+              </section>
+
+            </div>
+
+            <h2>Workflow Automation with Microsoft 365</h2>
+
+            <p>
+              Beyond the browser-based utilities, I developed
+              TypeScript Office Scripts to help update existing
+              Competency Assessment files without having to
+              regenerate every report.
+            </p>
+
+            <p>
+              These scripts handled tasks such as protecting
+              structural columns, inserting intervention
+              dropdowns, adding priority-ranking fields,
+              and extracting priority information from
+              validation remarks using regular expressions.
+            </p>
+
+            <p>
+              I also created and tested Power Automate flows
+              to apply scripts across large collections of
+              assessment workbooks. During implementation,
+              I addressed issues involving folder filtering,
+              validation ranges, and differences in file
+              structure. The workflows were reviewed and
+              used collaboratively by the team.
+            </p>
+
+            <h2>Workstream 02: Udemy Data Engineering &amp; BI</h2>
+
+            <p>
+              My Learning &amp; Development work included two
+              related analytical activities: evaluating the
+              Batch 2025 Udemy Learners' Experience Survey
+              and preparing a separate post-training
+              evaluation dataset for dashboard reporting.
+            </p>
+
+            <p>
+              These activities involved different datasets
+              and reporting requirements. I developed
+              supporting tools to reduce repetitive data
+              preparation and improve the consistency of
+              the resulting analysis.
+            </p>
+
+            <div class="app-suite-grid">
+
+              <section class="app-card">
+                <h3>05. Udemy Course Masterlist Generator</h3>
+
+                <p>
+                  A browser-based utility for creating a
+                  standardized reference list of course titles
+                  from curated Excel workbooks.
+                </p>
+
+                <ul>
+                  <li>
+                    Scanned multiple uploaded files and
+                    worksheets for course-title entries.
+                  </li>
+                  <li>
+                    Filtered irrelevant values and standardized
+                    equivalent text forms.
+                  </li>
+                  <li>
+                    Deduplicated titles, including variations
+                    involving ampersands and the word "and."
+                  </li>
+                  <li>
+                    Exported a sorted, consolidated Excel
+                    master list for subsequent validation
+                    and data-cleaning work.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="app-card">
+                <h3>06. Panglinis — Udemy Data Cleaner</h3>
+
+                <p>
+                  A dedicated browser-based data-cleaning
+                  utility developed to reconcile inconsistent
+                  course titles in more than 12,000
+                  learner-response rows.
+                </p>
+
+                <ul>
+                  <li>
+                    Accepted raw Excel data and an official
+                    course-title master list.
+                  </li>
+                  <li>
+                    Normalized strings by handling punctuation,
+                    spacing, and selected irrelevant words.
+                  </li>
+                  <li>
+                    Applied custom mapping rules and keyword
+                    overlap to identify likely official titles.
+                  </li>
+                  <li>
+                    Used character-bigram Sørensen–Dice
+                    similarity for approximate text matching,
+                    including spelling variations.
+                  </li>
+                  <li>
+                    Recovered possible course titles from
+                    associated links when title-based
+                    matching was insufficient.
+                  </li>
+                  <li>
+                    Separated matched and unmatched records
+                    for review and exported the resulting
+                    cleaned workbook.
+                  </li>
+                  <li>
+                    Complemented manual checking rather than
+                    assuming that every raw entry could be
+                    reliably corrected automatically.
+                  </li>
+                </ul>
+              </section>
+
+              <section class="app-card">
+                <h3>07. Udemy Power BI Dashboards &amp; Reports</h3>
+
+                <p>
+                  Developed interactive reports and analytical
+                  materials to evaluate learner experiences,
+                  satisfaction, course quality, and
+                  Learning &amp; Development implementation.
+                </p>
+
+                <ul>
+                  <li>
+                    Cleaned and transformed survey data using
+                    Power Query, including unpivoting,
+                    conditional columns, and score aggregation.
+                  </li>
+                  <li>
+                    Created interactive report pages using
+                    charts, KPI cards, slicers, and
+                    customized page navigation.
+                  </li>
+                  <li>
+                    Analyzed the Batch 2025 Udemy Learners'
+                    Experience Survey, which recorded
+                    245 respondents and an overall reported
+                    satisfaction score of 4.65 out of 5.
+                  </li>
+                  <li>
+                    Combined quantitative survey results
+                    with qualitative feedback on accessibility,
+                    learning content, workload constraints,
+                    and program administration.
+                  </li>
+                  <li>
+                    Prepared a separate 17-page written
+                    analytical report presenting findings
+                    and recommendations.
+                  </li>
+                  <li>
+                    Produced additional reporting work
+                    involving course-level satisfaction
+                    information and the implementation
+                    of the "Drop Everything and Learn"
+                    (DEAL) study period.
+                  </li>
+                </ul>
+              </section>
+
+            </div>
+
+            <h2>Additional Analytical &amp; Reporting Work</h2>
+
+            <p>
+              Alongside the main applications, I developed
+              supporting data-processing and reporting
+              utilities to respond to specific operational
+              requirements.
+            </p>
+
+            <ul class="insight-list">
+              <li>
+                <strong>Employee Master List Generator:</strong>
+                Converted structured employee rosters into
+                JavaScript reference data for standardized
+                name and position lookup.
+              </li>
+              <li>
+                <strong>Competency Ranking Comparator:</strong>
+                Developed an analytical utility comparing
+                simple percentage rankings, Bayesian averages,
+                and Wilson score methods.
+              </li>
+              <li>
+                <strong>Training Evaluation Documentation:</strong>
+                Prepared post-training documentation,
+                resource-speaker evaluation reports, and
+                supporting analytical summaries for
+                Learning &amp; Development activities.
+              </li>
+              <li>
+                <strong>Validation Coordination:</strong>
+                Assisted in monitoring assessment completion,
+                checking report readiness, and coordinating
+                corrections with relevant teams and offices.
+              </li>
+            </ul>
+
+            <h2>The Outcome</h2>
+
+            <p>
+              The work introduced reusable applications and
+              automation scripts into processes that had
+              previously depended on repetitive spreadsheet
+              handling. The CA Results Generator was adopted
+              by the team for report preparation, while
+              supporting PDF, consolidation, and document
+              utilities addressed later stages of the
+              assessment workflow.
+            </p>
+
+            <p>
+              Power Automate and Office Scripts helped
+              streamline updates to large collections
+              of existing workbooks. Meanwhile, data-cleaning
+              utilities and Power BI reporting supported
+              more consistent Learning &amp; Development
+              analysis and review.
+            </p>
+
+            <p>
+              Beyond the technical deliverables, the
+              experience strengthened my ability to translate
+              operational requirements into working software,
+              respond to stakeholder feedback, troubleshoot
+              data-quality issues, and communicate analytical
+              results in an organizational setting.
+            </p>
+
+          </article>
+        </div>
+
+        <!-- NEXT CASE STUDY -->
+        <section class="next-case-banner"
+        aria-label="Next case study">
+
+        <div>
+          <div class="label-caption" style="color:#f5f3f3;">
+            Next Case Study (03 / 05)
+          </div>
+
+          <h3>
+            Volatility Dynamics &amp; Interdependence
+            in the Philippine Stock Market
+          </h3>
+        </div>
+
+
+
+        <a class="button is-maroon" data-cc-glow="" href="project-volatility.html">
+          <div class="button-in">
+            <span>Read Next Case Study →</span>
+          </div>
+        </a>
+
+
+
+        </section>
+
+      </div>
+    </main>
+
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+    <script src="site-shared.js"></script>
+  </body>
+</html>

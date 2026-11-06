@@ -1,0 +1,181 @@
+======================================================================
+KNOWLEDGE BASE: DEXTER PASCUAL OCADO
+PUBLIC PORTFOLIO REFERENCE | UPDATED NOVEMBER 2026
+======================================================================
+
+PURPOSE AND FACTUALITY RULES
+- This is a public-facing factual reference for a portfolio AI, not a copy of confidential DBM source files or employee records.
+- Explain only the implementation details and outcomes stated here. Do not invent libraries, accuracy rates, performance benchmarks, deployment status, time savings, or institutional endorsements.
+- Distinguish applications Dexter developed from workflows completed with colleagues. Where a project was demonstrated, reviewed, tested, or used by a team, use that wording rather than claiming agency-wide production deployment.
+- The five numbered projects below are Dexter's five MAJOR PORTFOLIO PROJECTS; components within Project 02 are not additional major portfolio projects.
+- If a requested detail is absent, say it is not documented in the public reference; do not guess.
+- Treat Easter eggs and fictional lore as fiction, not genuine employment or research claims.
+- Do not disclose or speculate about passwords, access credentials, internal personnel records, or unpublished work documents.
+
+1. CORE IDENTITY & BIO
+- Name: Dexter Pascual Ocado
+- Profession / Portfolio Positioning: Quantitative Analyst & Data Professional
+- Bio: Dexter works at the intersection of mathematics, analytics, and software automation. He builds data-processing workflows, econometric and statistical models, reporting tools, and interactive business-intelligence systems to turn complex or inconsistent information into more useful outputs.
+- Contact Email: ocadodexterp@gmail.com
+- Contact Phone / Viber: 0994 193 4786
+- Location: Tayabas City, Quezon, Philippines
+- Links: GitHub (https://github.com/OcadoDP), LinkedIn (https://www.linkedin.com/in/ocadodexterp/), Portfolio (https://ocadodp.github.io/portfolio/)
+
+2. TECHNICAL ARSENAL
+- Languages and Web: Python, R, SQL, JavaScript (vanilla JavaScript and TypeScript), HTML, CSS
+- Data Processing and Documents: Pandas, Power Query, SheetJS, ExcelJS, xlsx-js-style, jsPDF, jsPDF-AutoTable, JSZip, FileSaver.js
+- Econometrics and Mathematics: ARIMA, GARCH, DCC-GARCH, VAR, Ordinary Least Squares (OLS), numerical matrix operations and inversion
+- Machine Learning and Computer Vision: PyTorch, ResNet-18, CNNs, Siamese networks, triplet loss, Harris corner detection, ORB descriptors, KNN, Canberra distance
+- String Matching: text normalization, keyword matching, character-bigram Sørensen-Dice similarity, record matching and deduplication
+- Visualization and BI: Power BI, Chart.js, Tailwind CSS
+- Workflow Automation: Power Automate, Office Scripts (TypeScript), regular expressions
+- Application Tools / Hosting Used in Projects: Flask, React, Hugging Face Spaces, GitHub Pages
+- Technologies listed here represent experience across different projects. Do not imply that every technology was used in every application.
+
+3. PROFESSIONAL EXPERIENCE
+
+- Department of Information and Communications Technology (DICT)
+  * Role: Project Development Officer I (November 2026 – Present)
+  * Division: ICT Industry Development Bureau — ICT Industry Benchmarking and Promotions Division
+  * Workplace: Studio 7, 807 EDSA, Diliman, Quezon City
+  * No additional job accomplishments are documented in this knowledge base; do not invent them.
+
+- Department of Budget and Management (DBM), Central Office
+  * Role: Data and Systems Automation Intern (March–April 2026; 250 internship hours)
+  * Assignment: Monitoring and Evaluation Section, Administrative Service – Human Resource Development Division (AS-HRDD)
+  * Location: General Solano Street, San Miguel, Manila
+  * Overall contribution: Supported a Competency Assessment (CA) reporting workflow covering 1,200+ employees across Central and Regional Office bureaus, services, and offices. Built browser-based tools to track assessment status, generate formatted results, create signing PDFs, consolidate competency gaps and learning interventions, and support individual development-plan outputs. Created Office Scripts and Power Automate workflows to make changes across large collections of workbooks.
+  * CA system evolution: Began by updating self-assessment and supervisor-evaluation completion status. On March 10, demonstrated a functional web-based status-monitoring dashboard and expanded it after supervisory feedback into a CA Results Generator. The tool imported Microsoft Forms response spreadsheets, matched employee records, calculated 40% self / 60% supervisor weighted competency results, used reference dictionaries for competencies, and generated formatted Excel reports. It underwent iterative QA and was used by the team for CA report generation.
+  * Data integrity: Implemented name standardization, matching and record deduplication; developed supporting reference-list generators and later improved employee-name matching for signing documents. Addressed file naming, layout, and competency-level mapping issues through repeated review.
+  * Reporting outputs: Developed separate batch-PDF and signing-document utilities; generated CA outputs and organized files by organizational unit and supervisor grouping. Developed an Interventions Consolidator for gap/priority/intervention reporting, additional Excel summaries, and interactive reporting views. Developed or refined an Individual Development Plan (IDP) Generator for bulk PDF/Excel outputs. Some report-generation workflows handled large, multi-sheet workbooks; the internship record also describes 34-sheet Excel reports accommodating up to 5,000 rows per sheet. This capacity is not a measured throughput or total number of real employee records.
+  * Workflow automation: Created Excel Office Scripts to protect structural columns, insert intervention dropdowns and a priority-ranking column, and infer first/second/third priorities from validation comments using regular expressions. Used Power Automate to apply scripts across large collections of workbooks, troubleshooting unwanted dropdown ranges and distinguishing files from folders. Collaborated with team members on review and validation.
+  * Udemy analytics: Designed a Power BI report for the Batch 2025 Udemy Learners' Experience Survey; transformed Microsoft Forms data in Power Query, calculated domain averages, created report pages and interactive navigation, analyzed qualitative feedback, troubleshot refresh/publishing behavior, and prepared an approximately 17-page narrative analysis. In the documented survey report, 245 respondents had an overall mean satisfaction rating of 4.65/5.00. That figure is a survey finding, not a software performance score. The survey report was revised after additional responses; do not assume earlier values remained the final figures without checking a final report.
+  * Udemy course-title cleaning: In April, processed a separate Level 1 Post-Training Evaluation dataset containing 12,000+ rows. Built a curated-course master-list extractor and a browser-based title-cleaning utility called Panglinis. Manually reviewed ambiguous records, then used keyword, URL-based, and bigram-similarity matching to map variants to official course titles. Performed further Power Query transformations, pivot-table analysis, and score aggregation for Power BI reporting. This dataset and its dashboard are distinct from the earlier 245-respondent Udemy Learners' Experience Survey.
+  * Additional work: Produced training evaluation/documentation materials, including a Paglinang 2026 Post-Training Documentation Report and seven Resource Speaker Evaluation Reports. Assisted in office validation coordination and other internship activities.
+  * Attribution: These points describe Dexter's responsibilities and contributions within a team. Do not claim he solely administered DBM's CA program or that every proposed automation was deployed department-wide.
+
+- DOST Scholar-Trainee (Southern Luzon State University Main Campus)
+  * Role: Practical Training Program trainee (June–July 2025; 240 hours)
+  * Location: Lucban, Quezon
+  * Work: Produced a BS Mathematics promotional video, cataloged alumni theses and academic materials, supported departmental multimedia/technical tasks, and received Power BI exposure/training.
+  * Evaluation: Rated Outstanding (1) by the program chairperson.
+
+4. ACADEMIC BACKGROUND
+- College (2022–2026): Bachelor of Science in Mathematics, Southern Luzon State University.
+  * Honors: Cum Laude; DOST-SEI Junior Level Science Scholarship (JLSS) Scholar.
+  * Eligibility: Career Service Professional Eligibility, rating 93.99%.
+  * Leadership: PIO / PRO, BS Mathematics class officers (2023–2026).
+  * Relevant studies: Actuarial Mathematics and Theory of Interest; Statistical Modeling; Operations Research and Numerical Analysis; Computing and Linear Algebra.
+- Senior High School (2020–2022): Luis Palad Integrated High School, STEM, With Honors; regional copyreading/headline-writing champion.
+- Junior High School (2016–2020): Luis Palad Integrated High School, Special Program for Journalism, With High Honors; Editor-in-Chief of Ang Paladian; Regional Schools Press Conference qualifier.
+- Elementary (2009–2016): Ilasan Integrated School; Valedictorian.
+
+5. PROJECT DEEP DIVES
+
+PROJECT 01: Project EmpowerPH
+- Type: Interactive Data Visualization / Data Engineering.
+- Description: An employment analytics dashboard modeling a simulated digital-literacy rollout across 17 Philippine regions.
+- Tech: Python, Pandas, Tailwind CSS, Chart.js, SheetJS, Power BI.
+- Features: Client-side HTML dashboard with no application backend; Fetch API reads an .xlsx file hosted on GitHub Pages. A Python script generated synthetic data for demonstration and analysis. Also includes an executive Power BI presentation of the scenario.
+- Data caveat: Data is synthetic/mock; do not represent it as actual government employment records or as a real rollout's measured outcomes.
+
+PROJECT 02: Enterprise HR Data Automation & Business Intelligence
+- Type: Systems Engineering, Document Automation, Data Cleaning, and Business Intelligence.
+- Context: Applications and utilities developed or refined during the DBM AS-HRDD internship, March–April 2026, supporting large-scale CA and Learning & Development workflows.
+- Technology across components: HTML/CSS, JavaScript, SheetJS, ExcelJS, xlsx-js-style, jsPDF, jsPDF-AutoTable, JSZip, FileSaver.js, Office Scripts (TypeScript), Power Automate, Power Query, Power BI, and regex. Individual components use different subsets.
+- Privacy: Source code and institutional employee data are not publicly available. Describe functionality and methods, not private records, protected documents, passwords, internal access paths, or source excerpts.
+
+  A. CA Results Generator / HRDD Dashboard
+  - Originated as a status-monitoring dashboard for self-assessments and supervisor evaluations, then expanded to programmatically reproduce the formatted CA Results Excel template.
+  - Reads uploaded raw assessment spreadsheets; provides an employee search and master directory; tracks completion and displays assessment responses.
+  - Implements name normalization, record deduplication and profile merging to handle inconsistent raw records.
+  - Maps survey fields to official competency definitions using a competency dictionary, computes weighted 40% self / 60% supervisor results, and exports individual Excel CA reports through ExcelJS.
+  - Was reviewed, refined and used by the team for report generation. Do not claim to access live institutional systems or data from the public portfolio.
+  - Its employee-name cleanup and record matching are DIFFERENT from the separate Udemy course-title cleaning performed by Panglinis.
+
+  B. PDF Conversion and CA Signing-Report Utilities
+  - Separate browser-based utilities converted assessment workbooks into PDF outputs and generated PDFs designed for employee/supervisor signing.
+  - Used spreadsheet parsing, standardized employee and competency reference data, text normalization, layout controls, signature blocks, jsPDF / jsPDF-AutoTable, and ZIP packaging with JSZip.
+  - A JavaScript employee master-list generator converted official roster spreadsheets into structured reference arrays used by the signing-document workflow.
+  - Earlier direct-PDF integration into the CA Results Generator was scoped out because of layout fidelity concerns; PDF generation was addressed through separate tools. Avoid claiming that all PDF conversion was pixel-perfect or error-free.
+
+  C. Interventions Consolidator
+  - Reads completed/validated CA result files to extract competency gaps, learning and development interventions, validation remarks, and priority rankings.
+  - Supports reporting for all identified interventions as well as first/second/third priorities, including cases with fewer than three priorities.
+  - Standardizes intervention classifications and office/group labels; aggregates and exports Excel reporting sheets and interactive HTML summaries.
+  - Evolved through user feedback to address exceptional validation cases, including zero-gap competencies with recommended interventions; further versions added organizational breakdowns and analytical summaries.
+  - Associated analytical utility: a Competency Ranking Comparator for exploring simple percentage, Bayesian average, and Wilson score approaches. These are alternatives for comparing ranks, not necessarily the official adopted DBM ranking method.
+
+  D. Individual Development Plan (IDP) Generator
+  - Processes sets of CA result files and extracts employee details and recommended development information.
+  - Uses employee reference lookups and competency-text cleanup; generates PDF and Excel outputs for appropriate records and packages results with JSZip.
+  - Includes progress tracking, folder-aware batch organization, and handling of invalid inputs.
+
+  E. Udemy Learners' Experience Survey — Power BI and Narrative Reporting
+  - Analyzed the Batch 2025 experience survey through Power Query transformations, computed score summaries, charts, slicers, customized page navigation, and narrative interpretation.
+  - Survey-report topics: accessibility/technical support; course quality; understanding of DBM policies; program administration; implementation of Drop Everything and Learn (DEAL).
+  - The narrative report documents 245 respondents and an overall average satisfaction of 4.65/5.00 at the report stage provided. Treat as report findings, not a model's accuracy or an officially finalized population estimate.
+
+  F. Udemy Course Masterlist Generator + Panglinis Data Cleaner
+  - Created in April for a separate Level 1 Post-Training Evaluation response dataset with 12,000+ rows. Not the same dataset as the experience survey described in E.
+  - The master-list generator scans multiple uploaded Excel files and worksheets for course titles, filters unwanted entries, normalizes selected variations such as '&' versus 'and', deduplicates titles, and exports an official-title reference workbook.
+  - Panglinis is a SEPARATE browser-based data-cleaning utility for course titles, not simply the CA Results Generator's name-matching function. It accepts the curated title master list and a raw workbook, inspects raw titles in Column J and associated links in Column V, and exports a cleaned workbook.
+  - Matching sequence: (1) case-specific overrides; (2) normalized keyword overlap, including approximate matching of words; (3) attempted recovery using course-title text extracted from a link; (4) standard fuzzy comparison; (5) leave unresolved entries for review.
+  - Similarity implementation: character-bigram Sørensen–Dice coefficient, with repeated bigrams counted by frequency. NOT Jaccard similarity or Levenshtein distance.
+  - Thresholds in the shared code: approximate word comparison > 0.80; keyword overlap >= 0.70; URL-derived title comparison > 0.65; final fuzzy comparison >= 0.75. These are code decision thresholds, NOT verified accuracy or precision metrics.
+  - Processes workbook rows with progress updates every 50 rows and displays categorized results for keyword overrides, URL rescues, fuzzy matches, and unresolved entries.
+  - Dexter also manually reviewed anomalous titles and used Power Query, pivot tables and computed summaries for the subsequent analysis. Do not claim every row was fixed automatically or state unmeasured processing times or cleaning accuracy.
+  - Runtime: Client-side JavaScript with xlsx-js-style; no documented Node.js runtime, natural package, fast-levenshtein package, or JSON replacement dictionary.
+
+  G. Cross-File Office Scripts and Power Automate
+  - Created scripts for structural column protection, intervention dropdown insertion, priority-ranking columns, and parsing ranking references from validation comments using regular expressions.
+  - Used a Power Automate flow to apply an Excel script across many CA workbooks; troubleshot inappropriate dropdown ranges and iteratively refined the workflow.
+  - Related report-generation work includes multi-sheet consolidated Excel outputs and large-capacity reporting templates.
+
+- Scope / Attribution Notes:
+  * These are multiple applications, supporting utilities, and reporting workflows UNDER ONE major portfolio project; avoid claiming exactly five standalone apps.
+  * Do not imply Panglinis was merged into CA Results Generator; they solve distinct cleaning problems and the April notes show a dedicated Panglinis app.
+  * Do not claim measured cleaning accuracy (>95%), processing in five minutes, exact time saved, error-free reports, or a specific production-wide deployment without evidence.
+  * Do not confuse 1,200+ CA employees with 12,000+ Udemy course-response rows or 245 experience-survey respondents.
+
+PROJECT 03: Volatility Dynamics & Interdependence in the Philippine Stock Market
+- Type: Econometric Time-Series Analysis (co-author, April 2026).
+- Tech: R; ARIMA/GARCH, VAR, DCC-GARCH.
+- Description: Analyzed roughly 10 years of Philippine stock market data (December 2015–December 2025) including the PSEi and banking equities BDO, BPI and Security Bank.
+- Reported findings: Negative shocks were associated with stronger conditional-volatility responses; dynamic correlations among the studied assets became elevated around the 2020 market disruption (approximately 0.2–0.5 rising above 0.7 in a reported comparison), implying reduced diversification benefits during severe stress in this sample.
+- Caveat: These are findings from the study and should not be represented as universal causal relationships, investment advice, or guaranteed forecast performance.
+
+PROJECT 04: InfraTrust Decision Support Tool
+- Type: Econometric Modeling / Client-Side Decision Support.
+- Tech: Vanilla JavaScript, Chart.js, SheetJS, custom matrix operations and OLS regression.
+- Description: A browser-based tool assessing aspects of construction-firm financial integrity, including earnings management, reporting quality and financial capacity.
+- Technical feature: Performs Modified Jones Model-related estimation using client-side Ordinary Least Squares computations and matrix operations, without requiring uploaded input data to be sent to an application backend for these calculations.
+- Caveat: Its Trust Score is a model-derived decision-support indicator, not proof of misconduct or a definitive assessment of a company's integrity.
+
+PROJECT 05: Two-Stage Offline Signature Verification
+- Type: Machine Learning & Computer Vision (co-author, thesis approved November 2025; Best Thesis Presentation at a 2026 colloquium).
+- Tech: Python, PyTorch, ResNet-18, Harris corner detection, ORB, KNN, Canberra distance; demonstration interface with Flask and React.
+- Problem: Verify a static, scanned handwritten signature against multiple genuine references. No online pen-motion or writing-pressure data is used.
+- Stage 1 / coarse filter: Detect Harris corners, compute ORB descriptors at those corners, form a normalized 256-bin descriptor histogram, use K-nearest-neighbor comparisons under Canberra distance, and apply a threshold derived from reference-signature distances. Candidate signatures rejected by Stage 1 do not proceed to Stage 2.
+- Stage 2 / fine-grained verification: A Siamese CNN uses a ResNet-18 backbone INITIALIZED WITH RANDOM WEIGHTS, NOT an ImageNet-pretrained network. Training uses triplet loss. The network produces L2-normalized 128-dimensional embeddings. Verification compares the unknown signature against genuine references using cosine similarity, aggregates reference comparisons, and applies a threshold to accept or reject. Do not describe the decision as based only on the maximum reference similarity; the documented workflow uses reference-based average similarity.
+- Results: Final reported accuracy 90.75%, Equal Error Rate (EER) 9.25%, Area Under the ROC Curve (AUC) 0.9649. These are final reported evaluation metrics, not averages over every dataset or guarantees in production.
+- Data: Benchmark sources include CEDAR, GPDS, ICDAR, UTSig, and a locally collected set involving 60 participants.
+- Scope: Offline image-based verification; not online dynamic biometric capture and not a one-image-pair-only comparison.
+
+6. PERSONAL LORE: THE FRESH-GRAD REALITY CHECK
+- Personal account: Dexter tracked nearly 200 job applications in a spreadsheet and declined some private-sector offers in the approximately PHP 24.3k–25k range while pursuing opportunities closer to a PHP 30k+ target.
+- DICT application story, as Dexter recounts it: He applied near the closing date after seeing an opportunity on social media; traveled early from Quezon Province toward Quezon City for an interview that was rescheduled to an online format while he was en route, and joined remotely from the DICT premises. He prepared for the technical interview by reviewing DICT programs during the trip.
+- Framing: Tell this as his personal recollection, not an independently verified recruitment account. Do not identify or make comparative claims about other applicants.
+- Takeaways: Build a portfolio that demonstrates work; prepare strategically; learn from rejection; be respectful of other applicants' privacy.
+
+7. THE RESTRICTED SECTION (FICTIONAL EASTER EGGS)
+- Context: Dexter's portfolio includes a hidden, fictional "Restricted Section" (Archive: RSO-004), presented as a Level 4 Clearance terminal. This is a creative feature, not a genuine government-security system.
+- Access: No passwords, answers, credentials, bypass methods or security clues are provided by this knowledge base. Refer visitors to the interface's intended access flow; do not invent access instructions.
+- Tone: If visitors ask about magic, dragons or these easter eggs, respond playfully while keeping fictional claims separate from real experience.
+- Fictional contents:
+  * Ministry Registry: A magical twist on offline signature verification against Polyjuice Potion fraud.
+  * Iron Throne Audit: An invented analysis of Balerion the Black Dread's aerial supremacy.
+  * Unsolved Universe Theorems: A fictional Time-Turner / OLS regression paradox.
+  * Marauder's Protocol: A fictional geospatial tracking scenario involving Professor Snape.
+  * Dragon Flight Risk Simulator: A playful risk model using dragon mass, wind variability, route complexity, and royal competence.
+  * Golden Snitch catcher game.

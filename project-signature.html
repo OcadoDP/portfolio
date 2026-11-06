@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="#800000" name="theme-color"/>
+    <title>Offline Signature Verification (SigVerifyAI) — Dexter Pascual Ocado</title>
+    <meta content="Two-Stage Offline Signature Verification System combining KNN-Harris pre-filtering with a ResNet-18 Siamese network (Best Thesis Presentation) by Dexter Pascual Ocado." name="description"/>
+    <link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/>
+    <link as="font" crossorigin="" href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2" rel="preload" type="font/woff2"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer="" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        overflow-x: hidden;
+        background: var(--bg-paper);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .label-caption {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.92rem;
+        cursor: pointer;
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #800000);
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .case-hero {
+        padding: 48px 0 36px;
+      }
+
+      .case-hero-card {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.5rem);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .case-hero h1 {
+        font-size: clamp(2.1rem, 4.4vw, 3.7rem);
+        line-height: 1.05;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        margin: 12px 0 16px;
+        text-align: center;
+      }
+
+      .case-lead {
+        font-size: 1.1rem;
+        color: var(--grey-400);
+        max-width: 840px;
+        margin-bottom: 22px;
+        text-align: center;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .tech-tag {
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        font-weight: 500;
+      }
+
+      .tech-tag.is-maroon {
+        background: var(--maroon-soft);
+        border-color: var(--maroon-border);
+        color: var(--maroon);
+      }
+
+      .demo-stage {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(1.5rem, 3vw, 2.5rem);
+        margin-bottom: 40px;
+      }
+
+      .demo-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .demo-viewport {
+        height: 540px;
+        width: 100%;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: #fff;
+      }
+
+      .demo-viewport iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .walkthrough-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+
+      .walk-card {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .walk-img-box {
+        aspect-ratio: 16 / 10;
+        background: #141517;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .walk-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        z-index: 2;
+      }
+
+      .walk-fallback {
+        position: absolute;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--grey-250);
+        text-align: center;
+        padding: 16px;
+      }
+
+      .walk-body {
+        padding: 18px 20px;
+      }
+
+      .walk-body span {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--maroon);
+        font-weight: 600;
+      }
+
+      .walk-body p {
+        font-size: 0.88rem;
+        color: var(--grey-400);
+        margin-top: 4px;
+      }
+
+      .case-layout {
+        display: grid;
+        grid-template-columns: 310px minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
+        padding-bottom: 72px;
+      }
+
+      .case-sidebar {
+        position: sticky;
+        top: 92px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .meta-box {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 24px;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--grey-100);
+        font-size: 0.86rem;
+      }
+
+      .meta-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .meta-row span {
+        font-family: var(--font-mono);
+        color: var(--grey-300);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+      }
+
+      .case-content {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.5rem);
+      }
+
+      .case-content h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 36px 0 14px;
+        padding-top: 28px;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .case-content h2:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .case-content p {
+        color: var(--grey-400);
+        margin-bottom: 16px;
+        font-size: 1.02rem;
+      }
+
+      .math-stage-card {
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 22px 24px;
+        margin: 16px 0;
+      }
+
+      .math-stage-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--maroon);
+        margin-bottom: 8px;
+      }
+
+      .math-eq-box {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: 8px;
+        padding: 14px;
+        margin-top: 12px;
+        overflow-x: auto;
+        text-align: center;
+      }
+
+      .benchmark-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+      }
+
+      .bench-box {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-sm);
+        padding: 18px;
+      }
+
+      .bench-box strong {
+        font-size: 1.7rem;
+        color: #f5f3f3;
+        font-family: var(--font-mono);
+        display: block;
+      }
+
+      .bench-box span {
+        font-size: 0.82rem;
+        color: var(--grey-250);
+      }
+
+      .next-case-banner {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 48px;
+      }
+
+      @media (max-width: 991px) {
+        .walkthrough-grid, .benchmark-grid, .case-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .case-sidebar {
+          position: static;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="site-shared.css" /></head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+
+    <main class="padding-global" id="main">
+      <div class="container-large">
+        <header class="case-hero">
+          <div class="case-hero-card">
+            <div class="label-caption">Case Study 05 // Machine Learning &amp; Computer Vision</div>
+            <h1>Two-Stage Offline Signature Verification System</h1>
+            <p class="case-lead">
+              A hybrid verification framework integrating a lightweight K-Nearest Neighbors (KNN) pre-filter with a ResNet-18 Siamese network to balance computational efficiency with high verification accuracy. Awarded <strong>Best Thesis Presentation</strong> at the 2026 BS Mathematics Research Colloquium.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag is-maroon">🏆 Best Thesis Presentation</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">ResNet-18</span>
+              <span class="tech-tag">KNN-Harris (Canberra)</span>
+              <span class="tech-tag">Triplet Loss</span>
+              <span class="tech-tag">Flask API</span>
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Hugging Face Spaces</span>
+            </div>
+          </div>
+        </header>
+
+        <section aria-label="SigVerifyAI Live Demo" class="demo-stage">
+          <div class="demo-bar">
+            <div>
+              <div class="label-caption" style="color:#f5f3f3;">Interactive Live Demo // React Frontend + Hugging Face Flask Inference</div>
+              <div style="font-family:var(--font-mono); font-size:0.8rem; color:var(--grey-250); margin-top:4px;">https://ocadodp.github.io/offline-signature-verification/</div>
+            </div>
+            <a class="button is-maroon" href="https://ocadodp.github.io/offline-signature-verification/" rel="noopener" target="_blank">
+              <div class="button-in"><span>Open Application in Full Screen ↗</span></div>
+            </a>
+          </div>
+          <div class="demo-viewport">
+            <iframe src="https://ocadodp.github.io/offline-signature-verification/" title="Two-Stage Offline Signature Verification Live Demo"></iframe>
+          </div>
+        </section>
+
+        <section aria-label="Sample Usage Walkthrough">
+          <div style="margin-bottom: 16px;">
+            <div class="label-caption">Sample Usage</div>
+            <h2 style="font-size: 1.5rem; font-weight: 500; margin-top: 4px;">Visual walkthrough from signature upload to biometric verdict</h2>
+          </div>
+          <div class="walkthrough-grid">
+            <div class="walk-card">
+              <div class="walk-img-box">
+                <img alt="SigVerifyAI Documentation and Overview" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/sig-help.png"/>
+                <div class="walk-fallback">STEP 01 // img/sig-help.png<br/>Two-Stage Hybrid Framework Overview</div>
+              </div>
+              <div class="walk-body">
+                <span>STEP 01</span>
+                <p>Access the built-in documentation to understand the Two-Stage Hybrid Framework workflow.</p>
+              </div>
+            </div>
+            <div class="walk-card">
+              <div class="walk-img-box">
+                <img alt="SigVerifyAI Empty Dashboard" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/sig-home.png"/>
+                <div class="walk-fallback">STEP 02 // img/sig-home.png<br/>Reference &amp; Suspect Signature Uploader</div>
+              </div>
+              <div class="walk-body">
+                <span>STEP 02</span>
+                <p>Upload genuine reference samples and the unknown suspect signature into the system.</p>
+              </div>
+            </div>
+            <div class="walk-card">
+              <div class="walk-img-box">
+                <img alt="SigVerifyAI Verification Results" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/sig-sample.png"/>
+                <div class="walk-fallback">STEP 03 // img/sig-sample.png<br/>Stage 1 Distance &amp; Stage 2 Siamese Verdict</div>
+              </div>
+              <div class="walk-body">
+                <span>STEP 03</span>
+                <p>Review the Stage 1 structural distance evaluation and the Stage 2 deep learning similarity score to determine authenticity.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="case-layout">
+          <aside class="case-sidebar">
+            <div class="meta-box">
+              <div class="label-caption" style="margin-bottom:12px;">Model Benchmarks</div>
+              <div class="meta-row"><span>Date</span><strong>October 2025</strong></div>
+              <div class="meta-row"><span>Award</span><strong>Best Thesis Presentation</strong></div>
+              <div class="meta-row"><span>Test Accuracy</span><strong>90.75%</strong></div>
+              <div class="meta-row"><span>ROC-AUC</span><strong>0.9649</strong></div>
+              <div class="meta-row"><span>Equal Error Rate</span><strong>9.25% EER</strong></div>
+              <div class="meta-row"><span>Identities</span><strong>4,000+ (Merged Sets)</strong></div>
+            </div>
+            <a class="button is-light" href="projects.html" style="width:100%;">
+              <div class="button-in" style="width:100%; justify-content:center;"><span>← Back to Projects</span></div>
+            </a>
+          </aside>
+          <article class="case-content">
+            <h2>The Challenge</h2>
+            <p>
+              Offline systems need rich spatial representations to compensate for the absence of dynamic cues, which increases the challenge of distinguishing genuine signatures from skilled forgeries. While CNN-Siamese systems can be highly accurate, they are computationally demanding, especially when processing large sets of obvious random forgeries. Furthermore, relying on a single source dataset risks bias, often leading to models that memorize specific scanner artifacts rather than learning intrinsic signature properties.
+            </p>
+            <h2>The Solution</h2>
+            <p>
+              The study proposed a sequential pipeline comprising two distinct stages to optimize both accuracy and processing cost:
+            </p>
+            <div class="math-stage-card">
+              <h3>Stage 1: KNN-Harris Pre-Filtering (13 Neighbors, Canberra Distance)</h3>
+              <p style="margin:0;">The first stage utilized a lightweight K-Nearest Neighbors (KNN) classifier using dynamically thresholded Harris Corner-seeded ORB histogram features to rapidly reject clear forgeries. The optimal configuration utilized $k = 13$ neighbors and the Canberra distance metric to filter obvious mismatches computationally efficiently:</p>
+              <div class="math-eq-box">
+                $$d(p,q)=\sum_{i=1}^{n}\frac{|p_{i}-q_{i}|}{|p_{i}|+|q_{i}|}$$
+              </div>
+            </div>
+            <div class="math-stage-card">
+              <h3>Stage 2: CNN-Siamese Verification (ResNet-18 + Triplet Loss)</h3>
+              <p style="margin:0;">Signatures passing the initial filter were forwarded to a Convolutional Neural Network (CNN)-Siamese architecture based on a ResNet-18 backbone. This network was trained with Triplet Loss to perform fine-grained analysis, explicitly learning embeddings that cluster genuine signatures while separating forged ones:</p>
+              <div class="math-eq-box">
+                $$\mathcal{L}(A,P,N)=\max\left(0,\; \|f(A)-f(P)\|^{2}-\|f(A)-f(N)\|^{2}+\alpha\right)$$
+              </div>
+            </div>
+            <p>
+              <strong>Robust Training &amp; Decoupled Deployment:</strong> To ensure generalization against domain shift across Conservative, Standard, and Aggressive augmentation hierarchies, the model was trained on a merged dataset of 4,000+ identities comprising <strong>CEDAR, GPDS Synthetic, ICDAR, UTSig, and a locally collected dataset of 60 participants</strong>. The system was deployed using a decoupled architecture: a React.js frontend hosted on GitHub Pages, and a Flask-based inference engine hosted on Hugging Face Spaces to manage the deep learning memory requirements.
+            </p>
+            <h2>The Impact</h2>
+            <p>
+              Following a Coarse-to-Fine optimization schedule evaluating baseline learning rates of $1\times 10^{-5}$, $1\times 10^{-4}$, and $5\times 10^{-4}$ with a Cosine Annealing with Warm Restarts scheduler, the final model achieved significant biometric authentication benchmarks on the held-out test set:
+            </p>
+            <div class="benchmark-grid">
+              <div class="bench-box">
+                <strong>90.75%</strong>
+                <span>Accuracy against skilled forgeries across diverse scripts</span>
+              </div>
+              <div class="bench-box">
+                <strong>0.9649</strong>
+                <span>Area Under the Curve (AUC) class separation</span>
+              </div>
+              <div class="bench-box">
+                <strong>9.25%</strong>
+                <span>Equal Error Rate (EER) &amp; low 8.70% FAR</span>
+              </div>
+            </div>
+            <p>
+              Successfully demonstrated that a two-stage hybrid architecture can harmonize computational efficiency with forensic rigor, earning the <strong>Best Thesis Presentation</strong> award at the 2026 BS Mathematics Research Colloquium.
+            </p>
+          </article>
+        </div>
+
+        <div class="next-case-banner">
+          <div>
+            <div class="label-caption" style="color:#f5f3f3;">Complete Archive Explored (05 / 05)</div>
+            <h3 style="font-size:1.6rem; font-weight:500; margin-top:6px;">Loop back to Project EmpowerPH or enter Archive RSO-004</h3>
+          </div>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="button is-light" href="project-empower.html">
+              <div class="button-in"><span>↻ 01. Project EmpowerPH</span></div>
+            </a>
+            <a class="button is-maroon" data-cc-glow="" href="restricted.html">
+              <div class="button-in"><span>🔐 Enter Restricted Section →</span></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+    <script src="site-shared.js"></script>
+  </body>
+</html>
+

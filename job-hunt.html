@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="#800000" name="theme-color"/>
+    <title>The Fresh Grad Reality Check — Dexter Pascual Ocado</title>
+    <meta name="description" content="The Fresh Grad Reality Check: Dexter Ocado's journey through nearly 200 job applications, an unexpected DICT interview, and the lessons that led to his first professional role.">
+    <link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/>
+    <link as="font" crossorigin="" href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2" rel="preload" type="font/woff2"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --green: #22a35a;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        overflow-x: hidden;
+        background: var(--bg-paper);
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .reading-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--maroon), var(--maroon-glow));
+        z-index: 2000;
+        transition: width 0.1s linear;
+      }
+
+      .label-caption {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.92rem;
+        cursor: pointer;
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #800000);
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .blog-hero {
+        padding: 36px 0 20px;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .blog-hero h1 {
+        font-size: clamp(2.35rem, 5vw, 4.3rem);
+        line-height: 1.04;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        margin: 14px 0 18px;
+      }
+
+      .blog-sub {
+        font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+        color: var(--grey-400);
+        max-width: 720px;
+        margin: 0 auto 24px;
+      }
+
+      .author-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        padding: 6px 16px 6px 6px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+
+      .author-ava {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--maroon);
+        color: #fff;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        font-size: 0.75rem;
+      }
+
+      .article-layout {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 760px);
+        gap: 48px;
+        justify-content: center;
+        align-items: start;
+        padding: 12px 0 0px;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .article-sidebar {
+        position: sticky;
+        top: 96px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .toc-box {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 22px;
+      }
+
+      .toc-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 12px;
+        font-size: 0.88rem;
+        color: var(--grey-400);
+      }
+
+      .toc-list a:hover {
+        color: var(--maroon);
+        font-weight: 600;
+      }
+
+      .article-body {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4.5vw, 3.75rem);
+        font-size: 1.06rem;
+        color: var(--ink);
+      }
+
+      .article-body p {
+        margin-bottom: 20px;
+      }
+
+      .article-body h2 {
+        font-size: clamp(1.55rem, 2.5vw, 2.1rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        margin: 44px 0 16px;
+        padding-top: 28px;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .article-body blockquote {
+        margin: 24px 0;
+        padding: 20px 24px;
+        border-left: 4px solid var(--maroon);
+        background: var(--maroon-soft);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        font-size: 1.12rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .funnel-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin: 24px 0 28px;
+      }
+
+      .funnel-card {
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 18px;
+      }
+
+      .funnel-card strong {
+        font-size: 1.65rem;
+        font-weight: 700;
+        color: var(--maroon);
+        display: block;
+        line-height: 1.1;
+      }
+
+      .funnel-card span {
+        font-size: 0.84rem;
+        color: var(--grey-400);
+        margin-top: 6px;
+        display: block;
+      }
+
+      .story-figure {
+        margin: 28px 0;
+        background: var(--bg-dark);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--grey-100);
+        color: #fff;
+      }
+
+      .story-figure img {
+        width: 100%;
+        max-height: 440px;
+        object-fit: cover;
+      }
+
+      .story-figure-caption {
+        padding: 14px 18px;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--grey-250);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #141517;
+      }
+
+      .call-card {
+        background: linear-gradient(135deg, #160709 0%, #0f1011 100%);
+        border: 1px solid var(--maroon-border);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        color: #fff;
+        margin: 28px 0;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .call-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        background: rgba(34, 163, 90, 0.2);
+        border: 1px solid var(--green);
+        display: grid;
+        place-items: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .takeaways-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 24px 0;
+      }
+
+      .takeaway-card {
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 20px;
+      }
+
+      .takeaway-card strong {
+        display: block;
+        font-size: 1rem;
+        color: var(--maroon);
+        margin-bottom: 6px;
+      }
+
+      .takeaway-card p {
+        font-size: 0.92rem;
+        color: var(--grey-400);
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 991px) {
+        .article-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .article-sidebar {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .funnel-grid, .takeaways-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="site-shared.css" /></head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+    <div class="reading-progress" id="reading-progress"></div>
+
+
+    <main id="main">
+
+      <header class="padding-global">
+        <div class="blog-hero">
+          <div class="label-caption">Personal Journey // The Fresh Grad Reality Check</div>
+          <h1>How nearly 200 applications, one 4 AM bus ride, and a whole lot of doomscrolling led to my first job.</h1>
+
+          <p class="blog-sub">
+            From graduating BS Mathematics (Cum Laude) to navigating nearly
+            200 job applications, a last-minute DICT opportunity, an
+            unforgettable interview journey, and an unexpected call from DBM.
+          </p>
+
+          <div class="author-chip">
+            <div class="author-ava">DO</div>
+            <span>By <strong>Dexter Pascual Ocado</strong> · PDO I @ DICT</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="padding-global">
+        <div class="container-large article-layout">
+
+          <aside class="article-sidebar">
+            <div class="toc-box">
+              <div class="label-caption">Chapters</div>
+              <ul class="toc-list">
+                <li><a href="#intro">01. The Cum Laude Illusion</a></li>
+                <li><a href="#numbers-game">02. The Numbers Game (200 Apps)</a></li>
+                <li><a href="#doomscroll">03. The Doomscroll That Changed It</a></li>
+                <li><a href="#commute">04. The 4:00 AM Commute</a></li>
+                <li><a href="#final-boss">05. The Final Interview</a></li>
+                <li><a href="#epilogue">06. Epilogue: 8:30 AM Plot Twist</a></li>
+                <li><a href="#takeaways">07. Takeaways for Fresh Grads</a></li>
+              </ul>
+            </div>
+            <div class="toc-box" style="background: var(--bg-dark); color: #fff;">
+              <div class="label-caption" style="color: #f5f3f3;">Why I Built This Site</div>
+              <p style="font-size: 0.85rem; color: var(--grey-250); margin: 10px 0 14px;">
+                Waiting in silence throughout August motivated me to hand-code this portfolio to prove my technical execution.
+              </p>
+              <a class="button is-maroon" href="projects.html" style="width:100%;">
+                <div class="button-in" style="width:100%; justify-content:center;"><span>Explore the 5 Projects →</span></div>
+              </a>
+            </div>
+          </aside>
+
+          <article class="article-body">
+            <div id="intro">
+              <p>
+                I am a recent Bachelor of Science in Mathematics graduate from Southern Luzon State University. I finished <strong>Cum Laude</strong>, served as a DOST-SEI JLSS scholar, and passed my Career Service Professional exam (93.99% rating) during my third year of college. Naturally, looking at paper, I thought to myself:
+              </p>
+              <blockquote>
+                “Finding a job is going to be a breeze.”
+              </blockquote>
+              <p>
+                <strong>I was so wrong.</strong>
+              </p>
+              <p>
+                Graduating with good academic standing doesn’t automatically grant you a VIP pass to the companies you want. It gets your foot in the door, sure, but you are competing against hundreds of people with the exact same standing—or better. I quickly realized that landing a job isn't just about how good your grades are; it’s about how well you can actually stand out in a sea of equally qualified applicants.
+              </p>
+              <figure class="story-figure">
+                <img alt="Graduation Day — BS Mathematics Cum Laude" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/grad.webp"/>
+                <figcaption class="story-figure-caption">
+                  <span>ARCHIVE PHOTO // GRADUATION DAY (JUNE 23, 2026)</span>
+                  <span>BS Mathematics · Cum Laude · SLSU</span>
+                </figcaption>
+              </figure>
+            </div>
+            <h2 id="numbers-game">The Numbers Game</h2>
+            <p>
+              I started sending out applications a month before my June 23rd graduation. I treated applying like a full-time job. I built a massive spreadsheet to track every submission, creating different versions of my resume tailored to specific fields and job descriptions.
+            </p>
+            <p>Out of nearly 200 applications, here is what my reality looked like:</p>
+            <div class="funnel-grid">
+              <div class="funnel-card">
+                <strong>~180</strong>
+                <span>Complete radio silence. Ghosted. Or occasionally, an automated "Thanks for applying!" email.</span>
+              </div>
+              <div class="funnel-card">
+                <strong>5</strong>
+                <span>Straight-up rejection emails.</span>
+              </div>
+              <div class="funnel-card">
+                <strong>10</strong>
+                <span>Initial phone screenings or interview invites.</span>
+              </div>
+            </div>
+            <figure class="story-figure">
+              <img alt="Job Application Tracker Spreadsheet" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/sheet.png"/>
+              <figcaption class="story-figure-caption">
+                <span>EVIDENCE 01 // THE 200-APPLICATION TRACKER SPREADSHEET</span>
+
+              </figcaption>
+            </figure>
+            <p>
+              Out of those 10 interviews, I voluntarily withdrew from five because the roles ended up being entirely unrelated to my actual career goals (a byproduct of applying to basically everything I was remotely qualified for). For the remaining five, the irony of job hunting really set in.
+            </p>
+            <p>
+              The three roles I felt incredibly confident about? They ghosted me after the interviews. The two roles I didn't take very seriously and attended just for the practice? They both gave me job offers.
+            </p>
+
+            <p>
+              I ended up declining both offers. During my internship at a
+              national government agency, I had become aware of entry-level
+              positions offering <strong>₱30,000+</strong>. The private-sector
+              offers I received were around <strong>₱24,300 to ₱25,000</strong>.
+              Those were reasonable starting salaries, but I decided to hold
+              out for opportunities that better aligned with my financial
+              expectations and long-term career goals. Whether that was the
+              right decision was something only time would tell.
+            </p>
+
+            <h2 id="doomscroll">The Doomscroll That Changed Everything</h2>
+            <p>
+              By early June, I had stopped applying entirely. I figured I had cast a wide enough net and decided to just wait for July to see if anything bit. My days devolved into endless doomscrolling on TikTok and Facebook.
+            </p>
+            <p>
+              One afternoon, while passively scrolling through a Facebook page dedicated to government job vacancies, a post caught my eye. The <strong>Department of Information and Communications Technology (DICT)</strong> was looking for a <strong>Project Development Officer I</strong>. The qualifications perfectly matched my background, and the deadline was literally the next day. I threw my resume into the ring at the last minute and went right back to scrolling.
+            </p>
+            <p>
+              July arrived, and so did the DICT invitation for an initial interview. I passed, and they scheduled me for an in-person exam and a follow-up interview in late July at their central office.
+            </p>
+            <h2 id="commute">The 4 AM Commute</h2>
+            <p>
+              Living in Quezon Province, a face-to-face interview in Quezon City meant leaving my house at 4:00 AM. I made the long bus ride, arrived at the DICT office, and sat down to check my phone.
+            </p>
+            <p>
+              There was an email sitting in my inbox, sent at 8:00 AM while I was on the highway. The in-person exam and interview had been postponed and shifted to an online format. Since I was already physically standing in their office, miles away from home, they gracefully allowed me to take the exam and do the interview right then and there.
+            </p>
+            <figure class="story-figure">
+              <img alt="Postponement Email during Commute" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/postpone.png"/>
+              <figcaption class="story-figure-caption">
+                <span>EVIDENCE 02 // 8:00 AM POSTPONEMENT EMAIL RECEIVED ON THE HIGHWAY</span>
+
+              </figcaption>
+            </figure>
+            <p>
+              I aced it. The interviewer specifically noted that my biggest edge over the other candidates was my deep knowledge of their internal programs and initiatives—a subject I had frantically researched and crammed on my phone during the bus ride.
+            </p>
+            <h2 id="final-boss">The Final Boss: One Last Interview</h2>
+            <p>
+              HR told me I was in the top three for my batch. I spent the entirety of August waiting in agonizing silence, fully expecting the next email to be a job offer. That silence is actually what motivated me to code this very portfolio—I realized that if I was going to jump back into the job market, I needed an undeniable edge to prove my technical skills.
+            </p>
+            <p>
+              In early September, the email finally came. But it wasn't an acceptance letter—it was an invitation for a <em>final</em> selection panel. Another interview.
+            </p>
+            <p>
+              Looking at the calendar invite, I saw there were five of us listed. Since I knew who my original competitors were, I quickly realized none of them were on this list. It dawned on me: there must have been multiple batches, and I was looking at the sole survivors from each one. Naturally, curiosity got the better of me, and I did what no applicant should ever do: I stalked my new competition on LinkedIn.
+            </p>
+
+            <p>
+              Looking at the other applicants' professional backgrounds,
+              I immediately started comparing myself to people who seemed
+              exceptionally accomplished. The more I looked, the more I
+              questioned my own qualifications. I had spent months trying
+              to prove that I belonged in the room, only to convince
+              myself otherwise before the final interview even began.
+            </p>
+
+
+            <p>
+              When the scheduled date arrived, only three of us
+              were on the final roster. I didn't know what had
+              happened with the other applicants, but seeing the
+              smaller group made the final interview feel even
+              more intimidating. One candidate was scheduled
+              ahead of me, and I could feel my nerves building
+              as I waited for my turn.
+            </p>
+
+
+            <p>
+              When it was finally my turn to enter the Google
+              Meet, I overheard a brief, positive remark about
+              the previous interview. It was probably nothing
+              unusual, but in my already anxious state, it
+              was enough to make me question my chances
+              before I had even introduced myself.
+            </p>
+
+            <blockquote>
+              “Masaya siya, ’no?” (She was great, wasn’t she?)
+            </blockquote>
+            <p>
+              As an introvert, hearing the panel explicitly praise the candidate right before me shattered my remaining nerves. I stuttered. I lost my train of thought. By the time I logged off, I felt completely defeated. I was certain I had lost the job.
+            </p>
+            <p>
+              Over the next two weeks, I fully pivoted back to the private sector. I started securing interviews with top-tier companies, and my confidence slowly began to repair itself.
+            </p>
+            <p>
+              Then, on <strong>September 22nd</strong>, an email popped into my inbox from the DICT. <strong>I was selected for the role.</strong>
+            </p>
+            <p>
+              I immediately withdrew all my other ongoing applications. Against the odds, the burnout, and the fierce competition, I had landed my first job.
+            </p>
+            <figure class="story-figure">
+              <img alt="DICT Acceptance Email" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/accept.png"/>
+              <figcaption class="story-figure-caption">
+                <span>EVIDENCE 03 // SEPTEMBER 22 SELECTION NOTIFICATION FROM DICT</span>
+
+              </figcaption>
+            </figure>
+            <h2 id="epilogue">Epilogue: The 8:30 AM Plot Twist</h2>
+            <p>
+              Just when I thought the job hunt saga was officially closed, I received an unexpected phone call at 8:30 in the morning on October 9th. I had just woken up, my brain was completely offline, and when I heard the voice on the other end, I panicked and faked bad reception just to buy myself time to process what was happening.
+            </p>
+            <p>
+              It was my former supervisor from my internship at the <strong>Department of Budget and Management (DBM)</strong>.
+            </p>
+
+            <p>
+              He had heard about my upcoming role at the DICT and reached
+              out about an opportunity to return to the DBM team. The
+              offer came with a familiar working environment, the chance
+              to continue contributing to projects I had helped develop,
+              and a surprisingly immediate timeline. I genuinely hadn't
+              expected my internship work to open another professional
+              door.
+            </p>
+
+            <p>
+              It was the ultimate validation. After months of rejections and impostor syndrome, having a national government agency headhunt me back because they remembered the automation systems and Power BI dashboards I built as an intern felt incredible.
+            </p>
+            <p>
+              Ultimately, I sent him a very grateful message declining the offer. I realized that since my long-term goal is to transition into the private sector for data and statistics, gaining experience in a purely ICT-driven agency like the DICT is the best strategic stepping stone for me right now. But I didn't leave him empty-handed—I immediately referred a trusted friend from my math program for the vacancy.
+            </p>
+            <div class="call-card">
+              <div class="call-icon">📱</div>
+              <div>
+                <div style="font-family:var(--font-mono); font-size:0.74rem; color:#52e58c;">INCOMING CALL: 8:30 AM · OCTOBER 9</div>
+                <strong style="font-size:1.15rem; display:block; margin:4px 0;">“Teka lang po, hindi gumagana utak ko HAHAHAHAH”</strong>
+                <span style="font-size:0.86rem; color:var(--grey-250);">— My actual internal monologue while trying to process a surprise government headhunting offer on zero sleep.</span>
+              </div>
+            </div>
+            <h2 id="takeaways">My Takeaways for Fellow Fresh Grads</h2>
+            <p>If you are currently in the job-hunting trenches, here is what I learned the hard way:</p>
+            <div class="takeaways-grid">
+              <div class="takeaway-card">
+                <strong>01. Do not stalk your competition.</strong>
+                <p>It will only feed your impostor syndrome. Focus entirely on what you bring to the table.</p>
+              </div>
+              <div class="takeaway-card">
+                <strong>02. Build a portfolio.</strong>
+                <p>A degree proves you can study, but a tangible portfolio proves you can <em>execute</em>. Building this site kept me sane during the waiting period and gave me a massive structural advantage.</p>
+              </div>
+              <div class="takeaway-card">
+                <strong>03. Cramming works, if strategic.</strong>
+                <p>Researching the company's specific pain points and programs on the bus ride directly won me my technical interview. Always know who you are talking to.</p>
+              </div>
+              <div class="takeaway-card">
+                <strong>04. Rejection is redirection.</strong>
+                <p>Getting ghosted by the jobs I thought I wanted left the door open for the job I actually needed.</p>
+              </div>
+            </div>
+            <p style="font-weight: 500; font-size: 1.12rem; margin-top: 28px;">
+              The job hunt is brutal, humbling, and exhausting. But it only takes one “Yes” to make the two hundred “No’s” completely irrelevant. Keep going.
+            </p>
+            <div style="
+            margin-top: 32px;
+            padding: 22px 24px;
+            border-left: 3px solid var(--maroon);
+            background: var(--maroon-soft);
+            border-radius: 0 12px 12px 0;
+            ">
+            <div class="label-caption" style="margin-bottom: 10px;">
+              NOVEMBER 9, 2026 · A NEW BEGINNING
+            </div>
+
+            <p style="margin: 0;">
+              On November 9, 2026, I officially began my first professional
+              role as a <strong>Project Development Officer I</strong> at the
+              <strong>Department of Information and Communications Technology (DICT)</strong>.
+              After everything that came before it, it felt good to finally
+              turn the page and begin something new.
+            </p>
+        </div>
+        <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--grey-100); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+          <a class="button is-light" href="index.html"><div class="button-in"><span>← Back to Home</span></div></a>
+          <a class="button is-maroon" data-cc-glow="" href="project-dbm.html"><div class="button-in"><span>See the DBM Systems That Got Me Headhunted →</span></div></a>
+        </div>
+        </article>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+    <script>
+      window.addEventListener('scroll', () => {
+        const h = document.documentElement;
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        document.getElementById('reading-progress').style.width = pct + '%';
+      });
+    </script>
+    <script src="site-shared.js"></script>
+  </body>
+</html>
+

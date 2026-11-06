@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#800000">
+    <meta name="description" content="Explore the evolution of Dexter Pascual Ocado's portfolio: the Original, Alter Ego, and current Refined edition.">
+    <title>Version History — Dexter Pascual Ocado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="site-shared.css">
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #fff;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-soft: rgba(128,0,0,.07);
+        --green: #22a35a;
+        --font-sans: "Switzer", "Inter", system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+
+      main *,
+      main *::before,
+      main *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg-paper);
+        color: var(--ink);
+        font-family: var(--font-sans);
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      main a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      main ul,
+      main ol {
+        list-style: none;
+      }
+
+      main button,
+      main a {
+        font: inherit;
+      }
+
+      main button {
+        cursor: pointer;
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button:active {
+        transform: scale(0.97);
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before, .button[data-cc-glow]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        pointer-events: none;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #8b7bff, #800000);
+      }
+
+      .button[data-cc-glow]::before {
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button[data-cc-glow]::after {
+        animation: cc-ba 1.6s linear infinite;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      .button[data-cc-glow]:hover::after, .button[data-cc-glow]:focus-visible::after {
+        opacity: 1;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0.78rem 1.45rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        overflow: hidden;
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button[data-cc-glow].is-light .button-in {
+        border: none;
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .vh-wrap {
+        max-width: 1370px;
+        margin: auto;
+        padding: 0 clamp(18px,4.2vw,54px);
+      }
+
+      .vh-hero {
+        padding: clamp(70px,8vw,116px) 0 44px;
+      }
+
+      .vh-overline {
+        font: 600 11px var(--font-mono);
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--maroon);
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 22px;
+      }
+
+      .vh-overline::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+      }
+
+      .vh-title {
+        max-width: 1040px;
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: -.075em;
+        line-height: .98;
+        font-size: clamp(3.8rem,9vw,8.4rem);
+      }
+
+      .vh-title em {
+        font-style: normal;
+        color: var(--maroon);
+      }
+
+      .vh-hero-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 25px;
+        margin-top: 28px;
+      }
+
+      .vh-lead {
+        max-width: 625px;
+        font-size: clamp(1rem,1.6vw,1.22rem);
+        line-height: 1.65;
+        color: var(--grey-400);
+        margin: 0;
+      }
+
+      .vh-count {
+        font: 600 12px var(--font-mono);
+        color: var(--grey-300);
+        white-space: nowrap;
+        padding-bottom: 5px;
+      }
+
+      .vh-workspace {
+        display: grid;
+        grid-template-columns: minmax(245px,330px) minmax(0,1fr);
+        gap: 18px;
+        align-items: stretch;
+        margin: 32px 0 24px;
+      }
+
+      .vh-selector {
+        border: 1px solid var(--grey-100);
+        background: #fff;
+        border-radius: 24px;
+        padding: 23px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .vh-small-heading {
+        font: 600 11px var(--font-mono);
+        letter-spacing: .12em;
+        color: var(--grey-300);
+        text-transform: uppercase;
+        margin: 0 0 8px;
+      }
+
+      .vh-version {
+        width: 100%;
+        text-align: left;
+        background: #fafafa;
+        border: 1px solid #e5e5e7;
+        border-radius: 15px;
+        padding: 18px 16px;
+        transition: background .2s,border-color .2s,box-shadow .2s,transform .2s;
+        color: var(--ink);
+      }
+
+      .vh-version:hover {
+        transform: translateY(-2px);
+        border-color: #c5b1b7;
+      }
+
+      .vh-version[aria-pressed="true"] {
+        background: linear-gradient(135deg,#1b1013,#101114);
+        color: white;
+        border-color: #4b1c25;
+        box-shadow: 0 14px 32px rgba(30,0,8,.14);
+      }
+
+      .vh-version-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 13px;
+      }
+
+      .vh-num {
+        font: 600 11px var(--font-mono);
+        letter-spacing: .07em;
+        opacity: .7;
+      }
+
+      .vh-status {
+        font: 600 10px var(--font-mono);
+        padding: 5px 8px;
+        border-radius: 99px;
+        background: #ececf0;
+        color: #5b5d60;
+      }
+
+      .vh-version[aria-pressed="true"] .vh-status {
+        background: rgba(255,255,255,.13);
+        color: #f0dfe3;
+      }
+
+      .vh-version h2 {
+        font-size: clamp(1.15rem,1.7vw,1.4rem);
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -.035em;
+        margin: 0 0 8px;
+      }
+
+      .vh-version p {
+        font-size: 13px;
+        line-height: 1.55;
+        margin: 0;
+        color: #696a6e;
+      }
+
+      .vh-version[aria-pressed="true"] p {
+        color: #bbbabd;
+      }
+
+      .vh-selector-note {
+        margin-top: auto;
+        border-top: 1px solid var(--grey-100);
+        padding-top: 16px;
+        color: var(--grey-400);
+        font-size: 12px;
+        line-height: 1.65;
+      }
+
+      .vh-selector-note strong {
+        display: block;
+        color: var(--ink);
+        margin-bottom: 3px;
+        font-weight: 600;
+      }
+
+      .vh-browser {
+        min-width: 0;
+        background: #fff;
+        border: 1px solid #dedee1;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 22px 75px rgba(15,16,17,.055);
+      }
+
+      .vh-browser-bar {
+        height: 62px;
+        padding: 0 20px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e4e4e6;
+        background: #fafafa;
+      }
+
+      .vh-traffic {
+        display: flex;
+        gap: 7px;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .vh-traffic span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #dedee1;
+      }
+
+      .vh-traffic span:first-child {
+        background: #ee8686;
+      }
+
+      .vh-traffic span:nth-child(2) {
+        background: #f0c36e;
+      }
+
+      .vh-traffic span:nth-child(3) {
+        background: #8ccca2;
+      }
+
+      .vh-url {
+        flex: 1;
+        max-width: 430px;
+        min-width: 0;
+        border: 1px solid #e7e7e9;
+        background: white;
+        border-radius: 9px;
+        padding: 9px 12px;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font: 500 11px var(--font-mono);
+        color: #66676b;
+      }
+
+      .vh-tools {
+        display: flex;
+        gap: 5px;
+        flex-shrink: 0;
+      }
+
+      .vh-tool {
+        display: grid;
+        place-items: center;
+        width: 33px;
+        height: 33px;
+        border: 1px solid transparent;
+        border-radius: 9px;
+        color: #717176;
+        background: transparent;
+        transition: .2s;
+      }
+
+      .vh-tool:hover, .vh-tool[aria-pressed="true"] {
+        background: #eeeef0;
+        border-color: #e2e2e5;
+        color: #800000;
+      }
+
+      .vh-tool svg {
+        width: 17px;
+        height: 17px;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .vh-stage {
+        height: clamp(410px,56vw,690px);
+        background: #e9e9eb;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        transition: padding .28s;
+      }
+
+      .vh-stage.is-mobile {
+        padding: 22px;
+      }
+
+      .vh-device {
+        height: 100%;
+        width: 100%;
+        background: #fff;
+        overflow: hidden;
+        position: relative;
+        transition: width .28s,border-radius .28s,box-shadow .28s;
+        min-width: 0;
+      }
+
+      .vh-stage.is-mobile .vh-device {
+        width: min(100%,390px);
+        border-radius: 23px;
+        box-shadow: 0 13px 36px rgba(0,0,0,.16);
+        border: 5px solid #22242a;
+      }
+
+      .vh-device iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        background: white;
+      }
+
+      .vh-device iframe.is-peek {
+        pointer-events: none;
+      }
+
+      .vh-interact-label {
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        bottom: 20px;
+        transform: translateX(-50%);
+        padding: 9px 13px;
+        border-radius: 99px;
+        background: rgba(16,17,20,.88);
+        color: white;
+        font: 500 11px var(--font-mono);
+        pointer-events: none;
+        white-space: nowrap;
+        box-shadow: 0 8px 24px rgba(0,0,0,.18);
+      }
+
+      .vh-interact-label[hidden] {
+        display: none;
+      }
+
+      .vh-preview-fallback {
+        position: absolute;
+        inset: 0;
+        display: none;
+        place-items: center;
+        background: linear-gradient(135deg,#f9f7f7,#eee9eb);
+        padding: 24px;
+        z-index: 3;
+        text-align: center;
+      }
+
+      .vh-preview-fallback.is-visible {
+        display: grid;
+      }
+
+      .vh-preview-fallback strong {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .vh-preview-fallback p {
+        max-width: 390px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .vh-preview-fallback a {
+        color: #800000;
+        text-decoration: underline;
+        font-weight: 600;
+      }
+
+      .vh-browser-foot {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+        padding: 20px 23px;
+        border-top: 1px solid var(--grey-100);
+        background: #fff;
+      }
+
+      .vh-browser-meta {
+        min-width: 0;
+      }
+
+      .vh-browser-meta span {
+        display: block;
+        font: 600 10px var(--font-mono);
+        color: var(--grey-300);
+        letter-spacing: .13em;
+        margin-bottom: 7px;
+      }
+
+      .vh-browser-meta strong {
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: -.025em;
+      }
+
+      .vh-open {
+        white-space: nowrap;
+        border-radius: 99px;
+        background: #800000;
+        color: white;
+        text-decoration: none;
+        padding: 12px 18px;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: transform .2s,background .2s;
+      }
+
+      .vh-open:hover {
+        background: #a01020;
+        transform: translateY(-2px);
+      }
+
+      .vh-bottom {
+        display: grid;
+        grid-template-columns: 1.2fr .8fr;
+        gap: 18px;
+        margin-bottom: 32px;
+      }
+
+      .vh-note {
+        padding: 30px;
+        border: 1px solid var(--grey-100);
+        border-radius: 22px;
+        background: white;
+      }
+
+      .vh-note.dark {
+        background: #141416;
+        border-color: #29262a;
+        color: white;
+      }
+
+      .vh-note .vh-kicker {
+        font: 600 11px var(--font-mono);
+        letter-spacing: .12em;
+        color: var(--maroon-bright);
+        text-transform: uppercase;
+        margin: 0 0 15px;
+      }
+
+      .vh-note.dark .vh-kicker {
+        color: #f5f3f3;
+      }
+
+      .vh-note h3 {
+        font-size: clamp(1.25rem,2vw,1.65rem);
+        font-weight: 550;
+        letter-spacing: -.04em;
+        margin: 0 0 10px;
+      }
+
+      .vh-note p {
+        margin: 0;
+        max-width: 660px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: #65666b;
+      }
+
+      .vh-note.dark p {
+        color: #b0adb1;
+      }
+
+      .vh-inline-link {
+        color: inherit;
+        font-weight: 650;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .vh-footer-gap {
+        height: 1px;
+      }
+
+      @media (max-width:1050px) {
+        .vh-workspace {
+          grid-template-columns: 1fr;
+        }
+
+        .vh-selector {
+          display: grid;
+          grid-template-columns: repeat(3,minmax(0,1fr));
+          gap: 12px;
+        }
+
+        .vh-small-heading, .vh-selector-note {
+          grid-column: 1/-1;
+        }
+
+        .vh-selector-note {
+          margin-top: 0;
+        }
+
+        .vh-version {
+          padding: 15px;
+        }
+
+        .vh-version h2 {
+          font-size: 1.15rem;
+        }
+      }
+
+      @media (max-width:680px) {
+        .vh-hero {
+          padding-top: 65px;
+        }
+
+        .vh-title {
+          font-size: clamp(3.5rem,15vw,6rem);
+        }
+
+        .vh-hero-bottom {
+          align-items: start;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .vh-workspace {
+          margin-top: 24px;
+        }
+
+        .vh-selector {
+          grid-template-columns: 1fr;
+          gap: 9px;
+          padding: 14px;
+        }
+
+        .vh-version {
+          padding: 13px 15px;
+        }
+
+        .vh-version-top {
+          margin-bottom: 6px;
+        }
+
+        .vh-version h2 {
+          margin-bottom: 4px;
+        }
+
+        .vh-version p {
+          font-size: 12px;
+        }
+
+        .vh-browser-bar {
+          padding: 0 12px;
+          height: 55px;
+          gap: 8px;
+        }
+
+        .vh-traffic {
+          gap: 4px;
+        }
+
+        .vh-traffic span {
+          height: 7px;
+          width: 7px;
+        }
+
+        .vh-url {
+          font-size: 9px;
+          padding: 7px;
+        }
+
+        .vh-tool {
+          width: 30px;
+          height: 30px;
+        }
+
+        .vh-tools {
+          gap: 0;
+        }
+
+        .vh-stage {
+          height: 540px;
+        }
+
+        .vh-stage.is-mobile {
+          padding: 14px;
+        }
+
+        .vh-browser-foot {
+          padding: 17px;
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .vh-open {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .vh-bottom {
+          grid-template-columns: 1fr;
+        }
+
+        .vh-note {
+          padding: 22px;
+        }
+      }
+
+      @media (prefers-reduced-motion:reduce) {
+        *, *::before, *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+
+    <main id="main">
+      <section class="vh-hero vh-wrap" aria-labelledby="vh-title">
+        <div class="vh-overline">The archive / Digital iterations</div>
+        <h1 id="vh-title" class="vh-title">Built. Rebuilt.<br><em>Refined.</em></h1>
+        <div class="vh-hero-bottom">
+          <p class="vh-lead">Same person. Three different directions. A living record of how this corner of the internet changed — without erasing where it started.</p>
+          <span class="vh-count">01 — 03 &nbsp; / &nbsp; EDITIONS</span>
+        </div>
+      </section>
+
+      <section class="vh-wrap" aria-label="Interactive portfolio version explorer">
+        <div class="vh-workspace">
+          <div class="vh-selector" aria-label="Choose a portfolio edition">
+            <p class="vh-small-heading">Select an edition</p>
+            <button type="button" class="vh-version" data-version="refined" aria-pressed="true">
+              <span class="vh-version-top"><span class="vh-num">03 / THE PRESENT</span><span class="vh-status">CURRENT</span></span>
+              <h2>The Refined Edition</h2>
+              <p>Editorial clarity. Modern interactions. A more deliberate professional space.</p>
+            </button>
+            <button type="button" class="vh-version" data-version="alter" aria-pressed="false">
+              <span class="vh-version-top"><span class="vh-num">02 / THE EXPERIMENT</span><span class="vh-status">PRESERVED</span></span>
+              <h2>The Alter Ego Edition</h2>
+              <p>A bolder, more expressive take on the same story.</p>
+            </button>
+            <button type="button" class="vh-version" data-version="original" aria-pressed="false">
+              <span class="vh-version-top"><span class="vh-num">01 / THE BEGINNING</span><span class="vh-status">PRESERVED</span></span>
+              <h2>The Original Edition</h2>
+              <p>The first foundation, before all the redesigns and reinventions.</p>
+            </button>
+            <div class="vh-selector-note"><strong>Not a theme switcher.</strong>Each edition is hosted separately. The Refined edition is the primary version and the one I actively maintain.</div>
+          </div>
+
+          <div class="vh-browser">
+            <div class="vh-browser-bar">
+              <div class="vh-traffic" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="vh-url" id="vh-url" aria-live="polite">index.html</div>
+              <div class="vh-tools">
+                <button class="vh-tool" id="vh-desktop" aria-label="Desktop preview" aria-pressed="true" title="Desktop preview"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></button>
+                <button class="vh-tool" id="vh-mobile" aria-label="Mobile preview" aria-pressed="false" title="Mobile preview"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></button>
+                <button class="vh-tool" id="vh-refresh" aria-label="Reload preview" title="Reload preview"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5"/><path d="M4 17v-5h5"/><path d="M5 9a8 8 0 0 1 14-2l1 5M4 12l1 5a8 8 0 0 0 14-2"/></svg></button>
+                <button class="vh-tool" id="vh-interact" aria-label="Enable interaction inside preview" aria-pressed="false" title="Toggle interactive preview"><svg viewBox="0 0 24 24"><path d="m5 3 14 9-7 1-3 7-4-17z"/></svg></button>
+              </div>
+            </div>
+            <div class="vh-stage" id="vh-stage">
+              <div class="vh-device">
+                <iframe id="vh-frame" title="Live preview of The Refined Edition" src="index.html" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <div class="vh-preview-fallback" id="vh-fallback" role="status">
+                  <div><strong>Preview isn't available yet.</strong><p>Make sure this edition's archived files are in the correct folder. You can still try opening it directly.</p><a id="vh-fallback-link" href="index.html" target="_blank" rel="noopener">Open this edition ↗</a></div>
+                </div>
+              </div>
+              <div class="vh-interact-label" id="vh-interact-label">Preview mode · enable cursor to explore</div>
+            </div>
+            <div class="vh-browser-foot">
+              <div class="vh-browser-meta"><span>NOW VIEWING</span><strong id="vh-active-name">03 — The Refined Edition</strong></div>
+              <a class="vh-open" id="vh-open" href="index.html" target="_blank" rel="noopener">Open full version <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="vh-bottom">
+          <div class="vh-note dark">
+            <p class="vh-kicker">Why keep the old versions?</p>
+            <h3>Progress deserves a paper trail.</h3>
+            <p>Each edition captured a different approach to design, storytelling, and presenting my work. Rather than retiring them into oblivion, I kept them here as a record of the process.</p>
+          </div>
+          <div class="vh-note">
+            <p class="vh-kicker">A small note</p>
+            <h3>Past designs, preserved.</h3>
+            <p>The earlier editions remain available on their original websites, but may not reflect the latest updates. For the most current details, projects, and ways to reach me, head back to the <a class="vh-inline-link" href="index.html">latest portfolio ↗</a>.</p>
+          </div>
+        </div>
+      </section>
+      <div class="vh-footer-gap" aria-hidden="true"></div>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+
+    <script>
+      (() => {
+        'use strict';
+        const editions = {
+          refined: { name:'03 — The Refined Edition', title:'The Refined Edition', src:'index.html' },
+          alter: { name:'02 — The Alter Ego Edition', title:'The Alter Ego Edition', src:'https://ocadodp.github.io/portfolio-alterego/alterego.html', open:'https://ocadodp.github.io/portfolio-alterego/' },
+          original: { name:'01 — The Original Edition', title:'The Original Edition', src:'https://ocadodp.github.io/portfolio_old/' }
+        };
+        const frame = document.getElementById('vh-frame');
+        const stage = document.getElementById('vh-stage');
+        const fallback = document.getElementById('vh-fallback');
+        const fallbackLink = document.getElementById('vh-fallback-link');
+        const interactButton = document.getElementById('vh-interact');
+        const interactLabel = document.getElementById('vh-interact-label');
+        const buttons = [...document.querySelectorAll('[data-version]')];
+        let selected = 'refined';
+        let interactive = false;
+        function updateInteractivity() {
+          frame.classList.toggle('is-peek', !interactive);
+          interactButton.setAttribute('aria-pressed', String(interactive));
+          interactButton.setAttribute('aria-label', interactive ? 'Disable interaction inside preview' : 'Enable interaction inside preview');
+          interactButton.title = interactive ? 'Switch to preview-only mode' : 'Enable interactive preview';
+          interactLabel.hidden = interactive;
+        }
+        function showEdition(key) {
+          const data = editions[key]; if (!data) return;
+          selected = key;
+          buttons.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.version === key)));
+          document.getElementById('vh-url').textContent = data.src;
+          document.getElementById('vh-active-name').textContent = data.name;
+          document.getElementById('vh-open').href = data.open || data.src;
+          fallbackLink.href = data.open || data.src;
+          fallback.classList.remove('is-visible');
+          frame.title = `Live preview of ${data.title}`;
+          frame.src = data.src;
+          interactive = false; updateInteractivity();
+        }
+        buttons.forEach(btn => btn.addEventListener('click', () => showEdition(btn.dataset.version)));
+        function setDevice(mobile) {
+          stage.classList.toggle('is-mobile', mobile);
+          document.getElementById('vh-desktop').setAttribute('aria-pressed', String(!mobile));
+          document.getElementById('vh-mobile').setAttribute('aria-pressed', String(mobile));
+        }
+        document.getElementById('vh-desktop').addEventListener('click', () => setDevice(false));
+        document.getElementById('vh-mobile').addEventListener('click', () => setDevice(true));
+        document.getElementById('vh-refresh').addEventListener('click', () => { fallback.classList.remove('is-visible'); frame.src = editions[selected].src; });
+        interactButton.addEventListener('click', () => { interactive = !interactive; updateInteractivity(); });
+        frame.addEventListener('error', () => fallback.classList.add('is-visible'));
+        updateInteractivity();
+      })();
+    </script>
+    <script src="site-shared.js"></script>
+  </body>
+</html>

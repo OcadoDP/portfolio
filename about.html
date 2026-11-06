@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html class="lenis lenis-smooth" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="#800000" name="theme-color"/>
+    <title>About — Dexter Pascual Ocado | Quantitative Analyst &amp; Data Professional</title>
+    <meta content="About Dexter Pascual Ocado — Quantitative Analyst and Data Professional. BS Mathematics (Cum Laude), DOST-SEI Scholar, and Project Development Officer I at DICT." name="description"/>
+    <meta content="About — Dexter Pascual Ocado" property="og:title"/>
+    <meta content="Quantitative Analyst &amp; Data Professional. Turning raw data into strategic, automated solutions." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+    <link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/>
+    <link as="font" crossorigin="" href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2" rel="preload" type="font/woff2"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --bg-dark-card: #141517;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --green: #22a35a;
+        --radius-xs: 8px;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background-color: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        overflow-x: hidden;
+        background-color: var(--bg-paper);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      ul, ol {
+        list-style: none;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: -100px;
+        left: 16px;
+        background: var(--maroon);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: var(--radius-xs);
+        z-index: 9999;
+        font-weight: 500;
+        transition: top 0.2s ease;
+      }
+
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      .label-caption {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+        display: inline-block;
+      }
+
+      .heading-h1 {
+        font-size: clamp(2.4rem, 5vw, 4.4rem);
+        line-height: 1.04;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+
+      .heading-h2 {
+        font-size: clamp(1.85rem, 3.4vw, 3rem);
+        line-height: 1.08;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+      }
+
+      .heading-h3 {
+        font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+        line-height: 1.15;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button:active {
+        transform: scale(0.97);
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before, .button[data-cc-glow]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        pointer-events: none;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #8b7bff, #800000);
+      }
+
+      .button[data-cc-glow]::before {
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button[data-cc-glow]::after {
+        animation: cc-ba 1.6s linear infinite;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      .button[data-cc-glow]:hover::after, .button[data-cc-glow]:focus-visible::after {
+        opacity: 1;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0.78rem 1.45rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button[data-cc-glow].is-light .button-in {
+        border: none;
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .button_texts {
+        position: relative;
+        display: inline-flex;
+        flex-direction: column;
+        overflow: hidden;
+        line-height: 1.2;
+      }
+
+      .button_text._1, .button_text._2 {
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        white-space: nowrap;
+      }
+
+      .button_text._2 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+      }
+
+      .button:hover .button_text._1, .button:hover .button_text._2 {
+        transform: translateY(-100%);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 9px 12px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+
+      .dropdown-item:hover {
+        background: var(--maroon-soft);
+        color: var(--maroon);
+      }
+
+      .dropdown-tag {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--grey-300);
+      }
+
+      .online-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 3px rgba(34, 163, 90, 0.2);
+        animation: pulseDot 2s infinite;
+      }
+
+      @keyframes pulseDot {
+        0%, 100% {
+          box-shadow: 0 0 0 0 rgba(34, 163, 90, 0.4);
+        }
+
+        50% {
+          box-shadow: 0 0 0 5px rgba(34, 163, 90, 0);
+        }
+      }
+
+      .about-hero-sec {
+        padding: 56px 0 64px;
+      }
+
+
+
+
+      .about-hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+
+
+
+      .about-hero-copy {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .about-lead {
+        font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+        font-weight: 500;
+        color: var(--maroon);
+        line-height: 1.4;
+        margin-top: 12px;
+      }
+
+      .about-prose {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        color: var(--grey-400);
+        font-size: 1.02rem;
+        line-height: 1.65;
+      }
+
+
+
+      .about-portrait-card {
+        background: linear-gradient(145deg, #17080b 0%, #0f1011 100%);
+        border: 1px solid var(--maroon-border);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        position: relative;
+        overflow: hidden;
+      }
+
+
+
+      .about-portrait-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5.5;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 30%, rgba(179, 27, 44, 0.35), #141517 75%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: grid;
+        place-items: center;
+      }
+
+      .about-portrait-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        position: relative;
+        z-index: 2;
+      }
+
+      .portrait-fallback {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        z-index: 1;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .portrait-fallback-circle {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: var(--maroon);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+        font-weight: 700;
+        box-shadow: 0 0 40px rgba(179, 27, 44, 0.6);
+      }
+
+      .portrait-meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .portrait-meta-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-sm);
+        padding: 12px 10px;
+      }
+
+      .portrait-meta-item span {
+        display: block;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--grey-250);
+        text-transform: uppercase;
+      }
+
+
+      .portrait-meta-item strong {
+        font-size: 0.78rem;
+        color: #fff;
+        margin-top: 2px;
+        display: block;
+        white-space: nowrap;
+      }
+
+
+      .journey-spotlight {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.25rem);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-image: radial-gradient(circle at 85% 20%, rgba(128, 0, 0, 0.4), transparent 55%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 28px;
+        margin-bottom: 64px;
+      }
+
+      .journey-spotlight-copy {
+        max-width: 720px;
+      }
+
+      .journey-spotlight-copy h2 {
+        font-size: clamp(1.65rem, 3vw, 2.5rem);
+        font-weight: 500;
+        margin: 10px 0 12px;
+        letter-spacing: -0.02em;
+      }
+
+      .journey-spotlight-copy p {
+        color: var(--grey-250);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .timeline-section {
+        padding: 16px 0 0px;
+      }
+
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: 0.38fr 0.62fr;
+        gap: 40px;
+        align-items: start;
+        padding: 48px 0;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .timeline-sticky-head {
+        position: sticky;
+        top: 96px;
+      }
+
+      .timeline-sticky-head p {
+        color: var(--grey-400);
+        margin-top: 10px;
+        font-size: 0.95rem;
+      }
+
+      .accordion-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .exp-accordion {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 24px 28px;
+        cursor: pointer;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .exp-accordion:hover {
+        border-color: var(--maroon-border);
+        box-shadow: 0 12px 30px rgba(15, 16, 17, 0.04);
+      }
+
+      .exp-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .exp-badge {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: var(--maroon-soft);
+        color: var(--maroon);
+        border: 1px solid var(--maroon-border);
+        margin-bottom: 10px;
+      }
+
+      .exp-badge.is-live {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .exp-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: -0.015em;
+      }
+
+      .exp-org {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--grey-400);
+        margin-top: 2px;
+      }
+
+      .exp-sub {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--grey-300);
+        margin-top: 4px;
+      }
+
+      .exp-toggle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        display: grid;
+        place-items: center;
+        font-size: 1.2rem;
+        font-weight: 500;
+        transition: transform 0.3s ease, background 0.2s ease, color 0.2s ease;
+        flex-shrink: 0;
+      }
+
+      .exp-accordion.open .exp-toggle {
+        transform: rotate(45deg);
+        background: var(--maroon);
+        color: #fff;
+        border-color: var(--maroon);
+      }
+
+      .exp-body-wrap {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .exp-body {
+        padding-top: 20px;
+        margin-top: 18px;
+        border-top: 1px solid var(--grey-100);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: var(--grey-400);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .exp-body li {
+        position: relative;
+        padding-left: 18px;
+      }
+
+      .exp-body li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--maroon);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+      }
+
+      .restricted-banner {
+        background: linear-gradient(135deg, #160709 0%, #0f1011 65%, #24080d 100%);
+        border: 1px solid rgba(128, 0, 0, 0.3);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.25rem);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin: 24px 0 64px;
+      }
+
+      .restricted-tag {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #f5f3f3;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+
+      /* Narrow desktop: sticky portrait sidebar */
+      @media (min-width: 1146px) and (max-width: 1463px) {
+        .about-hero-grid {
+          align-items: start;
+        }
+
+        .about-portrait-card {
+          position: sticky;
+          top: 90px;
+          align-self: start;
+          justify-content: flex-start;
+          gap: 20px;
+          padding: 22px;
+        }
+
+        .portrait-meta-item {
+          padding: 10px;
+        }
+
+        .portrait-meta-item strong {
+          font-size: 0.75rem;
+          white-space: nowrap;
+        }
+      }
+
+      /* Timeline retains its existing breakpoint */
+      @media (max-width: 991px) {
+        .timeline-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-sticky-head {
+          position: static;
+        }
+      }
+
+      /* Tablet and mobile: stack the About cards */
+      @media (max-width: 1145px) {
+        .about-hero-grid {
+          grid-template-columns: minmax(0, 1fr);
+          align-items: start;
+        }
+
+        .about-portrait-card {
+          position: static;
+          justify-content: flex-start;
+          gap: 20px;
+        }
+      }
+
+
+      @media (max-width: 640px) {
+        .portrait-meta-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="site-shared.css" /></head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+
+    <main id="main">
+
+      <section class="about-hero-sec">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="about-hero-grid">
+              <div class="about-hero-copy">
+                <div>
+                  <div class="label-caption">About Me</div>
+                  <h1 class="heading-h1" style="margin-top: 12px;">Hi, I’m Dexter.</h1>
+                  <p class="about-lead">
+                    Quantitative Analyst &amp; Data Professional. I drive organizational efficiency by turning raw data into automated solutions.
+                  </p>
+                </div>
+
+                <div class="about-prose">
+                  <p>
+                    I am a BS Mathematics graduate, Cum Laude, DOST-SEI Scholar,
+                    and data professional with a strong foundation in mathematical
+                    modeling, statistical analysis, econometrics, and machine learning.
+                    My work focuses on translating complex datasets and operational
+                    challenges into practical analytical tools, automated workflows,
+                    and actionable insights.
+                  </p>
+
+                  <p>
+                    My experience spans government data automation, business
+                    intelligence, and quantitative research. During my internship
+                    at the Department of Budget and Management, I developed
+                    applications for competency assessment reporting, spreadsheet
+                    automation, data consolidation, and learning-program evaluation.
+                    I have also explored financial econometrics, computer vision,
+                    and browser-based decision-support systems through academic
+                    and independent projects.
+                  </p>
+
+                  <p>
+                    Currently, I serve as a Project Development Officer I at the
+                    Department of Information and Communications Technology.
+                    I approach each project with a simple principle: understand
+                    the problem, build something useful, and continuously
+                    improve it through evidence, experimentation, and feedback.
+                  </p>
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+                  <a class="button is-maroon" data-cc-glow="" href="projects.html">
+                    <div class="button-in">
+                      <div class="button_texts">
+                        <span class="button_text _1">Selected Work (5) →</span>
+                        <span aria-hidden="true" class="button_text _2">Explore Case Studies</span>
+                      </div>
+                    </div>
+                  </a>
+                  <a class="button is-light" href="Resume - Dexter Pascual Ocado.pdf" rel="noopener noreferrer" target="_blank">
+                    <div class="button-in">
+                      <div class="button_texts">
+                        <span class="button_text _1">Download Résumé PDF ↗</span>
+                        <span aria-hidden="true" class="button_text _2">View Full CV</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <aside aria-label="Dexter Pascual Ocado Portrait and Credentials" class="about-portrait-card">
+                <div class="about-portrait-frame">
+                  <img alt="Dexter Pascual Ocado" decoding="async" loading="lazy" onerror="this.style.display='none'" src="img/ocado.webp"/>
+                  <div class="portrait-fallback">
+                    <div class="portrait-fallback-circle">DPO</div>
+                    <div style="font-weight: 600; margin-top: 8px;">Dexter Pascual Ocado</div>
+                    <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--grey-250);">img/ocado.webp</div>
+                  </div>
+                </div>
+                <div class="portrait-meta-grid">
+                  <div class="portrait-meta-item">
+                    <span>Current Role</span>
+                    <strong>PDO I @ DICT (IIDB)</strong>
+                  </div>
+                  <div class="portrait-meta-item">
+                    <span>Degree &amp; Latin Honors</span>
+                    <strong>BS Math · Cum Laude</strong>
+                  </div>
+                  <div class="portrait-meta-item">
+                    <span>Civil Service Exam</span>
+                    <strong>93.99% Professional</strong>
+                  </div>
+                  <div class="portrait-meta-item">
+                    <span>Scholarship</span>
+                    <strong>DOST-SEI JLSS (RA 7687)</strong>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="padding-global">
+        <div class="container-large">
+          <div class="journey-spotlight">
+            <div class="journey-spotlight-copy">
+              <div class="label-caption" style="color: #f5f3f3;">My Journey // Personal Lore</div>
+              <h2>The Fresh Grad Reality Check</h2>
+
+              <p>
+                Nearly 200 job applications, a 4:00 AM journey from Quezon
+                Province, an unexpected interview rescheduling, and a
+                nerve-racking final selection panel. What started as
+                months of uncertainty eventually led to my first
+                professional role at the DICT—and an unexpected
+                opportunity to return to DBM.
+              </p>
+
+            </div>
+            <a class="button is-maroon" data-cc-glow="" href="job-hunt.html">
+              <div class="button-in">
+                <div class="button_texts">
+                  <span class="button_text _1">Read the full story →</span>
+                  <span aria-hidden="true" class="button_text _2">Open job-hunt.html</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="timeline-section">
+        <div class="padding-global">
+          <div class="container-large">
+
+            <div class="timeline-grid">
+              <div class="timeline-sticky-head">
+                <div class="label-caption">Career Path</div>
+                <h2 class="heading-h2" style="margin-top: 10px;">Professional Experience</h2>
+                <p>Expand a role to see the pipelines, web apps, and reporting systems I built there.</p>
+              </div>
+              <div class="accordion-stack">
+
+
+                <div class="exp-accordion open">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge is-live">
+                        November 2026 – Present
+                      </span>
+
+                      <h3 class="exp-title">
+                        Project Development Officer I
+                      </h3>
+
+                      <div class="exp-org">
+                        Department of Information and Communications Technology (DICT)
+                      </div>
+
+                      <div class="exp-sub">
+                        ICT Industry Development Bureau — Benchmarking and
+                        Promotions Division · Studio 7, 807 EDSA,
+                        Diliman, Quezon City
+                      </div>
+                    </div>
+
+                    <div class="exp-toggle">+</div>
+                  </div>
+
+                  <div class="exp-body-wrap" style="max-height: 200px;">
+                    <ul class="exp-body">
+                      <li>
+                        Serving as Project Development Officer I under the
+                        ICT Industry Development Bureau (IIDB),
+                        Benchmarking and Promotions Division.
+                      </li>
+
+                      <li>
+                        Building professional experience in ICT industry
+                        development, benchmarking, and promotional initiatives
+                        within the Philippine public sector.
+                      </li>
+
+                      <li>
+                        Further responsibilities and project accomplishments
+                        will be documented as the role progresses.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+
+                <div class="exp-accordion">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge">
+                        March 2026 – April 2026 (250 Hours)
+                      </span>
+
+                      <h3 class="exp-title">
+                        Data and Systems Automation Intern
+                      </h3>
+
+                      <div class="exp-org">
+                        Department of Budget and Management (DBM) Central Office
+                      </div>
+
+                      <div class="exp-sub">
+                        Administrative Service — Human Resource Development
+                        Division (AS-HRDD), Monitoring and Evaluation Section
+                        · Manila, Philippines
+                      </div>
+                    </div>
+
+                    <div class="exp-toggle">+</div>
+                  </div>
+
+                  <div class="exp-body-wrap">
+                    <ul class="exp-body">
+                      <li>
+                        Developed a web-based Competency Assessment monitoring
+                        dashboard to consolidate Microsoft Forms responses,
+                        match employee records, and track self-assessment and
+                        supervisor-evaluation completion across Central and
+                        Regional Offices.
+                      </li>
+
+                      <li>
+                        Expanded the monitoring dashboard into an automated
+                        CA Results Generator, implementing competency mapping,
+                        40% self-assessment and 60% supervisor-evaluation
+                        weighted scoring, gap computations, and formatted
+                        Excel report generation for an assessment workflow
+                        covering over 1,200 personnel.
+                      </li>
+
+                      <li>
+                        Built supporting applications for batch PDF conversion,
+                        signing-ready assessment summaries, competency-gap and
+                        intervention consolidation, and Individual Development
+                        Plan (IDP) document generation.
+                      </li>
+
+                      <li>
+                        Developed TypeScript Excel Office Scripts and Microsoft
+                        Power Automate workflows to update large collections
+                        of assessment workbooks, including worksheet protection,
+                        intervention dropdowns, priority-ranking fields, and
+                        automated processing of existing files.
+                      </li>
+
+                      <li>
+                        Created a Udemy Course Masterlist Generator and
+                        a dedicated data-cleaning utility, Panglinis,
+                        which applied keyword matching, URL-based title
+                        recovery, and character-bigram Sørensen–Dice
+                        similarity to standardize course titles across
+                        more than 12,000 learner-response rows.
+                      </li>
+
+                      <li>
+                        Developed interactive Power BI dashboards using
+                        Power Query transformations, quantitative score
+                        aggregation, charts, KPI cards, and customized
+                        navigation to evaluate Udemy learning-program
+                        feedback and participant experiences.
+                      </li>
+
+                      <li>
+                        Prepared analytical and narrative reports,
+                        including a 17-page Udemy Learners' Experience
+                        Survey report, post-training documentation,
+                        and resource-speaker evaluation reports.
+                        Collaborated with HR teams to review requirements,
+                        test generated outputs, troubleshoot inconsistencies,
+                        and refine applications based on feedback.
+                      </li>
+
+                      <li>
+                        <a href="project-dbm.html"
+                        style="color: var(--maroon); font-weight: 600;
+                        text-decoration: underline;
+                        text-underline-offset: 4px;">
+                        Explore the Enterprise HR Automation &amp;
+                        Business Intelligence case study →
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div class="exp-accordion">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge">June 2025 – July 2025 (240 Hours)</span>
+                      <h3 class="exp-title">DOST Scholar-Trainee</h3>
+                      <div class="exp-org">Southern Luzon State University Main Campus</div>
+                      <div class="exp-sub">Practical Training Program · Lucban, Quezon</div>
+                    </div>
+                    <div class="exp-toggle">+</div>
+                  </div>
+                  <div class="exp-body-wrap">
+                    <ul class="exp-body">
+                      <li>Executed diverse technical and multimedia projects for the BS Mathematics department, including planning and production of a promotional video.</li>
+                      <li>Compiled, digitized, and formatted the full-semester "Theory of Interest" learning module.</li>
+                      <li>Inventoried and digitally cataloged alumni research theses for structural data management.</li>
+                      <li>Completed Power BI hands-on training focusing on dashboards, reports, and advanced data visualization techniques.</li>
+                      <li>Evaluated with an <strong>Outstanding (1)</strong> performance rating across all technical and administrative tasks by the Program Chairperson.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-grid">
+              <div class="timeline-sticky-head">
+                <div class="label-caption">Academic Background</div>
+                <h2 class="heading-h2" style="margin-top: 10px;">Education &amp; Leadership</h2>
+                <p>My foundation in mathematics, actuarial theory, statistical modeling, and campus journalism.</p>
+              </div>
+              <div class="accordion-stack">
+
+                <div class="exp-accordion open">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge is-live">September 2022 – June 2026</span>
+                      <h3 class="exp-title">Bachelor of Science in Mathematics</h3>
+                      <div class="exp-org">Southern Luzon State University · Lucban, Quezon</div>
+                      <div class="exp-sub">Cum Laude · DOST-SEI JLSS Scholar · Best Thesis Presentation</div>
+                    </div>
+                    <div class="exp-toggle">+</div>
+                  </div>
+                  <div class="exp-body-wrap" style="max-height: 400px;">
+                    <ul class="exp-body">
+                      <li>Graduated <strong>Cum Laude</strong> as a Department of Science and Technology - Science Education Institute (DOST-SEI) JLSS Scholar (RA 7687).</li>
+                      <li>Achieved <strong>Career Service Professional Eligibility</strong> with a rating of <strong>93.99%</strong> during third year of college, alongside P.D. 907 Honor Graduate Eligibility.</li>
+                      <li><strong>Relevant Coursework:</strong> Actuarial Math &amp; Theory of Interest, Statistical Modeling &amp; Multivariate Analysis, Operations Research &amp; Numerical Analysis, Computing &amp; Linear Algebra.</li>
+                      <li><strong>Leadership (2023–2026):</strong> Public Information Officer (PIO in 2024–2026) / Public Relations Officer (PRO in 2023) for BS in Mathematics Batch 2026 Class Officers—serving as primary liaison between the cohort and faculty.</li>
+                      <li><strong>Awarded Research:</strong> <em>Best Thesis Presentation</em> at the 2026 BS Mathematics Research Colloquium for developing a Two-Stage Offline Signature Verification system (KNN-Harris &amp; ResNet-18 Siamese Network).</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="exp-accordion">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge">2020 – 2022</span>
+                      <h3 class="exp-title">Senior High School (STEM Strand)</h3>
+                      <div class="exp-org">Luis Palad Integrated High School · Tayabas City</div>
+                      <div class="exp-sub">Graduated With Honors · Regional Journalism Champion</div>
+                    </div>
+                    <div class="exp-toggle">+</div>
+                  </div>
+                  <div class="exp-body-wrap">
+                    <ul class="exp-body">
+                      <li>Graduated <strong>With Honors</strong> under the Science, Technology, Engineering, and Mathematics (STEM) strand.</li>
+                      <li><strong>Champion</strong> in "Sibulan: Online Quezon-wide Journo KonFab" under the Copyreading and Headline Writing (Filipino) Category.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="exp-accordion">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge">2016 – 2020</span>
+                      <h3 class="exp-title">Junior High School (Special Program for Journalism)</h3>
+                      <div class="exp-org">Luis Palad Integrated High School · Tayabas City</div>
+                      <div class="exp-sub">Graduated With High Honors · Editor-in-Chief</div>
+                    </div>
+                    <div class="exp-toggle">+</div>
+                  </div>
+                  <div class="exp-body-wrap">
+                    <ul class="exp-body">
+                      <li>Graduated <strong>With High Honors</strong> under the specialized journalism curriculum.</li>
+                      <li>Served as the <strong>Editor-in-Chief</strong> for the official school publication <em>"Ang Paladian"</em> (SY 2019–2020).</li>
+                      <li>Regional Schools Press Conference (RSPC) Qualifier for SY 2018–2019 and SY 2019–2020 under the Copyreading and Headline Writing (Filipino) Category.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="exp-accordion">
+                  <div class="exp-top">
+                    <div>
+                      <span class="exp-badge">2009 – 2016</span>
+                      <h3 class="exp-title">Elementary Education</h3>
+                      <div class="exp-org">Ilasan Integrated School · Tayabas City</div>
+                      <div class="exp-sub">Batch Valedictorian</div>
+                    </div>
+                    <div class="exp-toggle">+</div>
+                  </div>
+                  <div class="exp-body-wrap">
+                    <ul class="exp-body">
+                      <li>Graduated as <strong>Batch Valedictorian</strong>.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="restricted-banner">
+              <div>
+                <div class="restricted-tag">CLASSIFIED — LVL 04 // ARCHIVE: RSO-004</div>
+                <h3 class="heading-h3">There may be things I probably shouldn’t put on a résumé.</h3>
+                <p style="color: var(--grey-250); max-width: 620px; margin-top: 6px; font-size: 0.94rem;">
+                  Classified datasets, questionable econometric theories, inter-universe allegiance statistics, and several highly suspicious applications of Python. You were not supposed to find this.
+                </p>
+              </div>
+              <a class="button is-maroon" data-cc-glow="" href="restricted.html">
+                <div class="button-in">
+                  <div class="button_texts">
+                    <span class="button_text _1">Enter Restricted Section →</span>
+                    <span aria-hidden="true" class="button_text _2">Level 04 Clearance</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+
+
+    <script>
+
+      (function () {
+        document.querySelectorAll('.exp-accordion').forEach(acc => {
+          acc.addEventListener('click', () => {
+            const isOpen = acc.classList.contains('open');
+            const wrap = acc.querySelector('.exp-body-wrap');
+            if (isOpen) {
+              acc.classList.remove('open');
+              wrap.style.maxHeight = null;
+            } else {
+              acc.classList.add('open');
+              wrap.style.maxHeight = wrap.scrollHeight + 'px';
+            }
+          });
+        });
+      })();
+
+      (function () {
+        const btn = document.getElementById('copy-email-btn');
+        if (btn) {
+          btn.addEventListener('click', () => {
+            navigator.clipboard?.writeText('ocadodexterp@gmail.com');
+            btn.classList.add('active');
+            setTimeout(() => btn.classList.remove('active'), 1400);
+          });
+        }
+        const cities = { manila: 'Asia/Manila', london: 'Europe/London', newyork: 'America/New_York', singapore: 'Asia/Singapore' };
+        function updateClocks() {
+          const now = new Date();
+          for (const [city, timeZone] of Object.entries(cities)) {
+            const card = document.querySelector(`[data-time="${city}"]`);
+            if (!card) continue;
+            const parts = new Intl.DateTimeFormat('en-US', { timeZone, hour: 'numeric', minute: '2-digit', hour12: true }).formatToParts(now);
+            card.querySelector('.time').textContent = `${parts.find(p => p.type === 'hour')?.value}:${parts.find(p => p.type === 'minute')?.value}`;
+            card.querySelector('.time-pm').textContent = (parts.find(p => p.type === 'dayPeriod')?.value || '').toLowerCase();
+            card.querySelector('.date').textContent = new Intl.DateTimeFormat('en-US', { timeZone, weekday: 'short', month: 'short', day: 'numeric' }).format(now);
+          }
+        }
+        updateClocks();
+        setInterval(updateClocks, 1000);
+      })();
+    </script>
+    <script src="site-shared.js"></script>
+  </body>
+</html>
+

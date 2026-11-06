@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html class="lenis lenis-smooth" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="#800000" name="theme-color"/>
+    <title>Selected Works &amp; Case Studies | Dexter Pascual Ocado</title>
+    <meta content="Projects by Dexter Pascual Ocado — HR workflow automation tools, computer vision machine learning models, econometric stock market studies, and interactive data visualization systems." name="description"/>
+    <meta content="Selected Works &amp; Case Studies | Dexter Pascual Ocado" property="og:title"/>
+    <meta content="Five systems, models, and dashboards across Data Engineering, Econometrics, Automation, and Computer Vision." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/>
+    <link as="font" crossorigin="" href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2" rel="preload" type="font/woff2"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --bg-dark-card: #141517;
+        --bg-dark-elevated: #1b1c1f;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --amber: #ffb35c;
+        --cyan: #7ad8ff;
+        --violet: #8b7bff;
+        --green: #22a35a;
+        --radius-xs: 8px;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background-color: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        overflow-x: hidden;
+        background-color: var(--bg-paper);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      ul, ol {
+        list-style: none;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: -100px;
+        left: 16px;
+        background: var(--maroon);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: var(--radius-xs);
+        z-index: 9999;
+        font-weight: 500;
+        transition: top 0.2s ease;
+      }
+
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      .container-xsmall {
+        max-width: 760px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+
+      .label-caption {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+        display: inline-block;
+      }
+
+      .heading-h1 {
+        font-size: clamp(2.5rem, 5.2vw, 4.6rem);
+        line-height: 1.03;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+
+      .heading-h2 {
+        font-size: clamp(1.85rem, 3.4vw, 3rem);
+        line-height: 1.08;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+      }
+
+      .heading-h3 {
+        font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+        line-height: 1.15;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button:active {
+        transform: scale(0.97);
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before, .button[data-cc-glow]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        pointer-events: none;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #8b7bff, #800000);
+      }
+
+      .button[data-cc-glow]::before {
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button[data-cc-glow]::after {
+        animation: cc-ba 1.6s linear infinite;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      .button[data-cc-glow]:hover::after, .button[data-cc-glow]:focus-visible::after {
+        opacity: 1;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0.78rem 1.45rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        overflow: hidden;
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button[data-cc-glow].is-light .button-in {
+        border: none;
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .section_works-page {
+        padding: 64px 0 80px;
+      }
+
+      .works_head-v1 {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .works_head-v1 .lead-desc {
+        margin-top: 20px;
+        color: var(--grey-400);
+        font-size: 1.06rem;
+        line-height: 1.6;
+        font-weight: 500;
+      }
+
+      .category-pills-row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+
+      .cat-pill {
+        padding: 9px 18px;
+        border-radius: 999px;
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--grey-400);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .cat-pill:hover {
+        border-color: var(--maroon-border);
+        color: var(--ink);
+      }
+
+      .cat-pill.active {
+        background: var(--maroon);
+        border-color: var(--maroon);
+        color: #fff;
+        box-shadow: 0 6px 20px rgba(128, 0, 0, 0.25);
+      }
+
+      .cat-pill-count {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 2px 7px;
+        border-radius: 99px;
+        background: rgba(15, 16, 17, 0.06);
+        color: inherit;
+      }
+
+      .cat-pill.active .cat-pill-count {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+      }
+
+      .filter-block {
+        display: grid;
+        grid-template-columns: auto auto 1fr auto;
+        gap: 12px;
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 12px;
+        margin-bottom: 40px;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(15, 16, 17, 0.03);
+      }
+
+      .custom-select-wrap {
+        position: relative;
+        min-width: 220px;
+      }
+
+      .custom-select {
+        width: 100%;
+        appearance: none;
+        -webkit-appearance: none;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 12px 38px 12px 16px;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--ink);
+        cursor: pointer;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .custom-select:focus, .custom-select:hover {
+        border-color: var(--maroon);
+      }
+
+      .select-chevron {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: var(--grey-400);
+      }
+
+      .search-bar-wrap {
+        position: relative;
+        width: 100%;
+      }
+
+      .search-bar {
+        width: 100%;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 12px 16px 12px 40px;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--ink);
+        outline: none;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .search-bar:focus {
+        background: var(--bg-white);
+        border-color: var(--maroon);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--grey-300);
+        pointer-events: none;
+      }
+
+      .reset-filters-btn {
+        padding: 12px 18px;
+        border-radius: var(--radius-sm);
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--grey-400);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .reset-filters-btn:hover {
+        background: var(--maroon-soft);
+        color: var(--maroon);
+        border-color: var(--maroon-border);
+      }
+
+      .live-demos-section {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(1.75rem, 3.5vw, 2.75rem);
+        margin-bottom: 56px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .live-demos-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 24px;
+      }
+
+      .live-demos-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 20px;
+      }
+
+      .demo-selector-card {
+        background: #16171a;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-sm);
+        padding: 18px;
+        text-align: left;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .demo-selector-card:hover {
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-2px);
+      }
+
+      .demo-selector-card.active {
+        background: linear-gradient(135deg, rgba(128, 0, 0, 0.35), #16171a);
+        border-color: var(--maroon-glow);
+        box-shadow: 0 12px 30px rgba(128, 0, 0, 0.3);
+      }
+
+      .demo-card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--grey-250);
+      }
+
+      .demo-live-pill {
+        color: var(--green);
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .demo-selector-card h3 {
+        font-size: 1.08rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .demo-selector-card p {
+        font-size: 0.82rem;
+        color: var(--grey-250);
+        line-height: 1.4;
+      }
+
+      .demo-stack-line {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: #f5f3f3;
+      }
+
+      .sandbox-browser {
+        background: #0b0c0e;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+      }
+
+      .sandbox-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 18px;
+        background: #16171a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .browser-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .browser-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      .browser-dots span:nth-child(1) {
+        background: #ff5f56;
+      }
+
+      .browser-dots span:nth-child(2) {
+        background: #ffbd2e;
+      }
+
+      .browser-dots span:nth-child(3) {
+        background: #27c93f;
+      }
+
+      .sandbox-url {
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        color: var(--grey-250);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px 14px;
+        border-radius: 99px;
+      }
+
+      .sandbox-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sandbox-btn {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        padding: 6px 12px;
+        border-radius: 99px;
+        background: var(--maroon);
+        color: #fff;
+        border: 1px solid var(--maroon-glow);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .sandbox-btn.secondary {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .sandbox-viewport {
+        position: relative;
+        height: 520px;
+        width: 100%;
+        background: #121316;
+      }
+
+      .sandbox-viewport iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: #fff;
+      }
+
+      .works_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        align-items: stretch;
+      }
+
+      .works_item {
+        display: flex;
+        flex-direction: column;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .works_item.is-hidden {
+        display: none !important;
+      }
+
+      .works_card-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        height: 100%;
+      }
+
+      .works_card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        min-height: 440px;
+        background: var(--bg-dark);
+        border: 1px solid rgba(15, 16, 17, 0.08);
+      }
+
+      .works_visual {
+        width: 100%;
+        flex: 1;
+        padding: 84px clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        color: #fff;
+      }
+
+      .works_card:hover .works_visual {
+        transform: scale(1.02);
+      }
+
+      .works_visual-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .works_visual-bg.empower {
+        background: radial-gradient(circle at 80% 20%, rgba(179, 27, 44, 0.45), transparent 55%),
+        linear-gradient(135deg, #0f1011 0%, #1c1215 60%, #2c0b12 100%);
+      }
+
+      .works_visual-bg.dbm {
+        background: radial-gradient(circle at 20% 80%, rgba(128, 0, 0, 0.5), transparent 55%),
+        linear-gradient(135deg, #111318 0%, #1f1418 100%);
+      }
+
+      .works_visual-bg.volatility {
+        background: radial-gradient(circle at 85% 15%, rgba(255, 179, 92, 0.25), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(128, 0, 0, 0.45), transparent 55%),
+        linear-gradient(135deg, #0d0f12 0%, #17181c 100%);
+      }
+
+      .works_visual-bg.infratrust {
+        background: radial-gradient(circle at 75% 25%, rgba(122, 216, 255, 0.22), transparent 50%),
+        radial-gradient(circle at 20% 75%, rgba(128, 0, 0, 0.42), transparent 55%),
+        linear-gradient(135deg, #101216 0%, #1b1518 100%);
+      }
+
+      .works_visual-bg.signature {
+        background: radial-gradient(circle at 75% 20%, rgba(139, 123, 255, 0.28), transparent 50%),
+        radial-gradient(circle at 25% 75%, rgba(128, 0, 0, 0.48), transparent 55%),
+        linear-gradient(135deg, #0e0f14 0%, #1f1118 100%);
+      }
+
+      .works_label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(15, 16, 17, 0.72);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+
+      .about_label-infos {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .works_pic-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--maroon);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        display: grid;
+        place-items: center;
+      }
+
+      .works_name {
+        font-size: 0.96rem;
+        font-weight: 500;
+      }
+
+      .see-works_cta {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.85;
+        transition: opacity 0.2s, transform 0.2s;
+      }
+
+      .works_card:hover .see-works_cta {
+        opacity: 1;
+        transform: translateX(3px);
+      }
+
+      .works_card-MockUI {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-sm);
+        padding: 22px;
+        backdrop-filter: blur(8px);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .works_card-MockUI h4 {
+        font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      .works_card-MockUI p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.78);
+        line-height: 1.55;
+      }
+
+      .works_metrics-strip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .works_metric-box strong {
+        display: block;
+        font-size: 1.05rem;
+        color: #fff;
+      }
+
+      .works_metric-box span {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--grey-250);
+      }
+
+      .works_card-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .works_card-badges span {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .works_card-badges span.highlight {
+        background: var(--maroon);
+        border: 1px solid var(--maroon-glow);
+      }
+
+      .works_infos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 6px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .works_infos-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .works_info {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .pagination-bar {
+        margin-top: 48px;
+        padding: 20px 24px;
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .items-count {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        color: var(--grey-400);
+      }
+
+      .items-count strong {
+        color: var(--ink);
+        font-family: var(--font-mono);
+      }
+
+      .restricted-banner {
+        background: linear-gradient(135deg, #160709 0%, #0f1011 65%, #24080d 100%);
+        border: 1px solid rgba(128, 0, 0, 0.3);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.25rem);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin-top: 56px;
+      }
+
+      .restricted-tag {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #f5f3f3;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .section_cta-split {
+        padding: 24px 0;
+      }
+
+      .cta_split-component {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 48px;
+        align-items: start;
+        background-image: radial-gradient(circle at 15% 20%, rgba(128, 0, 0, 0.32), transparent 55%);
+      }
+
+      .contact-form_grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: #141517;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+      }
+
+      .contact-form_input {
+        padding: 20px 22px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .contact-form_input.border-right {
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .contact-form_input.full-span {
+        grid-column: 1 / -1;
+        border-bottom: none;
+      }
+
+      .contact-form_field-label {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        color: var(--grey-250);
+      }
+
+      .contact-form_field {
+        background: transparent;
+        border: none;
+        color: #fff;
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        outline: none;
+        width: 100%;
+      }
+
+      .contact-form_field::placeholder {
+        color: #5a5b60;
+      }
+
+      textarea.contact-form_field {
+        min-height: 96px;
+        resize: vertical;
+      }
+
+      .field-error {
+        font-size: 0.75rem;
+        color: var(--maroon-glow);
+        min-height: 1rem;
+      }
+
+      .contact-form_actions {
+        margin-top: 16px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .form-success-msg {
+        display: none;
+        padding: 24px;
+        border-radius: var(--radius-md);
+        background: rgba(34, 163, 90, 0.12);
+        border: 1px solid var(--green);
+        color: #fff;
+        margin-top: 16px;
+      }
+
+      @media (max-width: 991px) {
+        .filter-block {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .search-bar-wrap {
+          grid-column: 1 / -1;
+        }
+
+        .live-demos-cards, .works_list, .cta_split-component {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .filter-block, .contact-form_grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-form_input.border-right {
+          border-right: none;
+        }
+      }
+    </style>
+    <link href="site-shared.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+
+
+
+
+    <main id="main">
+      <section class="section_works-page">
+        <div class="padding-global">
+          <div class="works_head-v1 container-xsmall">
+            <div class="label-caption">Our Works // Portfolio Archive</div>
+            <h1 class="heading-h1" style="margin-top: 12px;">Selected works</h1>
+
+            <p class="lead-desc">
+              Five selected projects spanning data engineering, workflow
+              automation, financial econometrics, decision-support systems,
+              and computer vision. From interactive browser applications
+              to quantitative research, each project explores how
+              mathematical reasoning and software engineering can
+              address practical problems.
+            </p>
+
+          </div>
+
+          <div class="container-large">
+
+            <div aria-label="Project Category Filters" class="category-pills-row" role="tablist">
+              <button class="cat-pill active" data-cat="all" type="button">
+                <span>All work</span><span class="cat-pill-count">5</span>
+              </button>
+              <button class="cat-pill" data-cat="Automation &amp; BI" type="button">
+                <span>Systems Engineering, Automation &amp; BI</span><span class="cat-pill-count">2</span>
+              </button>
+              <button class="cat-pill" data-cat="Quantitative &amp; Research" type="button">
+                <span>Quantitative Modeling &amp; Research</span><span class="cat-pill-count">2</span>
+              </button>
+              <button class="cat-pill" data-cat="AI &amp; Vision" type="button">
+                <span>Machine Learning &amp; Computer Vision</span><span class="cat-pill-count">1</span>
+              </button>
+            </div>
+
+
+            <div class="filter-block" role="search">
+              <div class="custom-select-wrap">
+                <select aria-label="Filter by Domain" class="custom-select" id="filter-domain">
+                  <option value="all">All Domains (5)</option>
+                  <option value="Automation &amp; BI">Systems Automation &amp; BI</option>
+                  <option value="Quantitative &amp; Research">Econometrics &amp; Research</option>
+                  <option value="AI &amp; Vision">Machine Learning &amp; Vision</option>
+                </select>
+                <svg class="select-chevron" fill="none" height="16" viewBox="0 0 20 20" width="16"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path></svg>
+              </div>
+              <div class="custom-select-wrap">
+                <select aria-label="Filter by Technology" class="custom-select" id="filter-tech">
+                  <option value="all">All Technologies</option>
+                  <option value="Python">Python &amp; Pandas</option>
+                  <option value="R Programming">R &amp; GARCH / VAR</option>
+                  <option value="Vanilla JS">Vanilla JS &amp; SheetJS</option>
+                  <option value="Power BI">Power BI &amp; Power Automate</option>
+                  <option value="PyTorch">PyTorch &amp; ResNet-18</option>
+                </select>
+                <svg class="select-chevron" fill="none" height="16" viewBox="0 0 20 20" width="16"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-linecap="round" stroke-width="1.6"></path></svg>
+              </div>
+              <div class="search-bar-wrap">
+                <svg class="search-icon" fill="none" height="16" viewBox="0 0 24 24" width="16"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle><path d="M20 20L16.5 16.5" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+                <input class="search-bar" id="filter-search" placeholder="Search by keywords (e.g., DBM, OLS, GARCH, ResNet-18, Panglinis)..." type="text"/>
+              </div>
+              <button class="reset-filters-btn" id="reset-filters" type="button">Reset Filters ↺</button>
+            </div>
+
+
+            <div class="live-demos-section" id="live-demos">
+              <div class="live-demos-head">
+                <div>
+                  <div class="label-caption" style="color: #f5f3f3;">Interactive Workbench · 3 Live Builds</div>
+                  <h2 class="heading-h2" style="margin-top: 8px;">Try the interactive builds directly in the page</h2>
+                </div>
+                <p style="color: var(--grey-250); font-size: 0.92rem; max-width: 440px;">
+                  Select any of the three deployed applications below to interact with the live production build right inside this window.
+                </p>
+              </div>
+
+              <div class="live-demos-cards">
+                <button class="demo-selector-card active" data-demo-case="project-empower.html" data-demo-url="https://ocadodp.github.io/sample-dashboard/" type="button">
+                  <div>
+                    <div class="demo-card-top">
+                      <span>PROJECT 01</span>
+                      <span class="demo-live-pill">● Live Demo</span>
+                    </div>
+                    <h3 style="margin-top: 8px;">Project EmpowerPH ↗</h3>
+                    <p>Interactive employment analytics dashboard with dynamic filtering and SheetJS live <code>.xlsx</code> parsing.</p>
+                  </div>
+                  <div class="demo-stack-line">Python · Pandas · Chart.js · SheetJS</div>
+                </button>
+                <button class="demo-selector-card" data-demo-case="project-infratrust.html" data-demo-url="https://ocadodp.github.io/infratrust-decision-tool/" type="button">
+                  <div>
+                    <div class="demo-card-top">
+                      <span>PROJECT 04</span>
+                      <span class="demo-live-pill">● Live Demo</span>
+                    </div>
+                    <h3 style="margin-top: 8px;">InfraTrust Decision Support Tool ↗</h3>
+                    <p>Browser-based construction firm integrity assessment using custom matrix inversion and OLS regression.</p>
+                  </div>
+                  <div class="demo-stack-line">Vanilla JS · Matrix Inversion · OLS · Chart.js</div>
+                </button>
+                <button class="demo-selector-card" data-demo-case="project-signature.html" data-demo-url="https://ocadodp.github.io/offline-signature-verification/" type="button">
+                  <div>
+                    <div class="demo-card-top">
+                      <span>PROJECT 05</span>
+                      <span class="demo-live-pill">● Live Demo</span>
+                    </div>
+                    <h3 style="margin-top: 8px;">Offline Signature Verification ↗</h3>
+                    <p>Two-stage verification combining KNN-Harris corner pre-filtering with a ResNet-18 Siamese matcher.</p>
+                  </div>
+                  <div class="demo-stack-line">PyTorch · ResNet-18 · Flask · React.js</div>
+                </button>
+              </div>
+
+              <div class="sandbox-browser">
+                <div class="sandbox-toolbar">
+                  <div aria-hidden="true" class="browser-dots"><span></span><span></span><span></span></div>
+                  <div class="sandbox-url" id="sandbox-url-display">https://ocadodp.github.io/sample-dashboard/</div>
+                  <div class="sandbox-actions">
+                    <a class="sandbox-btn secondary" href="project-empower.html" id="sandbox-case-link">Read Case Study</a>
+                    <a class="sandbox-btn" href="https://ocadodp.github.io/sample-dashboard/" id="sandbox-ext-link" rel="noopener" target="_blank">Open Full Demo ↗</a>
+                  </div>
+                </div>
+                <div class="sandbox-viewport">
+                  <iframe id="sandbox-iframe" loading="lazy" src="https://ocadodp.github.io/sample-dashboard/" title="Interactive Live Demo Sandbox"></iframe>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="works_list" id="projects-grid">
+
+              <article class="works_item" data-category="Automation &amp; BI" data-keywords="project empowerph interactive data visualization employment analytics dashboard dict synthetic data" data-tech="Python Pandas TailwindCSS Chart.js SheetJS Power BI">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-empower.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">01</span>
+                        <h3 class="works_name">Project EmpowerPH: Interactive Data Visualization</h3>
+                      </div>
+                      <span class="see-works_cta">See work &amp; live demo →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg empower"></div>
+                      <div class="works_card-MockUI">
+                        <h4>Interactive Employment Analytics &amp; Synthetic Data Pipeline</h4>
+                        <p>
+                          A serverless employment analytics dashboard designed to turn raw Excel workbooks into dynamic visual insights. Powered by a Python/Pandas synthetic data generator, asynchronous <code>.xlsx</code> fetching via SheetJS, and a companion Power BI report.
+                        </p>
+                        <div class="works_metrics-strip">
+                          <div class="works_metric-box"><strong>Interactive</strong><span>Multi-Parameter Filtering</span></div>
+                          <div class="works_metric-box"><strong>Zero-Backend</strong><span>Client-Side SheetJS + Power BI</span></div>
+                        </div>
+                        <div class="works_card-badges">
+                          <span class="highlight">Live Dashboard</span>
+                          <span>Python</span>
+                          <span>Pandas</span>
+                          <span>TailwindCSS</span>
+                          <span>Chart.js</span>
+                          <span>SheetJS</span>
+                          <span>Power BI</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Date</span>
+                      <span class="works_info">August 2026</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Systems Engineering &amp; Data Visualization</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+
+              <article class="works_item" data-category="Automation &amp; BI" data-keywords="enterprise hr data automation bi dbm department of budget and management panglinis fuzzy matching idp generator udemy" data-tech="Vanilla JS ExcelJS jsPDF Power BI Power Automate Office Scripts">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-dbm.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">02</span>
+                        <h3 class="works_name">HR Workflow Automation &amp; BI Suite</h3>
+                      </div>
+                      <span class="see-works_cta">See work →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg dbm"></div>
+                      <div class="works_card-MockUI">
+                        <h4>Internal Administrative Web Tools &amp; L&amp;D Analytics (DBM)</h4>
+
+                        <p>
+                          Browser-based applications and Microsoft 365 automation
+                          developed during my DBM internship, covering Competency
+                          Assessment reporting, PDF document generation, intervention
+                          consolidation, and individual development plans. A separate
+                          Udemy data-engineering workflow included fuzzy course-title
+                          matching and interactive Power BI reporting.
+                        </p>
+
+
+                        <div class="works_metrics-strip">
+                          <div class="works_metric-box">
+                            <strong>1,200+</strong>
+                            <span>Personnel in CA Reporting Scope</span>
+                          </div>
+
+                          <div class="works_metric-box">
+                            <strong>2 Workstreams</strong>
+                            <span>HR Automation &amp; L&amp;D Analytics</span>
+                          </div>
+                        </div>
+
+                        <div class="works_card-badges">
+                          <span class="highlight">DBM Practicum</span>
+                          <span>Vanilla JS</span>
+                          <span>ExcelJS &amp; jsPDF</span>
+                          <span>Power BI</span>
+                          <span>Power Automate</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Date</span>
+                      <span class="works_info">April 2026</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Systems Engineering &amp; Automation</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+
+              <article class="works_item" data-category="Quantitative &amp; Research" data-keywords="volatility dynamics interdependence philippine stock market psei bdo bpi security bank econometrics time series contagion" data-tech="R Programming ARIMA GARCH VAR DCC-GARCH">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-volatility.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">03</span>
+                        <h3 class="works_name">Volatility Dynamics &amp; Interdependence</h3>
+                      </div>
+                      <span class="see-works_cta">See work →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg volatility"></div>
+                      <div class="works_card-MockUI">
+                        <h4>Univariate &amp; Multivariate Time Series on the PSEi &amp; Major Banks</h4>
+                        <p>
+                          An econometric analysis modeling asymmetric leverage effects and time-varying market correlations between the PSEi and major banking equities (BDO, BPI, Security Bank) using ARIMA/GARCH, VAR, and DCC-GARCH in R.
+                        </p>
+                        <div class="works_metrics-strip">
+                          <div class="works_metric-box"><strong>Time Series</strong><span>Univariate &amp; Multivariate R</span></div>
+                          <div class="works_metric-box"><strong>DCC-GARCH</strong><span>Dynamic Contagion Modeling</span></div>
+                        </div>
+                        <div class="works_card-badges">
+                          <span class="highlight">Co-Author / Lead Architect</span>
+                          <span>R Programming</span>
+                          <span>ARIMA/GARCH</span>
+                          <span>VAR Modeling</span>
+                          <span>DCC-GARCH</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Date</span>
+                      <span class="works_info">April 2026</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Quantitative Modeling &amp; Research</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+
+              <article class="works_item" data-category="Quantitative &amp; Research" data-keywords="infratrust decision support tool modified jones model ols regression matrix inversion construction firm integrity earnings management" data-tech="Vanilla JS Matrix Inversion OLS Regression Chart.js SheetJS">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-infratrust.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">04</span>
+                        <h3 class="works_name">InfraTrust Decision Support Tool</h3>
+                      </div>
+                      <span class="see-works_cta">See work &amp; live demo →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg infratrust"></div>
+                      <div class="works_card-MockUI">
+                        <h4>In-Browser OLS Regression &amp; Modified Jones Integrity Engine</h4>
+                        <p>
+                          A client-side web application executing custom matrix math and Ordinary Least Squares (OLS) regression in the browser to evaluate construction firm integrity via Earnings Management (EM), Financial Reporting Quality (FRQ), and Financial Capacity (FC).
+                        </p>
+                        <div class="works_metrics-strip">
+                          <div class="works_metric-box"><strong>Client-Side</strong><span>OLS Matrix Engine</span></div>
+                          <div class="works_metric-box"><strong>Privacy</strong><span>Zero Backend Database</span></div>
+                        </div>
+                        <div class="works_card-badges">
+                          <span class="highlight">Live Demo</span>
+                          <span>Vanilla JS</span>
+                          <span>Matrix Inversion</span>
+                          <span>OLS Regression</span>
+                          <span>Chart.js</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Date</span>
+                      <span class="works_info">November 2025</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Econometric Modeling &amp; Client Compute</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+
+              <article class="works_item" data-category="AI &amp; Vision" data-keywords="two-stage offline signature verification knn harris canberra resnet-18 siamese network triplet loss best thesis" data-tech="PyTorch ResNet-18 Flask API React.js Python">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-signature.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">05</span>
+                        <h3 class="works_name">Two-Stage Offline Signature Verification</h3>
+                      </div>
+                      <span class="see-works_cta">See work &amp; live demo →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg signature"></div>
+                      <div class="works_card-MockUI">
+                        <h4>KNN-Harris Pre-Filter + ResNet-18 Siamese Biometric Matcher</h4>
+                        <p>
+                          A hybrid verification framework pairing a lightweight KNN-Harris corner pre-filter (Canberra distance) with a ResNet-18 Siamese network trained via Triplet Loss to separate genuine signatures from skilled forgeries.
+                        </p>
+                        <div class="works_metrics-strip">
+                          <div class="works_metric-box"><strong>Two-Stage</strong><span>KNN-Harris + ResNet-18</span></div>
+                          <div class="works_metric-box"><strong>Decoupled</strong><span>React UI + Flask Inference</span></div>
+                        </div>
+                        <div class="works_card-badges">
+                          <span class="highlight">Best Thesis Award</span>
+                          <span>PyTorch</span>
+                          <span>ResNet-18</span>
+                          <span>Flask API</span>
+                          <span>React.js</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Date</span>
+                      <span class="works_info">November 2025</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Machine Learning &amp; Computer Vision</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+
+            <div aria-live="polite" class="pagination-bar" role="status">
+              <div class="items-count">
+                <span>You are viewing</span>
+                <strong id="visible-count">5</strong>
+                <span>of</span>
+                <strong>5</strong>
+                <span>selected projects &amp; research studies</span>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--grey-300);">
+                ARCHIVE // PAGE 01 OF 01
+              </div>
+            </div>
+
+
+            <div class="restricted-banner">
+              <div>
+                <div class="restricted-tag">06 — RESTRICTED // ARCHIVE: RSO-004 (LEVEL 04 CLEARANCE)</div>
+                <h3 class="heading-h3">There may be things I probably shouldn’t put on a résumé.</h3>
+                <p style="color: var(--grey-250); max-width: 620px; margin-top: 6px; font-size: 0.94rem;">
+                  Classified datasets, questionable econometric theories, inter-universe allegiance statistics, and several highly suspicious applications of Python. You were not supposed to find this.
+                </p>
+              </div>
+              <a class="button is-maroon" data-cc-glow="" href="restricted.html">
+                <div class="button-in">
+                  <div class="button_texts">
+                    <span class="button_text _1">Enter Restricted Section →</span>
+                    <span aria-hidden="true" class="button_text _2">Verify Researcher Identity</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_cta-split">
+        <div class="padding-global is-tiny">
+          <div class="container-large">
+            <div class="cta_split-component">
+              <div>
+                <div class="label-caption" style="color: #f5f3f3;">Let’s talk</div>
+                <h2 class="heading-h2" style="margin-top: 12px;">
+                  Start a project or data inquiry with Dexter
+                </h2>
+                <p style="color: var(--grey-250); margin-top: 16px; font-size: 0.96rem; line-height: 1.6;">
+                  Drop a message below—I review every inquiry personally and get back to you within one business day. Whether it’s statistical consulting, workflow automation, dashboard engineering, or a collaborative opportunity, let’s build something clean.
+                </p>
+                <div style="margin-top: 28px;">
+                  <a class="navbar_talk-to" href="mailto:ocadodexterp@gmail.com" style="display: inline-flex; background: #141517; border-color: rgba(255,255,255,0.12); color: #fff;">
+                    <div class="navbar_avatar">DO</div>
+                    <div class="navbar_contact-texts">
+                      <div class="nav_contact-name-row">
+                        <span>Dexter Pascual Ocado</span>
+                        <span class="online-dot"></span>
+                      </div>
+                      <div class="nav_contact-role" style="color: var(--grey-250);">ocadodexterp@gmail.com · 0994 193 4786</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div>
+                <form id="works-contact-form" novalidate="">
+                  <div class="contact-form_grid">
+                    <div class="contact-form_input border-right">
+                      <label class="contact-form_field-label" for="name">Name</label>
+                      <input class="contact-form_field" id="name" name="name" placeholder="Your name" required="" type="text"/>
+                    </div>
+                    <div class="contact-form_input">
+                      <label class="contact-form_field-label" for="email-contact">Email Address</label>
+                      <input class="contact-form_field" id="email-contact" name="email" placeholder="Work or academic email" required="" type="email"/>
+                      <p aria-live="polite" class="field-error" id="email-error"></p>
+                    </div>
+                    <div class="contact-form_input full-span">
+                      <label class="contact-form_field-label" for="message">About your project or question</label>
+                      <textarea class="contact-form_field" id="message" name="message" placeholder="What dataset, pipeline, or research problem are you working on?" required=""></textarea>
+                    </div>
+                  </div>
+                  <div class="contact-form_actions">
+                    <button class="button is-maroon" data-cc-glow="" type="submit">
+                      <div class="button-in">
+                        <div class="button_texts">
+                          <span class="button_text _1">Send Message →</span>
+                          <span aria-hidden="true" class="button_text _2">Send to Dexter</span>
+                        </div>
+                      </div>
+                    </button>
+                  </div>
+                </form>
+                <div class="form-success-msg" id="form-success">
+                  <h3 style="font-size: 1.15rem; margin-bottom: 4px;">Thank you!</h3>
+                  <p style="font-size: 0.9rem; color: var(--grey-250);">Your message has been formatted. Opening your email client to send directly to <strong>ocadodexterp@gmail.com</strong>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+
+    <script>
+      (function () {
+        const cards = document.querySelectorAll('.demo-selector-card');
+        const iframe = document.getElementById('sandbox-iframe');
+        const urlDisplay = document.getElementById('sandbox-url-display');
+        const extLink = document.getElementById('sandbox-ext-link');
+        const caseLink = document.getElementById('sandbox-case-link');
+
+        cards.forEach(card => {
+          card.addEventListener('click', () => {
+            cards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            const url = card.getAttribute('data-demo-url');
+            const caseUrl = card.getAttribute('data-demo-case');
+            iframe.src = url;
+            urlDisplay.textContent = url;
+            extLink.href = url;
+            caseLink.href = caseUrl;
+          });
+        });
+      })();
+
+      (function () {
+        const pills = document.querySelectorAll('.cat-pill');
+        const domainSelect = document.getElementById('filter-domain');
+        const techSelect = document.getElementById('filter-tech');
+        const searchInput = document.getElementById('filter-search');
+        const resetBtn = document.getElementById('reset-filters');
+        const items = document.querySelectorAll('#projects-grid .works_item');
+        const countEl = document.getElementById('visible-count');
+
+        function applyFilters() {
+          const domainVal = domainSelect.value;
+          const techVal = techSelect.value.toLowerCase();
+          const searchVal = searchInput.value.trim().toLowerCase();
+          let visible = 0;
+
+          items.forEach(item => {
+            const itemCat = item.getAttribute('data-category');
+            const itemTech = (item.getAttribute('data-tech') || '').toLowerCase();
+            const itemKeys = (item.getAttribute('data-keywords') || '').toLowerCase() + ' ' + item.textContent.toLowerCase();
+
+            const matchDomain = domainVal === 'all' || itemCat === domainVal;
+            const matchTech = techVal === 'all' || itemTech.includes(techVal);
+            const matchSearch = !searchVal || itemKeys.includes(searchVal);
+
+            if (matchDomain && matchTech && matchSearch) {
+              item.classList.remove('is-hidden');
+              visible++;
+            } else {
+              item.classList.add('is-hidden');
+            }
+          });
+
+          countEl.textContent = visible;
+        }
+
+        pills.forEach(pill => {
+          pill.addEventListener('click', () => {
+            pills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            domainSelect.value = pill.getAttribute('data-cat');
+            applyFilters();
+          });
+        });
+
+        domainSelect.addEventListener('change', () => {
+          pills.forEach(p => p.classList.toggle('active', p.getAttribute('data-cat') === domainSelect.value));
+          applyFilters();
+        });
+
+        techSelect.addEventListener('change', applyFilters);
+        searchInput.addEventListener('input', applyFilters);
+
+        resetBtn.addEventListener('click', () => {
+          domainSelect.value = 'all';
+          techSelect.value = 'all';
+          searchInput.value = '';
+          pills.forEach(p => p.classList.toggle('active', p.getAttribute('data-cat') === 'all'));
+          applyFilters();
+        });
+      })();
+
+      (function () {
+        const form = document.getElementById('works-contact-form');
+        const email = document.getElementById('email-contact');
+        const err = document.getElementById('email-error');
+        const successBox = document.getElementById('form-success');
+        const RE = /^[^\s@]+@[^\s@.]+\.[^\s@.]{2,}$/;
+
+        function validateEmail() {
+          const v = email.value.trim();
+          const msg = !v ? 'Enter your email address.' : !RE.test(v) ? 'Enter a valid email address, like name@domain.com' : '';
+          err.textContent = msg;
+          return !msg;
+        }
+
+        email.addEventListener('blur', validateEmail);
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          if (!validateEmail()) { email.focus(); return; }
+          const nameVal = document.getElementById('name').value.trim();
+          const msgVal = document.getElementById('message').value.trim();
+          successBox.style.display = 'block';
+          window.location.href = `mailto:ocadodexterp@gmail.com?subject=Portfolio Inquiry from ${encodeURIComponent(nameVal || 'Visitor')}&body=${encodeURIComponent(msgVal + '\n\nFrom: ' + email.value)}`;
+        });
+      })();
+    </script>
+    <script src="site-shared.js"></script>
+  </body>
+</html>

@@ -1,0 +1,3866 @@
+<!DOCTYPE html>
+<html class="lenis lenis-smooth" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="#800000" name="theme-color"/>
+    <title>Dexter Pascual Ocado | Quantitative Analyst &amp; Data Professional</title>
+    <meta content="Dexter Pascual Ocado — Quantitative Analyst and Data Professional specializing in data pipelines, econometric modeling, workflow automation, and machine learning." name="description"/>
+    <meta content="Dexter Pascual Ocado | Quantitative Analyst &amp; Data Professional" property="og:title"/>
+    <meta content="Turning raw complexity into clear, automated solutions. BS Mathematics (Cum Laude), PDO I at DICT, and systems builder." property="og:description"/>
+    <meta content="website" property="og:type"/>
+
+
+    <link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/>
+    <link as="font" crossorigin="" href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2" rel="preload" type="font/woff2"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+
+    <script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js"></script>
+    <script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js"></script>
+
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --bg-dark-card: #141517;
+        --bg-dark-elevated: #1b1c1f;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --amber: #ffb35c;
+        --cyan: #7ad8ff;
+        --violet: #8b7bff;
+        --green: #22a35a;
+        --radius-xs: 8px;
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+        --font-display: "Antonio", Impact, sans-serif;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background-color: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        overflow-x: hidden;
+        background-color: var(--bg-paper);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      ul, ol {
+        list-style: none;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: -100px;
+        left: 16px;
+        background: var(--maroon);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: var(--radius-xs);
+        z-index: 9999;
+        font-weight: 500;
+        transition: top 0.2s ease;
+      }
+
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      .label-caption {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+        display: inline-block;
+      }
+
+      .heading-h1 {
+        font-size: clamp(2.35rem, 4.8vw, 4.35rem);
+        line-height: 1.04;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+
+      .heading-h2 {
+        font-size: clamp(1.9rem, 3.6vw, 3.25rem);
+        line-height: 1.08;
+        font-weight: 500;
+        letter-spacing: -0.025em;
+      }
+
+      .heading-h3 {
+        font-size: clamp(1.4rem, 2.4vw, 2.1rem);
+        line-height: 1.15;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.9375rem;
+        cursor: pointer;
+        transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button:active {
+        transform: scale(0.97);
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before, .button[data-cc-glow]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        pointer-events: none;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #8b7bff, #800000);
+      }
+
+      .button[data-cc-glow]::before {
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button[data-cc-glow]::after {
+        animation: cc-ba 1.6s linear infinite;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+
+      .button[data-cc-glow]:hover::after, .button[data-cc-glow]:focus-visible::after {
+        opacity: 1;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0.78rem 1.45rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        overflow: hidden;
+        transition: background-color 0.25s ease, color 0.25s ease;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button[data-cc-glow].is-light .button-in {
+        border: none;
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .section_home-header {
+        padding-top: 20px;
+        padding-bottom: 32px;
+      }
+
+      .home-header_content {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(1.25rem, 2.8vw, 2.25rem);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .home-header_content::before {
+        content: "";
+        position: absolute;
+        top: -180px;
+        right: -180px;
+        width: 460px;
+        height: 460px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(128, 0, 0, 0.12) 0%, rgba(128, 0, 0, 0) 70%);
+        pointer-events: none;
+      }
+
+      .hero-top-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--maroon-soft);
+        border: 1px solid var(--maroon-border);
+        color: var(--maroon);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .home-header_headings {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        gap: clamp(1.5rem, 4.5vw, 4.5rem);
+        margin: 14px 0 24px;
+        padding: 8px 0 24px;
+        border-bottom: 1px solid var(--grey-100);
+        user-select: none;
+      }
+
+      .home-header_headings .logo-word {
+        display: flex;
+        align-items: stretch;
+        min-width: 0;
+        gap: clamp(4px, 0.65vw, 10px);
+        color: var(--ink);
+      }
+
+      .home-header_headings .logo-word.is-1 {
+        flex: 6.15 1 0;
+      }
+
+      .home-header_headings .logo-word.is-2 {
+        flex: 5 1 0;
+        color: var(--maroon);
+      }
+
+      .home-header_headings .logo-letter {
+        display: block;
+        flex: 1 1 0;
+        min-width: 0;
+        width: 100%;
+        height: clamp(110px, 17.5vw, 240px);
+        transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), color 0.22s ease;
+      }
+
+      .home-header_headings .logo-word.is-1 .logo-letter:hover {
+        color: var(--maroon);
+        transform: translateY(-6px);
+      }
+
+      .home-header_headings .logo-word.is-2 .logo-letter:hover {
+        color: var(--ink);
+        transform: translateY(-6px);
+      }
+
+      .home-header_services {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-bottom: 4px;
+      }
+
+      .home-header_service-link {
+        display: block;
+        padding: 10px 0 4px;
+        position: relative;
+      }
+
+      .home-header_service-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .home-header_service-text {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--ink);
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+
+      .home-header_service-num {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--grey-300);
+      }
+
+      .home-header_service-line {
+        height: 1px;
+        width: 100%;
+        background: var(--grey-100);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .home-header_service-line::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--maroon);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .home-header_service-link:hover .home-header_service-text {
+        color: var(--maroon);
+        transform: translateX(4px);
+      }
+
+      .home-header_service-link:hover .home-header_service-line::after {
+        transform: scaleX(1);
+      }
+
+      .hero-showcase {
+        background: var(--bg-dark);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        position: relative;
+        margin-bottom: 56px;
+        box-shadow: 0 24px 60px rgba(15, 16, 17, 0.08);
+      }
+
+      .hero-showcase-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 20px;
+        background: #16171a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .browser-dots {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .browser-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #35363a;
+      }
+
+      .browser-dots span:nth-child(1) {
+        background: #ff5f56;
+      }
+
+      .browser-dots span:nth-child(2) {
+        background: #ffbd2e;
+      }
+
+      .browser-dots span:nth-child(3) {
+        background: #27c93f;
+      }
+
+      .browser-url {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--grey-250);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 5px 14px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .showcase-controls {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .showcase-tab-btn {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--grey-250);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .showcase-tab-btn.active, .showcase-tab-btn:hover {
+        background: var(--maroon);
+        color: #fff;
+        border-color: var(--maroon-bright);
+      }
+
+      .hero-showcase-body {
+        position: relative;
+        min-height: 420px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 32px;
+        padding: clamp(1.5rem, 3.5vw, 3rem);
+        align-items: center;
+        background: radial-gradient(circle at 80% 20%, rgba(128, 0, 0, 0.28), transparent 55%), #0f1011;
+      }
+
+      .hero-showcase-iframe-wrap {
+        display: none;
+        width: 100%;
+        height: 540px;
+        background: #fff;
+      }
+
+      .hero-showcase-iframe-wrap.active {
+        display: block;
+      }
+
+      .hero-showcase-iframe-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .showcase-copy h2 {
+        font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+        line-height: 1.12;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin: 12px 0 16px;
+      }
+
+      .showcase-copy p {
+        color: var(--grey-250);
+        font-size: 0.98rem;
+        max-width: 540px;
+        margin-bottom: 24px;
+      }
+
+      .pill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 28px;
+      }
+
+      .pill-tag {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #e4e4e7;
+      }
+
+      .showcase-visual-card {
+        background: rgba(20, 21, 23, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-md);
+        padding: 24px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      .mini-kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .mini-kpi {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: var(--radius-sm);
+        padding: 14px;
+      }
+
+      .mini-kpi-val {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: -0.02em;
+      }
+
+      .mini-kpi-lbl {
+        font-size: 0.75rem;
+        color: var(--grey-250);
+        margin-top: 3px;
+      }
+
+      .mini-bars {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .mini-bar-row {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.75rem;
+        color: var(--grey-250);
+      }
+
+      .mini-bar-track {
+        height: 7px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 99px;
+        overflow: hidden;
+      }
+
+      .mini-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--maroon), var(--maroon-glow));
+        border-radius: 99px;
+      }
+
+      .section_clients {
+        padding: 48px 0 48px;
+      }
+
+      .clients_head {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 48px;
+        align-items: start;
+      }
+
+      .clients_bio {
+        margin-top: 24px;
+        color: var(--grey-400);
+        font-size: 1.05rem;
+        max-width: 720px;
+      }
+
+      .clients_bio p + p {
+        margin-top: 16px;
+      }
+
+      .snapshot-card {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 28px;
+        box-shadow: 0 12px 32px rgba(15, 16, 17, 0.04);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .snapshot-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--maroon), var(--maroon-glow), var(--amber));
+      }
+
+      .snapshot-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--grey-100);
+        margin-bottom: 16px;
+      }
+
+      .snapshot-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .snapshot-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        font-size: 0.88rem;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed var(--grey-100);
+      }
+
+      .snapshot-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .snapshot-key {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--grey-300);
+      }
+
+      .snapshot-val {
+        font-weight: 600;
+        color: var(--ink);
+        text-align: right;
+      }
+
+      .clients_logos {
+        margin-top: 56px;
+        display: flex;
+        overflow: hidden;
+        gap: 16px;
+        user-select: none;
+        mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      }
+
+      .brands_card-group {
+        display: flex;
+        gap: 16px;
+        flex-shrink: 0;
+        animation: marqueeScroll 34s linear infinite;
+      }
+
+      .clients_logos:hover .brands_card-group {
+        animation-play-state: paused;
+      }
+
+      @keyframes marqueeScroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(calc(-100% - 16px));
+        }
+      }
+
+      .clients_brand-card {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 20px 24px;
+        min-width: 265px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .clients_card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .clients_number {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--grey-300);
+      }
+
+      .clients_badge-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: var(--maroon-soft);
+        color: var(--maroon);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .clients_name {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--ink);
+      }
+
+      .clients_desc {
+        font-size: 0.83rem;
+        color: var(--grey-400);
+        margin-top: 2px;
+      }
+
+      .dx-trust {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin: 32px 0 16px;
+      }
+
+      .dx-trust-item {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 26px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .dx-trust-big {
+        font-size: clamp(1.55rem, 2.4vw, 2.05rem);
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        color: var(--ink);
+        line-height: 1.1;
+      }
+
+      .dx-trust-big span {
+        color: var(--maroon);
+      }
+
+      .dx-trust-cap {
+        font-size: 0.88rem;
+        color: var(--grey-400);
+        line-height: 1.4;
+      }
+
+      .section_works {
+        padding: 36px 0 80px;
+      }
+
+      .works_head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 48px;
+      }
+
+      .works_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+      }
+
+      .works_item.is-featured {
+        grid-column: 1 / -1;
+      }
+
+      .works_card-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .works_card {
+        position: relative;
+        display: block;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: var(--bg-dark);
+        border: 1px solid rgba(15, 16, 17, 0.08);
+      }
+
+      .works_visual {
+        width: 100%;
+        height: 100%;
+        padding: 88px clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        color: #fff;
+        min-height: 390px;
+      }
+
+      .works_item.is-featured .works_visual {
+        min-height: 0;
+        padding-top: 92px;
+      }
+
+      .works_card:hover .works_visual {
+        transform: scale(1.018);
+      }
+
+      .works_visual-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .works_visual-bg.empower {
+        background: radial-gradient(circle at 80% 20%, rgba(179, 27, 44, 0.48), transparent 55%),
+        linear-gradient(135deg, #0f1011 0%, #1c1215 60%, #2c0b12 100%);
+      }
+
+      .works_visual-bg.dbm {
+        background: radial-gradient(circle at 20% 80%, rgba(128, 0, 0, 0.5), transparent 55%),
+        linear-gradient(135deg, #111318 0%, #1f1418 100%);
+      }
+
+      .works_visual-bg.volatility {
+        background: radial-gradient(circle at 85% 15%, rgba(255, 179, 92, 0.25), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(128, 0, 0, 0.45), transparent 55%),
+        linear-gradient(135deg, #0d0f12 0%, #17181c 100%);
+      }
+
+      .works_visual-bg.infratrust {
+        background: radial-gradient(circle at 75% 25%, rgba(122, 216, 255, 0.2), transparent 50%),
+        radial-gradient(circle at 20% 75%, rgba(128, 0, 0, 0.4), transparent 55%),
+        linear-gradient(135deg, #101216 0%, #1b1518 100%);
+      }
+
+      .works_visual-bg.signature {
+        background: radial-gradient(circle at 75% 20%, rgba(139, 123, 255, 0.28), transparent 50%),
+        radial-gradient(circle at 25% 75%, rgba(128, 0, 0, 0.48), transparent 55%),
+        linear-gradient(135deg, #0e0f14 0%, #1f1118 100%);
+      }
+
+      .works_label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(15, 16, 17, 0.72);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+
+      .about_label-infos {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .works_pic-dot {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--maroon);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        font-weight: 600;
+        display: grid;
+        place-items: center;
+      }
+
+      .works_name {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .see-works_cta {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.85;
+      }
+
+      .works_card-MockUI {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-sm);
+        padding: 24px;
+        backdrop-filter: blur(10px);
+      }
+
+      .works_item.is-featured .works_card-MockUI {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .works_card-MockUI h4 {
+        font-size: clamp(1.25rem, 2vw, 1.65rem);
+        font-weight: 500;
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+      }
+
+      .works_card-MockUI p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 680px;
+        margin-bottom: 16px;
+      }
+
+      .works_card-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .works_card-badges span {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .works_card-badges span.highlight {
+        background: var(--maroon);
+        border: 1px solid var(--maroon-glow);
+      }
+
+      .featured-telemetry-panel {
+        background: rgba(15, 16, 17, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .ft-stat {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 8px;
+        padding: 12px;
+      }
+
+      .ft-stat strong {
+        display: block;
+        font-size: 1.05rem;
+        color: #fff;
+        font-family: var(--font-mono);
+      }
+
+      .ft-stat span {
+        font-size: 0.7rem;
+        color: var(--grey-250);
+      }
+
+      .works_infos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 6px;
+      }
+
+      .works_infos-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .works_info {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .section_home-services {
+        padding: 24px 0;
+      }
+
+      .home-services_component {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(2.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3.5rem);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .home-services_head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+      }
+
+      .home-services_icons {
+        display: flex;
+        gap: 12px;
+        color: var(--grey-300);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+
+      .tab-menu {
+        display: inline-flex;
+        gap: 12px;
+        background: #17181b;
+        padding: 6px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 36px;
+      }
+
+      .tab-link {
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--grey-250);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: none;
+        background: transparent;
+        transition: all 0.25s ease;
+      }
+
+      .tab-link.w--current {
+        background: var(--maroon);
+        color: #fff;
+        box-shadow: 0 4px 18px rgba(128, 0, 0, 0.45);
+      }
+
+      .navbar_works-number {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        opacity: 0.8;
+      }
+
+      .w-tab-pane {
+        display: none;
+      }
+
+      .w-tab-pane.w--tab-active {
+        display: block;
+      }
+
+      .home-services_items {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .home-services_item {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 32px 0;
+      }
+
+      .home-services_item:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .home-services_item-in {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .home-services_item-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .home-services_number {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--maroon);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+      }
+
+      .home-services_title {
+        font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      .tag-text {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+
+      .tag-text p {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--grey-250);
+      }
+
+      .home-services_desc {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        gap: 20px;
+        align-items: center;
+        background: #141517;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 18px;
+        border-radius: var(--radius-sm);
+      }
+
+      .proof-box {
+        height: 96px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #23090d, #151619);
+        border: 1px solid var(--maroon-border);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 8px;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: #f5f3f3;
+      }
+
+      .proof-box strong {
+        font-size: 0.82rem;
+        color: #fff;
+        margin-top: 4px;
+        font-family: var(--font-sans);
+      }
+
+      .home-services_text-wrap p {
+        font-size: 0.9rem;
+        color: var(--grey-250);
+        line-height: 1.5;
+      }
+
+      .section_about {
+        padding: 72px 0;
+      }
+
+      .about_component {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: stretch;
+      }
+
+      .about_content {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 3.5vw, 3.25rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .about_paragraph {
+        color: var(--grey-400);
+        font-size: 1rem;
+        margin-top: 16px;
+        line-height: 1.6;
+      }
+
+      .about_items {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .about_item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .about_item-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: var(--maroon-soft);
+        color: var(--maroon);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .about_item-title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .home-grid_team {
+        position: relative;
+        background: var(--bg-dark);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        min-height: 440px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 32px;
+        color: #fff;
+        isolation: isolate;
+      }
+
+      .space-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      .team-heading {
+        position: relative;
+        z-index: 2;
+      }
+
+      .home-grid_team-heading {
+        font-size: 1.75rem;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin-bottom: 4px;
+      }
+
+      .orbit-stage {
+        position: relative;
+        width: 260px;
+        height: 260px;
+        margin: auto;
+        display: grid;
+        place-items: center;
+      }
+
+      .orbit-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px dashed rgba(255, 255, 255, 0.16);
+        animation: spinOrbit 28s linear infinite;
+      }
+
+      .orbit-ring.r1 {
+        width: 170px;
+        height: 170px;
+      }
+
+      .orbit-ring.r2 {
+        width: 250px;
+        height: 250px;
+        animation-direction: reverse;
+        animation-duration: 38s;
+      }
+
+      @keyframes spinOrbit {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .orbit-core {
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, var(--maroon-bright), var(--maroon));
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        box-shadow: 0 0 40px rgba(179, 27, 44, 0.6);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 0.95rem;
+        z-index: 2;
+      }
+
+      .orbit-pill {
+        position: absolute;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(20, 21, 23, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: #fff;
+        white-space: nowrap;
+      }
+
+      .orbit-pill.p1 {
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .orbit-pill.p2 {
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .orbit-pill.p3 {
+        left: -24px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .orbit-pill.p4 {
+        right: -24px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .features_grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      .features_card-box {
+        background: #141517;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-md);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .features_column {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .chat-bubbles {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .chat-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 16px;
+        font-size: 0.86rem;
+        line-height: 1.4;
+      }
+
+      .chat-bubble.incoming {
+        background: rgba(255, 255, 255, 0.07);
+        color: #e4e4e7;
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+      }
+
+      .chat-bubble.outgoing {
+        background: var(--maroon);
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+      }
+
+      .features_timeline {
+        grid-column: 1 / -1;
+        background: #141517;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-md);
+        padding: 28px;
+      }
+
+      .timeline-steps {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .timeline-step {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-sm);
+        padding: 16px;
+      }
+
+      .timeline-num {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--maroon-glow);
+        margin-bottom: 6px;
+      }
+
+      .timeline-title {
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: #fff;
+      }
+
+      .timeline-sub {
+        font-size: 0.78rem;
+        color: var(--grey-250);
+        margin-top: 4px;
+      }
+
+      .dx-ph {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .dx-ph-card {
+        position: relative;
+        border-radius: 20px;
+        min-height: 310px;
+        padding: 28px 24px;
+        background: #141517;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 28px;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .dx-ph-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .dx-ph-num {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: #8a8a8a;
+      }
+
+      .dx-ph-ico {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background: radial-gradient(circle at 30% 25%, rgba(179, 27, 44, 0.35), rgba(255, 255, 255, 0.03) 70%);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
+      }
+
+      .dx-ph-card h3 {
+        font-size: 22px;
+        line-height: 1.15;
+        font-weight: 500;
+        margin: 0 0 10px;
+        color: #fff;
+      }
+
+      .dx-ph-card p {
+        font-size: 14.5px;
+        line-height: 1.48;
+        color: #a8a8a8;
+        margin: 0;
+      }
+
+      .section_founder {
+        padding: 64px 0;
+      }
+
+      .founder-card {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(1.75rem, 4vw, 3.5rem);
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .founder-photo-box {
+        position: relative;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        background: linear-gradient(145deg, #1a090d 0%, #0f1011 100%);
+        aspect-ratio: 4 / 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+        color: #fff;
+        border: 1px solid var(--maroon-border);
+      }
+
+      .founder-monogram {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: rgba(128, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: grid;
+        place-items: center;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: auto;
+        box-shadow: 0 0 50px rgba(128, 0, 0, 0.6);
+      }
+
+      .founder-tag {
+        background: rgba(15, 16, 17, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 14px 16px;
+        border-radius: var(--radius-sm);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .founder-tag b {
+        display: block;
+        font-size: 0.95rem;
+      }
+
+      .founder-tag span {
+        font-size: 0.76rem;
+        color: var(--grey-250);
+      }
+
+      .founder-quote {
+        font-size: clamp(1.1rem, 1.6vw, 1.32rem);
+        line-height: 1.55;
+        color: var(--ink);
+        margin: 20px 0 28px;
+      }
+
+      .founder-pts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 32px;
+        padding-top: 24px;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .founder-pts b {
+        display: block;
+        font-size: 0.95rem;
+        margin-bottom: 4px;
+      }
+
+      .founder-pts span {
+        font-size: 0.86rem;
+        color: var(--grey-400);
+      }
+
+      .section_testimonials {
+        background: var(--bg-dark);
+        color: #fff;
+        padding: 80px 0;
+        margin: 24px 0;
+      }
+
+      .lt {
+        display: grid;
+        grid-template-columns: minmax(0, 390px) minmax(0, 1fr);
+        grid-template-areas: "tp st" "ct st";
+        column-gap: 72px;
+        row-gap: 36px;
+        align-items: start;
+      }
+
+      .lt-tp {
+        grid-area: tp;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .lt-h {
+        font-size: clamp(2rem, 3.4vw, 3rem);
+        line-height: 1.06;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      .lt-rt {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-top: 4px;
+      }
+
+      .lt-n {
+        font-size: 3.1rem;
+        font-weight: 600;
+        line-height: 1;
+        color: #fff;
+      }
+
+      .lt-stars {
+        color: var(--maroon-glow);
+        letter-spacing: 3px;
+        font-size: 1.05rem;
+      }
+
+      .lt-ct {
+        grid-area: ct;
+        align-self: end;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .lt-bt {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .lt-b {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        font-size: 1.15rem;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+      }
+
+      .lt-pv {
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        background: transparent;
+        color: #fff;
+      }
+
+      .lt-nx {
+        border: 1px solid var(--maroon-bright);
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .lt-cn {
+        margin-left: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--grey-250);
+      }
+
+      .lt-st {
+        grid-area: st;
+        position: relative;
+        min-width: 0;
+        margin-right: 16px;
+      }
+
+      .lt-s1 {
+        position: absolute;
+        inset: 16px -14px -14px 16px;
+        background: #3a1218;
+        border-radius: 10px;
+        transform: rotate(2deg);
+      }
+
+      .lt-s2 {
+        position: absolute;
+        inset: 8px -7px -7px 8px;
+        background: #9c8c8e;
+        border-radius: 10px;
+        transform: rotate(1deg);
+      }
+
+      .lt-pp {
+        position: relative;
+        min-height: 490px;
+      }
+
+      .lt-p {
+        display: none;
+        background: #1b1c1f;
+        color: #f5f5f5;
+        border-radius: 10px;
+        padding: clamp(1.75rem, 3.5vw, 2.75rem);
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 490px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+      }
+
+      .lt-p.lt-on {
+        display: flex;
+      }
+
+      .lt-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        padding-bottom: 16px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .lt-co {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .lt-wh {
+        font-size: 0.82rem;
+        color: var(--grey-400);
+        display: block;
+        margin-top: 2px;
+      }
+
+      .lt-vr {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--maroon);
+        background: var(--maroon-soft);
+        padding: 5px 10px;
+        border-radius: 99px;
+        font-weight: 600;
+      }
+
+      .lt-mt {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        row-gap: 6px;
+        font-size: 0.86rem;
+      }
+
+      .lt-mt dt {
+        color: var(--grey-300);
+        font-family: var(--font-mono);
+      }
+
+      .lt-mt dd {
+        font-weight: 500;
+      }
+
+      .lt-bd {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 0.96rem;
+        color: #d1d1d6;
+        line-height: 1.55;
+      }
+
+      .lt-bd .lt-q {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #f5f5f5;
+        line-height: 1.32;
+      }
+
+      .lt-ft {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 14px;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .lt-cite {
+        font-size: 1.1rem;
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      .lt-pl {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--ink);
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .testimonials_numbers-main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 64px;
+        padding-top: 48px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .number_block {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .number_wrap {
+        font-size: clamp(1.85rem, 3vw, 2.5rem);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        color: #fff;
+      }
+
+      .number_wrap span {
+        color: var(--maroon-glow);
+      }
+
+      .number_desc {
+        font-size: 0.92rem;
+        color: var(--grey-250);
+        line-height: 1.45;
+      }
+
+      .section_faq {
+        padding: 72px 0;
+        background: var(--bg-paper);
+      }
+
+      .dual-accordions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        margin-bottom: 64px;
+      }
+
+      .faq_list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .faq_accordion {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 20px 24px;
+        cursor: pointer;
+        user-select: none;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .faq_accordion:hover {
+        border-color: var(--maroon-border);
+        box-shadow: 0 10px 28px rgba(15, 16, 17, 0.04);
+      }
+
+      .faq_question-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .faq_question-wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .faq_number-wrap {
+        background: var(--maroon);
+        color: #fff;
+        border-radius: 999px;
+        padding: 4px 11px;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      .faq_question {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .faq_subrole {
+        font-size: 0.84rem;
+        color: var(--grey-400);
+        margin-top: 2px;
+      }
+
+      .faq_button {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        color: var(--ink);
+        display: grid;
+        place-items: center;
+        font-size: 1.15rem;
+        font-weight: 600;
+        line-height: 1;
+        transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, color 0.25s ease;
+        flex-shrink: 0;
+      }
+
+      .faq_accordion.open .faq_button {
+        transform: rotate(45deg);
+        background: var(--maroon);
+        border-color: var(--maroon);
+        color: #fff;
+      }
+
+      .faq_answer-wrap {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .faq_accordion.open .faq_answer-wrap {
+        grid-template-rows: 1fr;
+      }
+
+      .faq_answer-inner {
+        overflow: hidden;
+      }
+
+      .faq_answer {
+        padding-top: 16px;
+        margin-top: 14px;
+        border-top: 1px solid var(--grey-100);
+        font-size: 0.92rem;
+        color: var(--grey-400);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        user-select: text;
+      }
+
+      .faq_answer li {
+        position: relative;
+        padding-left: 16px;
+      }
+
+      .faq_answer li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--maroon);
+        font-weight: bold;
+      }
+
+      .restricted-banner {
+        background: linear-gradient(135deg, #160709 0%, #0f1011 65%, #24080d 100%);
+        border: 1px solid rgba(128, 0, 0, 0.3);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.25rem);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 24px;
+        margin: 32px 0;
+      }
+
+      .restricted-tag {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: #f5f3f3;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .restricted-banner h3 {
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      .restricted-banner p {
+        color: var(--grey-250);
+        max-width: 620px;
+        font-size: 0.95rem;
+      }
+
+      .ask-ai_grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        max-width: 960px;
+        margin: 32px auto 0;
+      }
+
+      .ask-ai_card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        color: var(--ink);
+        text-align: left;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .ask-ai_card:hover {
+        border-color: var(--maroon);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 26px rgba(128, 0, 0, 0.08);
+      }
+
+      .ask-ai_top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--maroon);
+      }
+
+      .ask-ai_name {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .ask-ai_sub {
+        font-size: 0.82rem;
+        color: var(--grey-400);
+      }
+
+      .section_cta {
+        padding: 24px 0;
+      }
+
+      .cta_component {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 4vw, 3.5rem);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        background-image: radial-gradient(circle at 50% 0%, rgba(128, 0, 0, 0.38), transparent 60%);
+      }
+
+      @media (max-width: 991px) {
+        .hero-showcase-body, .clients_head, .home-services_item-in, .about_component, .features_grid, .founder-card, .lt, .dual-accordions, .works_item.is-featured .works_card-MockUI {
+          grid-template-columns: 1fr;
+        }
+
+        .lt {
+          grid-template-areas: "tp" "st" "ct";
+        }
+
+        .dx-trust, .dx-ph, .ask-ai_grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .timeline-steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .works_list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .home-header_headings {
+          flex-direction: column;
+          gap: 14px;
+        }
+
+        .home-header_headings .logo-word {
+          width: 100%;
+          flex: none;
+        }
+
+        .home-header_headings .logo-letter {
+          height: clamp(78px, 26vw, 150px);
+        }
+
+        .home-header_services, .dx-trust, .dx-ph, .ask-ai_grid, .testimonials_numbers-main, .about_items, .founder-pts, .timeline-steps, .featured-telemetry-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .home-services_desc {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="site-shared.css"/>
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+
+
+
+
+    <main id="main">
+
+      <header class="section_home-header">
+        <div class="padding-global is-tiny">
+          <div class="container-large">
+            <div class="home-header_content">
+              <div class="hero-top-meta">
+                <span class="hero-badge">● Project Development Officer I @ DICT (IIDB)</span>
+                <span class="label-caption">BS Mathematics · Cum Laude · DOST-SEI Scholar</span>
+              </div>
+
+
+              <div aria-label="DEXTER OCADO" class="home-header_headings">
+
+                <div class="logo-word is-1">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 262" fill="none" class="logo-letter"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H74C82.8 0 89 6.2 89 15V247C89 255.8 82.8 262 74 262H0V0ZM30 25V237H59V25H30Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 262" fill="none" class="logo-letter"><path d="M0 0H88V25H30V116H78V141H30V237H88V262H0V0Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 262" fill="none" class="logo-letter"><path d="M0 0H30V96L44 116L58 96V0H88V106L60 131L88 156V262H58V166L44 146L30 166V262H0V156L28 131L0 106V0Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 262" fill="none" class="logo-letter"><path d="M0 0H88V25H59V262H29V25H0V0Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 262" fill="none" class="logo-letter"><path d="M0 0H88V25H30V116H78V141H30V237H88V262H0V0Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 262" fill="none" class="logo-letter"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H74C82.8 0 89 6.2 89 15V122C89 131 83 137 74 139L89 152V262H59V156H30V262H0V0ZM30 25V120H59V25H30Z" fill="currentColor"/></svg>
+                </div>
+
+
+                <div class="logo-word is-2">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 262" fill="none" class="logo-letter"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0H81C86 0 89 3 89 8V254C89 259 86 262 81 262H8C3 262 0 259 0 254V8C0 3 3 0 8 0ZM30 25V237H59V25H30Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 262" fill="none" class="logo-letter"><path d="M8 262H80C85 262 88 259 88 254V141H59V237H30V25H59V111H88V8C88 3 85 0 80 0H8C3 0 0 3 0 8V254C0 259 3 262 8 262Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 262" fill="none" class="logo-letter"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0H81C86 0 89 3 89 8V262H59V148H30V262H0V8C0 3 3 0 8 0ZM30 25V123H59V25H30Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 262" fill="none" class="logo-letter"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H74C82.8 0 89 6.2 89 15V247C89 255.8 82.8 262 74 262H0V0ZM30 25V237H59V25H30Z" fill="currentColor"/></svg>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 262" fill="none" class="logo-letter"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0H81C86 0 89 3 89 8V254C89 259 86 262 81 262H8C3 262 0 259 0 254V8C0 3 3 0 8 0ZM30 25V237H59V25H30Z" fill="currentColor"/></svg>
+                </div>
+              </div>
+
+
+              <div class="home-header_services">
+                <a class="home-header_service-link" href="#expertise">
+                  <div class="home-header_service-top">
+                    <span class="home-header_service-text">Data Engineering &amp; Pipelines</span>
+                    <span class="home-header_service-num">(01)</span>
+                  </div>
+                  <div class="home-header_service-line"></div>
+                </a>
+                <a class="home-header_service-link" href="#expertise">
+                  <div class="home-header_service-top">
+                    <span class="home-header_service-text">Econometric Modeling</span>
+                    <span class="home-header_service-num">(02)</span>
+                  </div>
+                  <div class="home-header_service-line"></div>
+                </a>
+                <a class="home-header_service-link" href="#expertise">
+                  <div class="home-header_service-top">
+                    <span class="home-header_service-text">Workflow Automation &amp; BI</span>
+                    <span class="home-header_service-num">(03)</span>
+                  </div>
+                  <div class="home-header_service-line"></div>
+                </a>
+                <a class="home-header_service-link" href="#expertise">
+                  <div class="home-header_service-top">
+                    <span class="home-header_service-text">Machine Learning &amp; CV</span>
+                    <span class="home-header_service-num">(04)</span>
+                  </div>
+                  <div class="home-header_service-line"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
+      <section class="section_clients" id="snapshot">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="clients_head">
+              <div>
+                <div class="label-caption">01 — Snapshot</div>
+                <h1 class="heading-h1" style="margin-top: 14px;">
+                  Quantitative Analyst &amp; Data Professional for data pipelines, econometrics, and automation
+                </h1>
+                <div class="clients_bio">
+                  <p>
+                    I enjoy taking messy, manual workflows and turning them into clean, self-contained tools. With a <strong>Bachelor of Science in Mathematics (Cum Laude)</strong> from Southern Luzon State University and a background in statistical modeling, actuarial math, and machine learning, I build practical data pipelines, econometric models, and interactive dashboards.
+                  </p>
+                  <p>
+                    From developing internal HR automation tools during my internship at <strong>Department of Budget and Management</strong> to beginning my professional career at <strong>DICT</strong>, I'm interested in applying mathematics, data, and technology to practical challenges.
+                  </p>
+                </div>
+              </div>
+
+
+              <aside aria-label="Quick Dossier" class="snapshot-card">
+                <div class="snapshot-head">
+                  <div>
+                    <div class="label-caption">Profile Overview</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-top: 4px;">Dexter Pascual Ocado</h2>
+                  </div>
+                  <span style="background:var(--maroon); color:#fff; font-family:var(--font-mono); font-size:0.72rem; padding:4px 10px; border-radius:99px;">CSC PROFESSIONAL</span>
+                </div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">Current Role</span>
+                    <span class="snapshot-val">PDO I @ DICT (IIDB)</span>
+                  </div>
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">Education</span>
+                    <span class="snapshot-val">BS Mathematics (Cum Laude)</span>
+                  </div>
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">Scholarship</span>
+                    <span class="snapshot-val">DOST-SEI JLSS Scholar</span>
+                  </div>
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">Core Stack</span>
+                    <span class="snapshot-val">Python · R · SQL · JavaScript</span>
+                  </div>
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">BI &amp; Web</span>
+                    <span class="snapshot-val">Power BI · Chart.js · SheetJS</span>
+                  </div>
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">Automation</span>
+                    <span class="snapshot-val">Power Automate · Office Scripts</span>
+                  </div>
+                  <div class="snapshot-row">
+                    <span class="snapshot-key">Base</span>
+                    <span class="snapshot-val">Quezon City / Tayabas, PH</span>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+
+
+        <div aria-label="Honors and Credentials" class="clients_logos">
+          <div class="brands_card-group">
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(01)</span><span class="clients_badge-icon">🎓</span></div>
+              <div><div class="clients_name">Cum Laude</div><p class="clients_desc">BS Mathematics · SLSU (2026)</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(02)</span><span class="clients_badge-icon">🏛️</span></div>
+              <div><div class="clients_name">Civil Service Eligible</div><p class="clients_desc">CSC Professional &amp; PD 907 Honor</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(03)</span><span class="clients_badge-icon">🏆</span></div>
+              <div><div class="clients_name">Best Thesis Presentation</div><p class="clients_desc">BS Math Research Colloquium</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(04)</span><span class="clients_badge-icon">🔬</span></div>
+              <div><div class="clients_name">DOST-SEI Scholar</div><p class="clients_desc">RA 7687 Science &amp; Tech Track</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(05)</span><span class="clients_badge-icon">⚡</span></div>
+              <div><div class="clients_name">DBM Practicum</div><p class="clients_desc">HR Workflow &amp; BI Automation</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(06)</span><span class="clients_badge-icon">🌐</span></div>
+              <div><div class="clients_name">DICT Central Office</div><p class="clients_desc">Project Development Officer I</p></div>
+            </div>
+          </div>
+          <div aria-hidden="true" class="brands_card-group">
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(01)</span><span class="clients_badge-icon">🎓</span></div>
+              <div><div class="clients_name">Cum Laude</div><p class="clients_desc">BS Mathematics · SLSU (2026)</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(02)</span><span class="clients_badge-icon">🏛️</span></div>
+              <div><div class="clients_name">Civil Service Eligible</div><p class="clients_desc">CSC Professional &amp; PD 907 Honor</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(03)</span><span class="clients_badge-icon">🏆</span></div>
+              <div><div class="clients_name">Best Thesis Presentation</div><p class="clients_desc">BS Math Research Colloquium</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(04)</span><span class="clients_badge-icon">🔬</span></div>
+              <div><div class="clients_name">DOST-SEI Scholar</div><p class="clients_desc">RA 7687 Science &amp; Tech Track</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(05)</span><span class="clients_badge-icon">⚡</span></div>
+              <div><div class="clients_name">DBM Practicum</div><p class="clients_desc">HR Workflow &amp; BI Automation</p></div>
+            </div>
+            <div class="clients_brand-card">
+              <div class="clients_card-top"><span class="clients_number">(06)</span><span class="clients_badge-icon">🌐</span></div>
+              <div><div class="clients_name">DICT Central Office</div><p class="clients_desc">Project Development Officer I</p></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="dx-trust" role="list">
+              <div class="dx-trust-item" role="listitem">
+                <div class="dx-trust-big">Zero-<span>Backend</span></div>
+                <div class="dx-trust-cap">Lightweight browser-native tools that process spreadsheets locally without external servers</div>
+              </div>
+              <div class="dx-trust-item" role="listitem">
+                <div class="dx-trust-big">End-to-<span>End</span></div>
+                <div class="dx-trust-cap">From dirty raw inputs and fuzzy string cleaning to formatted PDF/Excel outputs</div>
+              </div>
+              <div class="dx-trust-item" role="listitem">
+                <div class="dx-trust-big">Math-<span>First</span></div>
+                <div class="dx-trust-cap">Grounded in formal econometric tests, linear algebra, and statistical validation</div>
+              </div>
+              <div class="dx-trust-item" role="listitem">
+                <div class="dx-trust-big">Human-<span>Centric</span></div>
+                <div class="dx-trust-cap">Interfaces and templates built so non-technical teams can run complex analyses easily</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_works" id="works">
+        <div class="padding-global">
+          <div class="container-large">
+
+
+            <div class="hero-showcase">
+              <div class="hero-showcase-bar">
+                <div aria-hidden="true" class="browser-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="browser-url">
+                  <span>🔒</span>
+                  <span>https://ocadodp.github.io/sample-dashboard/</span>
+                </div>
+                <div class="showcase-controls">
+                  <button class="showcase-tab-btn active" id="btn-overview" type="button">Spotlight Overview</button>
+                  <button class="showcase-tab-btn" id="btn-livedemo" type="button">▶ Launch Interactive Embed</button>
+                </div>
+              </div>
+
+
+              <div class="hero-showcase-body" id="showcase-overview">
+                <div class="showcase-copy">
+                  <div class="label-caption" style="color: #f5f3f3;">Spotlight · Interactive Web Build</div>
+                  <h2>Turning raw complexity into clear, automated solutions.</h2>
+                  <p>
+                    Explore <strong>Project EmpowerPH</strong>: a client-side employment analytics dashboard paired with a Python synthetic data generator. It fetches raw <code>.xlsx</code> workbooks directly in the browser via SheetJS and renders interactive Chart.js views alongside a companion Power BI report.
+                  </p>
+                  <div class="pill-tags">
+                    <span class="pill-tag">Python</span>
+                    <span class="pill-tag">Pandas</span>
+                    <span class="pill-tag">Chart.js</span>
+                    <span class="pill-tag">SheetJS</span>
+                    <span class="pill-tag">TailwindCSS</span>
+                    <span class="pill-tag">Power BI</span>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    <a class="button is-maroon" data-cc-glow="" href="https://ocadodp.github.io/sample-dashboard/" rel="noopener" target="_blank">
+                      <div class="button-in">
+                        <div class="button_texts">
+                          <span class="button_text _1">Open Live Dashboard ↗</span>
+                          <span aria-hidden="true" class="button_text _2">ocadodp.github.io</span>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="button is-light" href="project-empower.html">
+                      <div class="button-in">
+                        <div class="button_texts">
+                          <span class="button_text _1">Read Case Study</span>
+                          <span aria-hidden="true" class="button_text _2">Project EmpowerPH</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+
+                <div class="showcase-visual-card">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                    <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--grey-250);">ARCHITECTURE // HOW IT WORKS</span>
+                    <span style="font-family:var(--font-mono); font-size:0.72rem; color:var(--green);">● CLIENT-SIDE ENGINE</span>
+                  </div>
+                  <div class="mini-kpi-grid">
+                    <div class="mini-kpi">
+                      <div class="mini-kpi-val">Python → .xlsx</div>
+                      <div class="mini-kpi-lbl">Synthetic Demographic Pipeline</div>
+                    </div>
+                    <div class="mini-kpi">
+                      <div class="mini-kpi-val">SheetJS Fetch</div>
+                      <div class="mini-kpi-lbl">In-Browser Workbook Parsing</div>
+                    </div>
+                    <div class="mini-kpi">
+                      <div class="mini-kpi-val">Chart.js + BI</div>
+                      <div class="mini-kpi-lbl">Cross-Filtered Visuals</div>
+                    </div>
+                    <div class="mini-kpi">
+                      <div class="mini-kpi-val">Zero Server</div>
+                      <div class="mini-kpi-lbl">Static GitHub Pages Hosting</div>
+                    </div>
+                  </div>
+                  <div class="mini-bars">
+                    <div class="mini-bar-row">
+                      <div style="display:flex; justify-content:space-between;"><span>Client-Side Data Parsing &amp; Filtering</span><span>SheetJS + Vanilla JS</span></div>
+                      <div class="mini-bar-track"><div class="mini-bar-fill" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="mini-bar-row">
+                      <div style="display:flex; justify-content:space-between;"><span>Parallel Executive Dashboard Benchmarking</span><span>Power BI + DAX</span></div>
+                      <div class="mini-bar-track"><div class="mini-bar-fill" style="width: 88%;"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="hero-showcase-iframe-wrap" id="showcase-iframe-wrap">
+                <iframe data-src="https://ocadodp.github.io/sample-dashboard/" title="Project EmpowerPH Live Dashboard"></iframe>
+              </div>
+            </div>
+
+            <div class="works_head">
+              <div class="label-caption">02 — Selected Work</div>
+              <h2 class="heading-h2" style="margin-top: 10px;">Selected Systems &amp; Research</h2>
+              <p style="color: var(--grey-400); max-width: 600px; margin-top: 10px;">
+                A collection of web tools, econometric studies, and workflow automations I’ve built—ranging from browser-based calculators to internal administrative apps.
+              </p>
+            </div>
+
+            <div class="works_list">
+
+              <div class="works_item is-featured">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-empower.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">01</span>
+                        <h3 class="works_name">Project EmpowerPH: Interactive Data Visualization</h3>
+                      </div>
+                      <span class="see-works_cta">Live Demo &amp; Case Study →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg empower"></div>
+                      <div class="works_card-MockUI">
+                        <div>
+                          <h4>Digital Literacy &amp; Employment Analytics Dashboard</h4>
+                          <p>A serverless web dashboard that fetches and parses raw Excel workbooks directly in the browser via SheetJS, paired with a Python/Pandas synthetic dataset generator and a companion Power BI report.</p>
+                          <div class="works_card-badges">
+                            <span class="highlight">Live Interactive Demo</span>
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>TailwindCSS</span>
+                            <span>Chart.js</span>
+                            <span>SheetJS</span>
+                            <span>Power BI</span>
+                          </div>
+                        </div>
+                        <div class="featured-telemetry-panel">
+                          <div class="ft-stat">
+                            <strong>Synthetic</strong>
+                            <span>Python/Pandas Generator</span>
+                          </div>
+                          <div class="ft-stat">
+                            <strong>Client-Side</strong>
+                            <span>Live .xlsx Parsing</span>
+                          </div>
+                          <div class="ft-stat">
+                            <strong>Dual View</strong>
+                            <span>Web App + Power BI</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Timeline</span>
+                      <span class="works_info">August 2026</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Domain</span>
+                      <span class="works_info">Data Engineering &amp; Interactive Visualization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="works_item">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-dbm.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">02</span>
+                        <h3 class="works_name">HR Workflow Automation &amp; BI Suite (DBM)</h3>
+                      </div>
+                      <span class="see-works_cta">See work →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg dbm"></div>
+                      <div class="works_card-MockUI">
+                        <h4>Internal Administrative Web Tools &amp; L&amp;D Analytics</h4>
+
+                        <p>
+                          A collection of browser-based automation tools, Office Scripts,
+                          and Power BI dashboards developed during my DBM internship.
+                          The work covered Competency Assessment reporting for 1,200+
+                          personnel, intervention consolidation, individual development
+                          documents, and Udemy learning-data analytics.
+                        </p>
+
+                        <div class="works_card-badges">
+                          <span class="highlight">Internal Tooling Suite</span>
+                          <span>Vanilla JS</span>
+                          <span>ExcelJS &amp; jsPDF</span>
+                          <span>Power Automate</span>
+                          <span>Office Scripts</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Year</span>
+                      <span class="works_info">April 2026</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Workflow Automation &amp; BI</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="works_item">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-volatility.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">03</span>
+                        <h3 class="works_name">Volatility Dynamics &amp; PSEi Interdependence</h3>
+                      </div>
+                      <span class="see-works_cta">See work →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg volatility"></div>
+                      <div class="works_card-MockUI">
+                        <h4>Econometric Time-Series Study on the PSEi &amp; Major Banks</h4>
+                        <p>Modeled asymmetric leverage effects using eGARCH/gjrGARCH and examined dynamic conditional correlations across BDO, BPI, and Security Bank during market shocks using VAR and DCC-GARCH in R.</p>
+                        <div class="works_card-badges">
+                          <span class="highlight">Econometric Research</span>
+                          <span>R Programming</span>
+                          <span>ARIMA / GARCH</span>
+                          <span>VAR</span>
+                          <span>DCC-GARCH</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Year</span>
+                      <span class="works_info">April 2026</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Quantitative Research &amp; Econometrics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="works_item">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-infratrust.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">04</span>
+                        <h3 class="works_name">InfraTrust Decision Support Tool</h3>
+                      </div>
+                      <span class="see-works_cta">Live Demo →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg infratrust"></div>
+                      <div class="works_card-MockUI">
+                        <h4>Browser-Based Modified Jones Model &amp; OLS Matrix Engine</h4>
+                        <p>Privacy-first client-side web app executing Ordinary Least Squares regression and matrix inversion in-browser to evaluate contractor Earnings Management, Financial Reporting Quality, and solvency.</p>
+                        <div class="works_card-badges">
+                          <span class="highlight">Zero Backend</span>
+                          <span>Vanilla JS</span>
+                          <span>Matrix Inversion</span>
+                          <span>OLS Regression</span>
+                          <span>SheetJS</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Year</span>
+                      <span class="works_info">November 2025</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Econometric Modeling &amp; Client-Side Compute</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="works_item">
+                <div class="works_card-wrap">
+                  <a class="works_card" href="project-signature.html">
+                    <div class="works_label">
+                      <div class="about_label-infos">
+                        <span class="works_pic-dot">05</span>
+                        <h3 class="works_name">Two-Stage Offline Signature Verification</h3>
+                      </div>
+                      <span class="see-works_cta">Live Demo →</span>
+                    </div>
+                    <div class="works_visual">
+                      <div class="works_visual-bg signature"></div>
+                      <div class="works_card-MockUI">
+                        <h4>KNN-Harris Pre-Filter + ResNet-18 Siamese Network</h4>
+                        <p>Undergraduate thesis combining a fast KNN-Harris geometric corner pre-filter with a deep ResNet-18 Siamese network trained via Triplet Loss to distinguish genuine signatures from skilled forgeries.</p>
+                        <div class="works_card-badges">
+                          <span class="highlight">Undergraduate Thesis</span>
+                          <span>PyTorch</span>
+                          <span>ResNet-18</span>
+                          <span>Flask API</span>
+                          <span>React.js</span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="works_infos">
+                    <div class="works_infos-group">
+                      <span class="label-caption">Year</span>
+                      <span class="works_info">October 2025</span>
+                    </div>
+                    <div class="works_infos-group">
+                      <span class="label-caption">Niche</span>
+                      <span class="works_info">Machine Learning &amp; Computer Vision</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 44px;">
+              <a class="button is-light" data-cc-glow="" href="projects.html">
+                <div class="button-in">
+                  <div class="button_texts">
+                    <span class="button_text _1">View All Works &amp; Live Demos (5)</span>
+                    <span aria-hidden="true" class="button_text _2">Explore Full Portfolio</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_home-services" id="expertise">
+        <div class="padding-global is-tiny">
+          <div class="container-large">
+            <div class="home-services_component">
+              <div class="home-services_head">
+                <div class="label-caption" style="color: var(--grey-250);">03 — Expertise &amp; Proof of Work</div>
+                <div aria-hidden="true" class="home-services_icons">
+                  <span>⚲</span><span>∑</span><span>⚡</span><span>📊</span><span>⚙️</span><span>👁️</span>
+                </div>
+              </div>
+              <h2 class="heading-h2" style="margin-bottom: 24px; max-width: 760px;">
+                Translating mathematical concepts into practical software.
+              </h2>
+
+              <div class="tab-menu" role="tablist">
+                <button aria-selected="true" class="tab-link w--current" data-tab-target="tab-problems" role="tab" type="button">
+                  <span>The Problems I Solve</span>
+                  <span class="navbar_works-number">(6)</span>
+                </button>
+                <button aria-selected="false" class="tab-link" data-tab-target="tab-arsenal" role="tab" type="button">
+                  <span>Technical Arsenal</span>
+                  <span class="navbar_works-number">(5)</span>
+                </button>
+              </div>
+
+
+              <div class="w-tab-pane w--tab-active" id="tab-problems">
+                <div class="home-services_items">
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head">
+                          <div class="home-services_number">1</div>
+                          <h3 class="home-services_title">Data Cleaning &amp; Pipelines ⚲</h3>
+                        </div>
+                        <div class="tag-text">
+                          <p>Python</p><p>Pandas</p><p>Power Query</p><p>SheetJS</p><p>Bigram Fuzzy Matching</p><p>ETL</p>
+                        </div>
+                        <a class="button is-light" href="project-empower.html">
+                          <div class="button-in"><div class="button_texts"><span class="button_text _1">See Project EmpowerPH ↗</span><span aria-hidden="true" class="button_text _2">Read Case Study ↗</span></div></div>
+                        </a>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>APPLIED IN</span><strong>EmpowerPH &amp; Panglinis</strong></div>
+                        <div class="home-services_text-wrap">
+                          <p>Building scripts and browser utilities to ingest, clean, and standardize messy, human-encoded spreadsheets into structured tables using Python, Pandas, and custom bigram string matching.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head">
+                          <div class="home-services_number">2</div>
+                          <h3 class="home-services_title">Econometrics &amp; Time Series ∑</h3>
+                        </div>
+                        <div class="tag-text">
+                          <p>R Programming</p><p>ARIMA</p><p>eGARCH / gjrGARCH</p><p>VAR</p><p>DCC-GARCH</p><p>OLS</p>
+                        </div>
+                        <a class="button is-light" href="project-volatility.html">
+                          <div class="button-in"><div class="button_texts"><span class="button_text _1">See PSEi Volatility Study ↗</span><span aria-hidden="true" class="button_text _2">Read Case Study ↗</span></div></div>
+                        </a>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>APPLIED IN</span><strong>PSEi Contagion Study</strong></div>
+                        <div class="home-services_text-wrap">
+                          <p>Modeling market risk, volatility clustering, impulse responses, and asymmetric leverage effects across financial equities using univariate and multivariate time series in R.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head">
+                          <div class="home-services_number">3</div>
+                          <h3 class="home-services_title">Workflow Automation ⚡</h3>
+                        </div>
+                        <div class="tag-text">
+                          <p>Power Automate</p><p>Office Scripts (TypeScript)</p><p>Regex</p><p>ExcelJS</p><p>jsPDF</p><p>JSZip</p>
+                        </div>
+                        <a class="button is-light" href="project-dbm.html">
+                          <div class="button-in"><div class="button_texts"><span class="button_text _1">See DBM HR Suite ↗</span><span aria-hidden="true" class="button_text _2">Read Case Study ↗</span></div></div>
+                        </a>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>APPLIED IN</span><strong>DBM Internal Tools</strong></div>
+                        <div class="home-services_text-wrap">
+
+                          <p>
+                            Streamlining repetitive administrative tasks through
+                            browser-based reporting utilities, TypeScript Office Scripts,
+                            Power Automate workflows, and batch document generation.
+                          </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head">
+                          <div class="home-services_number">4</div>
+                          <h3 class="home-services_title">Business Intelligence &amp; Visuals 📊</h3>
+                        </div>
+                        <div class="tag-text">
+                          <p>Power BI</p><p>DAX</p><p>Chart.js</p><p>TailwindCSS</p><p>Executive Reporting</p>
+                        </div>
+                        <a class="button is-light" href="project-dbm.html">
+                          <div class="button-in"><div class="button_texts"><span class="button_text _1">See L&amp;D BI Dashboard ↗</span><span aria-hidden="true" class="button_text _2">Read Case Study ↗</span></div></div>
+                        </a>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>APPLIED IN</span><strong>L&amp;D Analytics</strong></div>
+                        <div class="home-services_text-wrap">
+
+                          <p>
+                            Transforming learner feedback and training-evaluation
+                            datasets into interactive Power BI reports, quantitative
+                            summaries, and evidence-based recommendations for
+                            Learning &amp; Development planning.
+                          </p>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head">
+                          <div class="home-services_number">5</div>
+                          <h3 class="home-services_title">Client-Side Mathematical Compute ⚙️</h3>
+                        </div>
+                        <div class="tag-text">
+                          <p>Vanilla JavaScript</p><p>Matrix Inversion</p><p>Modified Jones Model</p><p>Z-Score</p><p>Zero Backend</p>
+                        </div>
+                        <a class="button is-light" href="project-infratrust.html">
+                          <div class="button-in"><div class="button_texts"><span class="button_text _1">See InfraTrust Tool ↗</span><span aria-hidden="true" class="button_text _2">Launch Live App ↗</span></div></div>
+                        </a>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>APPLIED IN</span><strong>InfraTrust OLS Engine</strong></div>
+                        <div class="home-services_text-wrap">
+                          <p>Running econometric calculations, custom matrix operations, and Ordinary Least Squares regression directly in the browser so sensitive financial files never leave the user's machine.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head">
+                          <div class="home-services_number">6</div>
+                          <h3 class="home-services_title">Computer Vision &amp; Deep Learning 👁️</h3>
+                        </div>
+                        <div class="tag-text">
+                          <p>PyTorch</p><p>ResNet-18</p><p>Siamese Networks</p><p>Triplet Loss</p><p>KNN-Harris</p><p>Flask + React</p>
+                        </div>
+                        <a class="button is-light" href="project-signature.html">
+                          <div class="button-in"><div class="button_texts"><span class="button_text _1">See SigVerifyAI ↗</span><span aria-hidden="true" class="button_text _2">Launch Live App ↗</span></div></div>
+                        </a>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>APPLIED IN</span><strong>Two-Stage Thesis</strong></div>
+                        <div class="home-services_text-wrap">
+                          <p>Designing hybrid biometric verification pipelines that pair fast geometric corner pre-filtering (Canberra KNN) with deep Siamese metric learning deployed via Flask and React.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="w-tab-pane" id="tab-arsenal">
+                <div class="home-services_items">
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head"><div class="home-services_number">01</div><h3 class="home-services_title">Core Languages</h3></div>
+                        <div class="tag-text"><p>Python</p><p>R</p><p>SQL</p><p>JavaScript (ES6+)</p><p>TypeScript</p><p>HTML5 / CSS3</p></div>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>STACK</span><strong>Statistical &amp; Web</strong></div>
+                        <div class="home-services_text-wrap"><p>Statistical computing in Python and R, relational querying in SQL, and client-side application engineering in Vanilla JS and TypeScript.</p></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head"><div class="home-services_number">02</div><h3 class="home-services_title">Data Engineering &amp; Document Libraries</h3></div>
+                        <div class="tag-text"><p>Pandas</p><p>Power Query</p><p>SheetJS (xlsx)</p><p>ExcelJS</p><p>jsPDF</p><p>JSZip</p></div>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>PIPELINE</span><strong>Automated Exports</strong></div>
+                        <div class="home-services_text-wrap"><p>Programmatic ingestion, fuzzy string standardization, and automated multi-sheet Excel and formatted PDF generation directly in the browser.</p></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head"><div class="home-services_number">03</div><h3 class="home-services_title">Econometrics &amp; Applied Mathematics</h3></div>
+                        <div class="tag-text"><p>ARIMA</p><p>eGARCH / gjrGARCH</p><p>DCC-GARCH</p><p>VAR</p><p>OLS Regression</p><p>Matrix Inversion</p></div>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>MATH</span><strong>BS Math Foundation</strong></div>
+                        <div class="home-services_text-wrap"><p>Grounded in Actuarial Math, Theory of Interest, Multivariate Analysis, Operations Research, Numerical Analysis, and Linear Algebra.</p></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head"><div class="home-services_number">04</div><h3 class="home-services_title">Machine Learning &amp; Computer Vision</h3></div>
+                        <div class="tag-text"><p>PyTorch</p><p>ResNet-18</p><p>Siamese Networks</p><p>Triplet Loss</p><p>KNN-Harris</p><p>OpenCV</p></div>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>VISION</span><strong>Metric Learning</strong></div>
+                        <div class="home-services_text-wrap"><p>Feature extraction with OpenCV and Harris corners, distance metric optimization in KNN, and deep Siamese network training in PyTorch.</p></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home-services_item">
+                    <div class="home-services_item-in">
+                      <div>
+                        <div class="home-services_item-head"><div class="home-services_number">05</div><h3 class="home-services_title">BI, Automation &amp; Deployment</h3></div>
+                        <div class="tag-text"><p>Power BI</p><p>Chart.js</p><p>Power Automate</p><p>Office Scripts</p><p>Flask</p><p>React.js</p><p>Hugging Face</p></div>
+                      </div>
+                      <div class="home-services_desc">
+                        <div class="proof-box"><span>DEPLOY</span><strong>Self-Contained &amp; Cloud</strong></div>
+                        <div class="home-services_text-wrap"><p>Lightweight single-file HTML/JS tools, decoupled React frontends paired with Flask APIs on Hugging Face Spaces, and M365 cloud flows.</p></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_about" id="about-section">
+        <div class="padding-global is-tiny">
+          <div class="container-large">
+            <div class="about_component">
+              <div class="about_content">
+                <div>
+                  <div class="label-caption">04 — About Me</div>
+                  <h2 class="heading-h3" style="margin-top: 12px;">
+                    Mathematical logic meets practical, everyday software engineering.
+                  </h2>
+                  <p class="about_paragraph">
+                    Whether I’m working on an econometric model in R, writing a Python script to clean survey records, or building a single-page HTML/JS tool so colleagues don’t have to format spreadsheets by hand, I care most about making complex workflows simpler and more reliable.
+                  </p>
+                </div>
+                <div class="about_items">
+                  <div class="about_item">
+                    <div class="about_item-icon">🇵🇭</div>
+                    <div>
+                      <h3 class="about_item-title">Quezon City &amp; Tayabas</h3>
+                      <p style="font-size: 0.85rem; color: var(--grey-400);">Working at DICT Central Office (Diliman, QC)</p>
+                    </div>
+                  </div>
+                  <div class="about_item">
+                    <div class="about_item-icon">⚡</div>
+                    <div>
+                      <h3 class="about_item-title">Practical Automation</h3>
+                      <p style="font-size: 0.85rem; color: var(--grey-400);">Turning repetitive manual tasks into clean web tools</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="home-grid_team">
+                <div class="team-heading">
+                  <h3 class="home-grid_team-heading">Mathematical rigor, amplified with code</h3>
+                  <div class="label-caption" style="color: var(--grey-250);">Actuarial Math · Econometrics · Deep Learning</div>
+                </div>
+                <div aria-hidden="true" class="orbit-stage">
+                  <div class="orbit-ring r1">
+                    <span class="orbit-pill p1">Python · Pandas</span>
+                    <span class="orbit-pill p2">R · DCC-GARCH</span>
+                  </div>
+                  <div class="orbit-ring r2">
+                    <span class="orbit-pill p1">PyTorch · ResNet-18</span>
+                    <span class="orbit-pill p2">Power BI · DAX</span>
+                    <span class="orbit-pill p3">SheetJS · OLS</span>
+                    <span class="orbit-pill p4">Power Automate</span>
+                  </div>
+                  <div class="orbit-core">DPO</div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:0.75rem; color:var(--grey-250);">
+                  <span>CANVAS // STARFIELD WARP ACTIVE</span>
+                  <a href="about.html" style="color:#f5f3f3; text-decoration:underline;">Full Biography →</a>
+                </div>
+                <canvas class="space-canvas" id="space"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_home-services" id="operational-style">
+        <div class="padding-global is-tiny">
+          <div class="container-large">
+            <div class="home-services_component">
+              <div style="text-align: center; max-width: 780px; margin: 0 auto;">
+                <div class="label-caption" style="color: var(--grey-250);">05 — Operational Style</div>
+                <h2 class="heading-h2" style="margin-top: 12px;">
+                  Designing the math and building the interface that runs it
+                </h2>
+                <p style="color: var(--grey-250); margin-top: 12px;">
+                  Instead of leaving models inside static notebooks or fragile spreadsheets, I like packaging them into self-contained web apps and automated workflows.
+                </p>
+              </div>
+
+              <div class="features_grid">
+                <div class="features_card-box">
+                  <div>
+                    <div class="label-caption" style="color: #f5f3f3;">Workflow Design · Administrative Tools</div>
+                    <h3 style="font-size: 1.5rem; font-weight: 500; margin-top: 10px;">Replacing fragile spreadsheet templates with guided web tools</h3>
+                    <p style="color: var(--grey-250); font-size: 0.92rem; margin-top: 8px;">
+                      When shared Excel templates get passed around, accidental edits and inconsistent naming often break downstream formulas. I build TypeScript Office Scripts, Power Automate flows, and browser-based generators that lock structural columns and standardize inputs automatically.
+                    </p>
+                  </div>
+                  <div class="mini-kpi-grid" style="margin-bottom: 0;">
+                    <div class="mini-kpi">
+                      <div class="mini-kpi-val">Schema Lock</div>
+                      <div class="mini-kpi-lbl">Automated template protection</div>
+                    </div>
+                    <div class="mini-kpi">
+                      <div class="mini-kpi-val">Batch Export</div>
+                      <div class="mini-kpi-lbl">Formatted Excel &amp; PDF generation</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="features_column">
+                  <div class="features_card-box">
+                    <div class="label-caption" style="color: var(--grey-250);">Real-World Problem Solving</div>
+                    <div class="chat-bubbles">
+                      <div class="chat-bubble incoming">
+                        “Free-text survey responses and training titles are spelled differently across submissions, so our pivot tables won’t group them properly.”
+                      </div>
+                      <div class="chat-bubble outgoing">
+                        “Let’s run it through ‘Panglinis’—it uses bigram string similarity to match mistyped entries against the official reference list before exporting a clean workbook.”
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="features_timeline">
+                  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+                    <div style="font-size: 1.2rem; font-weight: 500;">End-to-End Quantitative Pipeline</div>
+                    <div style="font-family:var(--font-mono); font-size:0.78rem; color:var(--maroon-glow);">INGESTION → MODELING → DEPLOYMENT</div>
+                  </div>
+                  <div class="timeline-steps">
+                    <div class="timeline-step">
+                      <div class="timeline-num">01 // INGEST</div>
+                      <div class="timeline-title">Raw Extraction</div>
+                      <div class="timeline-sub">MS Forms, market feeds, SQL &amp; SheetJS file uploads</div>
+                    </div>
+                    <div class="timeline-step">
+                      <div class="timeline-num">02 // SANITIZE</div>
+                      <div class="timeline-title">Fuzzy Cleaning</div>
+                      <div class="timeline-sub">Bigram string matching, Regex &amp; stationarity checks</div>
+                    </div>
+                    <div class="timeline-step">
+                      <div class="timeline-num">03 // MODEL</div>
+                      <div class="timeline-title">Math &amp; ML Core</div>
+                      <div class="timeline-sub">OLS, DCC-GARCH, VAR &amp; ResNet-18 Siamese</div>
+                    </div>
+                    <div class="timeline-step">
+                      <div class="timeline-num">04 // AUTOMATE</div>
+                      <div class="timeline-title">Guided Workflows</div>
+                      <div class="timeline-sub">Power Automate, Office Scripts &amp; JSZip packaging</div>
+                    </div>
+                    <div class="timeline-step">
+                      <div class="timeline-num">05 // VISUALIZE</div>
+                      <div class="timeline-title">Decision BI</div>
+                      <div class="timeline-sub">Power BI, Chart.js &amp; clear analytical summaries</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dx-ph" role="list">
+                <div class="dx-ph-card" role="listitem">
+                  <div class="dx-ph-top"><div class="dx-ph-ico">&lt;/&gt;</div><div class="dx-ph-num">01</div></div>
+                  <div>
+                    <h3>Zero-Backend Client Compute</h3>
+                    <p>Sensitive financial and personnel records shouldn’t require external servers. I build browser-native tools using SheetJS, ExcelJS, and custom JS matrix math.</p>
+                  </div>
+                </div>
+                <div class="dx-ph-card" role="listitem">
+                  <div class="dx-ph-top"><div class="dx-ph-ico">∑</div><div class="dx-ph-num">02</div></div>
+                  <div>
+                    <h3>Econometric Rigor</h3>
+                    <p>From Augmented Dickey-Fuller stationarity checks to Modified Jones discretionary accruals and DCC-GARCH correlation modeling, every metric is grounded in theory.</p>
+                  </div>
+                </div>
+                <div class="dx-ph-card" role="listitem">
+                  <div class="dx-ph-top"><div class="dx-ph-ico">🏆</div><div class="dx-ph-num">03</div></div>
+                  <div>
+                    <h3>Research-Backed</h3>
+                    <p>Recognized for Best Thesis Presentation at the BS Mathematics Research Colloquium for combining geometric corner pre-filtering with deep Siamese networks.</p>
+                  </div>
+                </div>
+                <div class="dx-ph-card" role="listitem">
+                  <div class="dx-ph-top"><div class="dx-ph-ico">⚡</div><div class="dx-ph-num">04</div></div>
+                  <div>
+                    <h3>Built for Real Teams</h3>
+                    <p>Shaped by hands-on experience at the DBM Central Office, where I developed practical tools for reporting, workflow automation, and data analysis.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_founder" id="journey-preview">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="founder-card">
+              <div class="founder-photo-box">
+                <div class="label-caption" style="color: #f5f3f3;">Personal Essay</div>
+                <div class="founder-monogram">DPO</div>
+                <div class="founder-tag">
+                  <div>
+                    <b>Dexter Pascual Ocado</b>
+                    <span>PDO I @ DICT · BS Math Cum Laude</span>
+                  </div>
+                  <div style="display:flex; gap:8px;">
+                    <a aria-label="LinkedIn" href="https://www.linkedin.com/in/ocadodexterp" rel="noopener" style="width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); display:grid; place-items:center;" target="_blank">in</a>
+                    <a aria-label="GitHub" href="https://github.com/OcadoDP" rel="noopener" style="width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.25); display:grid; place-items:center;" target="_blank">GH</a>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="label-caption">06 — My Journey</div>
+                <h2 class="heading-h2" style="margin-top: 10px;">The Fresh Grad Reality Check</h2>
+
+                <blockquote class="founder-quote">
+                  “Nearly 200 applications, countless unanswered emails,
+                  a 4:00 AM commute for an interview that unexpectedly
+                  changed plans, and one final panel that tested my
+                  confidence. Somewhere between the uncertainty,
+                  the rejections, and a surprising call from DBM,
+                  I found my way into my first professional role
+                  at the DICT.”
+                </blockquote>
+
+                <div style="display:flex; flex-wrap:wrap; gap:12px;">
+                  <a class="button" data-cc-glow="" href="job-hunt.html">
+                    <div class="button-in">
+                      <div class="button_texts">
+                        <span class="button_text _1">Read the Full Story →</span>
+                        <span aria-hidden="true" class="button_text _2">The Fresh Grad Journey</span>
+                      </div>
+                    </div>
+                  </a>
+                  <a class="button is-light" href="about.html">
+                    <div class="button-in">
+                      <div class="button_texts">
+                        <span class="button_text _1">View Career &amp; Education</span>
+                        <span aria-hidden="true" class="button_text _2">About Dexter</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="founder-pts">
+                  <div>
+                    <b>Why I Built This Portfolio</b>
+                    <span>Waiting in silence during the application process motivated me to build a tangible home for my projects.</span>
+                  </div>
+                  <div>
+                    <b>Full-Circle Validation</b>
+                    <span>How building helpful tools during an internship led to a surprise return offer down the road.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_testimonials">
+        <div class="padding-global">
+          <div class="container-large">
+            <div class="lt" id="lt-rv">
+              <div class="lt-tp">
+                <div class="label-caption" style="color: var(--grey-250);">07 — Interactive Case Files</div>
+                <h2 class="lt-h">Five project architectures &amp; research notes</h2>
+                <div class="lt-rt">
+                  <span class="lt-n">05</span>
+                  <div>
+                    <div aria-hidden="true" class="lt-stars">★★★★★</div>
+                    <div style="font-size: 0.88rem; color: var(--grey-250); margin-top: 4px;">
+                      Featuring <a href="projects.html" style="color:#fff; text-decoration:underline;">3 Live Browser Demos</a> &amp; 2 Quantitative Studies
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div aria-label="Project Deep Dives" aria-roledescription="carousel" class="lt-st">
+                <div aria-hidden="true" class="lt-s1"></div>
+                <div aria-hidden="true" class="lt-s2"></div>
+                <div class="lt-pp">
+                  <article aria-label="1 of 5" class="lt-p lt-on">
+                    <header class="lt-hd">
+                      <div>
+                        <span class="lt-co">DBM Central Office</span>
+                        <span class="lt-wh">Administrative Service – HRDD · Manila</span>
+                      </div>
+                      <span class="lt-vr">March – April 2026</span>
+                    </header>
+                    <dl class="lt-mt">
+                      <dt>System</dt><dd>Internal HR Workflow Automation &amp; BI Suite</dd>
+                      <dt>Stack</dt><dd>Vanilla JS, ExcelJS, jsPDF, JSZip, Power BI, Power Automate</dd>
+                    </dl>
+
+                    <div class="lt-bd">
+                      <p class="lt-q">
+                        “Turning manual assessment reporting and learning-data
+                        preparation into reusable tools and automated workflows.”
+                      </p>
+
+                      <p>
+                        Developed a <strong>Competency Assessment monitoring
+                          dashboard and CA Results Generator</strong>, supported
+                        by PDF utilities, an <strong>Interventions
+                          Consolidator</strong>, and an <strong>IDP Generator</strong>.
+                        Created TypeScript Office Scripts and Power Automate
+                        workflows to update existing assessment workbooks.
+                      </p>
+
+                      <p>
+                        Separately, built the <strong>Panglinis</strong> Udemy
+                        course-title cleaner using bigram Sørensen–Dice
+                        similarity, performed Power Query transformations,
+                        and developed Power BI dashboards and survey reports
+                        for Learning &amp; Development evaluation.
+                      </p>
+                    </div>
+
+                    <footer class="lt-ft">
+                      <div>
+                        <div class="lt-cite">Data &amp; Systems Automation</div>
+                        <span style="font-size: 0.78rem; color: var(--grey-400);">Department of Budget and Management</span>
+                      </div>
+                      <a class="lt-pl" href="project-dbm.html">Read DBM Case Study ↗</a>
+                    </footer>
+                  </article>
+
+                  <article aria-label="2 of 5" class="lt-p">
+                    <header class="lt-hd">
+                      <div>
+                        <span class="lt-co">Project EmpowerPH</span>
+                        <span class="lt-wh">Interactive Employment Analytics Dashboard</span>
+                      </div>
+                      <span class="lt-vr">August 2026 · Live Demo</span>
+                    </header>
+                    <dl class="lt-mt">
+                      <dt>System</dt><dd>Zero-Backend Client-Side Dashboard &amp; Synthetic Generator</dd>
+                      <dt>Stack</dt><dd>Python, Pandas, TailwindCSS, Chart.js, SheetJS, Power BI</dd>
+                    </dl>
+                    <div class="lt-bd">
+                      <p class="lt-q">“Fetches live .xlsx workbooks directly from GitHub Pages via the Fetch API and parses records locally in the browser.”</p>
+                      <p>Backed by a custom Python/Pandas script that generates realistic, demographically weighted synthetic data across employment sectors, regions, and training tracks.</p>
+                      <p>Paired with a parallel Power BI dashboard to compare web-based Chart.js interactivity with enterprise BI layouts.</p>
+                    </div>
+                    <footer class="lt-ft">
+                      <div>
+                        <div class="lt-cite">Data Engineering &amp; Visualization</div>
+                        <span style="font-size: 0.78rem; color: var(--grey-400);">ocadodp.github.io/sample-dashboard</span>
+                      </div>
+                      <a class="lt-pl" href="project-empower.html">Explore EmpowerPH ↗</a>
+                    </footer>
+                  </article>
+
+                  <article aria-label="3 of 5" class="lt-p">
+                    <header class="lt-hd">
+                      <div>
+                        <span class="lt-co">PSEi Volatility &amp; Contagion</span>
+                        <span class="lt-wh">Philippine Stock Exchange · BDO, BPI &amp; Security Bank</span>
+                      </div>
+                      <span class="lt-vr">April 2026 · Econometrics</span>
+                    </header>
+                    <dl class="lt-mt">
+                      <dt>Role</dt><dd>Co-Author &amp; Principal Architect of Analytical Framework</dd>
+                      <dt>Models</dt><dd>R, ADF, ARIMA, eGARCH, gjrGARCH, VAR, DCC-GARCH</dd>
+                    </dl>
+                    <div class="lt-bd">
+                      <p class="lt-q">“Examined how cross-asset correlations shift during market downturns and why domestic diversification weakens during systemic shocks.”</p>
+                      <p>Modeled daily closing returns from 2015 to 2025, capturing asymmetric leverage effects where negative market news triggers stronger volatility than positive news.</p>
+                      <p>Applied Granger causality, Impulse Response Functions, and Dynamic Conditional Correlation (DCC-GARCH) in R.</p>
+                    </div>
+                    <footer class="lt-ft">
+                      <div>
+                        <div class="lt-cite">Univariate &amp; Multivariate Time Series</div>
+                        <span style="font-size: 0.78rem; color: var(--grey-400);">Executed in R Programming Environment</span>
+                      </div>
+                      <a class="lt-pl" href="project-volatility.html">Read Research Case Study ↗</a>
+                    </footer>
+                  </article>
+
+                  <article aria-label="4 of 5" class="lt-p">
+                    <header class="lt-hd">
+                      <div>
+                        <span class="lt-co">InfraTrust Decision Tool</span>
+                        <span class="lt-wh">Construction Firm Integrity &amp; Financial Forensics</span>
+                      </div>
+                      <span class="lt-vr">November 2025 · Live Demo</span>
+                    </header>
+                    <dl class="lt-mt">
+                      <dt>Math</dt><dd>Modified Jones Model, OLS Regression &amp; Matrix Inversion</dd>
+                      <dt>Stack</dt><dd>Vanilla JS, SheetJS, Chart.js, LocalStorage</dd>
+                    </dl>
+                    <div class="lt-bd">
+                      <p class="lt-q">“Runs Ordinary Least Squares regression and custom matrix inversion directly in the browser with zero backend database.”</p>
+                      <p>Combines <strong>Earnings Management (EM)</strong> via Non-Discretionary Accruals, <strong>Financial Reporting Quality (FRQ)</strong>, and <strong>Financial Capacity (FC)</strong> into a transparent composite score.</p>
+                      <p>Supports Rank Sum, Min-Max Normalization, Z-Score Standardization, and single-firm Benchmark Mode.</p>
+                    </div>
+                    <footer class="lt-ft">
+                      <div>
+                        <div class="lt-cite">Client-Side Econometric Engine</div>
+                        <span style="font-size: 0.78rem; color: var(--grey-400);">ocadodp.github.io/infratrust-decision-tool</span>
+                      </div>
+                      <a class="lt-pl" href="project-infratrust.html">Test InfraTrust Live ↗</a>
+                    </footer>
+                  </article>
+
+                  <article aria-label="5 of 5" class="lt-p">
+                    <header class="lt-hd">
+                      <div>
+                        <span class="lt-co">SigVerifyAI (Two-Stage CV)</span>
+                        <span class="lt-wh">Best Thesis Presentation · SLSU Research Colloquium</span>
+                      </div>
+                      <span class="lt-vr">October 2025 · Live Demo</span>
+                    </header>
+                    <dl class="lt-mt">
+                      <dt>Pipeline</dt><dd>Stage 1: KNN-Harris Pre-Filter → Stage 2: ResNet-18 Siamese</dd>
+                      <dt>Stack</dt><dd>PyTorch, OpenCV, Flask API, React.js</dd>
+                    </dl>
+                    <div class="lt-bd">
+                      <p class="lt-q">“Pairs a fast geometric corner pre-filter with a deep Siamese network to separate genuine signatures from skilled forgeries.”</p>
+                      <p>Stage 1 filters out obvious random forgeries using Harris Corner-seeded ORB features and Canberra distance. Stage 2 evaluates remaining pairs with a ResNet-18 Siamese network trained via Triplet Loss.</p>
+                      <p>Deployed with a React.js frontend on GitHub Pages connected to a Flask inference API on Hugging Face Spaces.</p>
+                    </div>
+                    <footer class="lt-ft">
+                      <div>
+                        <div class="lt-cite">Machine Learning &amp; Biometrics</div>
+                        <span style="font-size: 0.78rem; color: var(--grey-400);">ocadodp.github.io/offline-signature-verification</span>
+                      </div>
+                      <a class="lt-pl" href="project-signature.html">Launch SigVerifyAI ↗</a>
+                    </footer>
+                  </article>
+                </div>
+              </div>
+
+              <div class="lt-ct">
+                <div class="lt-bt">
+                  <button aria-label="Previous case study" class="lt-b lt-pv" id="lt-prev" type="button">←</button>
+                  <button aria-label="Next case study" class="lt-b lt-nx" id="lt-next" type="button">→</button>
+                  <span aria-live="polite" class="lt-cn" id="lt-counter">01 / 05</span>
+                </div>
+                <a href="projects.html" style="color:#fff; font-size:0.92rem; text-decoration:underline;">
+                  View all 5 case studies &amp; interactive demos ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="testimonials_numbers-main">
+              <div class="number_block">
+                <div class="number_wrap">Theory <span>+</span> Code</div>
+                <p class="number_desc">Translating statistical models and mathematical frameworks into usable browser applications</p>
+              </div>
+              <div class="number_block">
+                <div class="number_wrap">Client-<span>Side</span></div>
+                <p class="number_desc">Self-contained HTML/JS tools that process workbooks locally without complex server setup</p>
+              </div>
+              <div class="number_block">
+                <div class="number_wrap">End-to-<span>End</span></div>
+                <p class="number_desc">Covering data cleaning, econometric/ML modeling, workflow automation, and BI reporting</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_faq" id="experience-education">
+        <div class="padding-global">
+          <div class="container-large">
+            <div style="text-align: center; max-width: 680px; margin: 0 auto 48px;">
+              <div class="label-caption">08 — Background &amp; Credentials</div>
+              <h2 class="heading-h2" style="margin-top: 10px;">Experience &amp; Education</h2>
+              <p style="color: var(--grey-400); font-size: 0.95rem; margin-top: 8px;">
+                Click any role or degree below to expand or collapse the details.
+              </p>
+            </div>
+
+            <div class="dual-accordions">
+
+              <div>
+                <div class="label-caption" style="margin-bottom: 16px;">Career Path · Professional Experience</div>
+                <div class="faq_list">
+                  <div class="faq_accordion open">
+                    <div class="faq_question-block">
+                      <div class="faq_question-wrap">
+                        <span class="faq_number-wrap">Nov 2026 – Present</span>
+                        <div>
+                          <h3 class="faq_question">Project Development Officer I</h3>
+                          <div class="faq_subrole">Department of Information and Communications Technology (DICT)</div>
+                        </div>
+                      </div>
+                      <div class="faq_button" aria-hidden="true">+</div>
+                    </div>
+                    <div class="faq_answer-wrap">
+                      <div class="faq_answer-inner">
+                        <ul class="faq_answer">
+                          <li><strong>Division:</strong> ICT Industry Development Bureau (IIDB) — Benchmarking and Promotions Division.</li>
+                          <li><strong>Location:</strong> Diliman, Quezon City.</li>
+                          <li>Supporting ICT industry benchmarking, ecosystem promotions, and data-informed project development initiatives.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faq_accordion">
+                    <div class="faq_question-block">
+                      <div class="faq_question-wrap">
+                        <span class="faq_number-wrap">Mar – Apr 2026</span>
+                        <div>
+                          <h3 class="faq_question">Data &amp; Systems Automation Intern</h3>
+                          <div class="faq_subrole">Department of Budget and Management (DBM) Central Office</div>
+                        </div>
+                      </div>
+                      <div class="faq_button" aria-hidden="true">+</div>
+                    </div>
+                    <div class="faq_answer-wrap">
+                      <div class="faq_answer-inner">
+                        <ul class="faq_answer">
+
+                          <ul class="faq_answer">
+                            <li>
+                              Developed a Competency Assessment monitoring dashboard
+                              and expanded it into an automated Excel Results Generator
+                              for a reporting workflow covering over 1,200 personnel.
+                            </li>
+                            <li>
+                              Built supporting PDF-generation tools, an Interventions
+                              Consolidator, and an Individual Development Plan
+                              Generator for assessment and development documentation.
+                            </li>
+                            <li>
+                              Created TypeScript Office Scripts and Power Automate
+                              workflows for worksheet protection, validation
+                              dropdowns, intervention priorities, and batch updates.
+                            </li>
+                            <li>
+                              Developed Udemy course-title cleaning utilities,
+                              processed 12,000+ learner-response rows, and produced
+                              interactive Power BI reports and survey analyses.
+                            </li>
+                          </ul>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faq_accordion">
+                    <div class="faq_question-block">
+                      <div class="faq_question-wrap">
+                        <span class="faq_number-wrap">Jun – Jul 2025</span>
+                        <div>
+                          <h3 class="faq_question">DOST Scholar-Trainee (PTP)</h3>
+                          <div class="faq_subrole">Southern Luzon State University Main Campus</div>
+                        </div>
+                      </div>
+                      <div class="faq_button" aria-hidden="true">+</div>
+                    </div>
+                    <div class="faq_answer-wrap">
+                      <div class="faq_answer-inner">
+                        <ul class="faq_answer">
+                          <li>Assisted the BS Mathematics department with technical and multimedia projects, including digitizing the "Theory of Interest" instructional module.</li>
+                          <li>Organized and cataloged undergraduate research theses and completed hands-on Power BI dashboard training.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div>
+                <div class="label-caption" style="margin-bottom: 16px;">Academic Background · Honors</div>
+                <div class="faq_list">
+                  <div class="faq_accordion open">
+                    <div class="faq_question-block">
+                      <div class="faq_question-wrap">
+                        <span class="faq_number-wrap">2022 – 2026</span>
+                        <div>
+                          <h3 class="faq_question">BS in Mathematics (Cum Laude)</h3>
+                          <div class="faq_subrole">Southern Luzon State University · DOST-SEI JLSS Scholar</div>
+                        </div>
+                      </div>
+                      <div class="faq_button" aria-hidden="true">+</div>
+                    </div>
+                    <div class="faq_answer-wrap">
+                      <div class="faq_answer-inner">
+                        <ul class="faq_answer">
+                          <li><strong>Eligibility:</strong> Career Service Professional Eligibility &amp; P.D. 907 Honor Graduate Eligibility.</li>
+                          <li><strong>Recognition:</strong> Best Thesis Presentation at the 2026 BS Mathematics Research Colloquium.</li>
+                          <li><strong>Leadership:</strong> Public Information Officer (PIO) for the Mathematical Society / BS Math Class Officers.</li>
+                          <li><strong>Coursework:</strong> Actuarial Math &amp; Theory of Interest, Statistical Modeling &amp; Multivariate Analysis, Operations Research &amp; Numerical Analysis, Computing &amp; Linear Algebra.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faq_accordion">
+                    <div class="faq_question-block">
+                      <div class="faq_question-wrap">
+                        <span class="faq_number-wrap">2020 – 2022</span>
+                        <div>
+                          <h3 class="faq_question">Senior High School (STEM — With Honors)</h3>
+                          <div class="faq_subrole">Luis Palad Integrated High School</div>
+                        </div>
+                      </div>
+                      <div class="faq_button" aria-hidden="true">+</div>
+                    </div>
+                    <div class="faq_answer-wrap">
+                      <div class="faq_answer-inner">
+                        <ul class="faq_answer">
+                          <li>Graduated With Honors under the Science, Technology, Engineering, and Mathematics (STEM) strand.</li>
+                          <li>1st Place in "Sibulan: Online Quezon-wide Journo KonFab" (Copyreading and Headline Writing — Filipino).</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="faq_accordion">
+                    <div class="faq_question-block">
+                      <div class="faq_question-wrap">
+                        <span class="faq_number-wrap">2009 – 2020</span>
+                        <div>
+                          <h3 class="faq_question">JHS (With High Honors) &amp; Elementary (Valedictorian)</h3>
+                          <div class="faq_subrole">Luis Palad Integrated High School &amp; Ilasan Integrated School</div>
+                        </div>
+                      </div>
+                      <div class="faq_button" aria-hidden="true">+</div>
+                    </div>
+                    <div class="faq_answer-wrap">
+                      <div class="faq_answer-inner">
+                        <ul class="faq_answer">
+                          <li><strong>Junior High (2016–2020):</strong> Special Program for Journalism (With High Honors). Editor-in-Chief of <em>"Ang Paladian"</em> (SY 2019–2020) and Regional Schools Press Conference (RSPC) Qualifier.</li>
+                          <li><strong>Elementary (2009–2016):</strong> Graduated as Batch Valedictorian at Ilasan Integrated School.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="restricted-banner">
+              <div>
+                <div class="restricted-tag">🔐 CLASSIFIED — ARCHIVE: RSO-004 // LEVEL 04 CLEARANCE</div>
+                <h3>There may be things I probably shouldn’t put on a résumé.</h3>
+                <p>
+                  Classified datasets, questionable econometric theories (why Time-Turners break OLS regression), Balerion aerial supremacy audits, a Dragon Flight Risk Simulator, and a 15-second Golden Snitch catcher.
+                </p>
+              </div>
+              <a class="button is-maroon" data-cc-glow="" href="restricted.html">
+                <div class="button-in">
+                  <div class="button_texts">
+                    <span class="button_text _1">Enter Restricted Section →</span>
+                    <span aria-hidden="true" class="button_text _2">Verify Identity (Level 04)</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+
+            <div style="text-align: center; margin-top: 64px;">
+              <div class="label-caption">Ask Dexter's AI</div>
+              <h3 class="heading-h3" style="margin-top: 8px;">Explore my projects through the built-in AI assistant</h3>
+              <p style="color: var(--grey-400); font-size: 0.92rem; margin-top: 6px;">
+                Click any prompt below to ask about my project architectures, econometric models, or background.
+              </p>
+              <div class="ask-ai_grid">
+                <button class="ask-ai_card" data-ai-prompt="What tools did Dexter build during his DBM internship?" type="button">
+                  <div class="ask-ai_top"><span>⚡ PROMPT 01</span><span>↗</span></div>
+                  <div class="ask-ai_name">DBM Workflow Suite</div>
+                  <div class="ask-ai_sub">Ask about the HR web tools &amp; Panglinis</div>
+                </button>
+                <button class="ask-ai_card" data-ai-prompt="Explain the math behind InfraTrust and the PSEi DCC-GARCH study." type="button">
+                  <div class="ask-ai_top"><span>∑ PROMPT 02</span><span>↗</span></div>
+                  <div class="ask-ai_name">Econometrics &amp; OLS</div>
+                  <div class="ask-ai_sub">Modified Jones Model &amp; stock contagion</div>
+                </button>
+                <button class="ask-ai_card" data-ai-prompt="Tell me the story of Dexter's 4 AM commute and DICT interview." type="button">
+                  <div class="ask-ai_top"><span>🚌 PROMPT 03</span><span>↗</span></div>
+                  <div class="ask-ai_name">The 4 AM Commute</div>
+                  <div class="ask-ai_sub">The fresh grad job-hunt story</div>
+                </button>
+                <button class="ask-ai_card" data-ai-prompt="What is inside the Level 4 Restricted Section? Tell me about dragons and Time-Turners." type="button">
+                  <div class="ask-ai_top"><span>🐉 PROMPT 04</span><span>↗</span></div>
+                  <div class="ask-ai_name">Restricted Lore</div>
+                  <div class="ask-ai_sub">Archive RSO-004, Balerion &amp; Snitch math</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section_cta">
+        <div class="padding-global is-tiny">
+          <div class="container-large">
+            <div class="cta_component">
+              <div class="label-caption" style="color: #f5f3f3;">Got a messy dataset?</div>
+              <h2 class="heading-h1" style="max-width: 720px;">
+                Let’s turn your bottlenecks into automated systems.
+              </h2>
+              <p style="color: var(--grey-250); max-width: 560px;">
+                I’m always happy to chat about quantitative analysis, workflow automation, econometric research, or data engineering projects.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 8px;">
+                <a class="button is-maroon" data-cc-glow="" href="contacts.html">
+                  <div class="button-in">
+                    <div class="button_texts">
+                      <span class="button_text _1">Get in Touch →</span>
+                      <span aria-hidden="true" class="button_text _2">ocadodexterp@gmail.com</span>
+                    </div>
+                  </div>
+                </a>
+                <a class="button is-light" href="Resume - Dexter Pascual Ocado.pdf" rel="noopener noreferrer" target="_blank">
+                  <div class="button-in">
+                    <div class="button_texts">
+                      <span class="button_text _1">Download Résumé PDF</span>
+                      <span aria-hidden="true" class="button_text _2">View CV</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+
+
+    <script>
+      (function () {
+        const btnOverview = document.getElementById('btn-overview');
+        const btnLive = document.getElementById('btn-livedemo');
+        const viewOverview = document.getElementById('showcase-overview');
+        const viewIframe = document.getElementById('showcase-iframe-wrap');
+        if (!btnOverview || !btnLive) return;
+
+        btnOverview.addEventListener('click', () => {
+          btnOverview.classList.add('active');
+          btnLive.classList.remove('active');
+          viewOverview.style.display = 'grid';
+          viewIframe.classList.remove('active');
+        });
+
+        btnLive.addEventListener('click', () => {
+          btnLive.classList.add('active');
+          btnOverview.classList.remove('active');
+          viewOverview.style.display = 'none';
+          viewIframe.classList.add('active');
+          const iframe = viewIframe.querySelector('iframe');
+          if (iframe && !iframe.getAttribute('src')) {
+            iframe.setAttribute('src', iframe.getAttribute('data-src'));
+          }
+        });
+      })();
+
+      (function () {
+        const tabBtns = document.querySelectorAll('[data-tab-target]');
+        const tabPanes = document.querySelectorAll('.w-tab-pane');
+        tabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-tab-target');
+            tabBtns.forEach(b => {
+              b.classList.remove('w--current');
+              b.setAttribute('aria-selected', 'false');
+            });
+            tabPanes.forEach(p => p.classList.remove('w--tab-active'));
+            btn.classList.add('w--current');
+            btn.setAttribute('aria-selected', 'true');
+            document.getElementById(targetId)?.classList.add('w--tab-active');
+          });
+        });
+      })();
+
+      (function () {
+        const cv = document.getElementById('space');
+        if (!cv || typeof cv.getContext !== 'function') return;
+        const x = cv.getContext('2d');
+        const rmq = matchMedia('(prefers-reduced-motion:reduce)');
+        let rm = rmq.matches;
+        const SPEED = 0.00006;
+        const r = (a, b) => a + Math.random() * (b - a);
+        let W, H, cx, cy, D, F, N, stars, raf, last;
+
+        function reset(s) { s.x = r(-1, 1); s.y = r(-1, 1); s.z = 1; s.fresh = true; }
+        function project(s) { const k = F / s.z; s.px = cx + s.x * k; s.py = cy + s.y * k; }
+        function build() {
+          D = Math.min(devicePixelRatio || 1, 2);
+          W = cv.clientWidth || 500;
+          H = cv.clientHeight || 440;
+          cx = W / 2; cy = H / 2; F = cx * 0.7;
+          cv.width = W * D; cv.height = H * D;
+          x.setTransform(D, 0, 0, D, 0, 0);
+          N = Math.min(Math.round(W * H * 0.00045), 500);
+          stars = [];
+          for (let i = 0; i < N; i++) {
+            const s = {}; reset(s); s.z = r(0.05, 1); project(s); stars.push(s);
+          }
+        }
+        function frame(t) {
+          const dt = Math.min(t - last, 50); last = t;
+          x.clearRect(0, 0, W, H);
+          x.fillStyle = '#fff'; x.strokeStyle = '#f5f3f3';
+          for (let i = 0; i < N; i++) {
+            const s = stars[i];
+            s.z -= dt * SPEED;
+            if (s.z < 0.02) { reset(s); project(s); continue; }
+            const ox = s.px, oy = s.py; project(s);
+            if (s.px < -50 || s.px > W + 50 || s.py < -50 || s.py > H + 50) { reset(s); project(s); continue; }
+            const d = 1 - s.z;
+            const a = Math.min(d * 1.1, 1);
+            const w = 0.4 + d * 1.8;
+            x.globalAlpha = a;
+            if (s.fresh) { s.fresh = false; }
+            else if (d > 0.55) {
+              x.lineWidth = w; x.beginPath(); x.moveTo(ox, oy); x.lineTo(s.px, s.py); x.stroke();
+            }
+            x.beginPath(); x.arc(s.px, s.py, w * 0.6, 0, 6.2832); x.fill();
+          }
+          raf = requestAnimationFrame(frame);
+        }
+        build();
+        if (!rm) { last = performance.now(); raf = requestAnimationFrame(frame); }
+        window.addEventListener('resize', build);
+      })();
+
+      (function () {
+        const slides = document.querySelectorAll('#lt-rv .lt-p');
+        const prevBtn = document.getElementById('lt-prev');
+        const nextBtn = document.getElementById('lt-next');
+        const counter = document.getElementById('lt-counter');
+        if (!slides.length) return;
+        let current = 0;
+        const total = slides.length;
+        const pad = n => (n < 10 ? '0' + n : '' + n);
+
+        function showSlide(dir) {
+          slides[current].classList.remove('lt-on');
+          current = (current + dir + total) % total;
+          slides[current].classList.add('lt-on');
+          counter.textContent = `${pad(current + 1)} / ${pad(total)}`;
+        }
+        prevBtn?.addEventListener('click', () => showSlide(-1));
+        nextBtn?.addEventListener('click', () => showSlide(1));
+      })();
+
+      (function () {
+        document.querySelectorAll('.faq_accordion').forEach(acc => {
+          acc.addEventListener('click', () => {
+            acc.classList.toggle('open');
+          });
+        });
+      })();
+    </script>
+    <script src="site-shared.js"></script>
+  </body>
+</html>

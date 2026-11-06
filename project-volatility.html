@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="#800000" name="theme-color"/>
+    <title>Econometric Time Series Analysis (PSEi) — Dexter Pascual Ocado</title>
+    <meta content="Volatility Dynamics &amp; Interdependence in the Philippine Stock Market using R, ARIMA/GARCH, VAR, and DCC-GARCH by Dexter Pascual Ocado." name="description"/>
+    <link crossorigin="anonymous" href="https://cdn.prod.website-files.com" rel="preconnect"/>
+    <link as="font" crossorigin="" href="https://cdn.prod.website-files.com/69f9c76884333229e651e7bc/69f9c76f84333229e651ea81_Switzer-Variable.woff2" rel="preload" type="font/woff2"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+    <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer="" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+      :root {
+        --bg-paper: #f5f5f5;
+        --bg-white: #ffffff;
+        --bg-dark: #0f1011;
+        --ink: #0f1011;
+        --grey-400: #525356;
+        --grey-300: #7a7b7e;
+        --grey-250: #a0a1a5;
+        --grey-100: #e2e3e5;
+        --maroon: #800000;
+        --maroon-bright: #b31b2c;
+        --maroon-glow: #ff4d6d;
+        --maroon-soft: rgba(128, 0, 0, 0.08);
+        --maroon-border: rgba(128, 0, 0, 0.28);
+        --radius-sm: 12px;
+        --radius-md: 20px;
+        --radius-lg: 28px;
+        --font-sans: "Switzer", "Inter", -apple-system, sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background: var(--bg-paper);
+        color: var(--ink);
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        overflow-x: hidden;
+        background: var(--bg-paper);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .label-caption {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--grey-300);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .label-caption::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--maroon-bright);
+      }
+
+      @keyframes cc-ba {
+        to {
+          --cc-ba: 360deg;
+        }
+      }
+
+      .button {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.92rem;
+        cursor: pointer;
+        isolation: isolate;
+        border: none;
+        background: transparent;
+      }
+
+      .button[data-cc-glow] {
+        padding: 1.5px !important;
+      }
+
+      .button[data-cc-glow]::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: 0;
+        background: conic-gradient(from var(--cc-ba), #800000, #ff4d6d, #ffb35c, #7ad8ff, #800000);
+        animation: cc-ba 6s linear infinite;
+      }
+
+      .button-in {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .button.is-light .button-in {
+        background: var(--bg-white);
+        color: var(--ink);
+        border: 1px solid var(--grey-100);
+      }
+
+      .button.is-maroon .button-in {
+        background: var(--maroon);
+        color: #fff;
+      }
+
+      .case-hero {
+        padding: 48px 0 36px;
+      }
+
+      .case-hero-card {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.5rem);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .case-hero h1 {
+        font-size: clamp(2.1rem, 4.4vw, 3.7rem);
+        line-height: 1.05;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        margin: 12px 0 16px;
+        text-align: center;
+      }
+
+      .case-lead {
+        font-size: 1.1rem;
+        color: var(--grey-400);
+        max-width: 840px;
+        margin-bottom: 22px;
+        text-align: center;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+
+      .tech-tag {
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        font-weight: 500;
+      }
+
+      .tech-tag.is-maroon {
+        background: var(--maroon-soft);
+        border-color: var(--maroon-border);
+        color: var(--maroon);
+      }
+
+      .empirical-bar {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+
+      .emp-card {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-md);
+        padding: 26px;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .emp-val {
+        font-size: 2.1rem;
+        font-weight: 600;
+        color: #ffb35c;
+        font-family: var(--font-mono);
+      }
+
+      .emp-title {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin: 6px 0 4px;
+      }
+
+      .emp-desc {
+        font-size: 0.85rem;
+        color: var(--grey-250);
+      }
+
+      .case-layout {
+        display: grid;
+        grid-template-columns: 310px minmax(0, 1fr);
+        gap: 40px;
+        align-items: start;
+        padding-bottom: 72px;
+      }
+
+      .case-sidebar {
+        position: sticky;
+        top: 92px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .meta-box {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-md);
+        padding: 24px;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed var(--grey-100);
+        font-size: 0.86rem;
+      }
+
+      .meta-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .meta-row span {
+        font-family: var(--font-mono);
+        color: var(--grey-300);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+      }
+
+      .note-callout {
+        background: var(--maroon-soft);
+        border-left: 4px solid var(--maroon);
+        padding: 18px 22px;
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        font-size: 0.94rem;
+        color: var(--ink);
+        margin-bottom: 28px;
+      }
+
+      .case-content {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-lg);
+        padding: clamp(2rem, 4vw, 3.5rem);
+      }
+
+      .case-content h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 36px 0 14px;
+        padding-top: 28px;
+        border-top: 1px solid var(--grey-100);
+      }
+
+      .case-content h2:first-of-type {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      .case-content p {
+        color: var(--grey-400);
+        margin-bottom: 16px;
+        font-size: 1.02rem;
+      }
+
+      .math-stage-card {
+        background: var(--bg-paper);
+        border: 1px solid var(--grey-100);
+        border-radius: var(--radius-sm);
+        padding: 22px 24px;
+        margin: 16px 0;
+      }
+
+      .math-stage-card h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--maroon);
+        margin-bottom: 8px;
+      }
+
+      .math-eq-box {
+        background: var(--bg-white);
+        border: 1px solid var(--grey-100);
+        border-radius: 8px;
+        padding: 14px;
+        margin-top: 12px;
+        overflow-x: auto;
+        text-align: center;
+      }
+
+      .next-case-banner {
+        background: var(--bg-dark);
+        color: #fff;
+        border-radius: var(--radius-lg);
+        padding: 36px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 48px;
+      }
+
+      @media (max-width: 991px) {
+        .empirical-bar, .case-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .case-sidebar {
+          position: static;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="site-shared.css" /></head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation"></nav>
+
+    <main class="padding-global" id="main">
+      <div class="container-large">
+        <header class="case-hero">
+          <div class="case-hero-card">
+            <div class="label-caption">Case Study 03 // Quantitative Research &amp; Econometrics</div>
+            <h1>Volatility Dynamics &amp; Interdependence in the Philippine Stock Market</h1>
+            <p class="case-lead">
+              A comprehensive univariate and multivariate time series analysis modeling systemic risk, asymmetric leverage effects, and financial contagion across the PSEi and major banking institutions (BDO, BPI, Security Bank) using R.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag is-maroon">Dec 2015 – Dec 2025 (10-Year Span)</span>
+              <span class="tech-tag">R Programming</span>
+              <span class="tech-tag">Time Series Analysis</span>
+              <span class="tech-tag">ARIMA / GARCH</span>
+              <span class="tech-tag">VAR Modeling</span>
+              <span class="tech-tag">DCC-GARCH</span>
+              <span class="tech-tag">Econometrics</span>
+            </div>
+          </div>
+        </header>
+
+        <section aria-label="Key Empirical Findings" class="empirical-bar">
+          <div class="emp-card">
+            <div class="emp-val">&gt; 0.70 ρ</div>
+            <div class="emp-title">DCC-GARCH Contagion Spike</div>
+            <p class="emp-desc">Correlations that historically hovered at 0.20–0.50 violently spiked above 0.70 during the 2020 crash.</p>
+          </div>
+          <div class="emp-card">
+            <div class="emp-val">2–3 Days</div>
+            <div class="emp-title">Shock Absorption Speed</div>
+            <p class="emp-desc">Impulse Response Functions (IRF) proved PSEi, BDO, and SECB lead BPI and revert to equilibrium within 2–3 trading days.</p>
+          </div>
+          <div class="emp-card">
+            <div class="emp-val">γ &gt; 0</div>
+            <div class="emp-title">Asymmetric Leverage Effects</div>
+            <p class="emp-desc">Negative macroeconomic shocks trigger significantly higher panic volatility in bank equities than positive news of equal size.</p>
+          </div>
+        </section>
+
+        <div class="case-layout">
+          <aside class="case-sidebar">
+            <div class="meta-box">
+              <div class="label-caption" style="margin-bottom:12px;">Study Metadata</div>
+              <div class="meta-row"><span>Date</span><strong>April 2026</strong></div>
+              <div class="meta-row"><span>Role</span><strong>Co-Author / Lead Architect</strong></div>
+              <div class="meta-row"><span>Environment</span><strong>R Programming</strong></div>
+              <div class="meta-row"><span>Equities</span><strong>PSEi, BDO, BPI, SECB</strong></div>
+              <div class="meta-row"><span>Stationarity</span><strong>ADF Verified</strong></div>
+              <div class="meta-row"><span>Distribution</span><strong>Student’s t (Fat Tails)</strong></div>
+            </div>
+            <a class="button is-light" href="projects.html" style="width:100%;">
+              <div class="button-in" style="width:100%; justify-content:center;"><span>← Back to Projects</span></div>
+            </a>
+          </aside>
+          <article class="case-content">
+            <div class="note-callout">
+              <strong>My Role:</strong> I served as the principal architect of the analytical framework and the primary interpreter of the econometric results. I designed the study's conceptual framework, analyzed the diagnostic test outputs, translated the Vector Autoregression (VAR) impulse responses, and interpreted the asymmetric leverage effects to explain how systemic risk propagates across the Philippine banking sector. The data extraction, statistical modeling, and generation of all high-fidelity plots and matrices were executed entirely in the <strong>R programming environment</strong>.
+            </div>
+            <h2>The Challenge</h2>
+            <p>
+              Classical financial theories often rely on the assumption that market risk—or variance—remains constant over time. However, decades of empirical evidence have proven this flawed. Financial time series consistently exhibit "volatility clustering," where calm periods are followed by calm periods, and turbulent periods are followed by violent market swings. This means market risk is highly dynamic, compounding upon itself during economic distress.
+            </p>
+            <p>
+              In the context of the Philippines, the Philippine Stock Exchange Composite Index (PSEi) is heavily weighted toward a few large-cap conglomerates and banking institutions (such as BDO, BPI, and Security Bank). We needed to map how volatility behaves and transmits between these apex stocks and the broader market to accurately assess systemic risk, especially surrounding exogenous shocks like the 2020 pandemic crash.
+            </p>
+            <h2>The Analytical Framework</h2>
+            <p>
+              We built a multi-stage, top-down econometric pipeline in R to systematically distill a decade of raw market data (December 2015 – December 2025) into actionable insights:
+            </p>
+            <div class="math-stage-card">
+              <h3>1. Data Sourcing &amp; Stationarity</h3>
+              <p style="margin:0;">Extracted daily historical closing prices and transformed them into logarithmic returns to stabilize variance. We formally verified stationarity using Augmented Dickey-Fuller (ADF) testing.</p>
+              <div class="math-eq-box">
+                $$r_t = \ln\left(\frac{P_t}{P_{t-1}}\right)$$
+              </div>
+            </div>
+            <div class="math-stage-card">
+              <h3>2. Univariate Analysis (Conditional Mean &amp; Volatility)</h3>
+              <p style="margin:0;">We used ARIMA models to capture short-term linear predictability in the returns. After confirming the presence of ARCH effects, we modeled the conditional variance using asymmetric GARCH extensions (eGARCH, gjrGARCH) with Student's t-distributions to capture fat tails and leverage effects.</p>
+              <div class="math-eq-box">
+                $$\sigma_t^2 = \omega + (\alpha + \gamma I_{\{\epsilon_{t-1}&lt;0\}})\epsilon_{t-1}^2 + \beta\sigma_{t-1}^2$$
+              </div>
+            </div>
+            <div class="math-stage-card">
+              <h3>3. Multivariate Analysis (Dynamic Interrelationships)</h3>
+              <p style="margin:0;">We deployed Vector Autoregression (VAR) to examine directional influence and shock transmission speeds via Granger Causality and Impulse Response Functions (IRF).</p>
+              <div class="math-eq-box">
+                $$Y_t = c + A_1 Y_{t-1} + A_2 Y_{t-2} + \dots + A_p Y_{t-p} + \epsilon_t$$
+              </div>
+            </div>
+            <div class="math-stage-card">
+              <h3>4. Time-Varying Correlations (DCC-GARCH)</h3>
+              <p style="margin:0;">Finally, we used the Dynamic Conditional Correlation (DCC-GARCH) model to capture how the structural relationships between the PSEi and its underlying banks evolve during periods of financial stress.</p>
+            </div>
+            <h2>The Findings &amp; Economic Impact</h2>
+            <p>
+              The empirical results entirely debunked the assumption of normal distributions and static risk in the Philippine market, yielding critical insights for portfolio managers and regulatory bodies:
+            </p>
+            <p>
+              <strong>Severe Asymmetric Leverage Effects:</strong> While the broader PSEi reacted symmetrically to news, individual banking stocks demonstrated highly significant, positive leverage effects. This proved that negative macroeconomic shocks trigger a significantly larger surge in volatility and panic selling in individual bank stocks compared to positive news of the exact same magnitude.
+            </p>
+            <p>
+              <strong>Information Hierarchy &amp; Efficiency:</strong> Granger causality revealed that the PSEi, BDO, and Security Bank act as leading indicators, while BPI acts as a lagging receiver. Impulse Response Functions proved that while shocks transmit instantly, the Philippine market is highly efficient, absorbing disruptions and reverting to baseline equilibrium within 2 to 3 trading days.
+            </p>
+            <p>
+              <strong>The Failure of Diversification (Financial Contagion):</strong> The DCC-GARCH model proved that market correlations are not fixed. During the 2020 macroeconomic crisis, correlations that historically hovered between 0.20 and 0.50 violently spiked to above 0.70. This provided stark empirical evidence of financial contagion: during panic-driven phases, equities abandon their independent valuation metrics, lock together, and crash in tandem, rendering standard domestic portfolio diversification entirely ineffective during "black swan" events.
+            </p>
+          </article>
+        </div>
+
+        <div class="next-case-banner">
+          <div>
+            <div class="label-caption" style="color:#f5f3f3;">Next Case Study (04 / 05)</div>
+            <h3 style="font-size:1.6rem; font-weight:500; margin-top:6px;">InfraTrust Decision Support Tool (In-Browser OLS Engine)</h3>
+          </div>
+          <a class="button is-maroon" data-cc-glow="" href="project-infratrust.html">
+            <div class="button-in"><span>Read Next Case Study →</span></div>
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer id="site-footer" class="padding-global is-tiny"></footer>
+    <script src="site-shared.js"></script>
+  </body>
+
+</html>
+
